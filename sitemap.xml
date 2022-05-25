@@ -82,11 +82,4 @@
   
 
   
-  <url>
-    <loc>http://example.com/categories/Hadoop/</loc>
-    <lastmod>2022-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 </urlset>
