@@ -1,9 +1,9 @@
+http://example.com/2022/05/24/hello-world/
 http://example.com/2022/05/25/hadoop-3-2-2%E7%9A%84HA%E9%83%A8%E7%BD%B2/
 http://example.com/2022/05/25/%E9%83%A8%E7%BD%B2/
 http://example.com/tools/index.html
 http://example.com/categories/index.html
 http://example.com/tags/index.html
 http://example.com/about/index.html
-http://example.com/2022/05/24/hello-world/
 http://example.com/
 http://example.com/tags/Hadoop/
