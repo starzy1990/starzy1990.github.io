@@ -20,15 +20,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/05/25/%E9%83%A8%E7%BD%B2/</loc>
-    
-    <lastmod>2022-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tools/index.html</loc>
     
     <lastmod>2022-05-25</lastmod>
@@ -67,7 +58,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2022-05-26</lastmod>
+    <lastmod>2022-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -75,18 +66,11 @@
   
   <url>
     <loc>http://example.com/tags/Hadoop/</loc>
-    <lastmod>2022-05-26</lastmod>
+    <lastmod>2022-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
 
-  
-  <url>
-    <loc>http://example.com/categories/Hadoop/</loc>
-    <lastmod>2022-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
 </urlset>

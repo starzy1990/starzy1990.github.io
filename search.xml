@@ -4,9 +4,6 @@
     <title>hadoop-3.2.2的HA部署</title>
     <url>/2022/05/25/hadoop-3-2-2%E7%9A%84HA%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[]]></content>
-      <categories>
-        <category>Hadoop</category>
-      </categories>
       <tags>
         <tag>Hadoop</tag>
       </tags>
@@ -28,10 +25,5 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>部署</title>
-    <url>/2022/05/25/%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
