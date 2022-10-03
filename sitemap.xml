@@ -98,4 +98,11 @@
   
 
   
+  <url>
+    <loc>http://example.com/categories/superset/</loc>
+    <lastmod>2022-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 </urlset>
