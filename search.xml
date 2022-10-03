@@ -35,8 +35,8 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/10/03/Untitled/</url>
+    <title>superset 安装部署</title>
+    <url>/2022/10/03/superset/superset%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><p>安装python3.9+</p>
 <p>参考：<a href="https://learn-bigdata.incubator.edurt.io/docs/Superset/Action/get-started/">https://learn-bigdata.incubator.edurt.io/docs/Superset/Action/get-started/</a></p>
 <p><a href="https://blog.csdn.net/zhang7761/article/details/108883189">https://blog.csdn.net/zhang7761/article/details/108883189</a></p>
