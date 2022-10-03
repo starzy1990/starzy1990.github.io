@@ -53,4 +53,21 @@
         <tag>superset</tag>
       </tags>
   </entry>
+  <entry>
+    <title>azkaban4.0编译安装</title>
+    <url>/2022/10/03/azkaban4-0%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<p>参考：<a href="https://blog.csdn.net/chenxi5404/article/details/120512109">https://blog.csdn.net/chenxi5404/article/details/120512109</a></p>
+<p><a href="https://blog.csdn.net/NKDark0214/article/details/122601181?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~ESLANDING~default-2-122601181-blog-120512109.pc_relevant_multi_platform_whitelistv4eslandingrelevant2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~ESLANDING~default-2-122601181-blog-120512109.pc_relevant_multi_platform_whitelistv4eslandingrelevant2&amp;utm_relevant_index=5">https://blog.csdn.net/NKDark0214/article/details/122601181?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EESLANDING%7Edefault-2-122601181-blog-120512109.pc_relevant_multi_platform_whitelistv4eslandingrelevant2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EESLANDING%7Edefault-2-122601181-blog-120512109.pc_relevant_multi_platform_whitelistv4eslandingrelevant2&amp;utm_relevant_index=5</a></p>
+<h1 id="修改gradle配置文件"><a href="#修改gradle配置文件" class="headerlink" title="修改gradle配置文件"></a>修改gradle配置文件</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sed -i.bak \</span><br><span class="line">&quot;s/linkedin.bintray.com\/maven/linkedin.jfrog.io\/artifactory\/open-source\//&quot; \</span><br><span class="line">azkaban-4.0.0/build.gradle \</span><br><span class="line">&amp;&amp; rm -f azkaban-4.0.0/build.gradle.bak</span><br></pre></td></tr></table></figure>
+
+
+
+<p>部署参考：<a href="https://blog.csdn.net/qq_38075749/article/details/121539432">https://blog.csdn.net/qq_38075749/article/details/121539432</a></p>
+<p>安装部署参考：<a href="https://www.cnblogs.com/sam0/p/15951120.html">https://www.cnblogs.com/sam0/p/15951120.html</a></p>
+<p>curl -G “127.0.0.1:12321&#x2F;executor?action&#x3D;activate” &amp;&amp; echo</p>
+]]></content>
+      <tags>
+        <tag>azkaban</tag>
+      </tags>
+  </entry>
 </search>
