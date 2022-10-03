@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2022/10/03/Untitled/</loc>
+    <loc>http://example.com/2022/05/25/BI/superset/superset%E5%AE%89%E8%A3%85/</loc>
     
     <lastmod>2022-10-03</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/03/BI/superset/superset%E5%AE%89%E8%A3%85/</loc>
+    <loc>http://example.com/2022/10/03/Untitled/</loc>
     
     <lastmod>2022-10-03</lastmod>
     
@@ -100,6 +100,13 @@
   
   <url>
     <loc>http://example.com/tags/Hive/</loc>
+    <lastmod>2022-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/superset/</loc>
     <lastmod>2022-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
