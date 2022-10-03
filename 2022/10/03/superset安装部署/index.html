@@ -238,7 +238,7 @@
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/superset/">superset</a>
+      分类于:&nbsp;
     </span>
     
       <span>
@@ -298,7 +298,18 @@
 
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    
+    <h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><p>安装python3.9+</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://learn-bigdata.incubator.edurt.io/docs/Superset/Action/get-started/">https://learn-bigdata.incubator.edurt.io/docs/Superset/Action/get-started/</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhang7761/article/details/108883189">https://blog.csdn.net/zhang7761/article/details/108883189</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/1O5EZva3d7/">https://www.bbsmax.com/A/1O5EZva3d7/</a></p>
+<p>更新python-setuptools</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum upgrade python-setuptools</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="安装superset"><a href="#安装superset" class="headerlink" title="安装superset"></a>安装superset</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.doubanio.com/simple/ apache-superset</span><br><span class="line"></span><br><span class="line">BABEL_DEFAULT_LOCALE = &quot;zh&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">superset run -p 8088 -h 172.20.20.4 --with-threads --reload --debugger</span><br><span class="line"></span><br><span class="line">export FLASK_APP=superset</span><br><span class="line">nohup superset run -h 0.0.0.0 -p 8088 --with-threads --reload &gt;&gt; /data/app/superset/superset.log 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Superset specific config</span></span><br><span class="line">ROW_LIMIT = 5000</span><br><span class="line"></span><br><span class="line">SUPERSET_WEBSERVER_PORT = 8088</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Flask App Builder configuration</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Your App secret key</span></span><br><span class="line">SECRET_KEY = &#x27;\2\1thisismyscretkey\1\2\e\y\y\h&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The SQLAlchemy connection string to your database backend</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">This connection defines the path to the database that stores your</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">superset metadata (slices, connections, tables, dashboards, ...).</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Note that the connection information to connect to the datasources</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">you want to explore are managed directly <span class="keyword">in</span> the web UI</span></span><br><span class="line">SQLALCHEMY_DATABASE_URI = &#x27;mysql+pymysql://root:123456@172.20.30.4:3306/superset?charset=utf8&#x27;</span><br></pre></td></tr></table></figure>
+
+
   </div>
   <!--文末结束语-->
   
@@ -311,8 +322,8 @@
   <nav>
     
     
-      <a rel="next" class="post-nav-item mdui-float-right" href="/2022/10/03/superset/superset%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/">
-        <span>superset 安装部署</span>
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2022/10/03/hello-world/">
+        <span>Hello World</span>
         <i class="iconfont icon-angle-right"></i>
       </a>
     
@@ -327,7 +338,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2022/10/03/superset%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" id="toc-header" class="mdui-ripple">文章目录</a>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">准备环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85superset"><span class="toc-number">2.</span> <span class="toc-text">安装superset</span></a></li></ol>
       </li>
     </ul>
   </div>
