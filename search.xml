@@ -82,9 +82,12 @@
       </tags>
   </entry>
   <entry>
-    <title>post</title>
+    <title>DolphinScheduler V3集群部署</title>
     <url>/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<p>参考：<a href="https://blog.csdn.net/mengxianglong123/article/details/123428420">https://blog.csdn.net/mengxianglong123/article/details/123428420</a></p>
 <h1 id="依赖环境"><a href="#依赖环境" class="headerlink" title="依赖环境"></a>依赖环境</h1>]]></content>
+      <categories>
+        <category>dolphinScheduler</category>
+      </categories>
   </entry>
 </search>
