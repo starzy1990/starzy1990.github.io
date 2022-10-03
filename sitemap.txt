@@ -12,4 +12,3 @@ http://example.com/tags/Hadoop/
 http://example.com/tags/Hive/
 http://example.com/tags/superset/
 http://example.com/tags/azkaban/
-http://example.com/categories/1/
