@@ -252,7 +252,7 @@
     <url>/2022/10/04/Tez/tez/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>tez</category>
+        <category>Tez</category>
       </categories>
       <tags>
         <tag>tez</tag>
@@ -274,7 +274,7 @@
     <url>/2022/10/04/python/python/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>Python</category>
+        <category>python</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -318,7 +318,7 @@
     <url>/2022/10/04/BI/superset/superset%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>BI/superset</category>
+        <category>BI</category>
       </categories>
       <tags>
         <tag>BI/superset</tag>
@@ -329,7 +329,7 @@
     <url>/2022/10/04/Hadoop/HDFS/HDFS/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>Hadoop/HDFS</category>
+        <category>Hadoop</category>
       </categories>
       <tags>
         <tag>Hadoop/HDFS</tag>
@@ -340,7 +340,7 @@
     <url>/2022/10/04/Hadoop/HDFS/hdfs-api/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>Hadoop/HDFS</category>
+        <category>Hadoop</category>
       </categories>
       <tags>
         <tag>Hadoop/HDFS</tag>
@@ -351,10 +351,21 @@
     <url>/2022/10/04/Tool/Git/git/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>Tool/Git</category>
+        <category>Tool</category>
       </categories>
       <tags>
         <tag>Tool/Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Data Warehouse</title>
+    <url>/2022/10/04/DW/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>DW</category>
+      </categories>
+      <tags>
+        <tag>DW</tag>
       </tags>
   </entry>
 </search>
