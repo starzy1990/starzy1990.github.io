@@ -234,7 +234,7 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-10-03
+      更新于:&nbsp;2022-10-04
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -299,7 +299,18 @@
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
     <p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/mengxianglong123/article/details/123428420">https://blog.csdn.net/mengxianglong123/article/details/123428420</a></p>
-<h1 id="依赖环境"><a href="#依赖环境" class="headerlink" title="依赖环境"></a>依赖环境</h1>
+<h1 id="DolphinScheduler简介"><a href="#DolphinScheduler简介" class="headerlink" title="DolphinScheduler简介"></a>DolphinScheduler简介</h1><h2 id="DolphinScheduler概述"><a href="#DolphinScheduler概述" class="headerlink" title="DolphinScheduler概述"></a>DolphinScheduler概述</h2><p><code>Apache DolphinScheduler</code>是一个分布式、易扩展的可视化DAG工作流任务调度平台。致力于解决数据处理流程中错综复杂的依赖关系，使调度系统在数据处理流程中开箱即用。</p>
+<h2 id="DolphinScheduler核心架构"><a href="#DolphinScheduler核心架构" class="headerlink" title="DolphinScheduler核心架构"></a>DolphinScheduler核心架构</h2><p>DolphinScheduler的主要角色如下：</p>
+<ul>
+<li>MasterServer 采用分布式无中心设计理念，MasterServer主要负责 DAG 任务切分、任务提交、任务监控，并同时监听其它MasterServer和WorkerServer的健康状态。</li>
+<li>WorkerServer 也采用分布式无中心设计理念，WorkerServer主要负责任务的执行和提供日志服务。</li>
+<li>ZooKeeper服务，系统中的MasterServer和WorkerServer节点都通过ZooKeeper来进行集群管理和容错。</li>
+<li>Alert服务，提供告警相关服务。</li>
+<li>API接口层，主要负责处理前端UI层的请求。</li>
+<li>UI，系统的前端页面，提供系统的各种可视化操作界面。</li>
+</ul>
+<p><img src="https://gitee.com/starzy/images/raw/master//5d7a46d072b8441693f6cbfeb135a7a7.png" alt="在这里插入图片描述"></p>
+
   </div>
   <!--文末结束语-->
   
@@ -333,7 +344,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" id="toc-header" class="mdui-ripple">文章目录</a>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">依赖环境</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DolphinScheduler%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">DolphinScheduler简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DolphinScheduler%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">DolphinScheduler概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DolphinScheduler%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">DolphinScheduler核心架构</span></a></li></ol></li></ol>
       </li>
     </ul>
   </div>
