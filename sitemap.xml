@@ -20,24 +20,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/05/AE-AE/</loc>
-    
-    <lastmod>2022-10-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/2022/10/05/video/PR/</loc>
-    
-    <lastmod>2022-10-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/2022/10/04/DW/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/</loc>
     
     <lastmod>2022-10-05</lastmod>
