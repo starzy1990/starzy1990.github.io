@@ -1,12 +1,12 @@
+http://example.com/2022/10/05/video/PR/
 http://example.com/2022/10/04/DW/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/
-http://example.com/2022/10/04/DW/DW/
-http://example.com/2022/10/04/Java/java/
 http://example.com/2022/10/04/Tool/Git/git/
-http://example.com/2022/10/04/Tez/tez/
-http://example.com/2022/10/04/python/python/
-http://example.com/2022/10/04/BI/superset/superset%E5%AE%89%E8%A3%85/
-http://example.com/2022/10/04/Hadoop/HDFS/HDFS/
 http://example.com/2022/10/04/Hadoop/HDFS/hdfs-api/
+http://example.com/2022/10/04/Hadoop/HDFS/HDFS/
+http://example.com/2022/10/04/BI/superset/superset%E5%AE%89%E8%A3%85/
+http://example.com/2022/10/04/python/python/
+http://example.com/2022/10/04/Tez/tez/
+http://example.com/2022/10/04/Java/java/
 http://example.com/2022/10/04/zookeeper/zookeeper/
 http://example.com/2022/10/04/scala/scala/
 http://example.com/2022/10/04/spark/spark/
@@ -54,6 +54,7 @@ http://example.com/tags/zookeeper/
 http://example.com/tags/BI-superset/
 http://example.com/tags/Hadoop-HDFS/
 http://example.com/tags/Tool-Git/
+http://example.com/tags/video/
 http://example.com/categories/docker/
 http://example.com/categories/dolphinScheduler/
 http://example.com/categories/Flink/
@@ -74,3 +75,4 @@ http://example.com/categories/python/
 http://example.com/categories/BI/
 http://example.com/categories/Hadoop/
 http://example.com/categories/Tool/
+http://example.com/categories/video/
