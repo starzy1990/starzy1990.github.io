@@ -1,11 +1,13 @@
+http://example.com/2022/10/04/Hadoop/HDFS/HDFS/
+http://example.com/2022/10/04/Hadoop/HDFS/hdfs-api/
+http://example.com/2022/10/06/Hadoop/hadoop%E4%B9%8Blzo%E7%BC%96%E8%AF%91/
+http://example.com/2022/10/06/Linux/centos%E5%AE%89%E8%A3%85JDK8/
 http://example.com/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/
 http://example.com/2022/10/04/Linux/linux/
 http://example.com/2022/10/05/video/AE/AE/
 http://example.com/2022/10/05/video/PR/PR/
 http://example.com/2022/10/04/DW/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/
 http://example.com/2022/10/04/Tool/Git/git/
-http://example.com/2022/10/04/Hadoop/HDFS/hdfs-api/
-http://example.com/2022/10/04/Hadoop/HDFS/HDFS/
 http://example.com/2022/10/04/BI/superset/superset%E5%AE%89%E8%A3%85/
 http://example.com/2022/10/04/python/python/
 http://example.com/2022/10/04/Tez/tez/

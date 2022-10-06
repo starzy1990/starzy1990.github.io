@@ -329,7 +329,62 @@
   <entry>
     <title>HDFS</title>
     <url>/2022/10/04/Hadoop/HDFS/HDFS/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="NameNode概述"><a href="#NameNode概述" class="headerlink" title="NameNode概述"></a>NameNode概述</h1><ol>
+<li>NameNode 是HDFS的核心</li>
+<li>NameNode也成为Master</li>
+<li>NameNode仅存储 HDFS  的元数据：文件系统中所有文件的目录树，并跟踪整个集群中的文件。</li>
+<li>NamNode 不存储实际数据或数据集。数据本身实际存储在 DataNode 中。</li>
+<li>NameNode 知道 HDFS 中任何给定文件的块列表及其位置。使用此信息 NameNode 知道如何从块中构建文件</li>
+<li>NameNode 并不持久化存储每个文件中各个块所在的 DataNode 的位置信息，这些信息会在系统启动时从数据节点重建。</li>
+<li>NameNode 对于 HDFS 至关重要，当 NameNode 关闭时，HDFS &#x2F; Hadoop 集群无法访问。</li>
+<li>NameNode 是 Hadoop 集群中的单点故障。</li>
+<li>NameNode 所在机器通常会配置有大量内存（RAM）。</li>
+</ol>
+<p>​	<img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20211021151454707.png" alt="image-20211021151454707"></p>
+<h1 id="DataNode概述"><a href="#DataNode概述" class="headerlink" title="DataNode概述"></a>DataNode概述</h1><ol>
+<li>DataNode 负责将实际数据存储在 HDFS 中。</li>
+<li>DataNode 也称为 Slave</li>
+<li>NameNode 和 DataNode 会保持不断通信。</li>
+<li>DataNode 启动时，也将自己发布到 NameNode 并汇报自己负责持有的块列表。</li>
+<li>当某个 DataNode 关闭时，不会影响数据或集群的可用性。NameNode 将安排有其他 DataNode 管理的块进行副本复制。</li>
+<li>DataNode 所在机器通常配置有大量的磁盘空间。因为实际数据存储在 DataNode 中。</li>
+<li>DataNode 会定期（dfs.heartbeat.interval 配置项配置，默认是3秒）向 NameNode 发送心跳，如果 NameNode 长时间（默认配置为10 min）没有接收到 DataNode 发送心跳，NameNode就会认为该 DataNode 失效，并进行此DataNode节点数据副本复制到其他DataNode节点，以保证副本数。</li>
+<li>block 汇报时间间隔取参数 dfs.blockreport.intervalMsec ，参数未配置默认为 6 小时。</li>
+</ol>
+<h1 id="HDFS工作机制"><a href="#HDFS工作机制" class="headerlink" title="HDFS工作机制"></a>HDFS工作机制</h1><p>NameNode 负责管理整个文件系统元数据；DataNode 负责管理具体文件数据块存储；Secondary NameNode 协助 NameNode 进行数据的备份。</p>
+<p>HDFS 的内部工作机制对客户端保持透明，客户端请求访问 HDFS 都是通过向 NameNode 申请来进行。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20211021191436177.png" alt="image-20211021191436177"></p>
+<h1 id="HDFS写数据流程"><a href="#HDFS写数据流程" class="headerlink" title="HDFS写数据流程"></a>HDFS写数据流程</h1><ol>
+<li><p>Client 发起文件上传请求，通过 RPC 与 NameNode 建立通讯，NameNode 检查目标文件是否已经存在，父目录是否存在，返回是否可以上传；</p>
+</li>
+<li><p>Client 请求第一个 Block 该传输到那些 DataNode 服务器上；</p>
+</li>
+<li><p>NameNode 根据配置文件中指定的备份数量以及副本放置策略进行文件分配，返回可用的 DataNode 地址（如：A、B、C）；</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">注：默认存储策略由BlockPlacementPolicyDefault类支持。也就是提到最经典的 3 副本策略。</span><br><span class="line">	1st replica 如果写请求方所在机器是其中一个 DataNode，则直接存放在本地，否则随机在集群中选择一个 DataNode。</span><br><span class="line">	2ed replica 第二副本存放于不同第一个副本的所在的机架。</span><br><span class="line">	3rd replica 第三个副本存放于第二个副本所在的机架，但是属于不同的 DataNode 节点</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20211022110459284.png" alt="image-20211022110459284"></p>
+</li>
+<li><p>CLient 请求 3 台 DataNode 中的一台 A 上传数据（本质上是一个 RPC 调用，建立 pipeline），A 收到请求会继续调用 B，然后 B 调用 C，将整个 pipeline 建立完成，后逐级返回 client；</p>
+</li>
+<li><p>client 开始往 A 上传第一个 block （先从磁盘读取数据放到一个本地内存缓存），以packet为单位（默认 64K），A收到一个packet就会传给 B，B 传给 C；A 每传一个 packet 会放入一个应答队列等待应答。</p>
+</li>
+<li><p>数据被分割成一个个 packet 数据包在 pipeline 上依次传输，在 pipeline 反方向上，逐个发送 ack （命令正确应答），最终由 pipeline 中第一个 DataNode 节点 A 将 pipeline ack 发送给client；</p>
+</li>
+<li><p>当一个 block 传输完成之后，client 再次请求 NameNode 上传第二个 block 到服务器。</p>
+</li>
+</ol>
+<h1 id="HDFS写数据流程（源码解读）"><a href="#HDFS写数据流程（源码解读）" class="headerlink" title="HDFS写数据流程（源码解读）"></a>HDFS写数据流程（源码解读）</h1><h1 id="HDFS-读取数据流程"><a href="#HDFS-读取数据流程" class="headerlink" title="HDFS 读取数据流程"></a>HDFS 读取数据流程</h1><ol>
+<li>Client 向 NameNode 发起 RPC 请求，来确定请求文件 Block 所在位置；</li>
+<li>NameNode 会视情况返回文件的部分或者全部 Block 列表，对于每个 block ，NameNode 都会返回含有该 block 副本的 DataNode 地址；</li>
+<li>这些返回的 DataNode 地址，会按照集群拓扑结构得出 DataNode 与客户端的距离，然后进行排序，排序两个规则：网络拓扑结构中距离 Client 近的排在靠前；心跳机制中超时汇报的 DataNode 状态为 STALE，这样的 DataNode 节点靠前；</li>
+<li>Client 选取考前的 DataNode 来读取 block，如果客户端本身就是 DataNode，那么将从本地直接获取数据；</li>
+<li>底层本事是建立 Socket Stream （FSDataInputStream）,重复的调用父类 DataInputStream 的 read 方法，直到这个块上的数据读取完毕；</li>
+<li>当读完列表的 block 后，若文件读取还没有结束，客户端会继续向 NameNode 获取下一批的 block 列表；</li>
+<li>读取完一个 block 都会进行 checksum 验证，如果读取 DataNode 时出现错误，客户端会通知 NameNode，然后再从下一个拥有该 block 副本的 DataNode 继续读；</li>
+<li>read 方法是并行读取 block 信息，不是一块一块的读取；NameNode 只是返回 Client 请求包含块的 DataNode 地址，并不是返回请求块的数据；</li>
+<li>最终读取所有的 block 会合并成一个完整的最终文件。</li>
+</ol>
+<h1 id="HDFS-读取数据流程（源码解读）"><a href="#HDFS-读取数据流程（源码解读）" class="headerlink" title="HDFS 读取数据流程（源码解读）"></a>HDFS 读取数据流程（源码解读）</h1>]]></content>
       <categories>
         <category>Hadoop</category>
       </categories>
@@ -340,12 +395,47 @@
   <entry>
     <title>HDFS API</title>
     <url>/2022/10/04/Hadoop/HDFS/hdfs-api/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="HDFS-的-Java-API-操作"><a href="#HDFS-的-Java-API-操作" class="headerlink" title="HDFS 的 Java API 操作"></a>HDFS 的 Java API 操作</h1><p>HDFS 在生产应用中主要客户端的开发，其核心步骤是从 HDFS 提供的 API 中构造一个 HDFS 的访问客户端对象，然后通过该客户端对象操作（增删改查）HDFS 上的文件。</p>
+<h2 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h2><p>创建 Maven 工程，引入 pom  依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-common&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-hdfs&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-client&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+<p><font color="red">配置 Windows 平台 Hadoop 环境</font></p>
+<p>在 Windows 上做 HDFS 客户端应用开发，需要设置 Hadoop 环境，而且要求是 windows 平台编译的 Hadoop ，不然会报以下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Failed to locate the winutils binary in the hadoop binary path java.io.IOException: Could not</span><br><span class="line">locate executable null\bin\winutils.exe in the Hadoop binaries.</span><br></pre></td></tr></table></figure>
+
+<p>为此我们需要进行如下的操作：</p>
+<ol>
+<li>在 windows 平台下编译 Hadoop 源码，或者在网上下载编译好的 Hadoop</li>
+<li>将编译好的 Hadoop 解压到任意目录</li>
+<li>在 windows 系统的 path 变量中加入 HADOOP_HOME 的 bin 目录</li>
+</ol>
+<h2 id="构造客户端对象"><a href="#构造客户端对象" class="headerlink" title="构造客户端对象"></a>构造客户端对象</h2><p>在 Java 中操作 HDFS，主要涉及一下 CLass：</p>
+<p>Configuration：该类的对象封装了客户端或者服务器的配置；</p>
+<p>FileSystem：该类的对象是一个文件系统对象，可以用该对象的一些方法来对文件进行操作，通过 FIleSystem 的静态方法 get 获得该对象。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(conf);</span><br></pre></td></tr></table></figure>
+
+<p>get 方法从 conf 中的一个参数 fs.defaultFS 的配置值判断具体是什么类型的文件系统。如果我们的代码中没有指定 fs.defaultFS，并且工程 classpath 下也没有给定相应的配置，conf 中的默认值就来自于 Hadoop 的 jar 包中的 core-default.xml ，默认值为： file:&#x2F;&#x2F;&#x2F;，则获取的将不是一个 DistributedFileSystem 的实例，而是一个本地文件系统的客户端对象。</p>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里指定使用的是 hdfs 文件系统</span></span><br><span class="line">conf.set(<span class="string">&quot;fs.defaultFS&quot;</span>,<span class="string">&quot;hdfs://node01:9000&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过如下方式进行客户端身份配置</span></span><br><span class="line">Symtem.setProperty(<span class="string">&quot;HADOOP_USER_NAME&quot;</span>,<span class="string">&quot;root&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 FileSystem 的静态方法获取文件系统客户端对象</span></span><br><span class="line"><span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(conf);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以通过如下方式去指定文件系统的类型，并且同时设置用户身份</span></span><br><span class="line"><span class="type">FIleSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(<span class="keyword">new</span> <span class="title class_">URI</span>(<span class="string">&quot;hdfs://node01:9000&quot;</span>),conf,<span class="string">&quot;root&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个文件</span></span><br><span class="line">fs.create(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/warehourse&quot;</span>),<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上传一个文件</span></span><br><span class="line">fs.copyFromLocalFile(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;D://text.txt&quot;</span>),<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/warehourse&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭文件系统</span></span><br><span class="line">fs.close();</span><br></pre></td></tr></table></figure>
+
+<p>Stream 流形式操作</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testUpload</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="type">FSDataOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> fs.create(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/1.txt&quot;</span>), <span class="literal">true</span>);</span><br><span class="line">    <span class="type">FileInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;D:\\1.txt&quot;</span>);</span><br><span class="line">    IOUtils.copy(inputStream, outputStream);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="案例：shell-定时采集数据至-HDFS"><a href="#案例：shell-定时采集数据至-HDFS" class="headerlink" title="案例：shell 定时采集数据至 HDFS"></a>案例：shell 定时采集数据至 HDFS</h1><p>上线的网站每天都会产生日志数据。 假如有这样的需求： 要求在凌晨 24 点开始操作前一天产生的日志文件， 准实时上传至 HDFS 集群上。  </p>
+<h2 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析"></a>技术分析</h2><p><strong>HDFS Shell：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop fs -put 			// 满足上传文件，不能满足定时、周期性传入</span><br></pre></td></tr></table></figure>
+
+<p><strong>Linux crontab：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">0	0	*	*	*	/shell/uploadFile2HDFS.sh		// 每天凌晨 12：00 执行一次</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h2><p>一般日志文件生成的逻辑由业务系统决定，比如每小时滚动一次， 或者一定大小滚动一次， 避免单个日志文件过大不方便操作。<br>比如滚动后的文件命名为 access.log.x,其中 x 为数字。 正在进行写的日志文件叫做 access.log。 这样的话， 如果日志文件后缀是 1\2\3 等数字， 则该文件满足需求可以上传， 就把该文件移动到准备上传的工作区间目录。工作区间有文件之后，可以使用 hadoop put 命令将文件上传。  </p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">读取日志文件的目录，判断是否有需要上传的文件</span></span><br><span class="line">echo &quot;log_src_dir:&quot;$log_src_dir</span><br><span class="line">ls $log_src_dir | while read fileNme</span><br><span class="line">do</span><br><span class="line">	if [[&quot;$fileName&quot; == access.log.*]]; then</span><br><span class="line">		date=`date +%Y_%m_%d_%H_%M_%S`</span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">将文件移动到待上传目录并重命名</span></span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">打印信息</span></span><br><span class="line">		echo &quot;moving $log_src_dir$fileName to $log_to_upload_dir&quot;XXXXX_click_log_$fileName</span><br><span class="line">		mv $log_src_dir$fileName $log_to_upload_dir&quot;XXXXXX_click_log_$fileName&quot;$date</span><br><span class="line">		echo $log_to_upload_dir&quot;XXXXX_click_log_$fileName&quot;$date &gt;&gt; $log_to_upload_dir&quot;willDone&quot;</span><br><span class="line">	fi</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>Hadoop</category>
       </categories>
       <tags>
-        <tag>Hadoop/HDFS</tag>
+        <tag>Hadoop</tag>
       </tags>
   </entry>
   <entry>
@@ -512,6 +602,72 @@
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>centos安装JDK8</title>
+    <url>/2022/10/06/Linux/centos%E5%AE%89%E8%A3%85JDK8/</url>
+    <content><![CDATA[<h1 id="卸载自带JDK"><a href="#卸载自带JDK" class="headerlink" title="卸载自带JDK"></a>卸载自带JDK</h1><p>查看Linux中自带JDK程序</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@CentOS7 ~]# rpm -qa|grep java</span><br></pre></td></tr></table></figure>
+
+<p>卸载自带JDK程序</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@CentOS7 ~]# rpm -e --nodeps java-1.6.0-openjdk-1.6.0.41-1.13.13.1.el6_8.x86_64</span><br><span class="line">[root@CentOS7 ~]# rpm -e --nodeps tzdata-java-2016j-1.el6.noarch</span><br><span class="line">[root@CentOS7 ~]# rpm -e --nodeps java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el6_8.x86_64</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装JDK8"><a href="#安装JDK8" class="headerlink" title="安装JDK8"></a>安装JDK8</h1><p>下载地址：<a href="https://www.oracle.com/java/technologies/downloads/#java8">https://www.oracle.com/java/technologies/downloads/#java8</a> ，下载JDK的linux版本，下载完成后并上传到Linux服务器上并解压执行以下命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 soft]# tar zxvf jdk-8u341-linux-x64.tar.gz -C /apps/</span><br></pre></td></tr></table></figure>
+
+<p>编辑profile文件添加JDK环境便令配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@node01 jdk1.8.0_341]# vim /etc/profile</span><br><span class="line">############################################JDK#########################################</span><br><span class="line">export JAVA_HOME=/apps/jdk1.8.0_341</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 jdk1.8.0_341]# source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>测试JDK是否配置成功，执行如下命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 jdk1.8.0_341]# java -version</span><br><span class="line">[root@node01 jdk1.8.0_341]# javac</span><br><span class="line">[root@node01 jdk1.8.0_341]# java</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hadoop之lzo编译</title>
+    <url>/2022/10/06/Hadoop/hadoop%E4%B9%8Blzo%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h1 id="依赖环境准备"><a href="#依赖环境准备" class="headerlink" title="依赖环境准备"></a>依赖环境准备</h1><p>java 1.8+</p>
+<p>maven</p>
+<p>git</p>
+<p>安装其他依赖</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# yum -y install gcc-c++ lzo-devel zlib-devel autoconf automake libtool</span><br></pre></td></tr></table></figure>
+
+<h1 id="下载编译LOZ"><a href="#下载编译LOZ" class="headerlink" title="下载编译LOZ"></a>下载编译LOZ</h1><p>下载LOZ源码，并解压到指定目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# wget http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz</span><br><span class="line">[root@centos7 soft]# tar -zxvf lzo-2.10.tar.gz -C /src/</span><br></pre></td></tr></table></figure>
+
+<p>编译LOZ</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# cd /src/lzo-2.10</span><br><span class="line">[root@centos7 lzo-2.10]# ./configure -prefix=/usr/local/hadoop/lzo/</span><br><span class="line">[root@centos7 lzo-2.10]# make</span><br><span class="line">[root@centos7 lzo-2.10]# make install</span><br></pre></td></tr></table></figure>
+
+<h1 id="编译Hadoop-loz"><a href="#编译Hadoop-loz" class="headerlink" title="编译Hadoop-loz"></a>编译Hadoop-loz</h1><p>下载Hadoop-loz，并解压到指定目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# wget https://github.com/twitter/hadoop-lzo/archive/master.zip</span><br><span class="line">[root@centos7 soft]# unzip master.zip</span><br><span class="line">[root@centos7 soft]# mv master /src/hadoop-lzo</span><br></pre></td></tr></table></figure>
+
+<p>修改 pom.xml 文件，修改版本为你部署的 Hadoop 版本</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hadoop.current.version</span>&gt;</span>3.2.2<span class="tag">&lt;/<span class="name">hadoop.current.version</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>声明临时变量</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 hadoop-lzo]# export C_INCLUDE_PATH=/usr/local/hadoop/lzo/include</span><br><span class="line">[root@centos7 hadoop-lzo]# export LIBRARY_PATH=/usr/local/hadoop/lzo/lib </span><br></pre></td></tr></table></figure>
+
+<p>编译Hadoop-lzo</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 hadoop-lzo]# mvn package -Dmaven.test.skip=true</span><br></pre></td></tr></table></figure>
+
+<p>将编译好的Hadoop-lzo复制到Hadoop公共目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@centos7 hadoop-lzo]# ./target/hadoop-lzo-0.4.21-SNAPSHOT.jar /apps/hadoop-3.2.2/share/hadoop/common/</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
       </tags>
   </entry>
 </search>

@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2022/10/04/Hadoop/HDFS/HDFS/</loc>
+    
+    <lastmod>2022-10-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2022/10/04/Hadoop/HDFS/hdfs-api/</loc>
+    
+    <lastmod>2022-10-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2022/10/06/Hadoop/hadoop%E4%B9%8Blzo%E7%BC%96%E8%AF%91/</loc>
+    
+    <lastmod>2022-10-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2022/10/06/Linux/centos%E5%AE%89%E8%A3%85JDK8/</loc>
+    
+    <lastmod>2022-10-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2022-10-06</lastmod>
@@ -48,24 +84,6 @@
   
   <url>
     <loc>http://example.com/2022/10/04/Tool/Git/git/</loc>
-    
-    <lastmod>2022-10-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/2022/10/04/Hadoop/HDFS/hdfs-api/</loc>
-    
-    <lastmod>2022-10-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/2022/10/04/Hadoop/HDFS/HDFS/</loc>
     
     <lastmod>2022-10-04</lastmod>
     
