@@ -234,7 +234,7 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-10-04
+      更新于:&nbsp;2022-10-06
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -298,7 +298,20 @@
 
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    
+    <h1 id="centos修改yum源为阿里"><a href="#centos修改yum源为阿里" class="headerlink" title="centos修改yum源为阿里"></a>centos修改yum源为阿里</h1><ol>
+<li><p>备份原来 yum 文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo_bak</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载阿里云的 CentOS-Base.repo 到&#x2F;etc&#x2F;yum.repos.d&#x2F;</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清空 yum 缓存</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# yum clean all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成新的阿里云的yum缓存，加速下载预热数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# yum makecache</span><br></pre></td></tr></table></figure></li>
+</ol>
+
   </div>
   <!--文末结束语-->
   
@@ -332,7 +345,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2022/10/04/Linux/linux/" id="toc-header" class="mdui-ripple">文章目录</a>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#centos%E4%BF%AE%E6%94%B9yum%E6%BA%90%E4%B8%BA%E9%98%BF%E9%87%8C"><span class="toc-number">1.</span> <span class="toc-text">centos修改yum源为阿里</span></a></li></ol>
       </li>
     </ul>
   </div>

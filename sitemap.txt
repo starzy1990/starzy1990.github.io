@@ -1,3 +1,5 @@
+http://example.com/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/
+http://example.com/2022/10/04/Linux/linux/
 http://example.com/2022/10/05/video/AE/AE/
 http://example.com/2022/10/05/video/PR/PR/
 http://example.com/2022/10/04/DW/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/
@@ -13,7 +15,6 @@ http://example.com/2022/10/04/scala/scala/
 http://example.com/2022/10/04/spark/spark/
 http://example.com/2022/10/04/azkaban/azkaban4-0%E7%BC%96%E8%AF%91/
 http://example.com/2022/10/04/Kafka/kafka/
-http://example.com/2022/10/04/Linux/linux/
 http://example.com/2022/10/04/Hudi/Hudi/
 http://example.com/2022/10/04/HBase/HBase/
 http://example.com/2022/10/04/Go/Go/

@@ -217,7 +217,20 @@
   <entry>
     <title>Linux</title>
     <url>/2022/10/04/Linux/linux/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="centos修改yum源为阿里"><a href="#centos修改yum源为阿里" class="headerlink" title="centos修改yum源为阿里"></a>centos修改yum源为阿里</h1><ol>
+<li><p>备份原来 yum 文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo_bak</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载阿里云的 CentOS-Base.repo 到&#x2F;etc&#x2F;yum.repos.d&#x2F;</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清空 yum 缓存</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# yum clean all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成新的阿里云的yum缓存，加速下载预热数据</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# yum makecache</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -387,6 +400,30 @@
       </categories>
       <tags>
         <tag>video</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>centos基本配置</title>
+    <url>/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="centos修改yum源为阿里"><a href="#centos修改yum源为阿里" class="headerlink" title="centos修改yum源为阿里"></a>centos修改yum源为阿里</h1><ol>
+<li><p>备份原来 yum 文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo_bak</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载阿里云的 CentOS-Base.repo 到&#x2F;etc&#x2F;yum.repos.d&#x2F;</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清空 yum 缓存</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# yum clean all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成新的阿里云的yum缓存，加速下载预热数据</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# yum makecache</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
 </search>
