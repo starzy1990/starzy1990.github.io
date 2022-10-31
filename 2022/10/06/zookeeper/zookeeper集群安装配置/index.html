@@ -57,7 +57,7 @@
     
     <title>
         
-            DolphinScheduler V3集群部署 | starzy
+            zookeeper集群安装配置 | starzy
         
     </title>
     
@@ -226,19 +226,19 @@
     
     
       <div class="post-header"> 
-  <a class="post-header-title" href="/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">DolphinScheduler V3集群部署</a>
+  <a class="post-header-title" href="/2022/10/06/zookeeper/zookeeper%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">zookeeper集群安装配置</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-10-03
+      发布于:&nbsp;2022-10-06
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-10-30
+      更新于:&nbsp;2022-10-06
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/dolphinScheduler/">dolphinScheduler</a>
+      分类于:&nbsp;<a class="category-link" href="/categories/zookeeper/">zookeeper</a>
     </span>
     
       <span>
@@ -260,25 +260,25 @@
       <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
       <ul class="mdui-menu" id="share_menu">
         <li class="mdui-menu-item">
-          <a href="http://service.weibo.com/share/share.php?appkey=&title=DolphinScheduler V3集群部署&url=http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/&pic=http://example.com/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=zookeeper集群安装配置&url=http://example.com/2022/10/06/zookeeper/zookeeper%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/&pic=http://example.com/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://twitter.com/intent/tweet?text=DolphinScheduler V3集群部署&url=http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/&via=starzy" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+          <a href="https://twitter.com/intent/tweet?text=zookeeper集群安装配置&url=http://example.com/2022/10/06/zookeeper/zookeeper%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/&via=starzy" target="_blank" class="mdui-ripple">分享到 Twitter</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2022/10/06/zookeeper/zookeeper%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://plus.google.com/share?url=http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+          <a href="https://plus.google.com/share?url=http://example.com/2022/10/06/zookeeper/zookeeper%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" target="_blank" class="mdui-ripple">分享到 Google+</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/&title=DolphinScheduler V3集群部署" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2022/10/06/zookeeper/zookeeper%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/&title=zookeeper集群安装配置" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="http://connect.qq.com/widget/shareqq/index.html?site=starzy&title=DolphinScheduler V3集群部署&summary=&pics=http://example.com/null&url=http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=starzy&title=zookeeper集群安装配置&summary=&pics=http://example.com/null&url=http://example.com/2022/10/06/zookeeper/zookeeper%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" target="_blank" class="mdui-ripple">分享到 QQ</a>
         </li>
         <li class="mdui-menu-item">
-          <a href="https://telegram.me/share/url?url=http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/&text=DolphinScheduler V3集群部署" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+          <a href="https://telegram.me/share/url?url=http://example.com/2022/10/06/zookeeper/zookeeper%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/&text=zookeeper集群安装配置" target="_blank" class="mdui-ripple">分享到 Telegram</a>
         </li>
       </ul>
     
@@ -291,25 +291,53 @@
   <div class="post-tags">
     
       <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/dolphinScheduler/ >dolphinScheduler</a>
+        <a rel="tag" href = /tags/zookeeper/ >zookeeper</a>
       </i>
     
   </div>
 
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    <p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/mengxianglong123/article/details/123428420">https://blog.csdn.net/mengxianglong123/article/details/123428420</a></p>
-<h1 id="DolphinScheduler简介"><a href="#DolphinScheduler简介" class="headerlink" title="DolphinScheduler简介"></a>DolphinScheduler简介</h1><h2 id="DolphinScheduler概述"><a href="#DolphinScheduler概述" class="headerlink" title="DolphinScheduler概述"></a>DolphinScheduler概述</h2><p><code>Apache DolphinScheduler</code>是一个分布式、易扩展的可视化DAG工作流任务调度平台。致力于解决数据处理流程中错综复杂的依赖关系，使调度系统在数据处理流程中开箱即用。</p>
-<h2 id="DolphinScheduler核心架构"><a href="#DolphinScheduler核心架构" class="headerlink" title="DolphinScheduler核心架构"></a>DolphinScheduler核心架构</h2><p>DolphinScheduler的主要角色如下：</p>
-<ul>
-<li>MasterServer 采用分布式无中心设计理念，MasterServer主要负责 DAG 任务切分、任务提交、任务监控，并同时监听其它MasterServer和WorkerServer的健康状态。</li>
-<li>WorkerServer 也采用分布式无中心设计理念，WorkerServer主要负责任务的执行和提供日志服务。</li>
-<li>ZooKeeper服务，系统中的MasterServer和WorkerServer节点都通过ZooKeeper来进行集群管理和容错。</li>
-<li>Alert服务，提供告警相关服务。</li>
-<li>API接口层，主要负责处理前端UI层的请求。</li>
-<li>UI，系统的前端页面，提供系统的各种可视化操作界面。</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/5d7a46d072b8441693f6cbfeb135a7a7.png" alt="5d7a46d072b8441693f6cbfeb135a7a7"></p>
+    <p>基础环境准备，卸载服务器自带JDK，并安装JDK，下载zookeeper程序到服务器，并解压zookeeper程序压缩包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 soft]# tar zxvf apache-zookeeper-3.5.9-bin.tar.gz -C /apps/</span><br><span class="line">[root@node01 ~]# cd /apps</span><br><span class="line">[root@node01 apps]# mv apache-zookeeper-3.5.9-bin zookeeper-3.5.9</span><br></pre></td></tr></table></figure>
+
+<p>配置 zookeeper </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 zookeeper-3.5.9]# cd /apps/zookeeper-3.5.9/conf/</span><br><span class="line">[root@node01 conf]# cp zoo_sample.cfg zoo.cfg</span><br></pre></td></tr></table></figure>
+
+<p>修改配置文件中数据文件目录，并且在配置文件末尾添加集群通信配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">数据文件目录配置</span></span><br><span class="line">dataDir=/data/zookeeper</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">集群通信配置</span></span><br><span class="line">server.1=node01:2888:3888</span><br><span class="line">server.2=node02:2888:3888</span><br><span class="line">server.3=node03:2888:3888</span><br></pre></td></tr></table></figure>
+
+<p>配置后的配置文件 zoo.cfg 如下图所示</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20221006215819187.png" alt="image-20221006215819187"></p>
+<p>配置数据目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 /]# mkdir /data/zookeeper</span><br><span class="line">[root@node01 /]# echo 1 &gt; /data/zookeeper/myid</span><br></pre></td></tr></table></figure>
+
+<p>把配置好的zookeeper发送到node02、node03服务器上，并创建相应的数据目录和zookeeper的ID存储文件</p>
+<p>报配置好的zookeeper发送到node02服务器上，创建数据存储目录和zookeeper的ID存储文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# scp -r /apps/zookeeper-3.5.9 root@node02:$PWD</span><br><span class="line">[root@node02 ~]# mkdir /data/zookeeper</span><br><span class="line">[root@node02 ~]# echo 2 &gt; /data/zookeeper/myid</span><br></pre></td></tr></table></figure>
+
+<p>报配置好的zookeeper发送到node03服务器上，创建数据存储目录和zookeeper的ID存储文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# scp -r /apps/zookeeper-3.5.9 root@node02:$PWD</span><br><span class="line">[root@node03 ~]# mkdir /data/zookeeper</span><br><span class="line">[root@node03 ~]# echo 3 &gt; /data/zookeeper/myid</span><br></pre></td></tr></table></figure>
+
+<p>在三台服务器上进入zookeeper的bin目录下分别执行zookeeper启动命令，并查看各个服务器中zookeeper服务的状态</p>
+<p>启动node01服务器上的zookeeper服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# cd /apps/zookeeper-3.5.9/</span><br><span class="line">[root@node01 zookeeper-3.5.9]# ./bin/zkServer.sh start</span><br></pre></td></tr></table></figure>
+
+<p>启动node02服务器上的zookeeper服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@node02 ~]# cd /apps/zookeeper-3.5.9/</span><br><span class="line">[root@node02 zookeeper-3.5.9]# ./bin/zkServer.sh start</span><br></pre></td></tr></table></figure>
+
+<p>启动node03服务器上的zookeeper服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@node03 ~]# cd /apps/zookeeper-3.5.9/</span><br><span class="line">[root@node03 zookeeper-3.5.9]# ./bin/zkServer.sh start</span><br></pre></td></tr></table></figure>
+
+<p>执行查看zookeeper服务状态查看命令，确认zookeeper集群是否配置成功，zookeeper服务查看状态命令如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 zookeeper-3.5.9]# ./bin/zkServer.sh status</span><br></pre></td></tr></table></figure>
+
+<p>配置集群控制脚本，添加 zookeeper 环境变量，如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">###########################################ZOOKEEPER#########################################</span></span></span><br><span class="line">export ZK_HOME=/apps/zookeeper-3.5.9</span><br><span class="line">export PATH=$ZK_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>在 zookeeper 的 bin 目录下添加脚本文件 zkcluster.sh，在脚本问价添加内容如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line">for host in node01 node02 node03</span><br><span class="line">do</span><br><span class="line">    ssh $host &quot;source /etc/profile;/apps/zookeeper-3.5.9/bin/zkServer.sh $1&quot;</span><br><span class="line">    echo &quot;$host zk is $1&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
 
   </div>
   <!--文末结束语-->
@@ -322,14 +350,14 @@
   
   <nav>
     
-      <a rel="prev" class="post-nav-item mdui-float-left" href="/2022/10/03/Flink/flink1-13-6%E7%BC%96%E8%AF%91/">
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2022/10/06/Hadoop/Hadoop-3-2-2%E7%9A%84HA%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">
         <i class="iconfont icon-angle-left"></i>
-        <span>flink1.13.6 编译</span>
+        <span>Hadoop 3.2.2 的HA集群部署</span>
       </a>
     
     
-      <a rel="next" class="post-nav-item mdui-float-right" href="/2022/10/03/docker/Docker%E7%89%88%E6%9C%AC%E4%B8%8E%E5%AE%89%E8%A3%85%E4%BB%8B%E7%BB%8D/">
-        <span>Docker版本与安装介绍</span>
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2022/10/06/Hadoop/hadoop%E4%B9%8Blzo%E7%BC%96%E8%AF%91/">
+        <span>hadoop之lzo编译</span>
         <i class="iconfont icon-angle-right"></i>
       </a>
     
@@ -343,8 +371,8 @@
     <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
-        <a href="/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" id="toc-header" class="mdui-ripple">文章目录</a>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DolphinScheduler%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">DolphinScheduler简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DolphinScheduler%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">DolphinScheduler概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DolphinScheduler%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">DolphinScheduler核心架构</span></a></li></ol></li></ol>
+        <a href="/2022/10/06/zookeeper/zookeeper%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" id="toc-header" class="mdui-ripple">文章目录</a>
+        
       </li>
     </ul>
   </div>

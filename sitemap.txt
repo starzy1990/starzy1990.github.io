@@ -1,7 +1,12 @@
-http://example.com/2022/10/04/Hadoop/HDFS/HDFS/
-http://example.com/2022/10/04/Hadoop/HDFS/hdfs-api/
+http://example.com/2022/10/31/hive/hive/
+http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/
+http://example.com/2022/10/06/Hadoop/Hadoop-3-2-2%E7%9A%84HA%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/
+http://example.com/2022/10/15/database/MySQL%E5%AE%89%E8%A3%85/
+http://example.com/2022/10/06/zookeeper/zookeeper%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/
 http://example.com/2022/10/06/Hadoop/hadoop%E4%B9%8Blzo%E7%BC%96%E8%AF%91/
 http://example.com/2022/10/06/Linux/centos%E5%AE%89%E8%A3%85JDK8/
+http://example.com/2022/10/04/Hadoop/HDFS/HDFS/
+http://example.com/2022/10/04/Hadoop/HDFS/hdfs-api/
 http://example.com/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/
 http://example.com/2022/10/04/Linux/linux/
 http://example.com/2022/10/05/video/AE/AE/
@@ -24,7 +29,6 @@ http://example.com/2022/10/04/Flink/flink-rpc/
 http://example.com/2022/10/04/AI/AI/
 http://example.com/2022/10/03/docker/Docker%E7%89%88%E6%9C%AC%E4%B8%8E%E5%AE%89%E8%A3%85%E4%BB%8B%E7%BB%8D/
 http://example.com/2022/10/03/Flink/flink1-13-6%E7%BC%96%E8%AF%91/
-http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/
 http://example.com/2022/10/03/hello-world/
 http://example.com/2022/10/03/superset%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/
 http://example.com/2022/10/03/azkaban4-0%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/
@@ -59,6 +63,7 @@ http://example.com/tags/BI-superset/
 http://example.com/tags/Hadoop-HDFS/
 http://example.com/tags/Tool-Git/
 http://example.com/tags/video/
+http://example.com/tags/MySQL/
 http://example.com/categories/docker/
 http://example.com/categories/dolphinScheduler/
 http://example.com/categories/Flink/
@@ -80,3 +85,5 @@ http://example.com/categories/BI/
 http://example.com/categories/Hadoop/
 http://example.com/categories/Tool/
 http://example.com/categories/video/
+http://example.com/categories/DataBase/
+http://example.com/categories/Hive/
