@@ -787,7 +787,7 @@
 
 ]]></content>
       <categories>
-        <category>DataBase</category>
+        <category>database</category>
       </categories>
       <tags>
         <tag>MySQL</tag>
@@ -798,7 +798,7 @@
     <url>/2022/10/31/hive/hive/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>Hive</category>
+        <category>hive</category>
       </categories>
       <tags>
         <tag>Hive</tag>
