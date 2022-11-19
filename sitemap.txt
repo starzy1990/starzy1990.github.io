@@ -1,8 +1,9 @@
+http://example.com/2022/11/19/HDP/HDP3.1.5%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/
+http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/
 http://example.com/2022/10/31/hive/hive/
 http://example.com/2022/10/15/database/MySQL%E5%AE%89%E8%A3%85/
 http://example.com/2022/10/06/zookeeper/zookeeper%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/
 http://example.com/2022/10/06/Hadoop/Hadoop-3-2-2%E7%9A%84HA%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/
-http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/
 http://example.com/2022/10/06/Hadoop/hadoop%E4%B9%8Blzo%E7%BC%96%E8%AF%91/
 http://example.com/2022/10/06/Linux/centos%E5%AE%89%E8%A3%85JDK8/
 http://example.com/2022/10/04/Hadoop/HDFS/HDFS/
@@ -64,6 +65,7 @@ http://example.com/tags/Hadoop-HDFS/
 http://example.com/tags/Tool-Git/
 http://example.com/tags/video/
 http://example.com/tags/MySQL/
+http://example.com/tags/HDP/
 http://example.com/categories/docker/
 http://example.com/categories/dolphinScheduler/
 http://example.com/categories/Flink/
@@ -87,3 +89,4 @@ http://example.com/categories/Tool/
 http://example.com/categories/video/
 http://example.com/categories/database/
 http://example.com/categories/hive/
+http://example.com/categories/HDP/
