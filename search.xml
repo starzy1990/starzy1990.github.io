@@ -797,7 +797,16 @@
   <entry>
     <title>post</title>
     <url>/2022/10/31/hive/hive/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="Hive-编译为-MR-任务流程介绍"><a href="#Hive-编译为-MR-任务流程介绍" class="headerlink" title="Hive 编译为 MR 任务流程介绍"></a>Hive 编译为 MR 任务流程介绍</h1><ol>
+<li>进入程序，利用 Antlr 框架定义 HQL 的语法规则，对 HQL 完成词法语法解析，将 HQL 转换为 AST （抽象语法树）；</li>
+<li>遍历 AST，抽象出查询的基本组成单元 QueryBlock（查询快），可以理解为最小的查询执行单元；</li>
+<li>遍历 QueryBlock，将其转换为 OperatorTree（操作树，也就是逻辑执行计划），可以理解为不可拆分的一个逻辑执行单元；</li>
+<li>使用逻辑优化器对 OperatorTree（操作树）进行逻辑优化。例如合并不必要的 ReduceSinkOperator，减少 shuffle 数据量；</li>
+<li>遍历 OperatorTree，转换为 TaskTree。也就是翻译为 MR 任务的流程，将逻辑执行计划转换为物理执行计划；</li>
+<li>使用物理执行计划器对 TaskTree 进行物理优化；</li>
+<li>生成最终的执行计划，提交任务到 Hadoop 集群运行。</li>
+</ol>
+]]></content>
       <categories>
         <category>hive</category>
       </categories>
@@ -859,12 +868,29 @@
   <entry>
     <title>HDP3.1.5安装配置</title>
     <url>/2022/11/19/HDP/HDP3.1.5%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>参考：<a href="https://blog.csdn.net/Happy_Sunshine_Boy/article/details/119236756">(66条消息) Ambari2.7.5-HDP3.1.5集群离线搭建_@TangXin的博客-CSDN博客</a></p>
+]]></content>
       <categories>
         <category>HDP</category>
       </categories>
       <tags>
         <tag>HDP</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Tez V0.10.2 编译</title>
+    <url>/2023/03/02/Tez/Tez-0.10.2%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Tez</category>
+      </categories>
+      <tags>
+        <tag>tez</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>post</title>
+    <url>/2022/11/20/Linux/centos%E5%AE%89%E8%A3%85MySQL5.7/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>

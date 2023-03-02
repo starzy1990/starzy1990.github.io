@@ -234,7 +234,7 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-10-31
+      更新于:&nbsp;2023-03-01
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -298,7 +298,16 @@
 
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    
+    <h1 id="Hive-编译为-MR-任务流程介绍"><a href="#Hive-编译为-MR-任务流程介绍" class="headerlink" title="Hive 编译为 MR 任务流程介绍"></a>Hive 编译为 MR 任务流程介绍</h1><ol>
+<li>进入程序，利用 Antlr 框架定义 HQL 的语法规则，对 HQL 完成词法语法解析，将 HQL 转换为 AST （抽象语法树）；</li>
+<li>遍历 AST，抽象出查询的基本组成单元 QueryBlock（查询快），可以理解为最小的查询执行单元；</li>
+<li>遍历 QueryBlock，将其转换为 OperatorTree（操作树，也就是逻辑执行计划），可以理解为不可拆分的一个逻辑执行单元；</li>
+<li>使用逻辑优化器对 OperatorTree（操作树）进行逻辑优化。例如合并不必要的 ReduceSinkOperator，减少 shuffle 数据量；</li>
+<li>遍历 OperatorTree，转换为 TaskTree。也就是翻译为 MR 任务的流程，将逻辑执行计划转换为物理执行计划；</li>
+<li>使用物理执行计划器对 TaskTree 进行物理优化；</li>
+<li>生成最终的执行计划，提交任务到 Hadoop 集群运行。</li>
+</ol>
+
   </div>
   <!--文末结束语-->
   
@@ -332,7 +341,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2022/10/31/hive/hive/" id="toc-header" class="mdui-ripple">文章目录</a>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hive-%E7%BC%96%E8%AF%91%E4%B8%BA-MR-%E4%BB%BB%E5%8A%A1%E6%B5%81%E7%A8%8B%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">Hive 编译为 MR 任务流程介绍</span></a></li></ol>
       </li>
     </ul>
   </div>
@@ -393,7 +402,7 @@
         <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
       
       <span>
-        &copy; 2015 - 2022 
+        &copy; 2015 - 2023 
         
           <span style="color:#d9333f" class="iconfont icon-heart"></span>
         
