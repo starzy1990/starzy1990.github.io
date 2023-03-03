@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hive3.1.2部署</title>
+    <url>/2022/05/31/Hive3-1-2%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>Hive</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>azkaban4.0编译安装</title>
+    <url>/2022/10/03/azkaban4-0%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<p>参考：<a href="https://blog.csdn.net/chenxi5404/article/details/120512109">https://blog.csdn.net/chenxi5404/article/details/120512109</a></p>
+<p><a href="https://blog.csdn.net/NKDark0214/article/details/122601181?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~ESLANDING~default-2-122601181-blog-120512109.pc_relevant_multi_platform_whitelistv4eslandingrelevant2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~ESLANDING~default-2-122601181-blog-120512109.pc_relevant_multi_platform_whitelistv4eslandingrelevant2&amp;utm_relevant_index=5">https://blog.csdn.net/NKDark0214/article/details/122601181?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EESLANDING%7Edefault-2-122601181-blog-120512109.pc_relevant_multi_platform_whitelistv4eslandingrelevant2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EESLANDING%7Edefault-2-122601181-blog-120512109.pc_relevant_multi_platform_whitelistv4eslandingrelevant2&amp;utm_relevant_index=5</a></p>
+<h1 id="修改gradle配置文件"><a href="#修改gradle配置文件" class="headerlink" title="修改gradle配置文件"></a>修改gradle配置文件</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sed -i.bak \</span><br><span class="line">&quot;s/linkedin.bintray.com\/maven/linkedin.jfrog.io\/artifactory\/open-source\//&quot; \</span><br><span class="line">azkaban-4.0.0/build.gradle \</span><br><span class="line">&amp;&amp; rm -f azkaban-4.0.0/build.gradle.bak</span><br></pre></td></tr></table></figure>
+
+
+
+<p>部署参考：<a href="https://blog.csdn.net/qq_38075749/article/details/121539432">https://blog.csdn.net/qq_38075749/article/details/121539432</a></p>
+<p>安装部署参考：<a href="https://www.cnblogs.com/sam0/p/15951120.html">https://www.cnblogs.com/sam0/p/15951120.html</a></p>
+<p>curl -G “127.0.0.1:12321&#x2F;executor?action&#x3D;activate” &amp;&amp; echo</p>
+]]></content>
+      <tags>
+        <tag>azkaban</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hadoop-3.2.2的HA部署</title>
+    <url>/2022/05/25/hadoop-3-2-2%E7%9A%84HA%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2022/10/03/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -17,22 +50,6 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>hadoop-3.2.2的HA部署</title>
-    <url>/2022/05/25/hadoop-3-2-2%E7%9A%84HA%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>Hadoop</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hive3.1.2部署</title>
-    <url>/2022/05/31/Hive3-1-2%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>Hive</tag>
-      </tags>
   </entry>
   <entry>
     <title>superset安装部署</title>
@@ -54,102 +71,6 @@
       </tags>
   </entry>
   <entry>
-    <title>azkaban4.0编译安装</title>
-    <url>/2022/10/03/azkaban4-0%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<p>参考：<a href="https://blog.csdn.net/chenxi5404/article/details/120512109">https://blog.csdn.net/chenxi5404/article/details/120512109</a></p>
-<p><a href="https://blog.csdn.net/NKDark0214/article/details/122601181?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~ESLANDING~default-2-122601181-blog-120512109.pc_relevant_multi_platform_whitelistv4eslandingrelevant2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~ESLANDING~default-2-122601181-blog-120512109.pc_relevant_multi_platform_whitelistv4eslandingrelevant2&amp;utm_relevant_index=5">https://blog.csdn.net/NKDark0214/article/details/122601181?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EESLANDING%7Edefault-2-122601181-blog-120512109.pc_relevant_multi_platform_whitelistv4eslandingrelevant2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EESLANDING%7Edefault-2-122601181-blog-120512109.pc_relevant_multi_platform_whitelistv4eslandingrelevant2&amp;utm_relevant_index=5</a></p>
-<h1 id="修改gradle配置文件"><a href="#修改gradle配置文件" class="headerlink" title="修改gradle配置文件"></a>修改gradle配置文件</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sed -i.bak \</span><br><span class="line">&quot;s/linkedin.bintray.com\/maven/linkedin.jfrog.io\/artifactory\/open-source\//&quot; \</span><br><span class="line">azkaban-4.0.0/build.gradle \</span><br><span class="line">&amp;&amp; rm -f azkaban-4.0.0/build.gradle.bak</span><br></pre></td></tr></table></figure>
-
-
-
-<p>部署参考：<a href="https://blog.csdn.net/qq_38075749/article/details/121539432">https://blog.csdn.net/qq_38075749/article/details/121539432</a></p>
-<p>安装部署参考：<a href="https://www.cnblogs.com/sam0/p/15951120.html">https://www.cnblogs.com/sam0/p/15951120.html</a></p>
-<p>curl -G “127.0.0.1:12321&#x2F;executor?action&#x3D;activate” &amp;&amp; echo</p>
-]]></content>
-      <tags>
-        <tag>azkaban</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker版本与安装介绍</title>
-    <url>/2022/10/03/docker/Docker%E7%89%88%E6%9C%AC%E4%B8%8E%E5%AE%89%E8%A3%85%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<h1 id="Docker版本"><a href="#Docker版本" class="headerlink" title="Docker版本"></a>Docker版本</h1><ul>
-<li>Docker-CE：docker 社区版本，由社区维护和提供技术支持，为免费版本，适合个人开发人员和小团队使用</li>
-<li>Docker-EE：docker 企业版本，为收费版本，有售后团队和技术团队提供技术支持，专为企业开发和IT团队而设计</li>
-<li>此外Docker 的发布版本分别为 Stable 和 Edage 版，区别在于前者是按季度发布的稳定版本（发布慢），后者是按月发布的边缘版（发布快）</li>
-<li>通常情况下，Docker-CE 足以满足我们的需求。</li>
-</ul>
-<h1 id="Centos7-安装-Docker"><a href="#Centos7-安装-Docker" class="headerlink" title="Centos7 安装 Docker"></a>Centos7 安装 Docker</h1><ol>
-<li><p>安装必要的一下系统工具</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@docker ~]# yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装必要的一下系统工具</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@docker ~]# yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查  &#x2F;etc&#x2F;yum-repos.d&#x2F;docker-ce.repo 中的 URL 地址是不是都是阿里云的，如果不是，那么把download-stage.docker.com全部替换成mirrors.aliyun.com&#x2F;docker-ce&#x2F;</p>
-<p>vim &#x2F;etc&#x2F;yum.repos.d&#x2F;docker-ce.repo</p>
-</li>
-<li><p>更新并安装Docker-CE</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@docker ~]# yum makecache fast</span><br><span class="line">[root@docker ~]# yum -y install docker-ce</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>开启Docker服务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@docker ~]# systemctl start docker</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="Ubuntu-安装-Docker-CE"><a href="#Ubuntu-安装-Docker-CE" class="headerlink" title="Ubuntu 安装 Docker-CE"></a>Ubuntu 安装 Docker-CE</h1><h1 id="Docker-加速器配置"><a href="#Docker-加速器配置" class="headerlink" title="Docker 加速器配置"></a>Docker 加速器配置</h1><ol>
-<li><p>安装／升级Docker客户端</p>
-<p>推荐安装1.10.0以上版本的Docker客户端，参考文档<a href="https://yq.aliyun.com/articles/110806">docker-ce</a></p>
-</li>
-<li><p>配置镜像加速器</p>
-<p>针对Docker客户端版本大于 1.10.0 的用户</p>
-<p>您可以通过修改daemon配置文件&#x2F;etc&#x2F;docker&#x2F;daemon.json来使用加速器</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@docker ~]# mkdir -p /etc/docker</span><br><span class="line">[root@docker ~]# sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">&#123;</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://ztk30wcn.mirror.aliyuncs.com&quot;</span>]</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">&#125;</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">EOF</span></span><br><span class="line"></span><br><span class="line">[root@docker ~]# systemctl daemon-reload</span><br><span class="line">[root@docker ~]# systemctl restart docker</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>docker</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DolphinScheduler V3集群部署</title>
-    <url>/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<p>参考：<a href="https://blog.csdn.net/mengxianglong123/article/details/123428420">https://blog.csdn.net/mengxianglong123/article/details/123428420</a></p>
-<p>集群配置：<a href="https://blog.csdn.net/weixin_45813468/article/details/126874997?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-126874997-blog-126506093.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-126874997-blog-126506093.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=2">(66条消息) DolphinScheduler3.0正式版本安装教程_知世i的博客-CSDN博客</a></p>
-<h1 id="DolphinScheduler简介"><a href="#DolphinScheduler简介" class="headerlink" title="DolphinScheduler简介"></a>DolphinScheduler简介</h1><h2 id="DolphinScheduler概述"><a href="#DolphinScheduler概述" class="headerlink" title="DolphinScheduler概述"></a>DolphinScheduler概述</h2><p><code>Apache DolphinScheduler</code>是一个分布式、易扩展的可视化DAG工作流任务调度平台。致力于解决数据处理流程中错综复杂的依赖关系，使调度系统在数据处理流程中开箱即用。</p>
-<h2 id="DolphinScheduler核心架构"><a href="#DolphinScheduler核心架构" class="headerlink" title="DolphinScheduler核心架构"></a>DolphinScheduler核心架构</h2><p>DolphinScheduler的主要角色如下：</p>
-<ul>
-<li>MasterServer 采用分布式无中心设计理念，MasterServer主要负责 DAG 任务切分、任务提交、任务监控，并同时监听其它MasterServer和WorkerServer的健康状态。</li>
-<li>WorkerServer 也采用分布式无中心设计理念，WorkerServer主要负责任务的执行和提供日志服务。</li>
-<li>ZooKeeper服务，系统中的MasterServer和WorkerServer节点都通过ZooKeeper来进行集群管理和容错。</li>
-<li>Alert服务，提供告警相关服务。</li>
-<li>API接口层，主要负责处理前端UI层的请求。</li>
-<li>UI，系统的前端页面，提供系统的各种可视化操作界面。</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/5d7a46d072b8441693f6cbfeb135a7a7.png" alt="5d7a46d072b8441693f6cbfeb135a7a7"></p>
-]]></content>
-      <categories>
-        <category>dolphinScheduler</category>
-      </categories>
-      <tags>
-        <tag>dolphinScheduler</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>flink1.13.6 编译</title>
-    <url>/2022/10/03/Flink/flink1-13-6%E7%BC%96%E8%AF%91/</url>
-    <content><![CDATA[<h1 id="Flink-1-13-6编译打包"><a href="#Flink-1-13-6编译打包" class="headerlink" title="Flink-1.13.6编译打包"></a>Flink-1.13.6编译打包</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/apache/flink.git</span><br><span class="line">cd flink/ &amp;&amp;git checkout release-1.13.6</span><br><span class="line">mvn clean install -DskipTests -Dfast -Dhadoop.version=3.2.2</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Flink</category>
-      </categories>
-      <tags>
-        <tag>Flink</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AI</title>
     <url>/2022/10/04/AI/AI/</url>
     <content><![CDATA[]]></content>
@@ -161,9 +82,41 @@
       </tags>
   </entry>
   <entry>
+    <title>Data Warehouse</title>
+    <url>/2022/10/04/DW/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/</url>
+    <content><![CDATA[<h1 id="数据仓库概念"><a href="#数据仓库概念" class="headerlink" title="数据仓库概念"></a>数据仓库概念</h1><p>数据仓库，英文名称为 Data Warehouse，可简写为 DW 或 DWH。数据仓库，是为企业所有级别的决策制定过程，提供所有类型数据支持的战略集合。<br>它是单个数据存储，出于分析性报告和决策支持目的而创建。 为需要业务智能的企业，提供指导业务流程改进、监视时间、成本、质量以及控制。  </p>
+<p>数据仓库之父比尔·恩门（Bill Inmon）在1991年出版的 “Building the Data Warehouse”（《建立数据仓库》）一书中所提出的定义被广泛接受–数据仓<br>库（Data Warehouse）是一个面向主题的（Subject Oriented）、集成的（Integrated）、相对稳定的（Non-Volatile）、反映历史变化（Time<br>Variant）的数据集合，用于支持管理决策(Decision Making Support)。  </p>
+<ol>
+<li>面向主题：在较高层次上将企业信息系统的数据综合归并进行分析利用的抽象的概念。每个主题基本上对应一个相应的分析领域。  </li>
+<li>集成的：企业级数据，同时数据要保持一致性、完整性、有效性、精确性  </li>
+<li>稳定的：从某个时间段来看是保持不变的，没有更新操作、删除操作，以查询分析为主  </li>
+<li>反应历史变化：数仓中的数据主要存储的是反应历史某个时刻的状态信息的数据</li>
+</ol>
+]]></content>
+      <categories>
+        <category>DW</category>
+      </categories>
+      <tags>
+        <tag>DW</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flink RPC</title>
     <url>/2022/10/04/Flink/flink-rpc/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>Flink</category>
+      </categories>
+      <tags>
+        <tag>Flink</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>flink1.13.6 编译</title>
+    <url>/2022/10/03/Flink/flink1-13-6%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h1 id="Flink-1-13-6编译打包"><a href="#Flink-1-13-6编译打包" class="headerlink" title="Flink-1.13.6编译打包"></a>Flink-1.13.6编译打包</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/apache/flink.git</span><br><span class="line">cd flink/ &amp;&amp;git checkout release-1.13.6</span><br><span class="line">mvn clean install -DskipTests -Dfast -Dhadoop.version=3.2.2</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>Flink</category>
       </categories>
@@ -194,6 +147,152 @@
       </tags>
   </entry>
   <entry>
+    <title>HDP3.1.5安装配置</title>
+    <url>/2022/11/19/HDP/HDP3.1.5%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>参考：<a href="https://blog.csdn.net/Happy_Sunshine_Boy/article/details/119236756">(66条消息) Ambari2.7.5-HDP3.1.5集群离线搭建_@TangXin的博客-CSDN博客</a></p>
+]]></content>
+      <categories>
+        <category>HDP</category>
+      </categories>
+      <tags>
+        <tag>HDP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hadoop 3.2.2 的HA集群部署</title>
+    <url>/2022/10/06/Hadoop/Hadoop-3-2-2%E7%9A%84HA%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h1 id="集群规划"><a href="#集群规划" class="headerlink" title="集群规划"></a>集群规划</h1><table>
+<thead>
+<tr>
+<th align="center">node01</th>
+<th align="center">node02</th>
+<th align="center">node03</th>
+<th align="center">node04</th>
+<th align="center">node05</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">zookeeper</td>
+<td align="center">zookeeper</td>
+<td align="center">zookeeper</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">NameNode</td>
+<td align="center">NameNode</td>
+<td align="center">NameNode</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">ZKFC</td>
+<td align="center">ZKFC</td>
+<td align="center">ZKFC</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">JournalNode</td>
+<td align="center">JournalNode</td>
+<td align="center">JournalNode</td>
+</tr>
+<tr>
+<td align="center">DataNode</td>
+<td align="center">DataNode</td>
+<td align="center">DataNode</td>
+<td align="center">DataNode</td>
+<td align="center">DataNode</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">ResourceManager</td>
+<td align="center">ResourceManager</td>
+</tr>
+<tr>
+<td align="center">NodeManager</td>
+<td align="center">NodeManager</td>
+<td align="center">NodeManager</td>
+<td align="center">NodeManager</td>
+<td align="center">NodeManager</td>
+</tr>
+</tbody></table>
+<h1 id="依赖环境配置"><a href="#依赖环境配置" class="headerlink" title="依赖环境配置"></a>依赖环境配置</h1><p>配置 zookeeper</p>
+<h1 id="Hadoop-HA-配置"><a href="#Hadoop-HA-配置" class="headerlink" title="Hadoop HA 配置"></a>Hadoop HA 配置</h1><h2 id="HDFS-HA-配置"><a href="#HDFS-HA-配置" class="headerlink" title="HDFS HA 配置"></a>HDFS HA 配置</h2><p>配置hadoop-env.sh</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/apps/jdk1.8.0_341</span><br><span class="line"><span class="comment">#config the user of hdfs</span></span><br><span class="line"><span class="built_in">export</span> HDFS_NAMENODE_USER=root</span><br><span class="line"><span class="built_in">export</span> HDFS_SECONDARYNAMENODE_USER=root</span><br><span class="line"><span class="built_in">export</span> HDFS_DATANODE_USER=root</span><br><span class="line"><span class="built_in">export</span> HDFS_ZKFC_USER=root</span><br><span class="line"><span class="built_in">export</span> HDFS_JOURNALNODE_USER=root</span><br><span class="line"><span class="built_in">export</span> YARN_RESOURCEMANAGER_USER=root</span><br><span class="line"><span class="built_in">export</span> YARN_NODEMANAGER_USER=root</span><br></pre></td></tr></table></figure>
+
+<p>配置core-site.xml</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://zcluster<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--临时文件路径,如果其他没有配置相对路径,所有的都会基于这个路径--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>/data/hadoop/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 指定zkfc(namenode用于检活的一个线程)要连接的zkServer地址 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>ha.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:2181,node02:2181,node03:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.root.hosts<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.root.groups<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>配置hdfs-site.xml</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- NameNode数据存储目录 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.name.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>file:///data/hadoop/name<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- DataNode数据存储目录 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.datanode.data.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>file:///data/hadoop/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- JournalNode数据存储目录 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.journalnode.edits.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>/data/hadoop/journaldata<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 完全分布式集群名称 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.nameservices<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>zcluster<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 集群中NameNode节点都有哪些 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.namenodes.zcluster<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>nn1,nn2,nn3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- NameNode的RPC通信地址 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.rpc-address.zcluster.nn1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.rpc-address.zcluster.nn2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node02:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.rpc-address.zcluster.nn3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node03:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- NameNode的http通信地址 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address.zcluster.nn1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:9870<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address.zcluster.nn2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node02:9870<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address.zcluster.nn3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node03:9870<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 指定NameNode元数据在JournalNode上的存放位置 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.shared.edits.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>qjournal://node01:8485;node02:8485;node03:8485/zcluster<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 访问代理类：client用于确定哪个NameNode为Active --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.client.failover.proxy.provider.zcluster<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line">	<span class="comment">&lt;!-- 配置隔离机制，即同一时刻只能有一台服务器对外响应 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.fencing.methods<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>sshfence<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 使用隔离机制时需要ssh秘钥登录--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.fencing.ssh.private-key-files<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>/root/.ssh/id_rsa<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line">	<span class="comment">&lt;!-- 启用nn故障自动转移 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.automatic-failover.enabled<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 副本数量 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>mapred-site.xml 配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.app.mapreduce.am.env&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;HADOOP_MAPRED_HOME=$&#123;HADOOP_HOME&#125;&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.map.env&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;HADOOP_MAPRED_HOME=$&#123;HADOOP_HOME&#125;&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.reduce.env&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;HADOOP_MAPRED_HOME=$&#123;HADOOP_HOME&#125;&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;!-- JobHistoryServer --&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;node01:10020&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;node01:19888&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>至此hdfs的相关配置已经完成,当然一般会跟yarn一起启动.<br>单独启动:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1、全部节点上配置Hadoop的环境变量(vi /etc/profile.d/my_env.sh) </span><br><span class="line">  直接在profile.d 构建一个文件,便于分发.</span><br><span class="line"><span class="meta prompt_">  #</span><span class="language-bash"><span class="comment">#HADOOP_HOME</span></span></span><br><span class="line">export HADOOP_HOME=/data/app/hadoop</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</span><br><span class="line">  </span><br><span class="line">2、在zookeeper中为nameNode创建目录(/hadoop-ha/ztbcluster)</span><br><span class="line">        hdfs zkfc -formatZK</span><br><span class="line">    </span><br><span class="line">3、在node01-03上启动journalnode</span><br><span class="line">   hdfs --daemon start journalnode</span><br><span class="line">   </span><br><span class="line">4、在node01上对nameNode进行格式化,并启动namenode</span><br><span class="line">        hdfs namenode -format</span><br><span class="line">        hdfs --daemon start namenode</span><br><span class="line">    </span><br><span class="line">5、在 node02 和 node03 上同步nn1的元数据信息</span><br><span class="line">        hdfs namenode -bootstrapStandby</span><br><span class="line">    </span><br><span class="line">6、启动 node02 和 node03 上的namenode</span><br><span class="line">	hdfs --daemon start namenode</span><br><span class="line">    </span><br><span class="line">7、在datanode上启动dataNode </span><br><span class="line">     hdfs --daemon start datanode</span><br></pre></td></tr></table></figure>
+
+<p>单独启动有点傻傻的感觉,可以直接使用start-dfs.sh,也可以使用start-all.sh.<br> start-dfs.sh 主要启动nameNode  secondaryName  datanode    journal nodes  zkfc<br> workers 是默认的datanode启动节点,同时也是默认的yarn 的nodemanager的启动节点信息</p>
+<h2 id="YARN-HA配置"><a href="#YARN-HA配置" class="headerlink" title="YARN-HA配置"></a>YARN-HA配置</h2><p>配置 yarn-site.xml,并分发到各个节点上</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 启用resourcemanager ha --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.ha.enabled<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 声明2台resourcemanager的地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.cluster-id<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>cluster-yarn1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--指定resourcemanager的逻辑列表--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.ha.rm-ids<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>rm1,rm2,rm3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- ========== rm1的配置 ========== --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 指定rm1的主机名 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node01<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定rm1的web端地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:8088<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定rm1的内部通信地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.address.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:8032<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定AM向rm1申请资源的地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.scheduler.address.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:8030<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定供NM连接的地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.resource-tracker.address.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:8031<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- ========== rm2的配置 ========== --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定rm2的主机名 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>node02<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node02:8088<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node02:8032<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.scheduler.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node02:8030<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.resource-tracker.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node02:8031<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ========== rm2的配置 ========== --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定rm2的主机名 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname.rm3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>node03<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address.rm3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node03:8088<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.address.rm3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node03:8032<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.scheduler.address.rm3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node03:8030<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.resource-tracker.address.rm3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node03:8031<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 指定zookeeper集群的地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.zk-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:2181,node02:2181,node03:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 启用自动恢复 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.recovery.enabled<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 指定resourcemanager的状态信息存储在zookeeper集群 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.store.class<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 环境变量的继承 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.env-whitelist<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 日志聚集 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log-aggregation-enable<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log.server.url<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>node08:19888/jobhistory/logs<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 3600 * 24 * 7 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log-aggregation.retain-seconds<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>604800<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.application.classpath<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/data/app/hadoop/etc/hadoop,</span><br><span class="line">                /data/app/hadoop/share/hadoop/common/lib/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/common/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/hdfs,</span><br><span class="line">                /data/app/hadoop/share/hadoop/hdfs/lib/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/hdfs/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/mapreduce/lib/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/mapreduce/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/yarn/lib/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/yarn/*,</span><br><span class="line">        <span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.resource.memory-mb<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>2048<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.scheduler.maximum-allocation-mb<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>1024<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.resource.cpu-vcores<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>4<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.scheduler.minimum-allocation-vcores<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.scheduler.maximum-allocation-vcores<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>4<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>启动yarn</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">start-yarn.sh</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hadoop之lzo编译</title>
+    <url>/2022/10/06/Hadoop/hadoop%E4%B9%8Blzo%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h1 id="依赖环境准备"><a href="#依赖环境准备" class="headerlink" title="依赖环境准备"></a>依赖环境准备</h1><p>java 1.8+</p>
+<p>maven</p>
+<p>git</p>
+<p>安装其他依赖</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# yum -y install gcc-c++ lzo-devel zlib-devel autoconf automake libtool</span><br></pre></td></tr></table></figure>
+
+<h1 id="下载编译LOZ"><a href="#下载编译LOZ" class="headerlink" title="下载编译LOZ"></a>下载编译LOZ</h1><p>下载LOZ源码，并解压到指定目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# wget http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz</span><br><span class="line">[root@centos7 soft]# tar -zxvf lzo-2.10.tar.gz -C /src/</span><br></pre></td></tr></table></figure>
+
+<p>编译LOZ</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# cd /src/lzo-2.10</span><br><span class="line">[root@centos7 lzo-2.10]# ./configure -prefix=/usr/local/hadoop/lzo/</span><br><span class="line">[root@centos7 lzo-2.10]# make</span><br><span class="line">[root@centos7 lzo-2.10]# make install</span><br></pre></td></tr></table></figure>
+
+<h1 id="编译Hadoop-loz"><a href="#编译Hadoop-loz" class="headerlink" title="编译Hadoop-loz"></a>编译Hadoop-loz</h1><p>下载Hadoop-loz，并解压到指定目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# wget https://github.com/twitter/hadoop-lzo/archive/master.zip</span><br><span class="line">[root@centos7 soft]# unzip master.zip</span><br><span class="line">[root@centos7 soft]# mv master /src/hadoop-lzo</span><br></pre></td></tr></table></figure>
+
+<p>修改 pom.xml 文件，修改版本为你部署的 Hadoop 版本</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hadoop.current.version</span>&gt;</span>3.2.2<span class="tag">&lt;/<span class="name">hadoop.current.version</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>声明临时变量</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 hadoop-lzo]# export C_INCLUDE_PATH=/usr/local/hadoop/lzo/include</span><br><span class="line">[root@centos7 hadoop-lzo]# export LIBRARY_PATH=/usr/local/hadoop/lzo/lib </span><br></pre></td></tr></table></figure>
+
+<p>编译Hadoop-lzo</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 hadoop-lzo]# mvn package -Dmaven.test.skip=true</span><br></pre></td></tr></table></figure>
+
+<p>将编译好的Hadoop-lzo复制到Hadoop公共目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@centos7 hadoop-lzo]# ./target/hadoop-lzo-0.4.21-SNAPSHOT.jar /apps/hadoop-3.2.2/share/hadoop/common/</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hudi</title>
     <url>/2022/10/04/Hudi/Hudi/</url>
     <content><![CDATA[]]></content>
@@ -216,30 +315,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux</title>
-    <url>/2022/10/04/Linux/linux/</url>
-    <content><![CDATA[<h1 id="centos修改yum源为阿里"><a href="#centos修改yum源为阿里" class="headerlink" title="centos修改yum源为阿里"></a>centos修改yum源为阿里</h1><ol>
-<li><p>备份原来 yum 文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo_bak</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下载阿里云的 CentOS-Base.repo 到&#x2F;etc&#x2F;yum.repos.d&#x2F;</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>清空 yum 缓存</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# yum clean all</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成新的阿里云的yum缓存，加速下载预热数据</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# yum makecache</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Kafka</title>
     <url>/2022/10/04/Kafka/kafka/</url>
     <content><![CDATA[]]></content>
@@ -248,249 +323,6 @@
       </categories>
       <tags>
         <tag>Kafka</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tez</title>
-    <url>/2022/10/04/Tez/tez/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Tez</category>
-      </categories>
-      <tags>
-        <tag>tez</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>azkaban4.0 编译</title>
-    <url>/2022/10/04/azkaban/azkaban4-0%E7%BC%96%E8%AF%91/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>azkaban</category>
-      </categories>
-      <tags>
-        <tag>azkaban</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python</title>
-    <url>/2022/10/04/python/python/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>scala</title>
-    <url>/2022/10/04/scala/scala/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>scala</category>
-      </categories>
-      <tags>
-        <tag>scala</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>spark</title>
-    <url>/2022/10/04/spark/spark/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>spark</category>
-      </categories>
-      <tags>
-        <tag>spark</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>zookeeper</title>
-    <url>/2022/10/04/zookeeper/zookeeper/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>zookeeper</category>
-      </categories>
-      <tags>
-        <tag>zookeeper</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>superset 安装</title>
-    <url>/2022/10/04/BI/superset/superset%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>BI</category>
-      </categories>
-      <tags>
-        <tag>BI/superset</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HDFS</title>
-    <url>/2022/10/04/Hadoop/HDFS/HDFS/</url>
-    <content><![CDATA[<h1 id="NameNode概述"><a href="#NameNode概述" class="headerlink" title="NameNode概述"></a>NameNode概述</h1><ol>
-<li>NameNode 是HDFS的核心</li>
-<li>NameNode也成为Master</li>
-<li>NameNode仅存储 HDFS  的元数据：文件系统中所有文件的目录树，并跟踪整个集群中的文件。</li>
-<li>NamNode 不存储实际数据或数据集。数据本身实际存储在 DataNode 中。</li>
-<li>NameNode 知道 HDFS 中任何给定文件的块列表及其位置。使用此信息 NameNode 知道如何从块中构建文件</li>
-<li>NameNode 并不持久化存储每个文件中各个块所在的 DataNode 的位置信息，这些信息会在系统启动时从数据节点重建。</li>
-<li>NameNode 对于 HDFS 至关重要，当 NameNode 关闭时，HDFS &#x2F; Hadoop 集群无法访问。</li>
-<li>NameNode 是 Hadoop 集群中的单点故障。</li>
-<li>NameNode 所在机器通常会配置有大量内存（RAM）。</li>
-</ol>
-<p>​	<img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20211021151454707.png" alt="image-20211021151454707"></p>
-<h1 id="DataNode概述"><a href="#DataNode概述" class="headerlink" title="DataNode概述"></a>DataNode概述</h1><ol>
-<li>DataNode 负责将实际数据存储在 HDFS 中。</li>
-<li>DataNode 也称为 Slave</li>
-<li>NameNode 和 DataNode 会保持不断通信。</li>
-<li>DataNode 启动时，也将自己发布到 NameNode 并汇报自己负责持有的块列表。</li>
-<li>当某个 DataNode 关闭时，不会影响数据或集群的可用性。NameNode 将安排有其他 DataNode 管理的块进行副本复制。</li>
-<li>DataNode 所在机器通常配置有大量的磁盘空间。因为实际数据存储在 DataNode 中。</li>
-<li>DataNode 会定期（dfs.heartbeat.interval 配置项配置，默认是3秒）向 NameNode 发送心跳，如果 NameNode 长时间（默认配置为10 min）没有接收到 DataNode 发送心跳，NameNode就会认为该 DataNode 失效，并进行此DataNode节点数据副本复制到其他DataNode节点，以保证副本数。</li>
-<li>block 汇报时间间隔取参数 dfs.blockreport.intervalMsec ，参数未配置默认为 6 小时。</li>
-</ol>
-<h1 id="HDFS工作机制"><a href="#HDFS工作机制" class="headerlink" title="HDFS工作机制"></a>HDFS工作机制</h1><p>NameNode 负责管理整个文件系统元数据；DataNode 负责管理具体文件数据块存储；Secondary NameNode 协助 NameNode 进行数据的备份。</p>
-<p>HDFS 的内部工作机制对客户端保持透明，客户端请求访问 HDFS 都是通过向 NameNode 申请来进行。</p>
-<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20211021191436177.png" alt="image-20211021191436177"></p>
-<h1 id="HDFS写数据流程"><a href="#HDFS写数据流程" class="headerlink" title="HDFS写数据流程"></a>HDFS写数据流程</h1><ol>
-<li><p>Client 发起文件上传请求，通过 RPC 与 NameNode 建立通讯，NameNode 检查目标文件是否已经存在，父目录是否存在，返回是否可以上传；</p>
-</li>
-<li><p>Client 请求第一个 Block 该传输到那些 DataNode 服务器上；</p>
-</li>
-<li><p>NameNode 根据配置文件中指定的备份数量以及副本放置策略进行文件分配，返回可用的 DataNode 地址（如：A、B、C）；</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">注：默认存储策略由BlockPlacementPolicyDefault类支持。也就是提到最经典的 3 副本策略。</span><br><span class="line">	1st replica 如果写请求方所在机器是其中一个 DataNode，则直接存放在本地，否则随机在集群中选择一个 DataNode。</span><br><span class="line">	2ed replica 第二副本存放于不同第一个副本的所在的机架。</span><br><span class="line">	3rd replica 第三个副本存放于第二个副本所在的机架，但是属于不同的 DataNode 节点</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20211022110459284.png" alt="image-20211022110459284"></p>
-</li>
-<li><p>CLient 请求 3 台 DataNode 中的一台 A 上传数据（本质上是一个 RPC 调用，建立 pipeline），A 收到请求会继续调用 B，然后 B 调用 C，将整个 pipeline 建立完成，后逐级返回 client；</p>
-</li>
-<li><p>client 开始往 A 上传第一个 block （先从磁盘读取数据放到一个本地内存缓存），以packet为单位（默认 64K），A收到一个packet就会传给 B，B 传给 C；A 每传一个 packet 会放入一个应答队列等待应答。</p>
-</li>
-<li><p>数据被分割成一个个 packet 数据包在 pipeline 上依次传输，在 pipeline 反方向上，逐个发送 ack （命令正确应答），最终由 pipeline 中第一个 DataNode 节点 A 将 pipeline ack 发送给client；</p>
-</li>
-<li><p>当一个 block 传输完成之后，client 再次请求 NameNode 上传第二个 block 到服务器。</p>
-</li>
-</ol>
-<h1 id="HDFS写数据流程（源码解读）"><a href="#HDFS写数据流程（源码解读）" class="headerlink" title="HDFS写数据流程（源码解读）"></a>HDFS写数据流程（源码解读）</h1><h1 id="HDFS-读取数据流程"><a href="#HDFS-读取数据流程" class="headerlink" title="HDFS 读取数据流程"></a>HDFS 读取数据流程</h1><ol>
-<li>Client 向 NameNode 发起 RPC 请求，来确定请求文件 Block 所在位置；</li>
-<li>NameNode 会视情况返回文件的部分或者全部 Block 列表，对于每个 block ，NameNode 都会返回含有该 block 副本的 DataNode 地址；</li>
-<li>这些返回的 DataNode 地址，会按照集群拓扑结构得出 DataNode 与客户端的距离，然后进行排序，排序两个规则：网络拓扑结构中距离 Client 近的排在靠前；心跳机制中超时汇报的 DataNode 状态为 STALE，这样的 DataNode 节点靠前；</li>
-<li>Client 选取考前的 DataNode 来读取 block，如果客户端本身就是 DataNode，那么将从本地直接获取数据；</li>
-<li>底层本事是建立 Socket Stream （FSDataInputStream）,重复的调用父类 DataInputStream 的 read 方法，直到这个块上的数据读取完毕；</li>
-<li>当读完列表的 block 后，若文件读取还没有结束，客户端会继续向 NameNode 获取下一批的 block 列表；</li>
-<li>读取完一个 block 都会进行 checksum 验证，如果读取 DataNode 时出现错误，客户端会通知 NameNode，然后再从下一个拥有该 block 副本的 DataNode 继续读；</li>
-<li>read 方法是并行读取 block 信息，不是一块一块的读取；NameNode 只是返回 Client 请求包含块的 DataNode 地址，并不是返回请求块的数据；</li>
-<li>最终读取所有的 block 会合并成一个完整的最终文件。</li>
-</ol>
-<h1 id="HDFS-读取数据流程（源码解读）"><a href="#HDFS-读取数据流程（源码解读）" class="headerlink" title="HDFS 读取数据流程（源码解读）"></a>HDFS 读取数据流程（源码解读）</h1>]]></content>
-      <categories>
-        <category>Hadoop</category>
-      </categories>
-      <tags>
-        <tag>Hadoop/HDFS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HDFS API</title>
-    <url>/2022/10/04/Hadoop/HDFS/hdfs-api/</url>
-    <content><![CDATA[<h1 id="HDFS-的-Java-API-操作"><a href="#HDFS-的-Java-API-操作" class="headerlink" title="HDFS 的 Java API 操作"></a>HDFS 的 Java API 操作</h1><p>HDFS 在生产应用中主要客户端的开发，其核心步骤是从 HDFS 提供的 API 中构造一个 HDFS 的访问客户端对象，然后通过该客户端对象操作（增删改查）HDFS 上的文件。</p>
-<h2 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h2><p>创建 Maven 工程，引入 pom  依赖</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-common&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-hdfs&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-client&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
-
-<p><font color="red">配置 Windows 平台 Hadoop 环境</font></p>
-<p>在 Windows 上做 HDFS 客户端应用开发，需要设置 Hadoop 环境，而且要求是 windows 平台编译的 Hadoop ，不然会报以下错误：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Failed to locate the winutils binary in the hadoop binary path java.io.IOException: Could not</span><br><span class="line">locate executable null\bin\winutils.exe in the Hadoop binaries.</span><br></pre></td></tr></table></figure>
-
-<p>为此我们需要进行如下的操作：</p>
-<ol>
-<li>在 windows 平台下编译 Hadoop 源码，或者在网上下载编译好的 Hadoop</li>
-<li>将编译好的 Hadoop 解压到任意目录</li>
-<li>在 windows 系统的 path 变量中加入 HADOOP_HOME 的 bin 目录</li>
-</ol>
-<h2 id="构造客户端对象"><a href="#构造客户端对象" class="headerlink" title="构造客户端对象"></a>构造客户端对象</h2><p>在 Java 中操作 HDFS，主要涉及一下 CLass：</p>
-<p>Configuration：该类的对象封装了客户端或者服务器的配置；</p>
-<p>FileSystem：该类的对象是一个文件系统对象，可以用该对象的一些方法来对文件进行操作，通过 FIleSystem 的静态方法 get 获得该对象。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(conf);</span><br></pre></td></tr></table></figure>
-
-<p>get 方法从 conf 中的一个参数 fs.defaultFS 的配置值判断具体是什么类型的文件系统。如果我们的代码中没有指定 fs.defaultFS，并且工程 classpath 下也没有给定相应的配置，conf 中的默认值就来自于 Hadoop 的 jar 包中的 core-default.xml ，默认值为： file:&#x2F;&#x2F;&#x2F;，则获取的将不是一个 DistributedFileSystem 的实例，而是一个本地文件系统的客户端对象。</p>
-<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里指定使用的是 hdfs 文件系统</span></span><br><span class="line">conf.set(<span class="string">&quot;fs.defaultFS&quot;</span>,<span class="string">&quot;hdfs://node01:9000&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过如下方式进行客户端身份配置</span></span><br><span class="line">Symtem.setProperty(<span class="string">&quot;HADOOP_USER_NAME&quot;</span>,<span class="string">&quot;root&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 FileSystem 的静态方法获取文件系统客户端对象</span></span><br><span class="line"><span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(conf);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以通过如下方式去指定文件系统的类型，并且同时设置用户身份</span></span><br><span class="line"><span class="type">FIleSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(<span class="keyword">new</span> <span class="title class_">URI</span>(<span class="string">&quot;hdfs://node01:9000&quot;</span>),conf,<span class="string">&quot;root&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个文件</span></span><br><span class="line">fs.create(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/warehourse&quot;</span>),<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上传一个文件</span></span><br><span class="line">fs.copyFromLocalFile(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;D://text.txt&quot;</span>),<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/warehourse&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭文件系统</span></span><br><span class="line">fs.close();</span><br></pre></td></tr></table></figure>
-
-<p>Stream 流形式操作</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testUpload</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="type">FSDataOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> fs.create(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/1.txt&quot;</span>), <span class="literal">true</span>);</span><br><span class="line">    <span class="type">FileInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;D:\\1.txt&quot;</span>);</span><br><span class="line">    IOUtils.copy(inputStream, outputStream);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="案例：shell-定时采集数据至-HDFS"><a href="#案例：shell-定时采集数据至-HDFS" class="headerlink" title="案例：shell 定时采集数据至 HDFS"></a>案例：shell 定时采集数据至 HDFS</h1><p>上线的网站每天都会产生日志数据。 假如有这样的需求： 要求在凌晨 24 点开始操作前一天产生的日志文件， 准实时上传至 HDFS 集群上。  </p>
-<h2 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析"></a>技术分析</h2><p><strong>HDFS Shell：</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop fs -put 			// 满足上传文件，不能满足定时、周期性传入</span><br></pre></td></tr></table></figure>
-
-<p><strong>Linux crontab：</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">0	0	*	*	*	/shell/uploadFile2HDFS.sh		// 每天凌晨 12：00 执行一次</span><br></pre></td></tr></table></figure>
-
-<h2 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h2><p>一般日志文件生成的逻辑由业务系统决定，比如每小时滚动一次， 或者一定大小滚动一次， 避免单个日志文件过大不方便操作。<br>比如滚动后的文件命名为 access.log.x,其中 x 为数字。 正在进行写的日志文件叫做 access.log。 这样的话， 如果日志文件后缀是 1\2\3 等数字， 则该文件满足需求可以上传， 就把该文件移动到准备上传的工作区间目录。工作区间有文件之后，可以使用 hadoop put 命令将文件上传。  </p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">读取日志文件的目录，判断是否有需要上传的文件</span></span><br><span class="line">echo &quot;log_src_dir:&quot;$log_src_dir</span><br><span class="line">ls $log_src_dir | while read fileNme</span><br><span class="line">do</span><br><span class="line">	if [[&quot;$fileName&quot; == access.log.*]]; then</span><br><span class="line">		date=`date +%Y_%m_%d_%H_%M_%S`</span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">将文件移动到待上传目录并重命名</span></span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">打印信息</span></span><br><span class="line">		echo &quot;moving $log_src_dir$fileName to $log_to_upload_dir&quot;XXXXX_click_log_$fileName</span><br><span class="line">		mv $log_src_dir$fileName $log_to_upload_dir&quot;XXXXXX_click_log_$fileName&quot;$date</span><br><span class="line">		echo $log_to_upload_dir&quot;XXXXX_click_log_$fileName&quot;$date &gt;&gt; $log_to_upload_dir&quot;willDone&quot;</span><br><span class="line">	fi</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Hadoop</category>
-      </categories>
-      <tags>
-        <tag>Hadoop</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git</title>
-    <url>/2022/10/04/Tool/Git/git/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Tool</category>
-      </categories>
-      <tags>
-        <tag>Tool/Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Data Warehouse</title>
-    <url>/2022/10/04/DW/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/</url>
-    <content><![CDATA[<h1 id="数据仓库概念"><a href="#数据仓库概念" class="headerlink" title="数据仓库概念"></a>数据仓库概念</h1><p>数据仓库，英文名称为 Data Warehouse，可简写为 DW 或 DWH。数据仓库，是为企业所有级别的决策制定过程，提供所有类型数据支持的战略集合。<br>它是单个数据存储，出于分析性报告和决策支持目的而创建。 为需要业务智能的企业，提供指导业务流程改进、监视时间、成本、质量以及控制。  </p>
-<p>数据仓库之父比尔·恩门（Bill Inmon）在1991年出版的 “Building the Data Warehouse”（《建立数据仓库》）一书中所提出的定义被广泛接受–数据仓<br>库（Data Warehouse）是一个面向主题的（Subject Oriented）、集成的（Integrated）、相对稳定的（Non-Volatile）、反映历史变化（Time<br>Variant）的数据集合，用于支持管理决策(Decision Making Support)。  </p>
-<ol>
-<li>面向主题：在较高层次上将企业信息系统的数据综合归并进行分析利用的抽象的概念。每个主题基本上对应一个相应的分析领域。  </li>
-<li>集成的：企业级数据，同时数据要保持一致性、完整性、有效性、精确性  </li>
-<li>稳定的：从某个时间段来看是保持不变的，没有更新操作、删除操作，以查询分析为主  </li>
-<li>反应历史变化：数仓中的数据主要存储的是反应历史某个时刻的状态信息的数据</li>
-</ol>
-]]></content>
-      <categories>
-        <category>DW</category>
-      </categories>
-      <tags>
-        <tag>DW</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AE</title>
-    <url>/2022/10/05/video/AE/AE/</url>
-    <content><![CDATA[<h1 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h1><p>Ctrl + N : 新建合成</p>
-<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20221005231016775.png" alt="image-20221005231016775"></p>
-]]></content>
-      <categories>
-        <category>video</category>
-      </categories>
-      <tags>
-        <tag>video</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PR</title>
-    <url>/2022/10/05/video/PR/PR/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>video</category>
-      </categories>
-      <tags>
-        <tag>video</tag>
       </tags>
   </entry>
   <entry>
@@ -634,137 +466,100 @@
       </tags>
   </entry>
   <entry>
-    <title>hadoop之lzo编译</title>
-    <url>/2022/10/06/Hadoop/hadoop%E4%B9%8Blzo%E7%BC%96%E8%AF%91/</url>
-    <content><![CDATA[<h1 id="依赖环境准备"><a href="#依赖环境准备" class="headerlink" title="依赖环境准备"></a>依赖环境准备</h1><p>java 1.8+</p>
-<p>maven</p>
-<p>git</p>
-<p>安装其他依赖</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# yum -y install gcc-c++ lzo-devel zlib-devel autoconf automake libtool</span><br></pre></td></tr></table></figure>
-
-<h1 id="下载编译LOZ"><a href="#下载编译LOZ" class="headerlink" title="下载编译LOZ"></a>下载编译LOZ</h1><p>下载LOZ源码，并解压到指定目录</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# wget http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz</span><br><span class="line">[root@centos7 soft]# tar -zxvf lzo-2.10.tar.gz -C /src/</span><br></pre></td></tr></table></figure>
-
-<p>编译LOZ</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# cd /src/lzo-2.10</span><br><span class="line">[root@centos7 lzo-2.10]# ./configure -prefix=/usr/local/hadoop/lzo/</span><br><span class="line">[root@centos7 lzo-2.10]# make</span><br><span class="line">[root@centos7 lzo-2.10]# make install</span><br></pre></td></tr></table></figure>
-
-<h1 id="编译Hadoop-loz"><a href="#编译Hadoop-loz" class="headerlink" title="编译Hadoop-loz"></a>编译Hadoop-loz</h1><p>下载Hadoop-loz，并解压到指定目录</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# wget https://github.com/twitter/hadoop-lzo/archive/master.zip</span><br><span class="line">[root@centos7 soft]# unzip master.zip</span><br><span class="line">[root@centos7 soft]# mv master /src/hadoop-lzo</span><br></pre></td></tr></table></figure>
-
-<p>修改 pom.xml 文件，修改版本为你部署的 Hadoop 版本</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hadoop.current.version</span>&gt;</span>3.2.2<span class="tag">&lt;/<span class="name">hadoop.current.version</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>声明临时变量</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 hadoop-lzo]# export C_INCLUDE_PATH=/usr/local/hadoop/lzo/include</span><br><span class="line">[root@centos7 hadoop-lzo]# export LIBRARY_PATH=/usr/local/hadoop/lzo/lib </span><br></pre></td></tr></table></figure>
-
-<p>编译Hadoop-lzo</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 hadoop-lzo]# mvn package -Dmaven.test.skip=true</span><br></pre></td></tr></table></figure>
-
-<p>将编译好的Hadoop-lzo复制到Hadoop公共目录下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@centos7 hadoop-lzo]# ./target/hadoop-lzo-0.4.21-SNAPSHOT.jar /apps/hadoop-3.2.2/share/hadoop/common/</span><br></pre></td></tr></table></figure>
-
+    <title>post</title>
+    <url>/2022/11/20/Linux/centos%E5%AE%89%E8%A3%85MySQL5.7/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Linux</title>
+    <url>/2022/10/04/Linux/linux/</url>
+    <content><![CDATA[<h1 id="centos修改yum源为阿里"><a href="#centos修改yum源为阿里" class="headerlink" title="centos修改yum源为阿里"></a>centos修改yum源为阿里</h1><ol>
+<li><p>备份原来 yum 文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo_bak</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载阿里云的 CentOS-Base.repo 到&#x2F;etc&#x2F;yum.repos.d&#x2F;</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清空 yum 缓存</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# yum clean all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成新的阿里云的yum缓存，加速下载预热数据</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 ~]# yum makecache</span><br></pre></td></tr></table></figure></li>
+</ol>
 ]]></content>
       <categories>
-        <category>Hadoop</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>Hadoop</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hadoop 3.2.2 的HA集群部署</title>
-    <url>/2022/10/06/Hadoop/Hadoop-3-2-2%E7%9A%84HA%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h1 id="集群规划"><a href="#集群规划" class="headerlink" title="集群规划"></a>集群规划</h1><table>
-<thead>
-<tr>
-<th align="center">node01</th>
-<th align="center">node02</th>
-<th align="center">node03</th>
-<th align="center">node04</th>
-<th align="center">node05</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">zookeeper</td>
-<td align="center">zookeeper</td>
-<td align="center">zookeeper</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">NameNode</td>
-<td align="center">NameNode</td>
-<td align="center">NameNode</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">ZKFC</td>
-<td align="center">ZKFC</td>
-<td align="center">ZKFC</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">JournalNode</td>
-<td align="center">JournalNode</td>
-<td align="center">JournalNode</td>
-</tr>
-<tr>
-<td align="center">DataNode</td>
-<td align="center">DataNode</td>
-<td align="center">DataNode</td>
-<td align="center">DataNode</td>
-<td align="center">DataNode</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">ResourceManager</td>
-<td align="center">ResourceManager</td>
-</tr>
-<tr>
-<td align="center">NodeManager</td>
-<td align="center">NodeManager</td>
-<td align="center">NodeManager</td>
-<td align="center">NodeManager</td>
-<td align="center">NodeManager</td>
-</tr>
-</tbody></table>
-<h1 id="依赖环境配置"><a href="#依赖环境配置" class="headerlink" title="依赖环境配置"></a>依赖环境配置</h1><p>配置 zookeeper</p>
-<h1 id="Hadoop-HA-配置"><a href="#Hadoop-HA-配置" class="headerlink" title="Hadoop HA 配置"></a>Hadoop HA 配置</h1><h2 id="HDFS-HA-配置"><a href="#HDFS-HA-配置" class="headerlink" title="HDFS HA 配置"></a>HDFS HA 配置</h2><p>配置hadoop-env.sh</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/apps/jdk1.8.0_341</span><br><span class="line"><span class="comment">#config the user of hdfs</span></span><br><span class="line"><span class="built_in">export</span> HDFS_NAMENODE_USER=root</span><br><span class="line"><span class="built_in">export</span> HDFS_SECONDARYNAMENODE_USER=root</span><br><span class="line"><span class="built_in">export</span> HDFS_DATANODE_USER=root</span><br><span class="line"><span class="built_in">export</span> HDFS_ZKFC_USER=root</span><br><span class="line"><span class="built_in">export</span> HDFS_JOURNALNODE_USER=root</span><br><span class="line"><span class="built_in">export</span> YARN_RESOURCEMANAGER_USER=root</span><br><span class="line"><span class="built_in">export</span> YARN_NODEMANAGER_USER=root</span><br></pre></td></tr></table></figure>
+    <title>post</title>
+    <url>/2023/03/03/Tez/Tez-0.10.2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="将-tez-安装包拷贝到集群，并解压-tar-包"><a href="#将-tez-安装包拷贝到集群，并解压-tar-包" class="headerlink" title="将 tez 安装包拷贝到集群，并解压 tar 包"></a>将 tez 安装包拷贝到集群，并解压 tar 包</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 tez-0.10.2]# mkdir /apps/tez/</span><br><span class="line">[root@node01 tez-0.10.2]# tar zxvf tez-0.10.2-SNAPSHOT-minimal.tar.gz -C /apps/tez/</span><br></pre></td></tr></table></figure>
 
-<p>配置core-site.xml</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://zcluster<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--临时文件路径,如果其他没有配置相对路径,所有的都会基于这个路径--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>/data/hadoop/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 指定zkfc(namenode用于检活的一个线程)要连接的zkServer地址 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>ha.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:2181,node02:2181,node03:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.root.hosts<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.root.groups<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="上传-tez-依赖到-HDFS"><a href="#上传-tez-依赖到-HDFS" class="headerlink" title="上传 tez 依赖到 HDFS"></a>上传 tez 依赖到 HDFS</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 tez]# hadoop fs -mkdir -p /apps/tez</span><br><span class="line">[root@node01 tez-0.10.2]# hadoop fs -put tez-0.10.2-SNAPSHOT.tar.gz /apps/tez/</span><br></pre></td></tr></table></figure>
 
-<p>配置hdfs-site.xml</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- NameNode数据存储目录 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.name.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>file:///data/hadoop/name<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- DataNode数据存储目录 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.datanode.data.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>file:///data/hadoop/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- JournalNode数据存储目录 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.journalnode.edits.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>/data/hadoop/journaldata<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 完全分布式集群名称 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.nameservices<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>zcluster<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 集群中NameNode节点都有哪些 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.namenodes.zcluster<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>nn1,nn2,nn3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- NameNode的RPC通信地址 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.rpc-address.zcluster.nn1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.rpc-address.zcluster.nn2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node02:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.rpc-address.zcluster.nn3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node03:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- NameNode的http通信地址 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address.zcluster.nn1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:9870<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address.zcluster.nn2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node02:9870<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address.zcluster.nn3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node03:9870<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 指定NameNode元数据在JournalNode上的存放位置 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.shared.edits.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>qjournal://node01:8485;node02:8485;node03:8485/zcluster<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 访问代理类：client用于确定哪个NameNode为Active --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.client.failover.proxy.provider.zcluster<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line">	<span class="comment">&lt;!-- 配置隔离机制，即同一时刻只能有一台服务器对外响应 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.fencing.methods<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>sshfence<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 使用隔离机制时需要ssh秘钥登录--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.fencing.ssh.private-key-files<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>/root/.ssh/id_rsa<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line">	<span class="comment">&lt;!-- 启用nn故障自动转移 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.automatic-failover.enabled<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 副本数量 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="新建-tez-site-xml"><a href="#新建-tez-site-xml" class="headerlink" title="新建 tez-site.xml"></a>新建 tez-site.xml</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 hadoop]# echo &gt; tez-site.xml</span><br></pre></td></tr></table></figure>
 
-<p>mapred-site.xml 配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.app.mapreduce.am.env&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;HADOOP_MAPRED_HOME=$&#123;HADOOP_HOME&#125;&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.map.env&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;HADOOP_MAPRED_HOME=$&#123;HADOOP_HOME&#125;&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.reduce.env&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;HADOOP_MAPRED_HOME=$&#123;HADOOP_HOME&#125;&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;!-- JobHistoryServer --&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;node01:10020&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;node01:19888&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>添加以下配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.lib.uris&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;$&#123;fs.defaultFS&#125;/apps/tez/tez-0.10.2-SNAPSHOT.tar.gz&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.use.cluster.hadoop-libs&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.am.resource.memory.mb&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;1024&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.am.resource.cpu.vcores&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.container.max.java.heap.fraction&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;0.4&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.task.resource.memory.mb&lt;/name&gt;</span><br><span class="line">    	&lt;value&gt;1024&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">    	&lt;name&gt;tez.task.resource.cpu.vcores&lt;/name&gt;</span><br><span class="line">    	&lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
 
+<h1 id="修改-Hadoop-环境变量"><a href="#修改-Hadoop-环境变量" class="headerlink" title="修改 Hadoop 环境变量"></a>修改 Hadoop 环境变量</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 shellprofile.d]# echo &gt; tez.sh</span><br></pre></td></tr></table></figure>
 
+<p>添加 Tez 的 jar 包相关信息</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop_add_profile tez</span><br><span class="line">function _tez_hadoop_classpath</span><br><span class="line">&#123;</span><br><span class="line">    hadoop_add_classpath &quot;$HADOOP_HOME/etc/hadoop&quot; after</span><br><span class="line">    hadoop_add_classpath &quot;/apps/tez/*&quot; after</span><br><span class="line">    hadoop_add_classpath &quot;/apps/tez/lib/*&quot; after</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>至此hdfs的相关配置已经完成,当然一般会跟yarn一起启动.<br>单独启动:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1、全部节点上配置Hadoop的环境变量(vi /etc/profile.d/my_env.sh) </span><br><span class="line">  直接在profile.d 构建一个文件,便于分发.</span><br><span class="line"><span class="meta prompt_">  #</span><span class="language-bash"><span class="comment">#HADOOP_HOME</span></span></span><br><span class="line">export HADOOP_HOME=/data/app/hadoop</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</span><br><span class="line">  </span><br><span class="line">2、在zookeeper中为nameNode创建目录(/hadoop-ha/ztbcluster)</span><br><span class="line">        hdfs zkfc -formatZK</span><br><span class="line">    </span><br><span class="line">3、在node01-03上启动journalnode</span><br><span class="line">   hdfs --daemon start journalnode</span><br><span class="line">   </span><br><span class="line">4、在node01上对nameNode进行格式化,并启动namenode</span><br><span class="line">        hdfs namenode -format</span><br><span class="line">        hdfs --daemon start namenode</span><br><span class="line">    </span><br><span class="line">5、在 node02 和 node03 上同步nn1的元数据信息</span><br><span class="line">        hdfs namenode -bootstrapStandby</span><br><span class="line">    </span><br><span class="line">6、启动 node02 和 node03 上的namenode</span><br><span class="line">	hdfs --daemon start namenode</span><br><span class="line">    </span><br><span class="line">7、在datanode上启动dataNode </span><br><span class="line">     hdfs --daemon start datanode</span><br></pre></td></tr></table></figure>
+<h1 id="修改-Hive-的计算引擎"><a href="#修改-Hive-的计算引擎" class="headerlink" title="修改 Hive 的计算引擎"></a>修改 Hive 的计算引擎</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 apps]# vim hive-3.1.2/conf/hive-site.xml</span><br></pre></td></tr></table></figure>
 
-<p>单独启动有点傻傻的感觉,可以直接使用start-dfs.sh,也可以使用start-all.sh.<br> start-dfs.sh 主要启动nameNode  secondaryName  datanode    journal nodes  zkfc<br> workers 是默认的datanode启动节点,同时也是默认的yarn 的nodemanager的启动节点信息</p>
-<h2 id="YARN-HA配置"><a href="#YARN-HA配置" class="headerlink" title="YARN-HA配置"></a>YARN-HA配置</h2><p>配置 yarn-site.xml,并分发到各个节点上</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 启用resourcemanager ha --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.ha.enabled<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 声明2台resourcemanager的地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.cluster-id<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>cluster-yarn1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--指定resourcemanager的逻辑列表--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.ha.rm-ids<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>rm1,rm2,rm3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- ========== rm1的配置 ========== --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 指定rm1的主机名 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>node01<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定rm1的web端地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:8088<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定rm1的内部通信地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.address.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:8032<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定AM向rm1申请资源的地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.scheduler.address.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:8030<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定供NM连接的地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.resource-tracker.address.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:8031<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- ========== rm2的配置 ========== --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定rm2的主机名 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>node02<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node02:8088<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node02:8032<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.scheduler.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node02:8030<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.resource-tracker.address.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node02:8031<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ========== rm2的配置 ========== --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定rm2的主机名 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname.rm3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>node03<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.webapp.address.rm3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node03:8088<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.address.rm3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node03:8032<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.scheduler.address.rm3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node03:8030<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.resource-tracker.address.rm3<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">value</span>&gt;</span>node03:8031<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 指定zookeeper集群的地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.zk-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>node01:2181,node02:2181,node03:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 启用自动恢复 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.recovery.enabled<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 指定resourcemanager的状态信息存储在zookeeper集群 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.store.class<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 环境变量的继承 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.env-whitelist<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 日志聚集 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log-aggregation-enable<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log.server.url<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>node08:19888/jobhistory/logs<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 3600 * 24 * 7 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log-aggregation.retain-seconds<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>604800<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.application.classpath<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/data/app/hadoop/etc/hadoop,</span><br><span class="line">                /data/app/hadoop/share/hadoop/common/lib/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/common/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/hdfs,</span><br><span class="line">                /data/app/hadoop/share/hadoop/hdfs/lib/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/hdfs/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/mapreduce/lib/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/mapreduce/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/yarn/lib/*,</span><br><span class="line">                /data/app/hadoop/share/hadoop/yarn/*,</span><br><span class="line">        <span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.resource.memory-mb<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>2048<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.scheduler.maximum-allocation-mb<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>1024<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.resource.cpu-vcores<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>4<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.scheduler.minimum-allocation-vcores<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.scheduler.maximum-allocation-vcores<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>4<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>启动yarn</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">start-yarn.sh</span><br></pre></td></tr></table></figure>
+<p>添加一下配置</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.execution.engine<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>tez<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.tez.container.size<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>1024<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>Hadoop</category>
+        <category>Tez</category>
       </categories>
       <tags>
-        <tag>Hadoop</tag>
+        <tag>tez</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tez V0.10.2 编译</title>
+    <url>/2023/03/02/Tez/Tez-0.10.2%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h1 id="Tez-源码编译"><a href="#Tez-源码编译" class="headerlink" title="Tez 源码编译"></a>Tez 源码编译</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# wget --no-check-certificate https://dlcdn.apache.org/tez/0.10.2/apache-tez-0.10.2-src.tar.gz</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Tez</category>
+      </categories>
+      <tags>
+        <tag>tez</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tez</title>
+    <url>/2022/10/04/Tez/tez/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Tez</category>
+      </categories>
+      <tags>
+        <tag>tez</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>azkaban4.0 编译</title>
+    <url>/2022/10/04/azkaban/azkaban4-0%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>azkaban</category>
+      </categories>
+      <tags>
+        <tag>azkaban</tag>
       </tags>
   </entry>
   <entry>
@@ -795,6 +590,72 @@
       </tags>
   </entry>
   <entry>
+    <title>Docker版本与安装介绍</title>
+    <url>/2022/10/03/docker/Docker%E7%89%88%E6%9C%AC%E4%B8%8E%E5%AE%89%E8%A3%85%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h1 id="Docker版本"><a href="#Docker版本" class="headerlink" title="Docker版本"></a>Docker版本</h1><ul>
+<li>Docker-CE：docker 社区版本，由社区维护和提供技术支持，为免费版本，适合个人开发人员和小团队使用</li>
+<li>Docker-EE：docker 企业版本，为收费版本，有售后团队和技术团队提供技术支持，专为企业开发和IT团队而设计</li>
+<li>此外Docker 的发布版本分别为 Stable 和 Edage 版，区别在于前者是按季度发布的稳定版本（发布慢），后者是按月发布的边缘版（发布快）</li>
+<li>通常情况下，Docker-CE 足以满足我们的需求。</li>
+</ul>
+<h1 id="Centos7-安装-Docker"><a href="#Centos7-安装-Docker" class="headerlink" title="Centos7 安装 Docker"></a>Centos7 安装 Docker</h1><ol>
+<li><p>安装必要的一下系统工具</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@docker ~]# yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装必要的一下系统工具</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@docker ~]# yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查  &#x2F;etc&#x2F;yum-repos.d&#x2F;docker-ce.repo 中的 URL 地址是不是都是阿里云的，如果不是，那么把download-stage.docker.com全部替换成mirrors.aliyun.com&#x2F;docker-ce&#x2F;</p>
+<p>vim &#x2F;etc&#x2F;yum.repos.d&#x2F;docker-ce.repo</p>
+</li>
+<li><p>更新并安装Docker-CE</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@docker ~]# yum makecache fast</span><br><span class="line">[root@docker ~]# yum -y install docker-ce</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启Docker服务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@docker ~]# systemctl start docker</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Ubuntu-安装-Docker-CE"><a href="#Ubuntu-安装-Docker-CE" class="headerlink" title="Ubuntu 安装 Docker-CE"></a>Ubuntu 安装 Docker-CE</h1><h1 id="Docker-加速器配置"><a href="#Docker-加速器配置" class="headerlink" title="Docker 加速器配置"></a>Docker 加速器配置</h1><ol>
+<li><p>安装／升级Docker客户端</p>
+<p>推荐安装1.10.0以上版本的Docker客户端，参考文档<a href="https://yq.aliyun.com/articles/110806">docker-ce</a></p>
+</li>
+<li><p>配置镜像加速器</p>
+<p>针对Docker客户端版本大于 1.10.0 的用户</p>
+<p>您可以通过修改daemon配置文件&#x2F;etc&#x2F;docker&#x2F;daemon.json来使用加速器</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@docker ~]# mkdir -p /etc/docker</span><br><span class="line">[root@docker ~]# sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">&#123;</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://ztk30wcn.mirror.aliyuncs.com&quot;</span>]</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">&#125;</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">EOF</span></span><br><span class="line"></span><br><span class="line">[root@docker ~]# systemctl daemon-reload</span><br><span class="line">[root@docker ~]# systemctl restart docker</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DolphinScheduler V3集群部署</title>
+    <url>/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<p>参考：<a href="https://blog.csdn.net/mengxianglong123/article/details/123428420">https://blog.csdn.net/mengxianglong123/article/details/123428420</a></p>
+<p>集群配置：<a href="https://blog.csdn.net/weixin_45813468/article/details/126874997?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-126874997-blog-126506093.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-126874997-blog-126506093.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=2">(66条消息) DolphinScheduler3.0正式版本安装教程_知世i的博客-CSDN博客</a></p>
+<h1 id="DolphinScheduler简介"><a href="#DolphinScheduler简介" class="headerlink" title="DolphinScheduler简介"></a>DolphinScheduler简介</h1><h2 id="DolphinScheduler概述"><a href="#DolphinScheduler概述" class="headerlink" title="DolphinScheduler概述"></a>DolphinScheduler概述</h2><p><code>Apache DolphinScheduler</code>是一个分布式、易扩展的可视化DAG工作流任务调度平台。致力于解决数据处理流程中错综复杂的依赖关系，使调度系统在数据处理流程中开箱即用。</p>
+<h2 id="DolphinScheduler核心架构"><a href="#DolphinScheduler核心架构" class="headerlink" title="DolphinScheduler核心架构"></a>DolphinScheduler核心架构</h2><p>DolphinScheduler的主要角色如下：</p>
+<ul>
+<li>MasterServer 采用分布式无中心设计理念，MasterServer主要负责 DAG 任务切分、任务提交、任务监控，并同时监听其它MasterServer和WorkerServer的健康状态。</li>
+<li>WorkerServer 也采用分布式无中心设计理念，WorkerServer主要负责任务的执行和提供日志服务。</li>
+<li>ZooKeeper服务，系统中的MasterServer和WorkerServer节点都通过ZooKeeper来进行集群管理和容错。</li>
+<li>Alert服务，提供告警相关服务。</li>
+<li>API接口层，主要负责处理前端UI层的请求。</li>
+<li>UI，系统的前端页面，提供系统的各种可视化操作界面。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/5d7a46d072b8441693f6cbfeb135a7a7.png" alt="5d7a46d072b8441693f6cbfeb135a7a7"></p>
+]]></content>
+      <categories>
+        <category>dolphinScheduler</category>
+      </categories>
+      <tags>
+        <tag>dolphinScheduler</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>post</title>
     <url>/2022/10/31/hive/hive/</url>
     <content><![CDATA[<h1 id="Hive-编译为-MR-任务流程介绍"><a href="#Hive-编译为-MR-任务流程介绍" class="headerlink" title="Hive 编译为 MR 任务流程介绍"></a>Hive 编译为 MR 任务流程介绍</h1><ol>
@@ -812,6 +673,50 @@
       </categories>
       <tags>
         <tag>Hive</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python</title>
+    <url>/2022/10/04/python/python/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>scala</title>
+    <url>/2022/10/04/scala/scala/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>scala</category>
+      </categories>
+      <tags>
+        <tag>scala</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>spark</title>
+    <url>/2022/10/04/spark/spark/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>spark</category>
+      </categories>
+      <tags>
+        <tag>spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zookeeper</title>
+    <url>/2022/10/04/zookeeper/zookeeper/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>zookeeper</category>
+      </categories>
+      <tags>
+        <tag>zookeeper</tag>
       </tags>
   </entry>
   <entry>
@@ -866,66 +771,161 @@
       </tags>
   </entry>
   <entry>
-    <title>HDP3.1.5安装配置</title>
-    <url>/2022/11/19/HDP/HDP3.1.5%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>参考：<a href="https://blog.csdn.net/Happy_Sunshine_Boy/article/details/119236756">(66条消息) Ambari2.7.5-HDP3.1.5集群离线搭建_@TangXin的博客-CSDN博客</a></p>
-]]></content>
-      <categories>
-        <category>HDP</category>
-      </categories>
-      <tags>
-        <tag>HDP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tez V0.10.2 编译</title>
-    <url>/2023/03/02/Tez/Tez-0.10.2%E7%BC%96%E8%AF%91/</url>
-    <content><![CDATA[<h1 id="Tez-源码编译"><a href="#Tez-源码编译" class="headerlink" title="Tez 源码编译"></a>Tez 源码编译</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# wget --no-check-certificate https://dlcdn.apache.org/tez/0.10.2/apache-tez-0.10.2-src.tar.gz</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Tez</category>
-      </categories>
-      <tags>
-        <tag>tez</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>post</title>
-    <url>/2022/11/20/Linux/centos%E5%AE%89%E8%A3%85MySQL5.7/</url>
+    <title>superset 安装</title>
+    <url>/2022/10/04/BI/superset/superset%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>Linux</category>
+        <category>BI</category>
       </categories>
+      <tags>
+        <tag>BI/superset</tag>
+      </tags>
   </entry>
   <entry>
-    <title>post</title>
-    <url>/2023/03/03/Tez/Tez-0.10.2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="将-tez-安装包拷贝到集群，并解压-tar-包"><a href="#将-tez-安装包拷贝到集群，并解压-tar-包" class="headerlink" title="将 tez 安装包拷贝到集群，并解压 tar 包"></a>将 tez 安装包拷贝到集群，并解压 tar 包</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 tez-0.10.2]# mkdir /apps/tez/</span><br><span class="line">[root@node01 tez-0.10.2]# tar zxvf tez-0.10.2-SNAPSHOT-minimal.tar.gz -C /apps/tez/</span><br></pre></td></tr></table></figure>
+    <title>HDFS API</title>
+    <url>/2022/10/04/Hadoop/HDFS/hdfs-api/</url>
+    <content><![CDATA[<h1 id="HDFS-的-Java-API-操作"><a href="#HDFS-的-Java-API-操作" class="headerlink" title="HDFS 的 Java API 操作"></a>HDFS 的 Java API 操作</h1><p>HDFS 在生产应用中主要客户端的开发，其核心步骤是从 HDFS 提供的 API 中构造一个 HDFS 的访问客户端对象，然后通过该客户端对象操作（增删改查）HDFS 上的文件。</p>
+<h2 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h2><p>创建 Maven 工程，引入 pom  依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-common&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-hdfs&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-client&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
 
-<h1 id="上传-tez-依赖到-HDFS"><a href="#上传-tez-依赖到-HDFS" class="headerlink" title="上传 tez 依赖到 HDFS"></a>上传 tez 依赖到 HDFS</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 tez]# hadoop fs -mkdir -p /apps/tez</span><br><span class="line">[root@node01 tez-0.10.2]# hadoop fs -put tez-0.10.2-SNAPSHOT.tar.gz /apps/tez/</span><br></pre></td></tr></table></figure>
+<p><font color="red">配置 Windows 平台 Hadoop 环境</font></p>
+<p>在 Windows 上做 HDFS 客户端应用开发，需要设置 Hadoop 环境，而且要求是 windows 平台编译的 Hadoop ，不然会报以下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Failed to locate the winutils binary in the hadoop binary path java.io.IOException: Could not</span><br><span class="line">locate executable null\bin\winutils.exe in the Hadoop binaries.</span><br></pre></td></tr></table></figure>
 
-<h1 id="新建-tez-site-xml"><a href="#新建-tez-site-xml" class="headerlink" title="新建 tez-site.xml"></a>新建 tez-site.xml</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 hadoop]# echo &gt; tez-site.xml</span><br></pre></td></tr></table></figure>
+<p>为此我们需要进行如下的操作：</p>
+<ol>
+<li>在 windows 平台下编译 Hadoop 源码，或者在网上下载编译好的 Hadoop</li>
+<li>将编译好的 Hadoop 解压到任意目录</li>
+<li>在 windows 系统的 path 变量中加入 HADOOP_HOME 的 bin 目录</li>
+</ol>
+<h2 id="构造客户端对象"><a href="#构造客户端对象" class="headerlink" title="构造客户端对象"></a>构造客户端对象</h2><p>在 Java 中操作 HDFS，主要涉及一下 CLass：</p>
+<p>Configuration：该类的对象封装了客户端或者服务器的配置；</p>
+<p>FileSystem：该类的对象是一个文件系统对象，可以用该对象的一些方法来对文件进行操作，通过 FIleSystem 的静态方法 get 获得该对象。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(conf);</span><br></pre></td></tr></table></figure>
 
-<p>添加以下配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.lib.uris&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;$&#123;fs.defaultFS&#125;/apps/tez/tez-0.10.2-SNAPSHOT.tar.gz&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.use.cluster.hadoop-libs&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.am.resource.memory.mb&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;1024&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.am.resource.cpu.vcores&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.container.max.java.heap.fraction&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;0.4&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.task.resource.memory.mb&lt;/name&gt;</span><br><span class="line">    	&lt;value&gt;1024&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">    	&lt;name&gt;tez.task.resource.cpu.vcores&lt;/name&gt;</span><br><span class="line">    	&lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>get 方法从 conf 中的一个参数 fs.defaultFS 的配置值判断具体是什么类型的文件系统。如果我们的代码中没有指定 fs.defaultFS，并且工程 classpath 下也没有给定相应的配置，conf 中的默认值就来自于 Hadoop 的 jar 包中的 core-default.xml ，默认值为： file:&#x2F;&#x2F;&#x2F;，则获取的将不是一个 DistributedFileSystem 的实例，而是一个本地文件系统的客户端对象。</p>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里指定使用的是 hdfs 文件系统</span></span><br><span class="line">conf.set(<span class="string">&quot;fs.defaultFS&quot;</span>,<span class="string">&quot;hdfs://node01:9000&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过如下方式进行客户端身份配置</span></span><br><span class="line">Symtem.setProperty(<span class="string">&quot;HADOOP_USER_NAME&quot;</span>,<span class="string">&quot;root&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 FileSystem 的静态方法获取文件系统客户端对象</span></span><br><span class="line"><span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(conf);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以通过如下方式去指定文件系统的类型，并且同时设置用户身份</span></span><br><span class="line"><span class="type">FIleSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(<span class="keyword">new</span> <span class="title class_">URI</span>(<span class="string">&quot;hdfs://node01:9000&quot;</span>),conf,<span class="string">&quot;root&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个文件</span></span><br><span class="line">fs.create(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/warehourse&quot;</span>),<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上传一个文件</span></span><br><span class="line">fs.copyFromLocalFile(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;D://text.txt&quot;</span>),<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/warehourse&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭文件系统</span></span><br><span class="line">fs.close();</span><br></pre></td></tr></table></figure>
 
-<h1 id="修改-Hadoop-环境变量"><a href="#修改-Hadoop-环境变量" class="headerlink" title="修改 Hadoop 环境变量"></a>修改 Hadoop 环境变量</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 shellprofile.d]# echo &gt; tez.sh</span><br></pre></td></tr></table></figure>
+<p>Stream 流形式操作</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testUpload</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="type">FSDataOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> fs.create(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/1.txt&quot;</span>), <span class="literal">true</span>);</span><br><span class="line">    <span class="type">FileInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;D:\\1.txt&quot;</span>);</span><br><span class="line">    IOUtils.copy(inputStream, outputStream);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>添加 Tez 的 jar 包相关信息</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop_add_profile tez</span><br><span class="line">function _tez_hadoop_classpath</span><br><span class="line">&#123;</span><br><span class="line">    hadoop_add_classpath &quot;$HADOOP_HOME/etc/hadoop&quot; after</span><br><span class="line">    hadoop_add_classpath &quot;/apps/tez/*&quot; after</span><br><span class="line">    hadoop_add_classpath &quot;/apps/tez/lib/*&quot; after</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="案例：shell-定时采集数据至-HDFS"><a href="#案例：shell-定时采集数据至-HDFS" class="headerlink" title="案例：shell 定时采集数据至 HDFS"></a>案例：shell 定时采集数据至 HDFS</h1><p>上线的网站每天都会产生日志数据。 假如有这样的需求： 要求在凌晨 24 点开始操作前一天产生的日志文件， 准实时上传至 HDFS 集群上。  </p>
+<h2 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析"></a>技术分析</h2><p><strong>HDFS Shell：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop fs -put 			// 满足上传文件，不能满足定时、周期性传入</span><br></pre></td></tr></table></figure>
 
-<h1 id="修改-Hive-的计算引擎"><a href="#修改-Hive-的计算引擎" class="headerlink" title="修改 Hive 的计算引擎"></a>修改 Hive 的计算引擎</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 apps]# vim hive-3.1.2/conf/hive-site.xml</span><br></pre></td></tr></table></figure>
+<p><strong>Linux crontab：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">0	0	*	*	*	/shell/uploadFile2HDFS.sh		// 每天凌晨 12：00 执行一次</span><br></pre></td></tr></table></figure>
 
-<p>添加一下配置</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.execution.engine<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>tez<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.tez.container.size<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>1024<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h2><p>一般日志文件生成的逻辑由业务系统决定，比如每小时滚动一次， 或者一定大小滚动一次， 避免单个日志文件过大不方便操作。<br>比如滚动后的文件命名为 access.log.x,其中 x 为数字。 正在进行写的日志文件叫做 access.log。 这样的话， 如果日志文件后缀是 1\2\3 等数字， 则该文件满足需求可以上传， 就把该文件移动到准备上传的工作区间目录。工作区间有文件之后，可以使用 hadoop put 命令将文件上传。  </p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">读取日志文件的目录，判断是否有需要上传的文件</span></span><br><span class="line">echo &quot;log_src_dir:&quot;$log_src_dir</span><br><span class="line">ls $log_src_dir | while read fileNme</span><br><span class="line">do</span><br><span class="line">	if [[&quot;$fileName&quot; == access.log.*]]; then</span><br><span class="line">		date=`date +%Y_%m_%d_%H_%M_%S`</span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">将文件移动到待上传目录并重命名</span></span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">打印信息</span></span><br><span class="line">		echo &quot;moving $log_src_dir$fileName to $log_to_upload_dir&quot;XXXXX_click_log_$fileName</span><br><span class="line">		mv $log_src_dir$fileName $log_to_upload_dir&quot;XXXXXX_click_log_$fileName&quot;$date</span><br><span class="line">		echo $log_to_upload_dir&quot;XXXXX_click_log_$fileName&quot;$date &gt;&gt; $log_to_upload_dir&quot;willDone&quot;</span><br><span class="line">	fi</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>Tez</category>
+        <category>Hadoop</category>
       </categories>
       <tags>
-        <tag>tez</tag>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HDFS</title>
+    <url>/2022/10/04/Hadoop/HDFS/HDFS/</url>
+    <content><![CDATA[<h1 id="NameNode概述"><a href="#NameNode概述" class="headerlink" title="NameNode概述"></a>NameNode概述</h1><ol>
+<li>NameNode 是HDFS的核心</li>
+<li>NameNode也成为Master</li>
+<li>NameNode仅存储 HDFS  的元数据：文件系统中所有文件的目录树，并跟踪整个集群中的文件。</li>
+<li>NamNode 不存储实际数据或数据集。数据本身实际存储在 DataNode 中。</li>
+<li>NameNode 知道 HDFS 中任何给定文件的块列表及其位置。使用此信息 NameNode 知道如何从块中构建文件</li>
+<li>NameNode 并不持久化存储每个文件中各个块所在的 DataNode 的位置信息，这些信息会在系统启动时从数据节点重建。</li>
+<li>NameNode 对于 HDFS 至关重要，当 NameNode 关闭时，HDFS &#x2F; Hadoop 集群无法访问。</li>
+<li>NameNode 是 Hadoop 集群中的单点故障。</li>
+<li>NameNode 所在机器通常会配置有大量内存（RAM）。</li>
+</ol>
+<p>​	<img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20211021151454707.png" alt="image-20211021151454707"></p>
+<h1 id="DataNode概述"><a href="#DataNode概述" class="headerlink" title="DataNode概述"></a>DataNode概述</h1><ol>
+<li>DataNode 负责将实际数据存储在 HDFS 中。</li>
+<li>DataNode 也称为 Slave</li>
+<li>NameNode 和 DataNode 会保持不断通信。</li>
+<li>DataNode 启动时，也将自己发布到 NameNode 并汇报自己负责持有的块列表。</li>
+<li>当某个 DataNode 关闭时，不会影响数据或集群的可用性。NameNode 将安排有其他 DataNode 管理的块进行副本复制。</li>
+<li>DataNode 所在机器通常配置有大量的磁盘空间。因为实际数据存储在 DataNode 中。</li>
+<li>DataNode 会定期（dfs.heartbeat.interval 配置项配置，默认是3秒）向 NameNode 发送心跳，如果 NameNode 长时间（默认配置为10 min）没有接收到 DataNode 发送心跳，NameNode就会认为该 DataNode 失效，并进行此DataNode节点数据副本复制到其他DataNode节点，以保证副本数。</li>
+<li>block 汇报时间间隔取参数 dfs.blockreport.intervalMsec ，参数未配置默认为 6 小时。</li>
+</ol>
+<h1 id="HDFS工作机制"><a href="#HDFS工作机制" class="headerlink" title="HDFS工作机制"></a>HDFS工作机制</h1><p>NameNode 负责管理整个文件系统元数据；DataNode 负责管理具体文件数据块存储；Secondary NameNode 协助 NameNode 进行数据的备份。</p>
+<p>HDFS 的内部工作机制对客户端保持透明，客户端请求访问 HDFS 都是通过向 NameNode 申请来进行。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20211021191436177.png" alt="image-20211021191436177"></p>
+<h1 id="HDFS写数据流程"><a href="#HDFS写数据流程" class="headerlink" title="HDFS写数据流程"></a>HDFS写数据流程</h1><ol>
+<li><p>Client 发起文件上传请求，通过 RPC 与 NameNode 建立通讯，NameNode 检查目标文件是否已经存在，父目录是否存在，返回是否可以上传；</p>
+</li>
+<li><p>Client 请求第一个 Block 该传输到那些 DataNode 服务器上；</p>
+</li>
+<li><p>NameNode 根据配置文件中指定的备份数量以及副本放置策略进行文件分配，返回可用的 DataNode 地址（如：A、B、C）；</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">注：默认存储策略由BlockPlacementPolicyDefault类支持。也就是提到最经典的 3 副本策略。</span><br><span class="line">	1st replica 如果写请求方所在机器是其中一个 DataNode，则直接存放在本地，否则随机在集群中选择一个 DataNode。</span><br><span class="line">	2ed replica 第二副本存放于不同第一个副本的所在的机架。</span><br><span class="line">	3rd replica 第三个副本存放于第二个副本所在的机架，但是属于不同的 DataNode 节点</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20211022110459284.png" alt="image-20211022110459284"></p>
+</li>
+<li><p>CLient 请求 3 台 DataNode 中的一台 A 上传数据（本质上是一个 RPC 调用，建立 pipeline），A 收到请求会继续调用 B，然后 B 调用 C，将整个 pipeline 建立完成，后逐级返回 client；</p>
+</li>
+<li><p>client 开始往 A 上传第一个 block （先从磁盘读取数据放到一个本地内存缓存），以packet为单位（默认 64K），A收到一个packet就会传给 B，B 传给 C；A 每传一个 packet 会放入一个应答队列等待应答。</p>
+</li>
+<li><p>数据被分割成一个个 packet 数据包在 pipeline 上依次传输，在 pipeline 反方向上，逐个发送 ack （命令正确应答），最终由 pipeline 中第一个 DataNode 节点 A 将 pipeline ack 发送给client；</p>
+</li>
+<li><p>当一个 block 传输完成之后，client 再次请求 NameNode 上传第二个 block 到服务器。</p>
+</li>
+</ol>
+<h1 id="HDFS写数据流程（源码解读）"><a href="#HDFS写数据流程（源码解读）" class="headerlink" title="HDFS写数据流程（源码解读）"></a>HDFS写数据流程（源码解读）</h1><h1 id="HDFS-读取数据流程"><a href="#HDFS-读取数据流程" class="headerlink" title="HDFS 读取数据流程"></a>HDFS 读取数据流程</h1><ol>
+<li>Client 向 NameNode 发起 RPC 请求，来确定请求文件 Block 所在位置；</li>
+<li>NameNode 会视情况返回文件的部分或者全部 Block 列表，对于每个 block ，NameNode 都会返回含有该 block 副本的 DataNode 地址；</li>
+<li>这些返回的 DataNode 地址，会按照集群拓扑结构得出 DataNode 与客户端的距离，然后进行排序，排序两个规则：网络拓扑结构中距离 Client 近的排在靠前；心跳机制中超时汇报的 DataNode 状态为 STALE，这样的 DataNode 节点靠前；</li>
+<li>Client 选取考前的 DataNode 来读取 block，如果客户端本身就是 DataNode，那么将从本地直接获取数据；</li>
+<li>底层本事是建立 Socket Stream （FSDataInputStream）,重复的调用父类 DataInputStream 的 read 方法，直到这个块上的数据读取完毕；</li>
+<li>当读完列表的 block 后，若文件读取还没有结束，客户端会继续向 NameNode 获取下一批的 block 列表；</li>
+<li>读取完一个 block 都会进行 checksum 验证，如果读取 DataNode 时出现错误，客户端会通知 NameNode，然后再从下一个拥有该 block 副本的 DataNode 继续读；</li>
+<li>read 方法是并行读取 block 信息，不是一块一块的读取；NameNode 只是返回 Client 请求包含块的 DataNode 地址，并不是返回请求块的数据；</li>
+<li>最终读取所有的 block 会合并成一个完整的最终文件。</li>
+</ol>
+<h1 id="HDFS-读取数据流程（源码解读）"><a href="#HDFS-读取数据流程（源码解读）" class="headerlink" title="HDFS 读取数据流程（源码解读）"></a>HDFS 读取数据流程（源码解读）</h1>]]></content>
+      <categories>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>Hadoop/HDFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git</title>
+    <url>/2022/10/04/Tool/Git/git/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Tool</category>
+      </categories>
+      <tags>
+        <tag>Tool/Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AE</title>
+    <url>/2022/10/05/video/AE/AE/</url>
+    <content><![CDATA[<h1 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h1><p>Ctrl + N : 新建合成</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20221005231016775.png" alt="image-20221005231016775"></p>
+]]></content>
+      <categories>
+        <category>video</category>
+      </categories>
+      <tags>
+        <tag>video</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PR</title>
+    <url>/2022/10/05/video/PR/PR/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>video</category>
+      </categories>
+      <tags>
+        <tag>video</tag>
       </tags>
   </entry>
 </search>
