@@ -82,25 +82,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Data Warehouse</title>
-    <url>/2022/10/04/DW/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/</url>
-    <content><![CDATA[<h1 id="数据仓库概念"><a href="#数据仓库概念" class="headerlink" title="数据仓库概念"></a>数据仓库概念</h1><p>数据仓库，英文名称为 Data Warehouse，可简写为 DW 或 DWH。数据仓库，是为企业所有级别的决策制定过程，提供所有类型数据支持的战略集合。<br>它是单个数据存储，出于分析性报告和决策支持目的而创建。 为需要业务智能的企业，提供指导业务流程改进、监视时间、成本、质量以及控制。  </p>
-<p>数据仓库之父比尔·恩门（Bill Inmon）在1991年出版的 “Building the Data Warehouse”（《建立数据仓库》）一书中所提出的定义被广泛接受–数据仓<br>库（Data Warehouse）是一个面向主题的（Subject Oriented）、集成的（Integrated）、相对稳定的（Non-Volatile）、反映历史变化（Time<br>Variant）的数据集合，用于支持管理决策(Decision Making Support)。  </p>
-<ol>
-<li>面向主题：在较高层次上将企业信息系统的数据综合归并进行分析利用的抽象的概念。每个主题基本上对应一个相应的分析领域。  </li>
-<li>集成的：企业级数据，同时数据要保持一致性、完整性、有效性、精确性  </li>
-<li>稳定的：从某个时间段来看是保持不变的，没有更新操作、删除操作，以查询分析为主  </li>
-<li>反应历史变化：数仓中的数据主要存储的是反应历史某个时刻的状态信息的数据</li>
-</ol>
-]]></content>
-      <categories>
-        <category>DW</category>
-      </categories>
-      <tags>
-        <tag>DW</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Flink RPC</title>
     <url>/2022/10/04/Flink/flink-rpc/</url>
     <content><![CDATA[]]></content>
@@ -122,6 +103,25 @@
       </categories>
       <tags>
         <tag>Flink</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Data Warehouse</title>
+    <url>/2022/10/04/DW/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/</url>
+    <content><![CDATA[<h1 id="数据仓库概念"><a href="#数据仓库概念" class="headerlink" title="数据仓库概念"></a>数据仓库概念</h1><p>数据仓库，英文名称为 Data Warehouse，可简写为 DW 或 DWH。数据仓库，是为企业所有级别的决策制定过程，提供所有类型数据支持的战略集合。<br>它是单个数据存储，出于分析性报告和决策支持目的而创建。 为需要业务智能的企业，提供指导业务流程改进、监视时间、成本、质量以及控制。  </p>
+<p>数据仓库之父比尔·恩门（Bill Inmon）在1991年出版的 “Building the Data Warehouse”（《建立数据仓库》）一书中所提出的定义被广泛接受–数据仓<br>库（Data Warehouse）是一个面向主题的（Subject Oriented）、集成的（Integrated）、相对稳定的（Non-Volatile）、反映历史变化（Time<br>Variant）的数据集合，用于支持管理决策(Decision Making Support)。  </p>
+<ol>
+<li>面向主题：在较高层次上将企业信息系统的数据综合归并进行分析利用的抽象的概念。每个主题基本上对应一个相应的分析领域。  </li>
+<li>集成的：企业级数据，同时数据要保持一致性、完整性、有效性、精确性  </li>
+<li>稳定的：从某个时间段来看是保持不变的，没有更新操作、删除操作，以查询分析为主  </li>
+<li>反应历史变化：数仓中的数据主要存储的是反应历史某个时刻的状态信息的数据</li>
+</ol>
+]]></content>
+      <categories>
+        <category>DW</category>
+      </categories>
+      <tags>
+        <tag>DW</tag>
       </tags>
   </entry>
   <entry>
@@ -466,14 +466,6 @@
       </tags>
   </entry>
   <entry>
-    <title>post</title>
-    <url>/2022/11/20/Linux/centos%E5%AE%89%E8%A3%85MySQL5.7/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Linux</title>
     <url>/2022/10/04/Linux/linux/</url>
     <content><![CDATA[<h1 id="centos修改yum源为阿里"><a href="#centos修改yum源为阿里" class="headerlink" title="centos修改yum源为阿里"></a>centos修改yum源为阿里</h1><ol>
@@ -499,6 +491,14 @@
   </entry>
   <entry>
     <title>post</title>
+    <url>/2022/11/20/Linux/centos%E5%AE%89%E8%A3%85MySQL5.7/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Tez V0.10.2 安装配置</title>
     <url>/2023/03/03/Tez/Tez-0.10.2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="将-tez-安装包拷贝到集群，并解压-tar-包"><a href="#将-tez-安装包拷贝到集群，并解压-tar-包" class="headerlink" title="将 tez 安装包拷贝到集群，并解压 tar 包"></a>将 tez 安装包拷贝到集群，并解压 tar 包</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 tez-0.10.2]# mkdir /apps/tez/</span><br><span class="line">[root@node01 tez-0.10.2]# tar zxvf tez-0.10.2-SNAPSHOT-minimal.tar.gz -C /apps/tez/</span><br></pre></td></tr></table></figure>
 
@@ -782,52 +782,6 @@
       </tags>
   </entry>
   <entry>
-    <title>HDFS API</title>
-    <url>/2022/10/04/Hadoop/HDFS/hdfs-api/</url>
-    <content><![CDATA[<h1 id="HDFS-的-Java-API-操作"><a href="#HDFS-的-Java-API-操作" class="headerlink" title="HDFS 的 Java API 操作"></a>HDFS 的 Java API 操作</h1><p>HDFS 在生产应用中主要客户端的开发，其核心步骤是从 HDFS 提供的 API 中构造一个 HDFS 的访问客户端对象，然后通过该客户端对象操作（增删改查）HDFS 上的文件。</p>
-<h2 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h2><p>创建 Maven 工程，引入 pom  依赖</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-common&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-hdfs&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-client&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
-
-<p><font color="red">配置 Windows 平台 Hadoop 环境</font></p>
-<p>在 Windows 上做 HDFS 客户端应用开发，需要设置 Hadoop 环境，而且要求是 windows 平台编译的 Hadoop ，不然会报以下错误：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Failed to locate the winutils binary in the hadoop binary path java.io.IOException: Could not</span><br><span class="line">locate executable null\bin\winutils.exe in the Hadoop binaries.</span><br></pre></td></tr></table></figure>
-
-<p>为此我们需要进行如下的操作：</p>
-<ol>
-<li>在 windows 平台下编译 Hadoop 源码，或者在网上下载编译好的 Hadoop</li>
-<li>将编译好的 Hadoop 解压到任意目录</li>
-<li>在 windows 系统的 path 变量中加入 HADOOP_HOME 的 bin 目录</li>
-</ol>
-<h2 id="构造客户端对象"><a href="#构造客户端对象" class="headerlink" title="构造客户端对象"></a>构造客户端对象</h2><p>在 Java 中操作 HDFS，主要涉及一下 CLass：</p>
-<p>Configuration：该类的对象封装了客户端或者服务器的配置；</p>
-<p>FileSystem：该类的对象是一个文件系统对象，可以用该对象的一些方法来对文件进行操作，通过 FIleSystem 的静态方法 get 获得该对象。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(conf);</span><br></pre></td></tr></table></figure>
-
-<p>get 方法从 conf 中的一个参数 fs.defaultFS 的配置值判断具体是什么类型的文件系统。如果我们的代码中没有指定 fs.defaultFS，并且工程 classpath 下也没有给定相应的配置，conf 中的默认值就来自于 Hadoop 的 jar 包中的 core-default.xml ，默认值为： file:&#x2F;&#x2F;&#x2F;，则获取的将不是一个 DistributedFileSystem 的实例，而是一个本地文件系统的客户端对象。</p>
-<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里指定使用的是 hdfs 文件系统</span></span><br><span class="line">conf.set(<span class="string">&quot;fs.defaultFS&quot;</span>,<span class="string">&quot;hdfs://node01:9000&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过如下方式进行客户端身份配置</span></span><br><span class="line">Symtem.setProperty(<span class="string">&quot;HADOOP_USER_NAME&quot;</span>,<span class="string">&quot;root&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 FileSystem 的静态方法获取文件系统客户端对象</span></span><br><span class="line"><span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(conf);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以通过如下方式去指定文件系统的类型，并且同时设置用户身份</span></span><br><span class="line"><span class="type">FIleSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(<span class="keyword">new</span> <span class="title class_">URI</span>(<span class="string">&quot;hdfs://node01:9000&quot;</span>),conf,<span class="string">&quot;root&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个文件</span></span><br><span class="line">fs.create(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/warehourse&quot;</span>),<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上传一个文件</span></span><br><span class="line">fs.copyFromLocalFile(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;D://text.txt&quot;</span>),<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/warehourse&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭文件系统</span></span><br><span class="line">fs.close();</span><br></pre></td></tr></table></figure>
-
-<p>Stream 流形式操作</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testUpload</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="type">FSDataOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> fs.create(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/1.txt&quot;</span>), <span class="literal">true</span>);</span><br><span class="line">    <span class="type">FileInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;D:\\1.txt&quot;</span>);</span><br><span class="line">    IOUtils.copy(inputStream, outputStream);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="案例：shell-定时采集数据至-HDFS"><a href="#案例：shell-定时采集数据至-HDFS" class="headerlink" title="案例：shell 定时采集数据至 HDFS"></a>案例：shell 定时采集数据至 HDFS</h1><p>上线的网站每天都会产生日志数据。 假如有这样的需求： 要求在凌晨 24 点开始操作前一天产生的日志文件， 准实时上传至 HDFS 集群上。  </p>
-<h2 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析"></a>技术分析</h2><p><strong>HDFS Shell：</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop fs -put 			// 满足上传文件，不能满足定时、周期性传入</span><br></pre></td></tr></table></figure>
-
-<p><strong>Linux crontab：</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">0	0	*	*	*	/shell/uploadFile2HDFS.sh		// 每天凌晨 12：00 执行一次</span><br></pre></td></tr></table></figure>
-
-<h2 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h2><p>一般日志文件生成的逻辑由业务系统决定，比如每小时滚动一次， 或者一定大小滚动一次， 避免单个日志文件过大不方便操作。<br>比如滚动后的文件命名为 access.log.x,其中 x 为数字。 正在进行写的日志文件叫做 access.log。 这样的话， 如果日志文件后缀是 1\2\3 等数字， 则该文件满足需求可以上传， 就把该文件移动到准备上传的工作区间目录。工作区间有文件之后，可以使用 hadoop put 命令将文件上传。  </p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">读取日志文件的目录，判断是否有需要上传的文件</span></span><br><span class="line">echo &quot;log_src_dir:&quot;$log_src_dir</span><br><span class="line">ls $log_src_dir | while read fileNme</span><br><span class="line">do</span><br><span class="line">	if [[&quot;$fileName&quot; == access.log.*]]; then</span><br><span class="line">		date=`date +%Y_%m_%d_%H_%M_%S`</span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">将文件移动到待上传目录并重命名</span></span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">打印信息</span></span><br><span class="line">		echo &quot;moving $log_src_dir$fileName to $log_to_upload_dir&quot;XXXXX_click_log_$fileName</span><br><span class="line">		mv $log_src_dir$fileName $log_to_upload_dir&quot;XXXXXX_click_log_$fileName&quot;$date</span><br><span class="line">		echo $log_to_upload_dir&quot;XXXXX_click_log_$fileName&quot;$date &gt;&gt; $log_to_upload_dir&quot;willDone&quot;</span><br><span class="line">	fi</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Hadoop</category>
-      </categories>
-      <tags>
-        <tag>Hadoop</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HDFS</title>
     <url>/2022/10/04/Hadoop/HDFS/HDFS/</url>
     <content><![CDATA[<h1 id="NameNode概述"><a href="#NameNode概述" class="headerlink" title="NameNode概述"></a>NameNode概述</h1><ol>
@@ -891,6 +845,52 @@
       </categories>
       <tags>
         <tag>Hadoop/HDFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HDFS API</title>
+    <url>/2022/10/04/Hadoop/HDFS/hdfs-api/</url>
+    <content><![CDATA[<h1 id="HDFS-的-Java-API-操作"><a href="#HDFS-的-Java-API-操作" class="headerlink" title="HDFS 的 Java API 操作"></a>HDFS 的 Java API 操作</h1><p>HDFS 在生产应用中主要客户端的开发，其核心步骤是从 HDFS 提供的 API 中构造一个 HDFS 的访问客户端对象，然后通过该客户端对象操作（增删改查）HDFS 上的文件。</p>
+<h2 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h2><p>创建 Maven 工程，引入 pom  依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-common&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-hdfs&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hadoop-client&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+<p><font color="red">配置 Windows 平台 Hadoop 环境</font></p>
+<p>在 Windows 上做 HDFS 客户端应用开发，需要设置 Hadoop 环境，而且要求是 windows 平台编译的 Hadoop ，不然会报以下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Failed to locate the winutils binary in the hadoop binary path java.io.IOException: Could not</span><br><span class="line">locate executable null\bin\winutils.exe in the Hadoop binaries.</span><br></pre></td></tr></table></figure>
+
+<p>为此我们需要进行如下的操作：</p>
+<ol>
+<li>在 windows 平台下编译 Hadoop 源码，或者在网上下载编译好的 Hadoop</li>
+<li>将编译好的 Hadoop 解压到任意目录</li>
+<li>在 windows 系统的 path 变量中加入 HADOOP_HOME 的 bin 目录</li>
+</ol>
+<h2 id="构造客户端对象"><a href="#构造客户端对象" class="headerlink" title="构造客户端对象"></a>构造客户端对象</h2><p>在 Java 中操作 HDFS，主要涉及一下 CLass：</p>
+<p>Configuration：该类的对象封装了客户端或者服务器的配置；</p>
+<p>FileSystem：该类的对象是一个文件系统对象，可以用该对象的一些方法来对文件进行操作，通过 FIleSystem 的静态方法 get 获得该对象。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(conf);</span><br></pre></td></tr></table></figure>
+
+<p>get 方法从 conf 中的一个参数 fs.defaultFS 的配置值判断具体是什么类型的文件系统。如果我们的代码中没有指定 fs.defaultFS，并且工程 classpath 下也没有给定相应的配置，conf 中的默认值就来自于 Hadoop 的 jar 包中的 core-default.xml ，默认值为： file:&#x2F;&#x2F;&#x2F;，则获取的将不是一个 DistributedFileSystem 的实例，而是一个本地文件系统的客户端对象。</p>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里指定使用的是 hdfs 文件系统</span></span><br><span class="line">conf.set(<span class="string">&quot;fs.defaultFS&quot;</span>,<span class="string">&quot;hdfs://node01:9000&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过如下方式进行客户端身份配置</span></span><br><span class="line">Symtem.setProperty(<span class="string">&quot;HADOOP_USER_NAME&quot;</span>,<span class="string">&quot;root&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 FileSystem 的静态方法获取文件系统客户端对象</span></span><br><span class="line"><span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(conf);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以通过如下方式去指定文件系统的类型，并且同时设置用户身份</span></span><br><span class="line"><span class="type">FIleSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(<span class="keyword">new</span> <span class="title class_">URI</span>(<span class="string">&quot;hdfs://node01:9000&quot;</span>),conf,<span class="string">&quot;root&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个文件</span></span><br><span class="line">fs.create(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/warehourse&quot;</span>),<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上传一个文件</span></span><br><span class="line">fs.copyFromLocalFile(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;D://text.txt&quot;</span>),<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/warehourse&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭文件系统</span></span><br><span class="line">fs.close();</span><br></pre></td></tr></table></figure>
+
+<p>Stream 流形式操作</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testUpload</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="type">FSDataOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> fs.create(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/1.txt&quot;</span>), <span class="literal">true</span>);</span><br><span class="line">    <span class="type">FileInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;D:\\1.txt&quot;</span>);</span><br><span class="line">    IOUtils.copy(inputStream, outputStream);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="案例：shell-定时采集数据至-HDFS"><a href="#案例：shell-定时采集数据至-HDFS" class="headerlink" title="案例：shell 定时采集数据至 HDFS"></a>案例：shell 定时采集数据至 HDFS</h1><p>上线的网站每天都会产生日志数据。 假如有这样的需求： 要求在凌晨 24 点开始操作前一天产生的日志文件， 准实时上传至 HDFS 集群上。  </p>
+<h2 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析"></a>技术分析</h2><p><strong>HDFS Shell：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop fs -put 			// 满足上传文件，不能满足定时、周期性传入</span><br></pre></td></tr></table></figure>
+
+<p><strong>Linux crontab：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">0	0	*	*	*	/shell/uploadFile2HDFS.sh		// 每天凌晨 12：00 执行一次</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h2><p>一般日志文件生成的逻辑由业务系统决定，比如每小时滚动一次， 或者一定大小滚动一次， 避免单个日志文件过大不方便操作。<br>比如滚动后的文件命名为 access.log.x,其中 x 为数字。 正在进行写的日志文件叫做 access.log。 这样的话， 如果日志文件后缀是 1\2\3 等数字， 则该文件满足需求可以上传， 就把该文件移动到准备上传的工作区间目录。工作区间有文件之后，可以使用 hadoop put 命令将文件上传。  </p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">读取日志文件的目录，判断是否有需要上传的文件</span></span><br><span class="line">echo &quot;log_src_dir:&quot;$log_src_dir</span><br><span class="line">ls $log_src_dir | while read fileNme</span><br><span class="line">do</span><br><span class="line">	if [[&quot;$fileName&quot; == access.log.*]]; then</span><br><span class="line">		date=`date +%Y_%m_%d_%H_%M_%S`</span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">将文件移动到待上传目录并重命名</span></span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">打印信息</span></span><br><span class="line">		echo &quot;moving $log_src_dir$fileName to $log_to_upload_dir&quot;XXXXX_click_log_$fileName</span><br><span class="line">		mv $log_src_dir$fileName $log_to_upload_dir&quot;XXXXXX_click_log_$fileName&quot;$date</span><br><span class="line">		echo $log_to_upload_dir&quot;XXXXX_click_log_$fileName&quot;$date &gt;&gt; $log_to_upload_dir&quot;willDone&quot;</span><br><span class="line">	fi</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
       </tags>
   </entry>
   <entry>

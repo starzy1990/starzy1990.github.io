@@ -48,8 +48,8 @@ http://example.com/tags/azkaban/
 http://example.com/tags/Hadoop/
 http://example.com/tags/superset/
 http://example.com/tags/AI/
-http://example.com/tags/DW/
 http://example.com/tags/Flink/
+http://example.com/tags/DW/
 http://example.com/tags/Go/
 http://example.com/tags/HBase/
 http://example.com/tags/HDP/
@@ -70,8 +70,8 @@ http://example.com/tags/Hadoop-HDFS/
 http://example.com/tags/Tool-Git/
 http://example.com/tags/video/
 http://example.com/categories/AI/
-http://example.com/categories/DW/
 http://example.com/categories/Flink/
+http://example.com/categories/DW/
 http://example.com/categories/Go/
 http://example.com/categories/HBase/
 http://example.com/categories/HDP/
