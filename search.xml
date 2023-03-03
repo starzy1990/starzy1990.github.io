@@ -880,7 +880,9 @@
   <entry>
     <title>Tez V0.10.2 编译</title>
     <url>/2023/03/02/Tez/Tez-0.10.2%E7%BC%96%E8%AF%91/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="Tez-源码编译"><a href="#Tez-源码编译" class="headerlink" title="Tez 源码编译"></a>Tez 源码编译</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@centos7 soft]# wget --no-check-certificate https://dlcdn.apache.org/tez/0.10.2/apache-tez-0.10.2-src.tar.gz</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>Tez</category>
       </categories>
@@ -892,5 +894,38 @@
     <title>post</title>
     <url>/2022/11/20/Linux/centos%E5%AE%89%E8%A3%85MySQL5.7/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>post</title>
+    <url>/2023/03/03/Tez/Tez-0.10.2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="将-tez-安装包拷贝到集群，并解压-tar-包"><a href="#将-tez-安装包拷贝到集群，并解压-tar-包" class="headerlink" title="将 tez 安装包拷贝到集群，并解压 tar 包"></a>将 tez 安装包拷贝到集群，并解压 tar 包</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 tez-0.10.2]# mkdir /apps/tez/</span><br><span class="line">[root@node01 tez-0.10.2]# tar zxvf tez-0.10.2-SNAPSHOT-minimal.tar.gz -C /apps/tez/</span><br></pre></td></tr></table></figure>
+
+<h1 id="上传-tez-依赖到-HDFS"><a href="#上传-tez-依赖到-HDFS" class="headerlink" title="上传 tez 依赖到 HDFS"></a>上传 tez 依赖到 HDFS</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 tez]# hadoop fs -mkdir -p /apps/tez</span><br><span class="line">[root@node01 tez-0.10.2]# hadoop fs -put tez-0.10.2-SNAPSHOT.tar.gz /apps/tez/</span><br></pre></td></tr></table></figure>
+
+<h1 id="新建-tez-site-xml"><a href="#新建-tez-site-xml" class="headerlink" title="新建 tez-site.xml"></a>新建 tez-site.xml</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 hadoop]# echo &gt; tez-site.xml</span><br></pre></td></tr></table></figure>
+
+<p>添加以下配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.lib.uris&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;$&#123;fs.defaultFS&#125;/apps/tez/tez-0.10.2-SNAPSHOT.tar.gz&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.use.cluster.hadoop-libs&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.am.resource.memory.mb&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;1024&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.am.resource.cpu.vcores&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.container.max.java.heap.fraction&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;0.4&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;tez.task.resource.memory.mb&lt;/name&gt;</span><br><span class="line">    	&lt;value&gt;1024&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">    	&lt;name&gt;tez.task.resource.cpu.vcores&lt;/name&gt;</span><br><span class="line">    	&lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改-Hadoop-环境变量"><a href="#修改-Hadoop-环境变量" class="headerlink" title="修改 Hadoop 环境变量"></a>修改 Hadoop 环境变量</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 shellprofile.d]# echo &gt; tez.sh</span><br></pre></td></tr></table></figure>
+
+<p>添加 Tez 的 jar 包相关信息</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop_add_profile tez</span><br><span class="line">function _tez_hadoop_classpath</span><br><span class="line">&#123;</span><br><span class="line">    hadoop_add_classpath &quot;$HADOOP_HOME/etc/hadoop&quot; after</span><br><span class="line">    hadoop_add_classpath &quot;/apps/tez/*&quot; after</span><br><span class="line">    hadoop_add_classpath &quot;/apps/tez/lib/*&quot; after</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改-Hive-的计算引擎"><a href="#修改-Hive-的计算引擎" class="headerlink" title="修改 Hive 的计算引擎"></a>修改 Hive 的计算引擎</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@node01 apps]# vim hive-3.1.2/conf/hive-site.xml</span><br></pre></td></tr></table></figure>
+
+<p>添加一下配置</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.execution.engine<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>tez<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.tez.container.size<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>1024<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Tez</category>
+      </categories>
+      <tags>
+        <tag>tez</tag>
+      </tags>
   </entry>
 </search>
