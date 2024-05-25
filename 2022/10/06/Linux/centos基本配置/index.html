@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            centos基本配置 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">starzy</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/icons/avatar.gif"/>
+                
+            </div>
+            <div class="sidebar-author-name">starzy</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">centos基本配置</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-10-06
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-11-19
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/Linux/">Linux</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=centos基本配置&url=http://example.com/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/&pic=http://example.com/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=centos基本配置&url=http://example.com/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/&via=starzy" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/&title=centos基本配置" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=starzy&title=centos基本配置&summary=&pics=http://example.com/null&url=http://example.com/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/&text=centos基本配置" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/Linux/ >Linux</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h1 id="centos修改yum源为阿里"><a href="#centos修改yum源为阿里" class="headerlink" title="centos修改yum源为阿里"></a>centos修改yum源为阿里</h1><ol>
+<li><p>备份原来 yum 文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo_bak</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载阿里云的 CentOS-Base.repo 到&#x2F;etc&#x2F;yum.repos.d&#x2F;</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清空 yum 缓存</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# yum clean all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成新的阿里云的yum缓存，加速下载预热数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# yum makecache</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="时间同步设置"><a href="#时间同步设置" class="headerlink" title="时间同步设置"></a>时间同步设置</h1><p>安装配置时间同步</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# yum install ntpdate -y</span><br><span class="line">[root@node01 ~]# ntpdate time1.aliyun.com</span><br><span class="line">[root@node01 ~]# timedatectl set-timezone Asia/Shanghai     #设置时区</span><br></pre></td></tr></table></figure>
+
+<p>时间同步服务器</p>
+<table>
+<thead>
+<tr>
+<th>区域</th>
+<th>域名</th>
+<th>IP池</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>中国</strong></td>
+<td>cn.ntp.org.cn</td>
+<td>118.24.4.66 （自有节点） <br>118.24.195.65 （自有节点）<br>118.24.236.43 （自有节点）<br>202.108.6.95 <br>120.25.108.11 <br>182.92.12.11 <br>203.107.6.88 <br>120.25.115.20</td>
+</tr>
+<tr>
+<td><strong>中国教育网</strong></td>
+<td>edu.ntp.org.cn</td>
+<td>202.112.31.197 <br>202.112.29.82 <br>202.118.1.130 <br>202.118.1.81</td>
+</tr>
+<tr>
+<td><strong>中国香港</strong></td>
+<td>hk.ntp.org.cn</td>
+<td>118.193.151.223</td>
+</tr>
+<tr>
+<td><strong>中国台湾</strong></td>
+<td>tw.ntp.org.cn</td>
+<td>103.18.128.60</td>
+</tr>
+<tr>
+<td><strong>美国</strong></td>
+<td>us.ntp.org.cn</td>
+<td>158.69.48.97  <br>216.218.254.202 <br>208.53.158.34 <br>66.228.42.59</td>
+</tr>
+<tr>
+<td><strong>新加坡</strong></td>
+<td>sgp.ntp.org.cn</td>
+<td>103.11.143.248 <br>202.73.57.107 <br>128.199.134.40 <br>218.186.3.36 <br>188.166.245.58</td>
+</tr>
+<tr>
+<td><strong>韩国</strong></td>
+<td>kr.ntp.org.cn</td>
+<td>211.233.40.78 <br>106.247.248.106</td>
+</tr>
+<tr>
+<td><strong>日本</strong></td>
+<td>jp.ntp.org.cn</td>
+<td>106.186.122.232 <br> 106.187.100.179 <br> 133.100.11.8 <br> 129.250.35.251</td>
+</tr>
+<tr>
+<td><strong>德国</strong></td>
+<td>de.ntp.org.cn</td>
+<td>131.188.3.220</td>
+</tr>
+<tr>
+<td><strong>印度尼西亚</strong></td>
+<td>ina.ntp.org.cn</td>
+<td>203.114.74.17</td>
+</tr>
+</tbody></table>
+<h1 id="修改主机名称"><a href="#修改主机名称" class="headerlink" title="修改主机名称"></a>修改主机名称</h1><p>修改文件hostname文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@centos7 ~]# vim /etc/hostname</span><br></pre></td></tr></table></figure>
+
+<p>配置域名映射</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# vim /etc/hosts</span><br><span class="line">    192.168.2.11 node01</span><br><span class="line">    192.168.2.12 node02</span><br><span class="line">    192.168.2.13 node03</span><br></pre></td></tr></table></figure>
+
+<h1 id="防火墙设置"><a href="#防火墙设置" class="headerlink" title="防火墙设置"></a>防火墙设置</h1><h2 id="centos-6-防火墙"><a href="#centos-6-防火墙" class="headerlink" title="centos 6 防火墙"></a>centos 6 防火墙</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop01 opt]# service iptables stop    //关闭防火墙</span><br><span class="line">[root@hadoop01 ~]# service iptables start     //打开防火墙</span><br><span class="line">[root@hadoop01 ~]# service iptables status      //查看防火墙状态</span><br><span class="line">[root@hadoop01 ~]# chkconfig iptables on             //永久开启防火墙</span><br><span class="line">[root@hadoop01 ~]# chkconfig --list iptables       //查看状态</span><br><span class="line">[root@hadoop01 ~]# chkconfig iptables off       //永久关闭防火墙</span><br></pre></td></tr></table></figure>
+
+<h2 id="centos7-防火墙"><a href="#centos7-防火墙" class="headerlink" title="centos7 防火墙"></a>centos7 防火墙</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# systemctl status firewalld.service   //查看防火墙状态</span><br><span class="line">[root@node01 ~]# systemctl start firewalld.service      //启动防火墙</span><br><span class="line">[root@node01 ~]# systemctl stop firewalld.service      //关闭防火墙</span><br><span class="line">[root@node01 ~]# systemctl disable firewalld.service        //禁止防火墙启动</span><br><span class="line">[root@node01 ~]# systemctl enabled firewalld.service     //启用防火墙启动</span><br></pre></td></tr></table></figure>
+
+<h1 id="关闭selinux"><a href="#关闭selinux" class="headerlink" title="关闭selinux"></a>关闭selinux</h1><p>编辑配置文件注释SELINUX&#x3D;enforcing和SELINUXTYPE&#x3D;targeted，添加SELINUX&#x3D;disabled</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/selinux/config</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20221006184948578.png" alt="image-20221006184948578"></p>
+<p>编辑完成后并保存，重启服务器即可生效</p>
+<h1 id="SSH-免密配置"><a href="#SSH-免密配置" class="headerlink" title="SSH 免密配置"></a>SSH 免密配置</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# ssh-keygen</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20221006185339826.png" alt="image-20221006185339826"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# ssh-copy-id node01</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20221006185450164.png" alt="image-20221006185450164"></p>
+<p><font color='red'> <strong>注意:</strong> </font></p>
+<p>linux 最小化安装的问题，-bash: ssh-copy-id: command not found，无法使用ssh-copy-id解决方法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node01 ~]# yum -y install openssh-clients</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2022/10/06/Linux/centos%E5%AE%89%E8%A3%85JDK8/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>centos安装JDK8</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2022/10/05/video/PR/PR/">
+        <span>PR</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2022/10/06/Linux/centos%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#centos%E4%BF%AE%E6%94%B9yum%E6%BA%90%E4%B8%BA%E9%98%BF%E9%87%8C"><span class="toc-number">1.</span> <span class="toc-text">centos修改yum源为阿里</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">时间同步设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%A7%B0"><span class="toc-number">3.</span> <span class="toc-text">修改主机名称</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">防火墙设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#centos-6-%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">4.1.</span> <span class="toc-text">centos 6 防火墙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#centos7-%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">4.2.</span> <span class="toc-text">centos7 防火墙</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E9%97%ADselinux"><span class="toc-number">5.</span> <span class="toc-text">关闭selinux</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SSH-%E5%85%8D%E5%AF%86%E9%85%8D%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">SSH 免密配置</span></a></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2024 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        starzy
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >
