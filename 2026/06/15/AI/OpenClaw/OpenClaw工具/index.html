@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            OpenClaw 工具 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-15
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">OpenClaw 工具</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h2 id="内置工具介绍"><a href="#内置工具介绍" class="headerlink" title="内置工具介绍"></a>内置工具介绍</h2><h3 id="内置工具介绍-1"><a href="#内置工具介绍-1" class="headerlink" title="内置工具介绍"></a>内置工具介绍</h3><p>OpenClaw 有很多内置工具，这些工具是OpenClaw丰富功能的基石，可以通过 <a target="_blank" rel="noopener" href="https://docs.openclaw.ai/tools">https://docs.openclaw.ai/tools</a> 查看内置工具，这些内置工具介绍如下：</p>
+<ul>
+<li>apply_patch Tool:允许一次性、原子性地对单个或多个文件进行复杂的更改。</li>
+<li>Brave Search：OpenClaw 使用 Brave Search 作为 web_search 的默认提供商，可以进行网络搜索。注意：需要付费。</li>
+<li>Perplexity Sonar ：OpenClaw 中 web_search工具的另一个搜索提供商（provider）选项。注意：需要付费。</li>
+<li>Diffs:核心功能是将文本内容的更改（差异）可视化，用于清晰呈现“修改了什么”。</li>
+<li>PDFTool：读取PDF文档，需要大模型原生支持PDF文件读取。</li>
+<li>Exec Tool：执行工具，执行shell命令，支持前台和后台执行。</li>
+<li>Exec Approvals：执行批准，用于控制Agent在真实主机上执行命令的安全护栏，只有用户批准都同意时，才允许执行命令。</li>
+<li>LLM Task:结构化输出,强制模型输出纯 JSON 格式，运行过程中不会暴露任何工具调用。</li>
+<li>Lobster :Lobster 是 OpenClaw 中一个用于运行类型化、可组合工作流管道的可选插件工具。其核心设计理念是将多步骤、需要人工审批的复杂任务，封装成一次确定性的操作，从而减少 AI 代理的来回调用和 Token 消耗。</li>
+<li>Reaction:该功能为表情回复功能，允许 OpenClaw 代理在支持的聊天平台上，对特定消息执行添加或移除表情符号回复。</li>
+</ul>
+<h3 id="配置操作系统文件功能"><a href="#配置操作系统文件功能" class="headerlink" title="配置操作系统文件功能"></a>配置操作系统文件功能</h3><p>OpenClaw安装后，默认对话中操作系统文件是禁止的，即不能读取、查看文件。可以通过如下命令来切换到完整工具集使用，放开文件读写（read&#x2F;write）、命令执行（exec）、浏览器控制等能力。</p>
+<p>在Ubuntu终端执行如下命令：</p>
+<pre><code class="shell"># 使用完整工具集
+openclaw config set tools.profile full
+
+# 设置执行主机为gateway，表示本机，如果使用docker部署需要设置为 sandbox
+openclaw config set tools.exec.host &quot;gateway&quot;
+
+#重启gateway
+openclaw gateway restart
+</code></pre>
+<p>以上命令执行完成后，实际等同于在 <strong>&#x2F;home&#x2F;starzy&#x2F;.openclaw&#x2F;openclaw.json</strong> 文件中tools部分加入如下内容：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260618000533045.png" alt="image-20260618000533045"></p>
+<pre><code>我有一系列工作需要做，请一次性完成如下内容：
+1. 在桌面上创建 my\_dir目录，我的桌面地址/home/starzy/Desktop
+2. 然后在该目录中创建&quot;data.txt&quot;文件 
+3. 在该文件中写入&quot;hello word&quot; 
+4. 并在最后将&quot;data.txt&quot;这个文件重命名为&quot;hello.txt&quot;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260618001114382.png" alt="image-20260618001114382"></p>
+<h2 id="配置网络搜索功能"><a href="#配置网络搜索功能" class="headerlink" title="配置网络搜索功能"></a>配置网络搜索功能</h2><p>OpenClaw中内置工具支持的Brave Search和Perplexity Sonar两个网络搜索工具都需要付费，没有免费额度且需要绑定信用卡验证，国内使用不方便，我们可以通过配置让OpenClaw使用Tavily进行网络信息搜索。</p>
+<p>Tavily是一款专为大型语言模型（LLM）和AI智能体（Agent）设计的实时搜索引擎API，它通过简单的API调用为AI应用提供精准、高效的信息支持，自动提取关键信息，去除广告和SEO优化内容，优先展示权威来源。</p>
+<p>Tavily官网地址：<a target="_blank" rel="noopener" href="https://app.tavily.com/home">https://app.tavily.com/home</a> ，用户注册后，免费版每月提供1000次API调用，适合个人开发和小规模使用。</p>
+<p>OpenClaw使用Tavily搜索功能需要配置 <strong>openclaw-tavily</strong> 插件，可以参考：<a target="_blank" rel="noopener" href="https://github.com/framix-team/openclaw-tavily">https://github.com/framix-team/openclaw-tavily</a> ，该插件具备多个工具，如下：</p>
+<ul>
+<li>tavily_search：核心搜索功能。</li>
+<li>tavily_extract：从 URL 中提取干净的标记下载&#x2F;文本内容。</li>
+<li>tavily_crawl：系统化爬取网站内容。</li>
+<li>tavily_map：发现并列出网站上的所有 URL。</li>
+<li>tavily_research：通过全面的报告进行深入研究任务。</li>
+</ul>
+<p>OpenClaw使用配置“openclaw-trvily”插件具体步骤如下：</p>
+<p><strong>1) 获取Tavily apikey</strong></p>
+<p>登录 <a target="_blank" rel="noopener" href="https://app.tavily.com/home">https://app.tavily.com/home</a> ，获取apikey：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260618001259106.png" alt="image-20260618001259106"></p>
+<p><strong>2) 从源代码安装“openclaw-tavily”插件</strong></p>
+<pre><code class="shell">#在Ubuntun终端执行如下命令
+git clone https://github.com/framix-team/openclaw-tavily.git ~/.openclaw/extensions/openclaw-tavily
+cd ~/.openclaw/extensions/openclaw-tavily
+npm install --omit=dev
+</code></pre>
+<p><strong>3) OpenClaw中配置tavily apikey</strong></p>
+<p>打开“&#x2F;home&#x2F;.openclaw&#x2F;openclaw.json”文件，在“plugins”模块，配置“entries”，增加如下内容并保存。</p>
+<pre><code class="json">&quot;openclaw-tavily&quot;: {
+        &quot;enabled&quot;: true,
+        &quot;config&quot;: {
+          &quot;apiKey&quot;: &quot;tvly-dev-m....&quot;
+        }
+      },
+</code></pre>
+<p>在plugins中配置allow,配置内容加入“openclaw-tavily”:</p>
+<pre><code class="json">&quot;plugins&quot;: {
+    &quot;allow&quot;:[
+      &quot;openclaw-tavily&quot;
+    ]
+  },
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260618001941816.png" alt="image-20260618001941816"></p>
+<p><strong>4) 重启OpenClaw gateway</strong></p>
+<pre><code>openclaw gateway restart
+</code></pre>
+<p><strong>5) OpenClaw客户端进行网络搜索测试</strong></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260618205806957.png" alt="image-20260618205806957"></p>
+<h2 id="配置-Firecrawl-爬取网页功能"><a href="#配置-Firecrawl-爬取网页功能" class="headerlink" title="配置 Firecrawl 爬取网页功能"></a>配置 Firecrawl 爬取网页功能</h2><p>firecrawl 是 OpenClaw 中用于 web_fetch 工具的备用内容提取服务，专门处理 JavaScript 密集型网站或被普通 HTTP 抓取屏蔽的页面。该工具可以绕过反爬虫机制、智能缓存爬取结果、智能提取页面主要内容并去除广告。</p>
+<p>在 OpenClaw 中使用 Firecrawl 需要首先获取firecrawl apikey，登录 <a target="_blank" rel="noopener" href="https://www.firecrawl.dev/">https://www.firecrawl.dev/</a>  获取 firecrawl 的 apikey（注册账号后，默认免费500 credits，即抓取500个网页）:</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260618210748401.png" alt="image-20260618210748401"></p>
+<p>然后在Ubuntu中配置 &#x2F;home&#x2F;starzy&#x2F;.openclaw&#x2F;openclaw.json 文件，在tools部分添加如下内容：</p>
+<pre><code>{
+  &quot;tools&quot;: {
+    &quot;web&quot;: {
+      &quot;fetch&quot;: {
+        &quot;firecrawl&quot;: {
+          &quot;apiKey&quot;: &quot;fc....&quot;,
+          &quot;baseUrl&quot;: &quot;https://api.firecrawl.dev&quot;,
+          &quot;onlyMainContent&quot;: true,
+          &quot;maxAgeMs&quot;: 172800000,
+          &quot;timeoutSeconds&quot;: 60
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<p>当存在 apikey 时，firecrawl.enabled 默认为true；MaxAgeMs控制缓存结果可以保存多久（毫秒），默认2天。</p>
+<p>以上配置完成后，执行如下命令重启geteway生效:</p>
+<pre><code>openclaw gateway restart
+</code></pre>
+<p>测试爬取网页数据，爬取网页 <a target="_blank" rel="noopener" href="https://gaokao.eol.cn/e_html/gk/fsx/index.shtml">https://gaokao.eol.cn/e_html/gk/fsx/index.shtml</a> ,具体如下 ：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260618212434407.png" alt="image-20260618212434407"></p>
+<h2 id="配置OpenClaw操作浏览器"><a href="#配置OpenClaw操作浏览器" class="headerlink" title="配置OpenClaw操作浏览器"></a>配置OpenClaw操作浏览器</h2><p>OpenClaw 能操作所有主流的 Chromium 浏览器（Chrome、Brave、Edge、Chromium），不支持 Firefox、Safari 等非 Chromium 内核的浏览器。</p>
+<p>本机模式中，OpenClaw 会按 Chrome → Brave → Edge → Chromium → Chrome Canary 的顺序自动检测并选用第一个可用的 Chromium 浏览器。</p>
+<p>按照如下步骤安装Chrome浏览器并通过与OpenClaw对话操作浏览器：</p>
+<p><strong>1) Ubuntu安装Chrome浏览器</strong></p>
+<pre><code class="shell">#使用wget下载浏览器
+cd /home/starzy
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+#安装Google Chrome浏览器
+sudo apt install ./google-chrome-stable_current_amd64.deb
+</code></pre>
+<p><strong>2) 与OpenClaw对话通过浏览器搜索内容</strong></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260618221641938.png" alt="image-20260618221641938"></p>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E8%81%8A%E5%A4%A9%E6%B8%A0%E9%81%93/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">OpenClaw 聊天渠道</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">OpenClaw 安装及使用</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%86%85%E7%BD%AE%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D"><span class="toc-list-number">1.</span> <span class="toc-list-text">内置工具介绍</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%86%85%E7%BD%AE%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D-1"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">内置工具介绍</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E9%85%8D%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6%E5%8A%9F%E8%83%BD"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">配置操作系统文件功能</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD"><span class="toc-list-number">2.</span> <span class="toc-list-text">配置网络搜索功能</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%85%8D%E7%BD%AE-Firecrawl-%E7%88%AC%E5%8F%96%E7%BD%91%E9%A1%B5%E5%8A%9F%E8%83%BD"><span class="toc-list-number">3.</span> <span class="toc-list-text">配置 Firecrawl 爬取网页功能</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%85%8D%E7%BD%AEOpenClaw%E6%93%8D%E4%BD%9C%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-list-number">4.</span> <span class="toc-list-text">配置OpenClaw操作浏览器</span></a></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Hermes Agent Skill | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-05
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">Hermes Agent Skill</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h2 id="Skill介绍"><a href="#Skill介绍" class="headerlink" title="Skill介绍"></a>Skill介绍</h2><p>在 Hermes Agent 的架构中，Skill（技能）可以理解为 Agent 的“外挂知识包”或“专项操作手册”。它是一套按需加载的文档和指令集合，采用了渐进式披露（Progressive Disclosure）模式。这意味着 Agent 不会一次性把所有知识塞进有限的上下文窗口（Token），而是在真正需要时才会读取具体的 Skill 内容。这种设计极大地节省了 Token 消耗，并且完美兼容 <a target="_blank" rel="noopener" href="http://agentskills.io/">agentskills.io</a> 开放标准。</p>
+<p>Hermes Agent中所有的 Skill 默认都存放在 ~&#x2F;.hermes&#x2F;skills&#x2F;目录下，该目录下每个skill都是一个独立的目录，包含一个SKILL.md 文件（提供Skill功能和对应执行指令给大语言模型），以及可选的脚本或资源。完整的Skill文件结构如下：</p>
+<pre><code>~/.hermes/skills/  
+├── devops/                         # 类别目录
+│   ├── deploy-k8s/
+│   │   ├── SKILL.md               # 主要说明（必填）
+│   │   ├── references/            # 附加文档
+│   │   ├── templates/             # 输出格式
+│   │   ├── scripts/               # 可从 skill 调用的帮助程序脚本
+│   │   └── assets/                # 补充文件
+│   └── vllm/
+│       └── SKILL.md
+</code></pre>
+<p>以上文件解释如下：</p>
+<ul>
+<li><p><strong>SKILL.md</strong></p>
+<p>必须指定的核心文件，该文件中包含技能相关的元数据和执行指令，采用“YAML元数据 + Markdown指令”的混合格式。</p>
+<pre><code class="yaml">---
+name: my-skill
+description: Brief description of what this skill does
+version: 1.0.0
+platforms: [macos, linux, windows]     # 可选 — 仅限于特定操作系统平台
+---
+
+# Skill 标题
+
+## 何时使用
+Trigger conditions for this skill.
+
+## 操作步骤
+1. Step one
+2. Step two
+
+## 常见陷阱
+- Known failure modes and fixes
+
+## 验证方式
+How to confirm it worked.
+</code></pre>
+<ul>
+<li><p>YAML元数据区（位于文件顶部—内）：用于定义Skill的基本属性，元数据区包含name（英文，Skill的唯一标识符，如 hello_world，名称必须为小写字母、数字和单连字符组合（如 git-release），且目录名需与此一致）、description（对Skill功能的简要描述，帮助AI理解何时调用此技能）。</p>
+</li>
+<li><p>Markdown指令区：用自然语言清晰描述AI应如何执行任务。该部分核心原则是导AI“做什么”和“用什么工具做”，而非教授AI基础知识，内容可以包括任务触发条件、分步操作流程、所需调用的工具（如 echo, bash）、输出结果的格式或标准。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>其他目录</strong></p>
+<p>另外三个目录用于存放支持技能运行的资源，使Skill更强大、更独立。</p>
+<ul>
+<li>scripts&#x2F;: 存放可执行的Shell、Python等脚本，供Skill指令调用。</li>
+<li>references&#x2F;: 存放相关的规范文档、数据表等参考材料。</li>
+<li>assets&#x2F;: 存放模板文件、示例图片、配置文件等静态资源。</li>
+</ul>
+</li>
+</ul>
+<p>关于Skil使用，Hermes Agent中采用渐进式披露模式，该模式采用了类似计算机系统中“虚拟内存”的三级加载机制：</p>
+<ul>
+<li>Level 0（只记目录）：系统启动时会扫描 ~&#x2F;.hermes&#x2F;skills&#x2F;，但只读取每个技能的 名字、简述和 分类。大约只占 3k Token，相当于 AI 脑子里有了一张“技能目录索引卡”。</li>
+<li>Level 1（查阅正文）：当你在聊天中输入 &#x2F;github-pr-workflow或通过自然语言触发时，AI 才会去把该技能的详细操作指南（<a target="_blank" rel="noopener" href="http://skill.md/">SKILL.md</a> 全文）加载到上下文中。</li>
+<li>Level 2（查阅附录）：如果技能附带了参考资料（如 API 文档、模板），AI 还可以进一步按需加载特定的参考文件。</li>
+</ul>
+<p>Hermes 在安装时会将一个大型内置技能库复制到 ~&#x2F;.hermes&#x2F;skills&#x2F; 目录下，可以参考：<a target="_blank" rel="noopener" href="https://hermes-agent.nousresearch.com/docs/zh-Hans/reference/skills-catalog">https://hermes-agent.nousresearch.com/docs/zh-Hans/reference/skills-catalog</a> ，也可以在Hermes Agent中对话询问已有的skill，也可以列出目前已有的内置技能。</p>
+<h2 id="自定义Skill并使用"><a href="#自定义Skill并使用" class="headerlink" title="自定义Skill并使用"></a>自定义Skill并使用</h2><p>如下定义一个Skill，功能是根据用户搜索关键字去网络中获取相关新闻，然后将结果写入到md文档中，该skill名称为“tech-news”，创建skill步骤如下：</p>
+<ol>
+<li><p><strong>创建SKILL文件</strong></p>
+<p>在Ubuntu系统终端执行如下命令：</p>
+<pre><code class="shell"># 创建目录
+mkdir -p ~/.hermes/skills/news/tech-news
+# 创建主文件
+touch ~/.hermes/skills/news/tech-news/SKILL.md
+</code></pre>
+</li>
+<li><p><strong>编写SKILL内容</strong></p>
+<p>打开 SKILL.md 写入如下内容：</p>
+<pre><code class="markdown">---
+name: tech-news
+description: 搜索并总结过去24小时内关于指定关键词的全球科技新闻，并将总结的新闻写入到md文件中。
+version: 1.0.0
+---
+
+# 全球科技新闻速报生成器
+
+## When to Use
+当用户执行 `/tech-news [关键词]` 或在对话中提到“帮我看看最近关于 [某主题] 的新闻”、“总结一下今天的科技头条”时触发。
+
+## Procedure
+1.  **解析意图**：提取用户输入中的关键词（例如：`大模型`, `汽车`, `机器人`）。如果没有关键词，默认搜索“人工智能 AI 行业动态”。
+2.  **获取资讯**：
+    *   使用web_search搜索该关键字，可以搜索百度、必应、谷歌等网站，最多搜索2个网站即可。
+    *   **时间限定**：在搜索语法中加入 `最近24小时` ，确保时效性。
+    *   **数量控制**：获取前5条最相关的链接。
+3.  **深度阅读与总结**：
+    *   对于搜索到的每一个链接，必须访问并阅读全文内容。
+    *   提取每篇文章的：核心事件（What）、关键影响（Impact）、相关方（Who）。
+4.  **合成简报**：
+    *   将所有信息汇总成一份 Markdown 报告，存入/home/zs/Desktop目录下。
+    *   严禁编造不存在的信息，必须标注来源链接。
+    *   输出语言必须符合中文。
+
+## Pitfalls
+- **时效性问题**：如果搜索不到过去24小时的内容，请扩大搜索范围至过去一周，并明确告知用户“未找到过去24小时内的强相关新闻，以下是近期的热点”。
+- **访问受限**：如果遇到付费墙（Paywall）导致无法阅读全文，请根据摘要（Snippet）进行总结，并标注“原文可能需要订阅”。
+
+## Verification
+检查是否每一条新闻都附带了 `[来源]` 链接，且内容是否涵盖了具体的数字、人名或产品名，而非空洞的形容词堆砌。
+
+## Output Format Template
+请严格按照以下格式输出：
+
+&gt; # 📰 科技新闻速报：[关键词]
+&gt; **生成时间**：[当前时间]
+&gt; **监测范围**：过去 24 小时
+&gt;
+&gt; ---
+&gt;
+&gt; ### 1. [新闻标题 1]
+&gt; - **核心摘要**：[用一句话说明发生了什么，包含具体数据或结论]
+&gt; - **深度解读**：[为什么这件事重要？对市场/技术有什么潜在影响？]
+&gt; - **来源**：[来源网站名称](URL)
+&gt;
+&gt; ### 2. [新闻标题 2]
+&gt; - **核心摘要**：[...]
+&gt; - **深度解读**：[...]
+&gt; - **来源**：[...]
+&gt;
+&gt; ---
+&gt; **💡 趋势洞察**：
+&gt; [综合上述新闻，给出一个关于该领域未来走向的简短预测或观察]
+</code></pre>
+</li>
+<li><p><strong>进入Hermes 并使用 skill</strong></p>
+<p>进入hermes ，使用“&#x2F;技能”可以调用到对应skill。</p>
+<pre><code>使用中文告诉我你具备什么skill?
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260610000359393.png" alt="image-20260610000359393"></p>
+<pre><code>/tech-news 中国AI发展
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260610001936557.png" alt="image-20260610001936557"></p>
+<p>查看对应目录中也有对应的md文件。</p>
+</li>
+</ol>
+<h2 id="网络下载Skill并使用"><a href="#网络下载Skill并使用" class="headerlink" title="网络下载Skill并使用"></a>网络下载Skill并使用</h2><p>Hermes Agent中还可以通过ClawHub搜索公开、免费的Skill。ClawHub是OpenClaw的官方公共技能中心，完全免费开放且每个skill都有版本历史，地址：<a target="_blank" rel="noopener" href="https://clawhub.ai/skills">https://clawhub.ai/skills</a> 。如果想为Hermes Agent添加新功能，ClawHub是最简单的查找和安装技能的方式。此外，推荐一个Skills中国网站：<a target="_blank" rel="noopener" href="https://hub.cocoloop.cn/">https://hub.cocoloop.cn/</a></p>
+<p>直接进入ClawHub官网搜索技能，找到对应技能名称再进行安装：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260605221957344.png" alt="image-20260605221957344"></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260605222347740.png" alt="image-20260605222347740"></p>
+<p>将下载好的SKILL技能包解压放入“~&#x2F;.hermes&#x2F;skills&#x2F;&lt;类别目录&gt;&#x2F;&lt;skill名称&gt;”目录下即可。</p>
+<pre><code>/china-weather 天津最近天气情况
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260610002920122.png" alt="image-20260610002920122"></p>
+<p>这里导出微信公众号文章技能来演示如何在HermesAgent中配置使用外部的skill。该skill地址：<a target="_blank" rel="noopener" href="https://clawhub.ai/8421bit/wechat-article-reader">https://clawhub.ai/8421bit/wechat-article-reader</a>  ，我们可以下载该SKILL 直接上传至“~&#x2F;.hermes&#x2F;skills&#x2F;weixin&#x2F;”目录下后并解压即可（weixin目录需要手动创建）。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260610003844801.png" alt="image-20260610003844801"></p>
+<p>进入到hermes agent中使用该技能：</p>
+<pre><code>/wechat-article-reader 下载这篇文章 https://mp.weixin.qq.com/s/xxx,把这篇公众号文章导出为 markdown 保存微信文章到本地
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260610003801115.png" alt="image-20260610003801115"></p>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E8%AE%B0%E5%BF%86%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">Hermes Agent 记忆与上下文</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%B7%A5%E5%85%B7/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">Hermes Agent 工具</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Skill%E4%BB%8B%E7%BB%8D"><span class="toc-list-number">1.</span> <span class="toc-list-text">Skill介绍</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89Skill%E5%B9%B6%E4%BD%BF%E7%94%A8"><span class="toc-list-number">2.</span> <span class="toc-list-text">自定义Skill并使用</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%BD%91%E7%BB%9C%E4%B8%8B%E8%BD%BDSkill%E5%B9%B6%E4%BD%BF%E7%94%A8"><span class="toc-list-number">3.</span> <span class="toc-list-text">网络下载Skill并使用</span></a></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

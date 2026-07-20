@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            LoopLoop Engineering 案例 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-07-16
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">LoopLoop Engineering 案例</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent-Loop/">Agent Loop</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h1 id="Loop-Engineering-案例一"><a href="#Loop-Engineering-案例一" class="headerlink" title="Loop Engineering 案例一"></a>Loop Engineering 案例一</h1><h2 id="案例业务"><a href="#案例业务" class="headerlink" title="案例业务"></a>案例业务</h2><p>这是一个合同质量的自动迭代打磨系统。不是简单的”审一下→通过&#x2F;驳回”，而是让两个AI Agent（Editor和Reviewer）像律师团队一样循环协作：一个负责改，一个负责审，改完再审，审完再改，直到合同质量达标。</p>
+<h2 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h2><p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260716151928005.png" alt="image-20260716151926227"></p>
+<p>四大审查维度（定义在 skills&#x2F;contract-improver&#x2F;SKILL.md）：</p>
+<table>
+<thead>
+<tr>
+<th><strong>维度</strong></th>
+<th><strong>检查内容</strong></th>
+<th><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A.完整性</strong></td>
+<td>必备要素是否齐全？</td>
+<td>双方信息、金额(大小写)、付款方式、交付时间、违约金、保密、知识产权、签署信息</td>
+</tr>
+<tr>
+<td><strong>B.明确性</strong></td>
+<td>有没有模糊表述？</td>
+<td>“尽快”→”60个工作日内”、”协商解决”→”提交XX仲裁委员会”</td>
+</tr>
+<tr>
+<td><strong>C.公平性</strong></td>
+<td>双方权利义务平衡吗？</td>
+<td>违约金双向对等、付款条件合理、知识产权归属公平</td>
+</tr>
+<tr>
+<td><strong>D.合规性</strong></td>
+<td>符合法律和行业标准吗？</td>
+<td>违约金≤20%、保密期限≥合同期+解约后2年</td>
+</tr>
+</tbody></table>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre><code class="python">&quot;&quot;&quot;
+Loop Engineering — 合同智能完善系统
+Python 代码控制循环 | checkpointer 上下文持久化 | 类化工程封装
+
+═══════════════════════════════════════════════════════════════════════════
+
+  业务场景:
+    合同初稿存在条款缺失、表述模糊、条款不平衡等问题。
+    通过 Editor-Reviewer 循环协作，自动迭代打磨直到合同达到标准。
+
+  Loop Engineering 核心设计:
+    ★ Python for 循环控制重试（代码决定，不是 prompt 决定）
+    ★ checkpointer + thread_id 上下文持久化（每轮消息完全一致，LLM 从历史中知道该做什么）
+    ★ ContractImproveLoop 类工程封装（对标业界 Loop 类设计模式）
+    ★ 精简提示词（约束清单式，符合 2025-2026 最佳实践）
+    ★ Maker-Checker 硬权限隔离（Editor 写，Reviewer 只读）
+
+  五大构建块:
+    ① 自动化/调度  → while True 持续监控 pending_contracts/
+    ② 工作树/隔离  → FilesystemBackend(virtual_mode=True)
+    ③ 技能/知识    → skills/contract-improver/SKILL.md
+    ④ 连接器/插件  → read_contract / improve_contract / finalize / escalate
+    ⑤ 子代理/协作  → contract-editor(Maker) + contract-reviewer(Checker)
+
+  运行:
+    python.exe  contract_improve_loop_python.py
+&quot;&quot;&quot;
+import os, sys, time, glob, shutil, re
+from datetime import datetime
+from dataclasses import dataclass, field
+
+from deepagents import create_deep_agent
+from deepagents.middleware.subagents import SubAgent
+from deepagents.backends import FilesystemBackend
+from langchain.tools import tool
+from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.store.memory import InMemoryStore
+from my_llm import deepseek_llm, deepseek_llm_flash
+
+# ═══════════════════════════════════════════════════════════════════════
+# 路径配置
+# ═══════════════════════════════════════════════════════════════════════
+CUR_DIR   = os.path.dirname(os.path.abspath(__file__))
+PENDING   = os.path.join(CUR_DIR, &quot;pending_contracts&quot;)
+COMPLETED = os.path.join(CUR_DIR, &quot;agent_workspace&quot;, &quot;completed&quot;)
+ESCALATED = os.path.join(CUR_DIR, &quot;agent_workspace&quot;, &quot;escalated&quot;)
+SKILLS    = os.path.join(CUR_DIR, &quot;skills&quot;)
+
+for d in [COMPLETED, ESCALATED]:
+    os.makedirs(d, exist_ok=True)
+
+# ═══════════════════════════════════════════════════════════════════════
+# 记忆系统
+# ═══════════════════════════════════════════════════════════════════════
+store = InMemoryStore()
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# 工具定义 —— 按权限严格分层
+# ═══════════════════════════════════════════════════════════════════════
+
+@tool
+def read_contract(contract_id: str) -&gt; str:
+    &quot;&quot;&quot;读取指定合同的内容。输入合同编号（如 &#39;CT-IMP-001&#39;），返回合同全文。&quot;&quot;&quot;
+    file_path = os.path.join(PENDING, f&quot;{contract_id}.txt&quot;)
+    try:
+        with open(file_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+            return f.read()
+    except FileNotFoundError:
+        return f&quot;合同 {contract_id} 不存在于待处理目录&quot;
+
+
+@tool
+def improve_contract(contract_id: str, improved_content: str) -&gt; str:
+    &quot;&quot;&quot;
+    写入完善后的合同内容（覆盖原文件）。
+    只有 contract-editor 子代理有权限调用此工具。
+    &quot;&quot;&quot;
+    file_path = os.path.join(PENDING, f&quot;{contract_id}.txt&quot;)
+    if not os.path.exists(file_path):
+        return f&quot;错误：合同 {contract_id} 不在待处理目录中&quot;
+    with open(file_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+        f.write(improved_content)
+
+    # 记录修改操作
+    store.put((&quot;improvements&quot;,), f&quot;{contract_id}_edit_{datetime.now().timestamp():.0f}&quot;, {
+        &quot;contract_id&quot;: contract_id,
+        &quot;action&quot;: &quot;improved&quot;,
+        &quot;time&quot;: datetime.now().isoformat(),
+    })
+    return f&quot;合同 {contract_id} 已更新完善，等待审查员复核。&quot;
+
+
+@tool
+def finalize_contract(contract_id: str, comment: str) -&gt; str:
+    &quot;&quot;&quot;合同完善完成，移至已完成目录。只有编排者能调用。&quot;&quot;&quot;
+    _move_and_log(contract_id, COMPLETED, &quot;completed&quot;, comment)
+    return f&quot;合同 {contract_id} 完善完成，已归档。&quot;
+
+
+@tool
+def escalate_contract(contract_id: str, reason: str) -&gt; str:
+    &quot;&quot;&quot;升级给人工处理，移至升级目录。只有编排者能调用。&quot;&quot;&quot;
+    _move_and_log(contract_id, ESCALATED, &quot;escalated&quot;, reason)
+    return f&quot;合同 {contract_id} 已升级人工处理&quot;
+
+
+def _move_and_log(cid: str, target_dir: str, status: str, note: str):
+    src = os.path.join(PENDING, f&quot;{cid}.txt&quot;)
+    dst = os.path.join(target_dir, f&quot;{cid}.txt&quot;)
+    if os.path.exists(src):
+        shutil.move(src, dst)
+    store.put((&quot;improvements&quot;,), f&quot;{cid}_{status}&quot;, {
+        &quot;contract_id&quot;: cid, &quot;status&quot;: status, &quot;note&quot;: note[:200],
+        &quot;time&quot;: datetime.now().isoformat()
+    })
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# 子代理定义 —— 精简提示词，约束清单式
+# ═══════════════════════════════════════════════════════════════════════
+
+contract_editor = SubAgent(
+    name=&quot;contract-editor&quot;,
+    description=&quot;合同修改员：读取合同 → 对照四大维度检查 → 动手修改完善&quot;,
+    system_prompt=&quot;&quot;&quot;你是合同修改员。用 read_contract 读取合同，用 improve_contract 写入完善版。
+
+                    对照 SKILL.md 四大维度检查并修复：
+                    - 完整性：双方信息、金额(大小写)、付款方式、交付时间、违约金、保密、知识产权、签署信息
+                    - 明确性：替换&quot;尽快&quot;&quot;适时&quot;&quot;合理期限&quot;&quot;协商解决&quot;&quot;约&quot;&quot;左右&quot;等模糊词为具体描述
+                    - 公平性：违约金双向对等、付款条件合理、知识产权归属公平
+                    - 合规性：违约金≤20%、保密期限≥合同期+解约后2年
+  
+                    原则：保留原意、补充缺失、明确模糊、平衡权利。
+  
+                    ⚠️ 约束：
+                    - 根据你检查的结果或者 Reviewer 的建议，统一全面修改合同，修改完成后简要说明改动，然后立即结束。
+                    - 不要审查自己的修改结果。
+                    - 合同只做一轮修改，不要反复修改同一份合同。&quot;&quot;&quot;,
+    tools=[read_contract, improve_contract],
+    model=deepseek_llm,
+)
+
+contract_reviewer = SubAgent(
+    name=&quot;contract-reviewer&quot;,
+    description=&quot;合同审查员：独立读取合同 → 逐项检查 → 给出审查结论&quot;,
+    system_prompt=&quot;&quot;&quot;你是合同审查员。只有 read_contract 权限，不能修改合同。
+
+                逐项检查：
+                - 完整性：双方信息、金额(大小写)、付款方式、交付时间、违约金、保密、知识产权、签署信息
+                - 明确性：无&quot;尽快&quot;&quot;适时&quot;&quot;合理期限&quot;&quot;协商解决&quot;&quot;约&quot;&quot;左右&quot;等模糊词
+                - 公平性：违约金双向对等、付款条件合理、知识产权归属公平
+                - 合规性：违约金≤20%、保密期限≥合同期+解约后2年
+  
+                通过回复&quot;审查通过&quot;。不通过回复&quot;审查不通过&quot;并逐条列出问题和修正建议。
+  
+                ⚠️ 约束：
+                - 给出审查结论后立即结束。你的职责是判断质量，不是控制流程。
+                - 不要写&quot;修改后再来&quot;&quot;请修正后重新提交&quot;等循环指令。
+                - 你只需要独立审查合同，给出&quot;审查通过&quot;/&quot;审查不通过&quot;以及问题和修正建议。&quot;&quot;&quot;,
+    tools=[read_contract],
+    model=deepseek_llm_flash,
+)
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# 编排者 Agent
+# 编排者不知道&quot;轮次&quot;概念 —— 它只负责每次收到指令时执行一轮 Editor→Reviewer
+# 轮次控制完全由外部 Python 代码负责
+# ═══════════════════════════════════════════════════════════════════════
+
+def _build_orchestrator():
+    &quot;&quot;&quot;构建编排者 Agent（含 checkpointer 用于上下文持久化）&quot;&quot;&quot;
+    return create_deep_agent(
+        model=deepseek_llm,
+        # 两个工具功能：finalize_contract 归档合同，escalate_contract 升级人工处理
+        tools=[finalize_contract, escalate_contract],
+        subagents=[contract_editor, contract_reviewer],
+        skills=[SKILLS],
+        backend=FilesystemBackend(root_dir=CUR_DIR, virtual_mode=True),
+        store=store,
+        checkpointer=InMemorySaver(),
+        system_prompt=&quot;&quot;&quot;你是合同完善编排员。你只负责委派子代理，不亲自修改或审查合同。
+
+                        每次收到指令时，执行恰好一轮 Editor→Reviewer 流程，然后立即结束：
+    
+                        1. 委派 contract-editor 修改合同（首次处理则全面完善，续轮则针对性修正历史中的问题）
+                        2. 委派 contract-reviewer 独立审查当前合同
+                        3. 根据审查结果决定：
+                           - &quot;审查通过&quot; → 调用 finalize_contract 归档
+                           - &quot;审查不通过&quot; → 汇报问题，等待外部程序发出下次指令
+    
+                        工具权限：
+                        - 委派子代理（contract-editor / contract-reviewer）
+                        - finalize_contract：审查通过后归档
+                        - escalate_contract：遇到无法自动修复的根本性问题时升级
+    
+                        硬性约束（违反将导致系统失控）：
+                        - 禁止自行循环！审查不通过时，绝对不要再次委派 Editor。只汇报问题然后结束。
+                        - 每次调用最多委派 Editor 一次、Reviewer 一次。
+                        - 即使 Reviewer 列出多个问题，也不要回到步骤1重新开始。外部程序会处理循环。&quot;&quot;&quot;,
+    )
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# 统计数据结构
+# ═══════════════════════════════════════════════════════════════════════
+
+@dataclass
+class ContractStats:
+    scanned: int = 0 # 已扫描合同数
+    completed: int = 0 # 已完成合同数
+    escalated: int = 0 # 已升级合同数
+    records: list = field(default_factory=list) # 每个合同的处理记录
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# ContractImproveLoop —— Loop Engineering 核心类
+# ═══════════════════════════════════════════════════════════════════════
+
+class ContractImproveLoop:
+    &quot;&quot;&quot;合同智能完善循环系统
+
+    Loop Engineering 设计要素：
+    - Objective:   完善合同至四大维度全部达标
+    - Trigger:     while True 定时扫描 pending_contracts/
+    - Discovery:   scan() 扫描待处理合同
+    - Workspace:   FilesystemBackend(virtual_mode=True) 沙盒隔离
+    - Context:     checkpointer + thread_id 上下文持久化 + SKILL.md 知识
+    - Delegation:  Editor(Maker-写) + Reviewer(Checker-只读)
+    - Verification: 编排者响应文本判断 + 文件状态兜底
+    - Budget:      max_rounds 修正上限（默认3，可配置）
+    - Escalation:  循环耗尽 → Python 直接调用 escalate_contract
+    - Exit:        编排者调用 finalize_contract → 文件移至 completed/
+    &quot;&quot;&quot;
+
+    def __init__(self):
+        self.orchestrator = _build_orchestrator()
+        self.stats = ContractStats()
+
+    # ── 发现 ──────────────────────────────────────────────────
+
+    def scan(self) -&gt; list[str]:
+        &quot;&quot;&quot;扫描待处理目录，返回合同 ID 列表&quot;&quot;&quot;
+        files = glob.glob(os.path.join(PENDING, &quot;*.txt&quot;))
+        return [os.path.basename(f).replace(&quot;.txt&quot;, &quot;&quot;) for f in files]
+
+    # ── 单轮流式执行 ──────────────────────────────────────────
+
+    def _stream_round(self, contract_id: str, thread_id: str) -&gt; str:
+        &quot;&quot;&quot;执行单轮 Editor→Reviewer，流式展示所有 Agent 的输出。
+
+        关键设计：
+        - 每轮发送完全相同的消息，不区分&quot;第几轮&quot;&quot;是否最后一轮&quot;
+        - checkpointer + thread_id 自动保持上下文，LLM 从历史中知道当前处于什么阶段
+        - 收集编排者本轮产生的文本，返回给调用方用于判断是否完成
+        &quot;&quot;&quot;
+        # 消息每轮完全一致 —— 上下文由 checkpointer 自动携带
+        # 编排者从历史中知道：这是首轮→全面完善，还是续轮→针对性修正
+        message = f&quot;请处理合同 {contract_id}。&quot;
+
+        config = {
+            &quot;configurable&quot;: {&quot;thread_id&quot;: thread_id},
+        }
+
+        # 流式展示状态
+        subagent_names = {}
+        task_args_buf = &quot;&quot;
+        cur_tool_name = None
+        last_source = None
+
+        # 收集编排者本轮产生的文本（用于后续判断是否完成）
+        orchestrator_text = &quot;&quot;
+
+        try:
+            for chunk in self.orchestrator.stream(
+                input={&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: message}]},
+                config=config,
+                stream_mode=&quot;messages&quot;,
+                subgraphs=True,
+                version=&quot;v2&quot;,
+            ):
+                if chunk.get(&quot;type&quot;) != &quot;messages&quot;:
+                    continue
+
+                token, _metadata = chunk[&quot;data&quot;]
+                namespace = chunk.get(&quot;ns&quot;, ())
+
+                # 识别消息来源（主代理 or 子代理）
+                ns_sub_id = None
+                for seg in (namespace or ()):
+                    if isinstance(seg, str) and seg.startswith(&quot;tools:&quot;):
+                        ns_sub_id = seg.replace(&quot;tools:&quot;, &quot;&quot;)
+                        break
+
+                if ns_sub_id:
+                    if ns_sub_id in subagent_names:
+                        source = f&quot;子代理-{subagent_names[ns_sub_id]}&quot;
+                    else:
+                        m = re.search(r&#39;subagent_type[&quot;\s:]+([^&quot;,}\s]+)&#39;, task_args_buf)
+                        name = m.group(1) if m else ns_sub_id[:8] + &quot;...&quot;
+                        subagent_names[ns_sub_id] = name
+                        source = f&quot;子代理-{name}&quot;
+                        task_args_buf = &quot;&quot;
+                else:
+                    source = &quot;主代理(编排者)&quot;
+
+                msg_type = getattr(token, &#39;type&#39;, &#39;unknown&#39;)
+
+                # ── 工具调用 ──
+                if hasattr(token, &#39;tool_call_chunks&#39;) and token.tool_call_chunks:
+                    if last_source and (source != last_source):
+                        print()
+
+                    for tc in token.tool_call_chunks:
+                        tc_name = tc.get(&#39;name&#39;)
+                        if tc_name:
+                            cur_tool_name = tc_name
+                            icons = {
+                                &quot;task&quot;: &quot;📋&quot;, &quot;read_contract&quot;: &quot;📖&quot;,
+                                &quot;improve_contract&quot;: &quot;✏️&quot;, &quot;finalize_contract&quot;: &quot;✅&quot;,
+                                &quot;escalate_contract&quot;: &quot;🆘&quot;,
+                            }
+                            print(f&quot;\n  [{source}] {icons.get(tc_name, &#39;🔧&#39;)} 调用: {tc_name} &quot;,
+                                  end=&quot;&quot;, flush=True)
+
+                        if tc.get(&#39;args&#39;):
+                            args_str = tc[&#39;args&#39;]
+                            if cur_tool_name == &#39;task&#39; and source == &quot;主代理(编排者)&quot;:
+                                task_args_buf += args_str
+                            print(args_str, end=&quot;&quot;, flush=True)
+
+                # ── 工具结果 ──
+                if msg_type == &quot;tool&quot;:
+                    if last_source:
+                        print()
+                    tool_name = getattr(token, &#39;name&#39;, &#39;?&#39;)
+                    result = str(getattr(token, &#39;content&#39;, &#39;&#39;))
+                    if tool_name == &#39;improve_contract&#39; and len(result) &gt; 200:
+                        result = result[:200] + &quot;...[合同内容已写入]&quot;
+                    print(f&quot;  [{source}] 📋 返回:\n     {result or &#39;(无返回内容)&#39;}&quot;)
+                    last_source = None
+                    continue
+
+                # ── AI 文本 ──
+                content_text = &quot;&quot;
+                if hasattr(token, &#39;content&#39;):
+                    c = token.content
+                    if isinstance(c, str):
+                        content_text = c
+                    elif isinstance(c, list):
+                        content_text = &#39;&#39;.join(
+                            item.get(&#39;text&#39;, str(item)) if isinstance(item, dict)
+                            else str(item) for item in c
+                        )
+                    elif c is not None:
+                        content_text = str(c)
+
+                has_tool_calls = hasattr(token, &#39;tool_call_chunks&#39;) and token.tool_call_chunks
+
+                if content_text and not has_tool_calls:
+                    if source != last_source:
+                        if last_source:
+                            print()
+                        icons = {&quot;editor&quot;: &quot;✏️&quot;, &quot;reviewer&quot;: &quot;🔍&quot;}
+                        icon = &quot;🎯&quot;
+                        for k, v in icons.items():
+                            if k in source:
+                                icon = v; break
+                        print(f&quot;\n  [{source}] {icon} &quot;, end=&quot;&quot;, flush=True)
+                    print(content_text, end=&quot;&quot;, flush=True)
+
+                    # ★ 收集编排者的文本（用于本轮结果判断）
+                    if source == &quot;主代理(编排者)&quot;:
+                        orchestrator_text += content_text
+
+                last_source = source
+
+            print()
+
+        except Exception as e:
+            print(f&quot;\n  ❌ [错误] 流式处理异常: {e}&quot;)
+            import traceback; traceback.print_exc()
+
+        return orchestrator_text
+
+    # ── 结果判断 ──────────────────────────────────────────────
+
+    def _check_result(self, orchestrator_text: str, contract_id: str) -&gt; str | None:
+        &quot;&quot;&quot;从编排者的响应文本中判断本轮结果。
+
+        设计原则：优先从模型输出判断（直接、可读），文件状态作为兜底验证。
+
+        返回值：
+            &#39;completed&#39;  — 审查通过，合同已归档
+            &#39;escalated&#39;  — 编排者主动升级
+            None         — 审查未通过，需要继续下一轮
+        &quot;&quot;&quot;
+        # 方法1：从编排者的响应文本直接判断
+        #   &quot;审查通过&quot; 或调用了 finalize_contract → 完成
+        #   &quot;escalate&quot; 或 &quot;升级人工&quot; → 升级
+        if &quot;审查通过&quot; in orchestrator_text or &quot;finalize_contract&quot; in orchestrator_text:
+            return &quot;completed&quot;
+        if &quot;escalate_contract&quot; in orchestrator_text or &quot;已升级人工&quot; in orchestrator_text:
+            return &quot;escalated&quot;
+
+        # 方法2：文件系统兜底（编排者调用了工具但文本可能被截断的情况）
+        file_path = os.path.join(PENDING, f&quot;{contract_id}.txt&quot;)
+        if not os.path.exists(file_path):
+            for d, s in [(COMPLETED, &quot;completed&quot;), (ESCALATED, &quot;escalated&quot;)]:
+                if os.path.exists(os.path.join(d, f&quot;{contract_id}.txt&quot;)):
+                    return s
+
+        return None
+
+    # ── 处理单个合同 ──────────────────────────────────────────
+
+    def process_one(self, contract_id: str, max_rounds: int = 3) -&gt; dict:
+        &quot;&quot;&quot;处理单个合同。
+
+        Loop Engineering 核心：Python for 循环控制重试
+        - 每轮发送完全相同的消息 → checkpointer 提供上下文
+        - 优先从编排者响应文本判断完成 → 文件状态作为兜底
+        - 假设max_rounds 设 10 但 1 轮就通过 → 立刻退出，不会空转
+        - 循环耗尽 → Python 直接调用 escalate_contract（不依赖编排者）
+        &quot;&quot;&quot;
+        thread_id = f&quot;contract-{contract_id}&quot;
+        file_path = os.path.join(PENDING, f&quot;{contract_id}.txt&quot;)
+
+        # ── 显示合同概要 ──
+        print(f&quot;\n  {&#39;=&#39;*60}&quot;)
+        print(f&quot;  📄 {contract_id}&quot;)
+        try:
+            with open(file_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+                preview = f.read()
+            lines = preview.strip().split(&quot;\n&quot;)
+            print(f&quot;  📏 {len(lines)} 行, {len(preview)} 字符&quot;)
+            for line in lines[:3]:
+                print(f&quot;     {line[:80]}{&#39;...&#39; if len(line) &gt; 80 else &#39;&#39;}&quot;)
+            if len(lines) &gt; 3:
+                print(f&quot;     ... (共 {len(lines)} 行)&quot;)
+        except FileNotFoundError:
+            print(f&quot;  ⚠️ 文件不存在&quot;)
+            return {&quot;contract_id&quot;: contract_id, &quot;status&quot;: &quot;not_found&quot;}
+        print(f&quot;  {&#39;=&#39;*60}&quot;)
+
+        # ═══════════════════════════════════════════════════════
+        # Python 代码控制循环（真正的 Loop Engineering）
+        #   每轮消息完全一样，LLM 从 checkpointer 的上下文中知道该做什么
+        #   从编排者响应文本判断完成
+        # ═══════════════════════════════════════════════════════
+        for round_num in range(1, max_rounds + 1):
+            print(f&quot;\n  ╔{&#39;═&#39;*50}╗&quot;)
+            print(f&quot;  ║  🔄 Python 循环控制: 第 {round_num}/{max_rounds} 轮&quot;)
+            print(f&quot;  ╚{&#39;═&#39;*50}╝&quot;)
+
+            # 1.执行单轮 —— 每轮消息完全一致
+            orchestrator_text = self._stream_round(contract_id, thread_id)
+
+            # 2.从编排者响应文本判断本轮结果
+            result = self._check_result(orchestrator_text, contract_id)
+            if result == &quot;completed&quot;:
+                print(f&quot;\n  🎉 [Python 判断] 编排者确认审查通过 → 合同完善完成!&quot;)
+                self.stats.completed += 1
+                return {&quot;contract_id&quot;: contract_id, &quot;status&quot;: &quot;completed&quot;, &quot;rounds&quot;: round_num}
+            if result == &quot;escalated&quot;:
+                print(f&quot;\n  🆘 [Python 判断] 编排者主动升级 → 需人工介入&quot;)
+                self.stats.escalated += 1
+                return {&quot;contract_id&quot;: contract_id, &quot;status&quot;: &quot;escalated&quot;, &quot;rounds&quot;: round_num}
+
+            # 3.审查未通过 → Python 决定是否继续
+            if round_num &lt; max_rounds:
+                print(f&quot;  🔄 [Python 判断] 审查未通过 → 准备第 {round_num + 1} 轮...&quot;
+                      f&quot;（上下文已持久化，编排者将从历史中获取反馈）&quot;)
+
+        # 4.Python 循环耗尽 → 代码直接升级，不依赖编排者做这个判断
+        print(f&quot;\n  🆘 [Python 判断] {max_rounds} 轮修正仍未通过 → Python 代码直接升级人工&quot;)
+        escalate_contract.invoke({
+            &quot;contract_id&quot;: contract_id,
+            &quot;reason&quot;: (
+                f&quot;经过 {max_rounds} 轮 Editor-Reviewer 修正循环后&quot;
+                f&quot;合同仍未达标，需人工介入。&quot;
+            ),
+        })
+        self.stats.escalated += 1
+        return {&quot;contract_id&quot;: contract_id, &quot;status&quot;: &quot;escalated&quot;, &quot;rounds&quot;: max_rounds}
+
+    # ── 单次循环 ──────────────────────────────────────────────
+
+    def run_one_cycle(self):
+        &quot;&quot;&quot;执行一次完整的扫描→处理循环&quot;&quot;&quot;
+        print(f&quot;\n{&#39;#&#39;*60}&quot;)
+        print(f&quot;  🔁 扫描循环 — {datetime.now().strftime(&#39;%H:%M:%S&#39;)}&quot;)
+        print(f&quot;{&#39;#&#39;*60}&quot;)
+
+        contracts = self.scan()
+        self.stats.scanned = len(contracts)
+        print(f&quot;  🔍 [发现] {len(contracts)} 个待完善合同&quot;)
+
+        if not contracts:
+            print(f&quot;  ⏳ 暂无合同，等待下次扫描...&quot;)
+            return
+
+        for cid in contracts:
+            fpath = os.path.join(PENDING, f&quot;{cid}.txt&quot;)
+            try:
+                with open(fpath, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+                    first_line = f.readline().strip()
+                print(f&quot;     📝 {cid}: {first_line[:70]}...&quot;)
+            except Exception:
+                print(f&quot;     📝 {cid}: (无法读取)&quot;)
+
+        for cid in contracts:
+            result = self.process_one(cid,3)
+            self.stats.records.append(result)
+
+        # 输出本轮统计
+        self._report()
+
+    # ── 统计报告 ──────────────────────────────────────────────
+
+    def _report(self):
+        &quot;&quot;&quot;输出本轮统计&quot;&quot;&quot;
+        all_records = store.search((&quot;improvements&quot;,))
+        edit_count = sum(1 for r in all_records if r.value.get(&quot;action&quot;) == &quot;improved&quot;)
+        print(f&quot;\n  📊 [统计] 修改{edit_count}次 | &quot;
+              f&quot;完成{self.stats.completed} | 升级{self.stats.escalated} | &quot;
+              f&quot;记忆{len(all_records)}条&quot;)
+
+    # ── 持续运行 ──────────────────────────────────────────────
+
+    def run_loop(self, interval: int = 10):
+        &quot;&quot;&quot;持续运行的监控循环（while True）&quot;&quot;&quot;
+        print(&quot;=&quot; * 60)
+        print(&quot;  🔄 Loop Engineering: 合同智能完善系统&quot;)
+        print(&quot;  🐍 Python 代码控制循环 | checkpointer 上下文持久化&quot;)
+        print(&quot;=&quot; * 60)
+        print(f&quot;  📂 监控目录:   {PENDING}&quot;)
+        print(f&quot;  ⏱️  扫描间隔:   {interval} 秒 | Ctrl+C 停止&quot;)
+        print(f&quot;  ✏️  Editor:    contract-editor (读+写)&quot;)
+        print(f&quot;  🔍 Reviewer:  contract-reviewer (只读)&quot;)
+        print(f&quot;  🎯 Orchestrator: 编排调度 (finalize + escalate)&quot;)
+        print(f&quot;  💾 持久化:     InMemorySaver + thread_id（每轮消息完全一致）&quot;)
+        print(f&quot;  🔄 修正上限:   可配置（默认3轮）&quot;)
+        print(&quot;=&quot; * 60)
+
+        cycle = 0
+        try:
+            while True:
+                cycle += 1
+                print(f&quot;\n{&#39;#&#39;*60}&quot;)
+                print(f&quot;  🔁 [监控循环 #{cycle}] {datetime.now().strftime(&#39;%H:%M:%S&#39;)}&quot;)
+                print(f&quot;{&#39;#&#39;*60}&quot;)
+                self.run_one_cycle()
+                time.sleep(interval)
+
+        except KeyboardInterrupt:
+            print(f&quot;\n\n  🛑 系统已停止。共运行 {cycle} 个监控循环。&quot;)
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# 主入口
+# ═══════════════════════════════════════════════════════════════════════
+if __name__ == &quot;__main__&quot;:
+    import argparse
+    parser = argparse.ArgumentParser(description=&quot;合同智能完善系统 (Loop Engineering)&quot;)
+    parser.add_argument(&quot;--interval&quot;, type=int, default=10, help=&quot;扫描间隔(秒)&quot;)
+    parser.add_argument(&quot;--max-rounds&quot;, type=int, default=3, help=&quot;最大修正轮数&quot;)
+    args = parser.parse_args()
+
+    loop = ContractImproveLoop()
+    loop.run_loop(interval=args.interval)
+</code></pre>
+<h2 id="五大构建块在代码中的映射"><a href="#五大构建块在代码中的映射" class="headerlink" title="五大构建块在代码中的映射"></a>五大构建块在代码中的映射</h2><p>此案例代码中，精确标注每个构建块的位置：</p>
+<pre><code class="python"># ═══════════════════════════════════════════════════════════════
+# ① 自动化/调度 —— 循环的心跳
+# ═══════════════════════════════════════════════════════════════
+class ContractImproveLoop:
+    def run_loop(self, interval: int = 10):
+        while True:                              # ← 构建块①
+            cycle += 1
+            self.run_one_cycle()                 # 扫描 → 发现 → 处理
+            time.sleep(interval)                 # 休息,继续
+
+# ═══════════════════════════════════════════════════════════════
+# ② 工作树/隔离 —— Agent 在哪安全操作？
+# ═══════════════════════════════════════════════════════════════
+orchestrator = create_deep_agent(
+    backend=FilesystemBackend(
+        root_dir=CUR_DIR,                        # ← 构建块②
+        virtual_mode=True,                       # 防止 Agent 跳出工作目录
+    ),
+    ...
+)
+
+# ═══════════════════════════════════════════════════════════════
+# ③ 技能/知识 —— 处理任务的&quot;操作手册&quot;
+# ═══════════════════════════════════════════════════════════════
+orchestrator = create_deep_agent(
+    skills=[SKILLS],                             # ← 构建块③
+    # 指向 skills/contract-improver/SKILL.md
+    # 定义四大审查维度 + 标准合同模板 + 角色职责 + 退出条件
+    ...
+)
+
+# ═══════════════════════════════════════════════════════════════
+# ④ 连接器/插件 —— Agent 怎么操作外部系统？
+# ═══════════════════════════════════════════════════════════════
+@tool
+def read_contract(contract_id: str) -&gt; str:      # ← 构建块④
+    &quot;&quot;&quot;读取合同文件&quot;&quot;&quot;
+    ...
+
+@tool
+def improve_contract(contract_id: str,            # ← 构建块④
+                     improved_content: str) -&gt; str:
+    &quot;&quot;&quot;写入完善后的合同（覆盖原文件）&quot;&quot;&quot;
+    ...
+
+@tool
+def finalize_contract(contract_id: str,           # ← 构建块④
+                      comment: str) -&gt; str:
+    &quot;&quot;&quot;归档已完成合同&quot;&quot;&quot;
+    ...
+
+@tool
+def escalate_contract(contract_id: str,           # ← 构建块④
+                      reason: str) -&gt; str:
+    &quot;&quot;&quot;升级人工处理&quot;&quot;&quot;
+    ...
+
+# ═══════════════════════════════════════════════════════════════
+# ⑤ 子代理/协作 —— Maker-Checker 权限分离
+# ═══════════════════════════════════════════════════════════════
+contract_editor = SubAgent(                      # ← 构建块⑤ Maker
+    name=&quot;contract-editor&quot;,
+    tools=[read_contract, improve_contract],     # 有写入权限!
+    ...
+)
+
+contract_reviewer = SubAgent(                    # ← 构建块⑤ Checker
+    name=&quot;contract-reviewer&quot;,
+    tools=[read_contract],                       # 只有只读权限!
+    ...
+)
+
+# ═══════════════════════════════════════════════════════════════
+# + 记忆/状态 —— 跨轮/跨会话记住什么？
+# ═══════════════════════════════════════════════════════════════
+store = InMemoryStore()                          # ← 记忆层
+# store.put() 记录每次 improve / finalize / escalate 操作
+
+checkpointer=InMemorySaver()                     # ← 上下文持久化
+# 同一 thread_id 的多次 stream() 调用自动保持上下文
+</code></pre>
+<h1 id="Loop-Engineering-案例二"><a href="#Loop-Engineering-案例二" class="headerlink" title="Loop Engineering 案例二"></a>Loop Engineering 案例二</h1><h2 id="案例业务-1"><a href="#案例业务-1" class="headerlink" title="案例业务"></a>案例业务</h2><p>一个电商平台每天收到大量退款申请，涉及不同的订单状态：有的还未发货，有的已在运输途中，有的客户已经签收。不同状态对应不同的处理规则——直接退款、先拦截物流再退款、检查退货状态和7天窗口等。人工处理容易出错（金额算错、规则误用、忘记扣运费），且效率低下。</p>
+<p>本案例通过 Loop Engineering 架构自动处理退款单：Maker 分析订单并给出方案（通知文案+退款金额），Checker 独立核验，Orchestrator 在审查通过后执行实际操作。循环修正机制确保每笔退款的金额和通知都准确无误。</p>
+<h2 id="业务逻辑-1"><a href="#业务逻辑-1" class="headerlink" title="业务逻辑"></a>业务逻辑</h2><p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260716152507752.png" alt="image-20260716152506256"></p>
+<h2 id="完整代码-1"><a href="#完整代码-1" class="headerlink" title="完整代码"></a>完整代码</h2><pre><code class="python">&quot;&quot;&quot;
+Loop Engineering — 智能退款处理循环系统
+Python 代码控制循环 | checkpointer 上下文持久化 | 类化工程封装
+
+═══════════════════════════════════════════════════════════════════════════
+
+  业务场景:
+    退款订单实时监控。Maker 负责确认通知文案和计算退款金额（只读），
+    Checker 负责核验 Maker 的方案是否正确（只读），
+    Orchestrator 仅在 Checker 审查通过后执行实际的通知发送和退款操作。
+
+  架构:
+    1 个主 Agent (Orchestrator) + 2 个子 Agent (Maker + Checker)
+    - Maker:     只读工具 → 分析订单、确认通知文案、计算退款金额 → 不执行
+    - Checker:   只读工具 → 验证 Maker 的方案 → 不执行
+    - Orchestrator: 写入工具 → 仅在 Checker 审查通过后执行实际操作
+
+  Loop Engineering 核心设计:
+    ★ Python for 循环控制重试（代码决定，不是 prompt 决定）
+    ★ checkpointer + thread_id 上下文持久化（每轮消息完全一致）
+    ★ Maker-Checker-Orch 三层隔离（提案 → 审核 → 执行）
+    ★ 类化工程封装（类比 contract_improve_loop 设计模式）
+
+  五大构建块:
+    ① 自动化/调度  → while True 持续扫描退款队列
+    ② 工作树/隔离  → FilesystemBackend(virtual_mode=True)
+    ③ 技能/知识    → skills/refund-processor/SKILL.md
+    ④ 连接器/插件  → query_refund_order / execute_refund / send_notification 等
+    ⑤ 子代理/协作  → refund-maker(Maker-提案) + refund-checker(Checker-审核)
+
+  运行:
+    cd D:\CC备课\Loop Engineering\agent-loop-engineering\operations_loop
+    python operations_loop.py
+&quot;&quot;&quot;
+import os, sys, io, time, uuid, re
+from datetime import datetime
+from dataclasses import dataclass, field
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from deepagents import create_deep_agent
+from deepagents.middleware.subagents import SubAgent
+from deepagents.backends import FilesystemBackend
+from langchain.tools import tool
+from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.store.memory import InMemoryStore
+from my_llm import deepseek_llm, deepseek_llm_flash
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding=&quot;utf-8&quot;, line_buffering=True)
+
+# ═══════════════════════════════════════════════════════════════════════
+# 路径配置
+# ═══════════════════════════════════════════════════════════════════════
+CUR_DIR = os.path.dirname(os.path.abspath(__file__))
+SKILLS = os.path.join(CUR_DIR, &quot;skills&quot;)
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# 数据层 —— 模拟退款订单数据库
+# ═══════════════════════════════════════════════════════════════════════
+
+class Database:
+    &quot;&quot;&quot;模拟退款订单数据库&quot;&quot;&quot;
+
+    def __init__(self):
+        self.refund_orders = {
+            &quot;REF-001&quot;: {
+                &quot;order_id&quot;: &quot;ORD-001&quot;, &quot;product&quot;: &quot;iPhone 15 Pro&quot;,
+                &quot;amount&quot;: 8999, &quot;order_status&quot;: &quot;待发货&quot;,
+                &quot;customer&quot;: &quot;张三&quot;, &quot;customer_level&quot;: &quot;VIP铂金&quot;,
+                &quot;logistics_no&quot;: None, &quot;intercept_status&quot;: None,
+                &quot;sign_date&quot;: None, &quot;returned&quot;: False,
+                &quot;refund_amount&quot;: None, &quot;refund_executed&quot;: False,
+                &quot;notification_sent&quot;: False, &quot;notes&quot;: [],
+            },
+            # &quot;REF-002&quot;: {
+            #     &quot;order_id&quot;: &quot;ORD-002&quot;, &quot;product&quot;: &quot;AirPods Pro&quot;,
+            #     &quot;amount&quot;: 1899, &quot;order_status&quot;: &quot;已发货&quot;,
+            #     &quot;customer&quot;: &quot;李四&quot;, &quot;customer_level&quot;: &quot;普通&quot;,
+            #     &quot;logistics_no&quot;: &quot;SF1234567890&quot;, &quot;intercept_status&quot;: None,
+            #     &quot;sign_date&quot;: None, &quot;returned&quot;: False,
+            #     &quot;refund_amount&quot;: None, &quot;refund_executed&quot;: False,
+            #     &quot;notification_sent&quot;: False, &quot;notes&quot;: [],
+            # },
+            # &quot;REF-003&quot;: {
+            #     &quot;order_id&quot;: &quot;ORD-003&quot;, &quot;product&quot;: &quot;MacBook Pro&quot;,
+            #     &quot;amount&quot;: 12999, &quot;order_status&quot;: &quot;已签收&quot;,
+            #     &quot;customer&quot;: &quot;王五&quot;, &quot;customer_level&quot;: &quot;黄金&quot;,
+            #     &quot;logistics_no&quot;: None, &quot;intercept_status&quot;: None,
+            #     &quot;sign_date&quot;: &quot;2026-06-12&quot;, &quot;returned&quot;: True,
+            #     &quot;refund_amount&quot;: None, &quot;refund_executed&quot;: False,
+            #     &quot;notification_sent&quot;: False, &quot;notes&quot;: [],
+            # },
+            # &quot;REF-004&quot;: {
+            #     &quot;order_id&quot;: &quot;ORD-004&quot;, &quot;product&quot;: &quot;华为Mate 60 Pro&quot;,
+            #     &quot;amount&quot;: 6999, &quot;order_status&quot;: &quot;已签收&quot;,
+            #     &quot;customer&quot;: &quot;赵六&quot;, &quot;customer_level&quot;: &quot;普通&quot;,
+            #     &quot;logistics_no&quot;: None, &quot;intercept_status&quot;: None,
+            #     &quot;sign_date&quot;: &quot;2026-06-14&quot;, &quot;returned&quot;: False,
+            #     &quot;refund_amount&quot;: None, &quot;refund_executed&quot;: False,
+            #     &quot;notification_sent&quot;: False, &quot;notes&quot;: [],
+            # },
+            # &quot;REF-005&quot;: {
+            #     &quot;order_id&quot;: &quot;ORD-005&quot;, &quot;product&quot;: &quot;iPad Air&quot;,
+            #     &quot;amount&quot;: 4799, &quot;order_status&quot;: &quot;已签收&quot;,
+            #     &quot;customer&quot;: &quot;孙七&quot;, &quot;customer_level&quot;: &quot;普通&quot;,
+            #     &quot;logistics_no&quot;: None, &quot;intercept_status&quot;: None,
+            #     &quot;sign_date&quot;: &quot;2026-06-01&quot;, &quot;returned&quot;: False,
+            #     &quot;refund_amount&quot;: None, &quot;refund_executed&quot;: False,
+            #     &quot;notification_sent&quot;: False, &quot;notes&quot;: [],
+            # },
+        }
+        self.processing_log = []
+
+
+db = Database()
+
+# ═══════════════════════════════════════════════════════════════════════
+# 记忆系统 —— 记录每次操作，用于统计报告
+# ═══════════════════════════════════════════════════════════════════════
+store = InMemoryStore()
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# 工具定义 —— 按权限严格分层
+# ═══════════════════════════════════════════════════════════════════════
+
+# ── 只读工具（Maker + Checker 共用）────────────────────────────────
+
+@tool
+def query_refund_order(refund_id: str) -&gt; str:
+    &quot;&quot;&quot;查询退款单详情（只读）。输入退款单号如 &#39;REF-001&#39;，返回订单全貌。&quot;&quot;&quot;
+    rf = db.refund_orders.get(refund_id)
+    if not rf:
+        return f&quot;退款单 {refund_id} 不存在&quot;
+
+    info_parts = [
+        f&quot;退款单号: {refund_id}&quot;,
+        f&quot;原订单号: {rf[&#39;order_id&#39;]}&quot;,
+        f&quot;商品: {rf[&#39;product&#39;]}&quot;,
+        f&quot;订单金额: {rf[&#39;amount&#39;]}元&quot;,
+        f&quot;订单状态: {rf[&#39;order_status&#39;]}&quot;,
+        f&quot;客户: {rf[&#39;customer&#39;]}（{rf[&#39;customer_level&#39;]}）&quot;,
+    ]
+
+    if rf[&quot;order_status&quot;] == &quot;已发货&quot;:
+        info_parts.append(f&quot;物流单号: {rf[&#39;logistics_no&#39;]}&quot;)
+        info_parts.append(f&quot;拦截状态: {rf.get(&#39;intercept_status&#39;) or &#39;未拦截&#39;}&quot;)
+
+    if rf[&quot;order_status&quot;] == &quot;已签收&quot;:
+        info_parts.append(f&quot;签收日期: {rf[&#39;sign_date&#39;]}&quot;)
+        info_parts.append(f&quot;商品是否退回: {&#39;是&#39; if rf[&#39;returned&#39;] else &#39;否&#39;}&quot;)
+
+    info_parts.append(f&quot;是否已退款: {&#39;是&#39; if rf[&#39;refund_executed&#39;] else &#39;否&#39;}&quot;)
+    info_parts.append(f&quot;是否已发通知: {&#39;是&#39; if rf[&#39;notification_sent&#39;] else &#39;否&#39;}&quot;)
+
+    return &quot;\n&quot;.join(info_parts)
+
+
+@tool
+def get_refund_policy(order_status: str) -&gt; str:
+    &quot;&quot;&quot;查询退款规则（只读）。输入订单状态（待发货/已发货/已签收），返回对应规则。&quot;&quot;&quot;
+    policies = {
+        &quot;待发货&quot;: (
+            &quot;【待发货退款规则】\n&quot;
+            &quot;退款金额: 订单全额（无手续费）\n&quot;
+            &quot;通知模板: &#39;您的订单{order_id}（{product}）退款申请已处理，&quot;
+            &quot;退款金额¥{amount}，预计1-3个工作日到账。&#39;\n&quot;
+            &quot;动作: 发送通知 + 执行退款 → 标记完成&quot;
+        ),
+        &quot;已发货&quot;: (
+            &quot;【已发货退款规则】\n&quot;
+            &quot;步骤1(未拦截): 发送物流拦截通知，模板: &#39;您的订单{order_id}&quot;
+            &quot;（{product}）已申请退款，我们已通知物流拦截包裹，拦截成功后立即为您退款。&#39;\n&quot;
+            &quot;步骤2(拦截成功): 执行退款，金额=订单全额（拦截成功无运费损失，不扣费）\n&quot;
+            &quot;  通知模板: &#39;您的订单{order_id}（{product}）物流已拦截成功，&quot;
+            &quot;退款金额¥{amount}，预计3-5个工作日到账。&#39;&quot;
+        ),
+        &quot;已签收&quot;: (
+            &quot;【已签收退款规则】\n&quot;
+            &quot;步骤1: check_7day_window 检查是否超7天\n&quot;
+            &quot;未退回+≤7天: 不退款，发提醒退货通知，模板: &#39;您的订单{order_id}&quot;
+            &quot;（{product}）退款申请已收到。请您先将商品寄回（运费由您承担¥15），&quot;
+            &quot;我们收到退货后将为您退款¥{amount-15}元。&#39;\n&quot;
+            &quot;已退回+≤7天: 退款金额=订单金额-¥15，模板: &#39;您的订单{order_id}&quot;
+            &quot;（{product}）退货已收到，退款金额¥{amount}（已扣除¥15运费），&quot;
+            &quot;预计5-7个工作日到账。&#39;\n&quot;
+            &quot;&gt;7天(不论退回): 不退款，模板: &#39;很抱歉，您的订单{order_id}签收已超过7天，&quot;
+            &quot;超出退货时效，无法办理退款。如有疑问请联系人工客服。&#39;&quot;
+        ),
+    }
+    return policies.get(order_status, f&quot;未知状态: {order_status}，需人工处理&quot;)
+
+
+@tool
+def check_7day_window(refund_id: str) -&gt; str:
+    &quot;&quot;&quot;检查7天退货窗口（只读）。已签收订单需检查是否在7天退货期内。&quot;&quot;&quot;
+    rf = db.refund_orders.get(refund_id)
+    if not rf:
+        return f&quot;退款单 {refund_id} 不存在&quot;
+    if rf[&quot;order_status&quot;] != &quot;已签收&quot;:
+        return f&quot;订单状态为&#39;{rf[&#39;order_status&#39;]}&#39;，无需检查7天窗口&quot;
+    if not rf.get(&quot;sign_date&quot;):
+        return &quot;缺少签收日期，无法判断&quot;
+
+    days = (datetime.now() - datetime.strptime(rf[&quot;sign_date&quot;], &quot;%Y-%m-%d&quot;)).days
+    if days &lt;= 7:
+        return f&quot;签收日期: {rf[&#39;sign_date&#39;]}，距今{days}天 → 在7天退货期内，可办理退货退款&quot;
+    else:
+        return f&quot;签收日期: {rf[&#39;sign_date&#39;]}，距今{days}天 → 已超出7天退货期，不可退款&quot;
+
+
+# ── 写入工具（只有 Orchestrator 能调用）───────────────────────────
+
+@tool
+def execute_refund(refund_id: str, amount: float, reason: str) -&gt; str:
+    &quot;&quot;&quot;执行退款（写入，不可逆！）。只有编排者能调用，必须在Checker审查通过后。&quot;&quot;&quot;
+    rf = db.refund_orders.get(refund_id)
+    if not rf:
+        return f&quot;退款失败：退款单 {refund_id} 不存在&quot;
+    if rf[&quot;refund_executed&quot;]:
+        return f&quot;退款失败：退款单 {refund_id} 已退款，不可重复退款&quot;
+
+    rid = f&quot;RFD-{uuid.uuid4().hex[:8].upper()}&quot;
+    rf[&quot;refund_amount&quot;] = amount
+    rf[&quot;refund_executed&quot;] = True
+    db.processing_log.append(f&quot;[REFUND] {refund_id}: ¥{amount} ({reason}) 单号:{rid}&quot;)
+
+    store.put((&quot;operations&quot;,), f&quot;refund_{refund_id}_{datetime.now().timestamp():.0f}&quot;, {
+        &quot;refund_id&quot;: refund_id, &quot;action&quot;: &quot;refund&quot;, &quot;amount&quot;: amount,
+        &quot;reason&quot;: reason, &quot;refund_no&quot;: rid, &quot;time&quot;: datetime.now().isoformat(),
+    })
+    return f&quot;✅ 退款成功！退款单号: {rid}，金额: ¥{amount}，预计3-7个工作日到账。原因: {reason}&quot;
+
+
+@tool
+def send_notification(refund_id: str, message: str) -&gt; str:
+    &quot;&quot;&quot;发送客户通知（写入）。只有编排者能调用，必须在Checker审查通过后。&quot;&quot;&quot;
+    rf = db.refund_orders.get(refund_id)
+    if not rf:
+        return f&quot;通知发送失败：退款单 {refund_id} 不存在&quot;
+
+    customer = rf[&quot;customer&quot;]
+    rf[&quot;notification_sent&quot;] = True
+    db.processing_log.append(f&quot;[NOTIFY] {refund_id} → {customer}: {message[:80]}...&quot;)
+
+    store.put((&quot;operations&quot;,), f&quot;notify_{refund_id}_{datetime.now().timestamp():.0f}&quot;, {
+        &quot;refund_id&quot;: refund_id, &quot;action&quot;: &quot;notify&quot;, &quot;customer&quot;: customer,
+        &quot;message&quot;: message[:200], &quot;time&quot;: datetime.now().isoformat(),
+    })
+    return f&quot;✅ 已向{customer}发送通知: {message}&quot;
+
+
+@tool
+def send_logistics_intercept(refund_id: str) -&gt; str:
+    &quot;&quot;&quot;发送物流拦截请求（写入）。只有编排者能调用，必须在Checker审查通过后。&quot;&quot;&quot;
+    rf = db.refund_orders.get(refund_id)
+    if not rf:
+        return f&quot;拦截失败：退款单 {refund_id} 不存在&quot;
+    if rf[&quot;order_status&quot;] != &quot;已发货&quot;:
+        return f&quot;拦截失败：订单状态为&#39;{rf[&#39;order_status&#39;]}&#39;，不是&#39;已发货&#39;，无法拦截&quot;
+
+    rf[&quot;intercept_status&quot;] = &quot;已拦截&quot;
+    db.processing_log.append(f&quot;[INTERCEPT] {refund_id}: 物流{rf[&#39;logistics_no&#39;]}拦截成功&quot;)
+
+    store.put((&quot;operations&quot;,), f&quot;intercept_{refund_id}_{datetime.now().timestamp():.0f}&quot;, {
+        &quot;refund_id&quot;: refund_id, &quot;action&quot;: &quot;intercept&quot;,
+        &quot;logistics_no&quot;: rf[&quot;logistics_no&quot;], &quot;time&quot;: datetime.now().isoformat(),
+    })
+    return f&quot;✅ 物流拦截成功！物流单号: {rf[&#39;logistics_no&#39;]}，包裹将在途中退回。可执行退款（全额，不扣费）。&quot;
+
+
+@tool
+def finalize_refund(refund_id: str, comment: str) -&gt; str:
+    &quot;&quot;&quot;标记退款处理完成。只有编排者能调用。&quot;&quot;&quot;
+    rf = db.refund_orders.get(refund_id)
+    if not rf:
+        return f&quot;归档失败：退款单 {refund_id} 不存在&quot;
+
+    rf[&quot;notes&quot;].append(f&quot;[{datetime.now().isoformat()}] 完成: {comment}&quot;)
+    db.processing_log.append(f&quot;[DONE] {refund_id}: {comment}&quot;)
+
+    store.put((&quot;operations&quot;,), f&quot;done_{refund_id}_{datetime.now().timestamp():.0f}&quot;, {
+        &quot;refund_id&quot;: refund_id, &quot;action&quot;: &quot;completed&quot;, &quot;comment&quot;: comment[:200],
+        &quot;time&quot;: datetime.now().isoformat(),
+    })
+    return f&quot;✅ 退款单 {refund_id} 处理完成: {comment}&quot;
+
+
+@tool
+def escalate_to_human(refund_id: str, reason: str, priority: str = &quot;normal&quot;) -&gt; str:
+    &quot;&quot;&quot;升级给人工客服（写入）。只有编排者能调用。&quot;&quot;&quot;
+    rf = db.refund_orders.get(refund_id, {})
+    rf[&quot;notes&quot;] = rf.get(&quot;notes&quot;, []) + [f&quot;[升级] {reason}&quot;]
+    db.processing_log.append(f&quot;[ESCALATE] {refund_id}: {reason}（优先级:{priority}）&quot;)
+
+    store.put((&quot;operations&quot;,), f&quot;escalate_{refund_id}_{datetime.now().timestamp():.0f}&quot;, {
+        &quot;refund_id&quot;: refund_id, &quot;action&quot;: &quot;escalated&quot;, &quot;reason&quot;: reason[:200],
+        &quot;priority&quot;: priority, &quot;time&quot;: datetime.now().isoformat(),
+    })
+    return f&quot;🆘 退款单 {refund_id} 已升级人工处理，优先级: {priority}，原因: {reason}&quot;
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# 子代理定义 —— Maker + Checker
+# ═══════════════════════════════════════════════════════════════════════
+
+refund_maker = SubAgent(
+    name=&quot;refund-maker&quot;,
+    description=&quot;退款处理专员(Maker)：分析退款单→确认通知文案→计算退款金额。只读权限，不执行任何写入。&quot;,
+    system_prompt=&quot;&quot;&quot;你是退款处理专员（Maker）。用 query_refund_order 查退款单，用 get_refund_policy 查规则，用 check_7day_window 检查时效。
+                  
+                    ═══════════════════════════════════════════════════════════
+                      ⚠️ 修改范围规则（必须严格遵守）
+                    ═══════════════════════════════════════════════════════════
+                  
+                      ★ 情况A：如果 task 描述中列出了具体的问题清单（如「1. xxx 2. xxx ...」）
+                        → 仅修正清单中列出的问题。逐条对照、逐条修正。
+                        → 问题清单中未提到的内容（通知文案、退款金额），一律保持原样不动。
+                        → 不要重新分析整笔退款单，只做靶向修正。
+                  
+                      ★ 情况B：如果 task 描述中没有列出具体问题（首轮全面处理）
+                        → 按照 SKILL.md 退款处理标准流程全面分析并给出方案。
+                  
+                    ═══════════════════════════════════════════════════════════
+                      你的核心职责（注意：你只提案，不执行！）
+                    ═══════════════════════════════════════════════════════════
+                  
+                      1. 用 query_refund_order 读取退款单，确定订单状态
+                      2. 根据订单状态对照 SKILL.md / get_refund_policy 确定处理方式
+                      3. 明确给出以下信息（缺一不可）：
+                         a) 通知内容：要发送给客户的完整通知文案
+                         b) 退款金额：如需退款，明确写出金额和计算公式
+                         c) 处理动作：告知编排者需要执行什么操作
+                            （&quot;发送通知&quot;/&quot;发送通知+执行退款&quot;/&quot;发送物流拦截&quot;/&quot;仅发送通知不退款&quot;等）
+                  
+                      你不需要调用 execute_refund、send_notification、send_logistics_intercept——
+                      这些由编排者在 Checker 审查通过后执行。你只需给出方案。
+                  
+                    ═══════════════════════════════════════════════════════════
+                      退款金额计算速查表
+                    ═══════════════════════════════════════════════════════════
+                  
+                      待发货           → 全额退款，不扣费
+                      已发货+未拦截     → 不退款，先拦截（等下一轮拦截成功后再退款）
+                      已发货+已拦截     → 全额退款，不扣费（拦截成功无运费损失）
+                      已签收+未退回+≤7天 → 不退款，发退货提醒
+                      已签收+已退回+≤7天 → 退款 = 订单金额 - 15
+                      已签收+&gt;7天       → 不退款，发超期通知
+                  
+                    ═══════════════════════════════════════════════════════════
+                      🚫 安全红线（必须遵守——这是收敛的关键）
+                    ═══════════════════════════════════════════════════════════
+                  
+                      ❌ 红线1：修正时不得引入新的计算错误！
+                         - 修正退款金额时不能算错扣费规则（只有已签收+已退回才扣¥15）
+                         - 修正通知文案时金额数字必须与退款金额一致
+                  
+                      ❌ 红线2：不得破坏已正确的部分！
+                         - 如果通知文案已正确，只修正被指出的问题，不要重写整条通知
+                         - 修改只应减少问题，不应增加问题
+                  
+                      ❌ 红线3：必须区分&quot;已发货未拦截&quot;和&quot;已发货已拦截&quot;！
+                         - 未拦截 → 先拦截，不能直接退款
+                         - 已拦截 → 执行退款，全额不扣费
+                  
+                      处理完成后：
+                      - 清晰列出:（1）通知内容（2）退款金额（3）建议动作
+                      - 然后立即结束，不要审查自己的方案（那是 Checker 的职责）&quot;&quot;&quot;,
+    tools=[query_refund_order, get_refund_policy, check_7day_window],
+    # Maker 没有任何写入工具！它只提案，不执行。
+    model=deepseek_llm,
+)
+
+refund_checker = SubAgent(
+    name=&quot;refund-checker&quot;,
+    description=&quot;退款审查员(Checker)：独立核验Maker的金额计算和通知文案。只有只读权限！&quot;,
+    system_prompt=&quot;&quot;&quot;你是退款审查员（Checker）。只有只读权限，不能执行任何写入操作。
+
+        ═══════════════════════════════════════════════════════════
+          🛑 最重要：Maker 的方案在 task 描述中，不在文件系统里！
+        ═══════════════════════════════════════════════════════════
+          编排者委派你时，会把 Maker 的完整方案（通知文案 + 退款金额 + 建议动作）
+          直接写在 task 描述里发给你。你不需要去文件系统找任何&quot;方案文件&quot;！
+
+          ❌ 绝对禁止：用 glob/ls/grep/read_file 搜索文件系统寻找 Maker 方案！
+          ❌ 绝对禁止：说&quot;我没有找到 Maker 的方案文件&quot;——方案就在本条消息里！
+          ✅ 正确做法：直接阅读编排者发给你的 task 描述，从中提取 Maker 的方案内容，
+             然后对照 SKILL.md 规则进行审查。只有当需要核实订单原始数据时，
+             才使用 query_refund_order / get_refund_policy / check_7day_window。
+
+        ═══════════════════════════════════════════════════════════
+          🛑 其次阅读：以下情况一律不算问题，绝对不要报告！
+        ═══════════════════════════════════════════════════════════
+      
+          【通知话术类 —— 可以容忍】
+          - 通知文案的具体措辞差异（只要包含：订单号/商品名/金额/预计时间/操作说明）
+          - &quot;元&quot;和&quot;¥&quot;符号混用（只要金额数字正确）
+          - 敬语/礼貌用语的有无（&quot;亲爱的客户&quot;&quot;祝您生活愉快&quot;不是必须的）
+          - 文案长短详略差异（只要关键信息不遗漏）
+      
+          ⚠️ 核心原则：只要金额算对了、规则用对了、关键信息全了，措辞差异不算问题。
+          不要因为话术不够优美就报&quot;审查不通过&quot;。
+      
+        ═══════════════════════════════════════════════════════════
+          ★ 真正需要检查的问题（只有这些才报告）
+        ═══════════════════════════════════════════════════════════
+      
+          对照 SKILL.md 逐项核对：
+      
+          ① 退款金额是否正确？
+             - 待发货 → 全额（不扣费）
+             - 已发货+已拦截 → 全额（不扣费）
+             - 已签收+已退回+≤7天 → 金额-15
+             - 其他情况 → 不应有退款金额
+             用 query_refund_order 获取订单金额后重新计算，与 Maker 给出的金额对比
+      
+          ② 通知文案是否包含必要信息？
+             - 必须包含：订单号、商品名
+             - 如有退款：必须包含退款金额和预计到账时间
+             - 如不退款：必须说明不退款原因
+      
+          ③ 处理规则是否适用正确？
+             - 订单状态判断是否正确
+             - 已签收是否检查了7天窗口
+             - 已发货是否正确区分了&quot;未拦截&quot;和&quot;已拦截&quot;
+      
+          ④ 动作建议是否与规则一致？
+             - 该拦截的是否建议了拦截
+             - 该退款的是否建议了退款
+             - 该仅通知的是否建议了仅通知
+      
+        ═══════════════════════════════════════════════════════════
+          ★ 输出格式（必须严格遵守，便于编排者提取并传递给 Maker）
+        ═══════════════════════════════════════════════════════════
+      
+          如果 Maker 的方案全部正确，仅输出：
+            审查通过。
+      
+          如果发现问题：
+            审查不通过。发现以下问题：
+            1. 【退款-金额错误】已签收已退回应扣¥15运费，退款金额应为XX元，Maker给出YY元 → 修正建议：退款金额 = 订单金额 - 15 = XX元
+            2. 【通知-信息缺失】退款通知缺少预计到账时间 → 修正建议：在通知末尾添加&quot;预计X-X个工作日到账&quot;
+            3. 【规则-状态误判】订单已签收但Maker按已发货规则处理 → 修正建议：应检查退货状态和7天窗口后按已签收规则重新处理
+            ...
+      
+          每条「修正建议」必须具体可操作，给出正确的数值或文案。
+      
+          示例（正确）：
+            审查不通过。发现以下问题：
+            1. 【退款-金额错误】REF-003已签收+已退回+≤7天，应扣¥15。12999-15=12984元，但Maker给出12999元 → 修正建议：退款金额改为12984元，通知中金额同步修正
+      
+          示例（错误——禁止）：
+            审查不通过。退款金额有问题，请重新计算。
+      
+          ⚠️ 约束：
+          - 给出审查结论后立即结束。不要写&quot;修改后再来&quot;等循环指令。&quot;&quot;&quot;,
+    tools=[query_refund_order, get_refund_policy, check_7day_window],
+    # Checker 没有任何写入工具！它只审核，不执行。
+    model=deepseek_llm_flash,
+)
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# 编排者 Agent
+# ═══════════════════════════════════════════════════════════════════════
+
+def _build_orchestrator():
+    &quot;&quot;&quot;构建编排者 Agent（含 checkpointer 用于上下文持久化）&quot;&quot;&quot;
+    return create_deep_agent(
+        model=deepseek_llm,
+        tools=[execute_refund, send_notification, send_logistics_intercept,
+               finalize_refund, escalate_to_human],
+        subagents=[refund_maker, refund_checker],
+        skills=[SKILLS],
+        backend=FilesystemBackend(root_dir=CUR_DIR, virtual_mode=True),
+        store=store,
+        checkpointer=InMemorySaver(),
+        system_prompt=&quot;&quot;&quot;你是退款编排员。你负责委派子代理和执行实际操作，不亲自分析订单或审查方案。
+
+                        ═══════════════════════════════════════════════════════════
+                          🛑 启动规则：收到任务后直接委派 Maker，不要做任何准备工作！
+                        ═══════════════════════════════════════════════════════════
+                          退款单数据在数据库中，只能通过 query_refund_order 工具访问
+                          （该工具已分配给 Maker 和 Checker）。文件系统里没有退款单文件！
+
+                          ❌ 绝对禁止：用 glob/ls/read_file 搜索文件系统找退款数据！
+                          ❌ 绝对禁止：重新读取 SKILL.md（skills 已自动加载）！
+                          ❌ 绝对禁止：读取 operations_loop.py 文件！
+                          ❌ 绝对禁止：在委派 Maker 之前做任何&quot;数据准备&quot;查询！
+
+                          ✅ 正确做法：收到&quot;请处理退款单 XXX&quot;后，立即委派 Maker，
+                             一步都不要多余。Maker 有自己的工具来查数据。
+
+                        ═══════════════════════════════════════════════════════════
+                          ⚠️ 核心规则：你必须确保 Checker 的审查意见被传递给 Maker
+                        ═══════════════════════════════════════════════════════════
+                          这是系统中最重要的规则。违反它会导致问题无法收敛。
+                      
+                          首轮（无历史时）：委派 Maker 对退款单做全面分析并给出方案。
+                          续轮（有历史时）：你必须从上一轮的 Checker 输出中提取「所有问题清单」，
+                          原样复制到 Maker 的 task 描述中。格式如下：
+                      
+                          &quot;请处理退款单 {refund_id}，仅修正以下审查发现的具体问题，其他内容保持原样：
+                          1. [从Checker输出中逐条复制的问题和修正建议]
+                          2. [逐条复制...]
+                          ...
+                          请逐一修正上述问题，不要修改未列出的内容，也不要引入新的问题。&quot;
+                      
+                          ❌ 绝对禁止：只说&quot;根据审查意见修改&quot;而不列出具体问题。
+                          ✅ 正确做法：逐条列出 Checker 发现的所有问题，让 Maker 逐条修正。
+                      
+                        ═══════════════════════════════════════════════════════════
+                          ★ 每轮执行流程（恰好一轮 Maker→Checker，然后立即结束）
+                        ═══════════════════════════════════════════════════════════
+                      
+                          1. 委派 refund-maker 分析退款单：
+                             - 首轮：全面分析，给出通知文案 + 退款金额 + 建议动作
+                             - 续轮：将上一轮 Checker 的具体问题清单原样写入 task 描述
+                      
+                          2. 委派 refund-checker 独立审查 Maker 的方案
+
+                             如果你不把 Maker 方案写入 task 描述，Checker 100% 会说&quot;没收到方案&quot;！
+                                然后你被迫重新委派，浪费整整一轮。一步到位，绝不重来。
+
+                             子代理之间是完全隔离的——Checker 的对话是全新的，看不到 Maker 刚才输出了什么。
+                             你必须把 Maker 的完整方案直接写进 task 的 description 字段。模板如下（直接复制粘贴）：
+
+                             &quot;请审查 Maker 针对退款单 {refund_id} 的以下方案是否完全正确：
+
+                             【Maker给出的通知内容】
+                             （逐字复制 Maker 输出的完整通知文案）
+
+                             【Maker计算的退款金额】
+                             （逐字复制 Maker 输出的金额和计算公式）
+
+                             【Maker建议的执行动作】
+                             （逐字复制 Maker 输出的建议动作）
+
+                             请用 query_refund_order / get_refund_policy 核实数据后，对照 SKILL.md 逐项核验，
+                             按标准格式输出审查结论。&quot;
+
+                             ⚠️ 自检：task 的 description 字段如果短于 100 个字符，说明你没附方案，立即修正！
+
+                          3. 根据审查结果决定下一步：
+                             - &quot;审查通过&quot; → ★ 根据 Maker 的方案执行实际操作：
+                               a) Maker 建议&quot;发送通知&quot; → 调用 send_notification
+                               b) Maker 建议&quot;执行退款&quot; → 调用 execute_refund
+                               c) Maker 建议&quot;发送物流拦截&quot; → 调用 send_logistics_intercept
+                               d) Maker 建议&quot;标记完成&quot; → 调用 finalize_refund
+                               e) Maker 建议&quot;仅发送通知不退款&quot;（如超期拒绝）→ 调用 send_notification + finalize_refund
+                               执行完毕后仅输出&quot;审查通过，已执行：[具体操作]&quot;，然后立即停止。
+                               不要输出总结表格、处理摘要、markdown 等任何额外内容！
+                      
+                             - &quot;审查不通过&quot; → 将 Checker 的全部问题和修正建议输出在响应中，
+                               格式：&quot;审查不通过。发现以下问题：\n1. xxx\n2. xxx\n...&quot;，
+                               然后立即结束。外部程序会将这些交给下一轮的 Maker。
+                      
+                        ═══════════════════════════════════════════════════════════
+                          工具权限说明
+                        ═══════════════════════════════════════════════════════════
+                          - 委派子代理（名称映射——必须使用精确名称！）:
+                            · refund-maker   = Maker（退款处理专员，只读-提案）
+                            · refund-checker = Checker（退款审查员，只读-审核）
+                            委派时 subagent_type 必须填 &quot;refund-maker&quot; 或 &quot;refund-checker&quot;
+                          - execute_refund: ★ 仅在 Checker 审查通过 + Maker 建议退款时调用
+                          - send_notification: ★ 仅在 Checker 审查通过 + Maker 建议发送通知时调用
+                          - send_logistics_intercept: ★ 仅在 Checker 审查通过 + Maker 建议拦截物流时调用
+                          - finalize_refund: 退款执行完毕或拒绝退款后调用
+                          - escalate_to_human: 遇到无法自动修复的问题时升级
+                      
+                          ⚠️ 绝对不能跳过 Checker 审查直接执行写入操作！
+                          只有 Checker 明确输出&quot;审查通过&quot;后，才能调用写入工具。
+                      
+                        ═══════════════════════════════════════════════════════════
+                          硬性约束（违反将导致系统失控）
+                        ═══════════════════════════════════════════════════════════
+                          - 禁止自行循环！审查不通过时，绝对不要再次委派 Maker。只汇报问题然后结束。
+                          - 每次调用最多委派 Maker 一次、Checker 一次。
+                          - 禁止未经 Checker 审查通过就调用写入工具！&quot;&quot;&quot;,
+    )
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# 统计数据结构
+# ═══════════════════════════════════════════════════════════════════════
+
+@dataclass
+class RefundStats:
+    scanned: int = 0
+    discovered: int = 0
+    completed: int = 0
+    escalated: int = 0
+    records: list = field(default_factory=list)
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# RefundLoop —— Loop Engineering 核心类
+# ═══════════════════════════════════════════════════════════════════════
+
+class RefundLoop:
+    &quot;&quot;&quot;智能退款处理循环系统
+
+    Loop Engineering 设计要素：
+    - Objective:   自动处理退款单，Maker提案→Checker审核→Orch执行
+    - Trigger:     while True 定时扫描退款队列
+    - Discovery:   scan() 扫描待处理退款单
+    - Workspace:   FilesystemBackend(virtual_mode=True)
+    - Context:     checkpointer + thread_id + SKILL.md
+    - Delegation:  Maker(只读-提案) + Checker(只读-审核) + Orch(写-执行)
+    - Verification: Checker 审查输出 + Python 文本判断
+    - Budget:      max_rounds（默认3）
+    - Escalation:  循环耗尽 → Python 直接 escalate
+    - Exit:        编排者调用 finalize_refund
+    &quot;&quot;&quot;
+
+    def __init__(self, max_rounds: int = 3):
+        self.orchestrator = _build_orchestrator()
+        self.stats = RefundStats()
+        self.max_rounds = max_rounds
+
+    # ── 发现 ──────────────────────────────────────────────────
+
+    def scan(self) -&gt; list[str]:
+        &quot;&quot;&quot;扫描退款队列，返回待处理的退款单ID列表。&quot;&quot;&quot;
+        pending = []
+        for rid, rf in db.refund_orders.items():
+            already_done = any(&quot;完成&quot; in n for n in rf.get(&quot;notes&quot;, []))
+            if not already_done:
+                pending.append(rid)
+        return pending
+
+    # ── 单轮流式执行 ──────────────────────────────────────────
+
+    def _stream_round(self, refund_id: str, thread_id: str) -&gt; str:
+        &quot;&quot;&quot;执行单轮 Maker→Checker，流式展示所有 Agent 的输出。&quot;&quot;&quot;
+        message = f&quot;请处理退款单 {refund_id}。&quot;
+
+        config = {&quot;configurable&quot;: {&quot;thread_id&quot;: thread_id}}
+
+        subagent_names = {}
+        task_args_buf = &quot;&quot;
+        cur_tool_name = None
+        last_source = None
+        orchestrator_text = &quot;&quot;
+
+        try:
+            for chunk in self.orchestrator.stream(
+                input={&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: message}]},
+                config=config,
+                stream_mode=&quot;messages&quot;,
+                subgraphs=True,
+                version=&quot;v2&quot;,
+            ):
+                if chunk.get(&quot;type&quot;) != &quot;messages&quot;:
+                    continue
+
+                token, _metadata = chunk[&quot;data&quot;]
+                namespace = chunk.get(&quot;ns&quot;, ())
+
+                ns_sub_id = None
+                for seg in (namespace or ()):
+                    if isinstance(seg, str) and seg.startswith(&quot;tools:&quot;):
+                        ns_sub_id = seg.replace(&quot;tools:&quot;, &quot;&quot;)
+                        break
+
+                if ns_sub_id:
+                    if ns_sub_id in subagent_names:
+                        source = f&quot;子代理-{subagent_names[ns_sub_id]}&quot;
+                    else:
+                        m = re.search(r&#39;subagent_type[&quot;\s:]+([^&quot;,}\s]+)&#39;, task_args_buf)
+                        name = m.group(1) if m else ns_sub_id[:8] + &quot;...&quot;
+                        subagent_names[ns_sub_id] = name
+                        source = f&quot;子代理-{name}&quot;
+                        task_args_buf = &quot;&quot;
+                else:
+                    source = &quot;主代理(编排者)&quot;
+
+                msg_type = getattr(token, &#39;type&#39;, &#39;unknown&#39;)
+
+                # ── 工具调用 ──
+                if hasattr(token, &#39;tool_call_chunks&#39;) and token.tool_call_chunks:
+                    if last_source and (source != last_source):
+                        print()
+
+                    for tc in token.tool_call_chunks:
+                        tc_name = tc.get(&#39;name&#39;)
+                        if tc_name:
+                            cur_tool_name = tc_name
+                            icons = {
+                                &quot;task&quot;: &quot;📋&quot;, &quot;query_refund_order&quot;: &quot;📖&quot;,
+                                &quot;get_refund_policy&quot;: &quot;📜&quot;, &quot;check_7day_window&quot;: &quot;📅&quot;,
+                                &quot;execute_refund&quot;: &quot;💳&quot;, &quot;send_notification&quot;: &quot;📨&quot;,
+                                &quot;send_logistics_intercept&quot;: &quot;🚚&quot;,
+                                &quot;finalize_refund&quot;: &quot;✅&quot;, &quot;escalate_to_human&quot;: &quot;🆘&quot;,
+                            }
+                            print(f&quot;\n  [{source}] {icons.get(tc_name, &#39;🔧&#39;)} 调用: {tc_name} &quot;,
+                                  end=&quot;&quot;, flush=True)
+
+                        if tc.get(&#39;args&#39;):
+                            args_str = tc[&#39;args&#39;]
+                            if cur_tool_name == &#39;task&#39; and source == &quot;主代理(编排者)&quot;:
+                                task_args_buf += args_str
+                            print(args_str, end=&quot;&quot;, flush=True)
+
+                # ── 工具结果 ──
+                if msg_type == &quot;tool&quot;:
+                    if last_source:
+                        print()
+                    tool_name = getattr(token, &#39;name&#39;, &#39;?&#39;)
+                    result = str(getattr(token, &#39;content&#39;, &#39;&#39;))
+                    if tool_name in (&#39;execute_refund&#39;, &#39;send_notification&#39;) and len(result) &gt; 200:
+                        result = result[:200] + &quot;...&quot;
+                    print(f&quot;  [{source}] 📋 返回:\n     {result or &#39;(无返回内容)&#39;}&quot;)
+                    last_source = None
+                    continue
+
+                # ── AI 文本 ──
+                content_text = &quot;&quot;
+                if hasattr(token, &#39;content&#39;):
+                    c = token.content
+                    if isinstance(c, str):
+                        content_text = c
+                    elif isinstance(c, list):
+                        content_text = &#39;&#39;.join(
+                            item.get(&#39;text&#39;, str(item)) if isinstance(item, dict)
+                            else str(item) for item in c
+                        )
+                    elif c is not None:
+                        content_text = str(c)
+
+                has_tool_calls = hasattr(token, &#39;tool_call_chunks&#39;) and token.tool_call_chunks
+
+                if content_text and not has_tool_calls:
+                    if source != last_source:
+                        if last_source:
+                            print()
+                        icons = {&quot;maker&quot;: &quot;📝&quot;, &quot;checker&quot;: &quot;🔍&quot;}
+                        icon = &quot;🎯&quot;
+                        for k, v in icons.items():
+                            if k in source:
+                                icon = v; break
+                        print(f&quot;\n  [{source}] {icon} &quot;, end=&quot;&quot;, flush=True)
+                    print(content_text, end=&quot;&quot;, flush=True)
+
+                    if source == &quot;主代理(编排者)&quot;:
+                        orchestrator_text += content_text
+
+                last_source = source
+
+            print()
+
+        except Exception as e:
+            print(f&quot;\n  ❌ [错误] 流式处理异常: {e}&quot;)
+            import traceback; traceback.print_exc()
+
+        return orchestrator_text
+
+    # ── 结果判断 ──────────────────────────────────────────────
+
+    def _check_result(self, orchestrator_text: str, refund_id: str) -&gt; str | None:
+        &quot;&quot;&quot;从编排者的响应文本中判断本轮结果。&quot;&quot;&quot;
+        if &quot;审查通过&quot; in orchestrator_text or &quot;finalize_refund&quot; in orchestrator_text:
+            return &quot;completed&quot;
+        if &quot;escalate_to_human&quot; in orchestrator_text or &quot;已升级人工&quot; in orchestrator_text:
+            return &quot;escalated&quot;
+
+        recent_logs = db.processing_log[-3:]
+        for log in recent_logs:
+            if f&quot;[DONE] {refund_id}&quot; in log:
+                return &quot;completed&quot;
+            if f&quot;[ESCALATE] {refund_id}&quot; in log:
+                return &quot;escalated&quot;
+
+        return None
+
+    # ── 处理单个退款单 ──────────────────────────────────────────
+
+    def process_one(self, refund_id: str, max_rounds: int = 3) -&gt; dict:
+        &quot;&quot;&quot;处理单个退款单。Python for 循环控制重试。&quot;&quot;&quot;
+        thread_id = f&quot;refund-{refund_id}&quot;
+        rf = db.refund_orders.get(refund_id, {})
+
+        print(f&quot;\n  {&#39;=&#39;*60}&quot;)
+        print(f&quot;  📋 {refund_id} | {rf.get(&#39;product&#39;, &#39;N/A&#39;)} | ¥{rf.get(&#39;amount&#39;, &#39;N/A&#39;)}&quot;)
+        print(f&quot;  📦 状态: {rf.get(&#39;order_status&#39;, &#39;N/A&#39;)} | &quot;
+              f&quot;👤 客户: {rf.get(&#39;customer&#39;, &#39;N/A&#39;)}（{rf.get(&#39;customer_level&#39;, &#39;N/A&#39;)}）&quot;)
+        if rf.get(&quot;order_status&quot;) == &quot;已签收&quot;:
+            print(f&quot;  📅 签收: {rf.get(&#39;sign_date&#39;, &#39;N/A&#39;)} | &quot;
+                  f&quot;📦 退回: {&#39;是&#39; if rf.get(&#39;returned&#39;) else &#39;否&#39;}&quot;)
+        if rf.get(&quot;order_status&quot;) == &quot;已发货&quot;:
+            print(f&quot;  🚚 拦截: {rf.get(&#39;intercept_status&#39;) or &#39;未拦截&#39;}&quot;)
+        print(f&quot;  {&#39;=&#39;*60}&quot;)
+
+        for round_num in range(1, max_rounds + 1):
+            print(f&quot;\n  ╔{&#39;═&#39;*50}╗&quot;)
+            print(f&quot;  ║  🔄 Python 循环控制: 第 {round_num}/{max_rounds} 轮&quot;)
+            print(f&quot;  ╚{&#39;═&#39;*50}╝&quot;)
+
+            orchestrator_text = self._stream_round(refund_id, thread_id)
+
+            result = self._check_result(orchestrator_text, refund_id)
+            if result == &quot;completed&quot;:
+                print(f&quot;\n  🎉 [Python 判断] 审查通过 + 操作已执行 → 退款单处理完成!&quot;)
+                self.stats.completed += 1
+                return {&quot;refund_id&quot;: refund_id, &quot;status&quot;: &quot;completed&quot;, &quot;rounds&quot;: round_num}
+            if result == &quot;escalated&quot;:
+                print(f&quot;\n  🆘 [Python 判断] 编排者主动升级 → 需人工介入&quot;)
+                self.stats.escalated += 1
+                return {&quot;refund_id&quot;: refund_id, &quot;status&quot;: &quot;escalated&quot;, &quot;rounds&quot;: round_num}
+
+            if round_num &lt; max_rounds:
+                print(f&quot;  🔄 [Python 判断] 审查未通过 → 准备第 {round_num + 1} 轮...&quot;
+                      f&quot;（上下文已持久化，编排者将从历史中获取反馈）&quot;)
+
+        print(f&quot;\n  🆘 [Python 判断] {max_rounds} 轮修正仍未通过 → Python 代码直接升级人工&quot;)
+        escalate_to_human.invoke({
+            &quot;refund_id&quot;: refund_id,
+            &quot;reason&quot;: f&quot;经过 {max_rounds} 轮 Maker-Checker 处理循环后仍未解决，需人工介入。&quot;,
+            &quot;priority&quot;: &quot;high&quot;,
+        })
+        self.stats.escalated += 1
+        return {&quot;refund_id&quot;: refund_id, &quot;status&quot;: &quot;escalated&quot;, &quot;rounds&quot;: max_rounds}
+
+    # ── 单次循环 ──────────────────────────────────────────────
+
+    def run_one_cycle(self):
+        &quot;&quot;&quot;执行一次完整的扫描→处理循环&quot;&quot;&quot;
+        print(f&quot;\n{&#39;#&#39;*60}&quot;)
+        print(f&quot;  🔁 扫描循环 — {datetime.now().strftime(&#39;%H:%M:%S&#39;)}&quot;)
+        print(f&quot;{&#39;#&#39;*60}&quot;)
+
+        pending = self.scan()
+        self.stats.scanned = len(db.refund_orders)
+        self.stats.discovered = len(pending)
+        print(f&quot;  🔍 [发现] 扫描 {len(db.refund_orders)} 个退款单 → {len(pending)} 个待处理&quot;)
+
+        if not pending:
+            print(f&quot;  ⏳ 暂无待处理退款单，等待下次扫描...&quot;)
+            return
+
+        for rid in pending:
+            rf = db.refund_orders[rid]
+            extra = &quot;&quot;
+            if rf[&quot;order_status&quot;] == &quot;已发货&quot;:
+                extra = f&quot; | 拦截:{rf.get(&#39;intercept_status&#39;) or &#39;未拦截&#39;}&quot;
+            elif rf[&quot;order_status&quot;] == &quot;已签收&quot;:
+                extra = f&quot; | 退回:{&#39;是&#39; if rf.get(&#39;returned&#39;) else &#39;否&#39;}&quot;
+            print(f&quot;     📝 {rid}: {rf[&#39;product&#39;]} | {rf[&#39;order_status&#39;]}{extra} | ¥{rf[&#39;amount&#39;]}&quot;)
+
+        print(f&quot;\n  [开始分派] 共 {len(pending)} 个退款单\n&quot;)
+
+        for i, rid in enumerate(pending):
+            print(f&quot;  ┌─ [{i+1}/{len(pending)}] ──────────────────────────────&quot;)
+            result = self.process_one(rid, max_rounds=self.max_rounds)
+            self.stats.records.append(result)
+            icon = &quot;✅&quot; if result[&quot;status&quot;] == &quot;completed&quot; else &quot;🆘&quot;
+            print(f&quot;  └─ [{i+1}/{len(pending)}] {icon} &quot;
+                  f&quot;{result[&#39;status&#39;]}（{result[&#39;rounds&#39;]}轮）&quot;)
+
+        self._report()
+
+    # ── 统计报告 ──────────────────────────────────────────────
+
+    def _report(self):
+        all_records = store.search((&quot;operations&quot;,))
+        refund_count = sum(1 for r in all_records if r.value.get(&quot;action&quot;) == &quot;refund&quot;)
+        notify_count = sum(1 for r in all_records if r.value.get(&quot;action&quot;) == &quot;notify&quot;)
+        intercept_count = sum(1 for r in all_records if r.value.get(&quot;action&quot;) == &quot;intercept&quot;)
+        print(f&quot;\n  📊 [统计] 退款{refund_count}次 | 拦截{intercept_count}次 | &quot;
+              f&quot;通知{notify_count}次 | 完成{self.stats.completed} | &quot;
+              f&quot;升级{self.stats.escalated} | 记忆{len(all_records)}条&quot;)
+        print(f&quot;  操作日志（最近5条）:&quot;)
+        for log in db.processing_log[-5:]:
+            print(f&quot;     {log}&quot;)
+
+    # ── 持续运行 ──────────────────────────────────────────────
+
+    def run_loop(self, interval: int = 10):
+        &quot;&quot;&quot;持续运行的监控循环（while True）&quot;&quot;&quot;
+        print(&quot;=&quot; * 60)
+        print(&quot;  🔄 Loop Engineering: 智能退款处理循环系统&quot;)
+        print(&quot;  🐍 Python 代码控制循环 | checkpointer 上下文持久化&quot;)
+        print(&quot;=&quot; * 60)
+        print(f&quot;  📊 监控范围:   退款订单队列&quot;)
+        print(f&quot;  ⏱️  扫描间隔:   {interval} 秒 | Ctrl+C 停止&quot;)
+        print(f&quot;  📝 refund-maker:   退款方案提案（只读）&quot;)
+        print(f&quot;  🔍 refund-checker: 独立审查员（只读）&quot;)
+        print(f&quot;  🎯 Orchestrator:   编排调度 + 执行操作（写）&quot;)
+        print(f&quot;  💾 持久化:         InMemorySaver + thread_id&quot;)
+        print(f&quot;  🔄 修正上限:       可配置（默认3轮）&quot;)
+        print(f&quot;  📂 Skills:         {SKILLS}&quot;)
+        print(&quot;=&quot; * 60)
+
+        cycle = 0
+        try:
+            while True:
+                cycle += 1
+                print(f&quot;\n{&#39;#&#39;*60}&quot;)
+                print(f&quot;  🔁 [监控循环 #{cycle}] {datetime.now().strftime(&#39;%H:%M:%S&#39;)}&quot;)
+                print(f&quot;{&#39;#&#39;*60}&quot;)
+                self.run_one_cycle()
+                time.sleep(interval)
+
+        except KeyboardInterrupt:
+            print(f&quot;\n\n  🛑 系统已停止。共运行 {cycle} 个监控循环。&quot;)
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# 主入口
+# ═══════════════════════════════════════════════════════════════════════
+if __name__ == &quot;__main__&quot;:
+    import argparse
+    parser = argparse.ArgumentParser(description=&quot;智能退款处理循环系统 (Loop Engineering)&quot;)
+    parser.add_argument(&quot;--interval&quot;, type=int, default=10, help=&quot;扫描间隔(秒)&quot;)
+    parser.add_argument(&quot;--max-rounds&quot;, type=int, default=3, help=&quot;最大修正轮数&quot;)
+    args = parser.parse_args()
+
+    loop = RefundLoop(max_rounds=args.max_rounds)
+    loop.run_loop(interval=args.interval)
+</code></pre>
+<h2 id="五大构建块在代码中的映射-1"><a href="#五大构建块在代码中的映射-1" class="headerlink" title="五大构建块在代码中的映射"></a>五大构建块在代码中的映射</h2><p>此案例代码中，精确标注每个构建块的位置：</p>
+<pre><code class="python"># ═══════════════════════════════════════════════════════════════
+# ① 自动化/调度 —— 循环的心跳
+# ═══════════════════════════════════════════════════════════════
+class RefundLoop:
+    def run_loop(self, interval: int = 10):
+        &quot;&quot;&quot;持续运行的监控循环（while True）&quot;&quot;&quot;
+        cycle = 0
+        while True:                              # ← 持续监控
+            cycle += 1
+            self.run_one_cycle()                 # 扫描 → 发现 → 处理 → 报告
+            time.sleep(interval)
+
+    def scan(self) -&gt; list[str]:
+        &quot;&quot;&quot;扫描退款队列，返回待处理退款单ID&quot;&quot;&quot;
+        pending = []
+        for rid, rf in db.refund_orders.items():
+            already_done = any(&quot;完成&quot; in n for n in rf.get(&quot;notes&quot;, []))
+            if not already_done:
+                pending.append(rid)
+        return pending
+# ═══════════════════════════════════════════════════════════
+# ② 工作树/隔离 —— Agent 在哪里安全操作
+# ═══════════════════════════════════════════════════════════
+
+orchestrator = create_deep_agent(
+    backend=FilesystemBackend(
+        root_dir=CUR_DIR,                        # ← 限定工作范围
+        virtual_mode=True,                       # ← 虚拟模式，防止误操作真实文件
+    ),
+    ...
+)
+# ═══════════════════════════════════════════════════════════
+# ③ 技能/知识 —— 持久化的项目知识
+# ═══════════════════════════════════════════════════════════
+
+SKILLS = os.path.join(CUR_DIR, &quot;skills&quot;)
+
+orchestrator = create_deep_agent(
+    skills=[SKILLS],                             # ← 加载 skills/refund-processor/SKILL.md
+    ...
+)
+# ═══════════════════════════════════════════════════════════
+# ④ 连接器/插件 —— 按权限严格分层
+# ═══════════════════════════════════════════════════════════
+
+# ── 只读工具（Maker + Checker 共用）────────────────────
+@tool
+def query_refund_order(refund_id: str) -&gt; str:     # ← 查询退款单
+@tool
+def get_refund_policy(order_status: str) -&gt; str:   # ← 查询退款规则
+@tool
+def check_7day_window(refund_id: str) -&gt; str:      # ← 检查7天退货窗口
+
+# ── 写入工具（只有 Orchestrator 能调用）───────────────
+@tool
+def execute_refund(refund_id, amount, reason):     # ← 执行退款（不可逆！）
+@tool
+def send_notification(refund_id, message):          # ← 发送客户通知
+@tool
+def send_logistics_intercept(refund_id):            # ← 发送物流拦截
+@tool
+def finalize_refund(refund_id, comment):            # ← 标记完成
+@tool
+def escalate_to_human(refund_id, reason, priority): # ← 升级人工
+
+# ═══════════════════════════════════════════════════════════
+# ⑤ 子代理/协作 —— Maker-Checker-Orch 三层分离
+# ═══════════════════════════════════════════════════════════
+
+# Maker：只读，只提案，不执行
+refund_maker = SubAgent(
+    name=&quot;refund-maker&quot;,
+    tools=[query_refund_order, get_refund_policy, check_7day_window],
+    # 没有任何写入工具！
+    model=deepseek_llm,                           # ← 强模型做提案
+)
+
+# Checker：只读，只审核，不执行
+refund_checker = SubAgent(
+    name=&quot;refund-checker&quot;,
+    tools=[query_refund_order, get_refund_policy, check_7day_window],
+    # 没有任何写入工具！
+    model=deepseek_llm_flash,                     # ← 弱模型做审核，降成本
+)
+
+# Orchestrator：持有所有写入工具，但只在 Checker 通过后才执行
+orchestrator = create_deep_agent(
+    tools=[execute_refund, send_notification,
+           send_logistics_intercept, finalize_refund,
+           escalate_to_human],                    # ← 所有写入工具
+    subagents=[refund_maker, refund_checker],
+    checkpointer=InMemorySaver(),
+    ...
+)
+# ═══════════════════════════════════════════════════════════
+# 记忆系统 — 操作日志记录
+# ═══════════════════════════════════════════════════════════
+
+# 操作记忆：每次 execute_refund / send_notification / send_logistics_intercept
+# / finalize_refund / escalate_to_human 调用后自动写入 store
+store.put((&quot;operations&quot;,), f&quot;refund_{refund_id}_{timestamp}&quot;, {
+    &quot;refund_id&quot;: refund_id, &quot;action&quot;: &quot;refund&quot;, &quot;amount&quot;: amount, ...
+})
+
+# 短期记忆：checkpointer 跨轮次持久化（InMemorySaver）
+checkpointer=InMemorySaver()
+
+# 统计报告时从 store 中检索操作记录
+all_records = store.search((&quot;operations&quot;,))
+</code></pre>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/07/17/AI/LangChain/%E4%BA%BA%E6%9C%BA%E5%8D%8F%E5%90%8C-Human-in-the-loop/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">post</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/07/16/AI/Agent-Loop/Agent-Loop%E4%BA%94%E5%A4%A7%E6%9E%84%E5%BB%BA%E5%9D%97%E5%92%8C%E8%AE%B0%E5%BF%86%E5%B1%82/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">Agent Loop五大构建块和记忆层</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#Loop-Engineering-%E6%A1%88%E4%BE%8B%E4%B8%80"><span class="toc-list-number">1.</span> <span class="toc-list-text">Loop Engineering 案例一</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A1%88%E4%BE%8B%E4%B8%9A%E5%8A%A1"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">案例业务</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">业务逻辑</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-list-number">1.3.</span> <span class="toc-list-text">完整代码</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%BA%94%E5%A4%A7%E6%9E%84%E5%BB%BA%E5%9D%97%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E6%98%A0%E5%B0%84"><span class="toc-list-number">1.4.</span> <span class="toc-list-text">五大构建块在代码中的映射</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#Loop-Engineering-%E6%A1%88%E4%BE%8B%E4%BA%8C"><span class="toc-list-number">2.</span> <span class="toc-list-text">Loop Engineering 案例二</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A1%88%E4%BE%8B%E4%B8%9A%E5%8A%A1-1"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">案例业务</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91-1"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">业务逻辑</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81-1"><span class="toc-list-number">2.3.</span> <span class="toc-list-text">完整代码</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%BA%94%E5%A4%A7%E6%9E%84%E5%BB%BA%E5%9D%97%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E6%98%A0%E5%B0%84-1"><span class="toc-list-number">2.4.</span> <span class="toc-list-text">五大构建块在代码中的映射</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

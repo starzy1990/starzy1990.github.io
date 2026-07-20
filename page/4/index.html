@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+    
+        <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        
+            load: ['[tex]/mhchem'],
+        
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        
+            packages: {'[+]': ['mhchem']},
+        
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+          
+
+
+    
+    
+    <title>
+          
+            starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <div class="articles-list">
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/LangChain/Agent%E6%99%BA%E8%83%BD%E4%BD%93/">Agent 智能体</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Agent介绍什么是Agent在LangChain框架中，Agent（智能体）是一个高级组件，它通过将大型语言模型（LLM）与一系列外部工具（Tools）相结合，构建了一个能够自主推理并执行复杂任务的智能系统。其核心思想是利用LLM作为推理引擎（Reasoning  Engine），让模型能够动态地决定为解决用户问题所需采取的行动序列，包括选择何种工具、以何种顺序调用，并迭代地处理工具返回的结果，直至任务完成。
+
+简单来说，一个Agent不再仅仅是生成文本的模型，而是一个具备“思考-行动-观察”循环的自主工作者。当用户提出一个复杂需求时，Agent会像人类一样，先理解任务、规划步骤、使用...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/LangChain/Agent%E6%99%BA%E8%83%BD%E4%BD%93/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/LangChain/Agent%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86/">Agent 长期记忆</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            重点介绍Agent长期记忆，短期记忆使Agent能够在单次会话中维持对话的连贯性，而长期记忆则赋予了Agent跨会话学习和积累知识的能力。这样Agent能够构建持久的用户画像，形成经验库，并持续优化自身行为，从而提供真正个性化、智能化的服务。
+长期记忆介绍长期记忆是一种用于存储用户特定信息或应用级数据的系统，其核心特点是跨越会话和线程共享。与短期记忆局限于单一线程（thread_id）不同，长期记忆中的数据可以被任何时间、在任何线程中召回。其存储范围（作用域）被定义在自定义的命名空间中，而非单个线程ID内。
+
+
+在LangChain框架中，长期记忆通过存储（Store）组件来实现，Sto...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/LangChain/Agent%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/LangChain/Agent%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86/">Agent 短期记忆</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            在构建能够进行多轮交互的AI代理（Agents）时，记忆系统是其核心组件之一。记忆使Agent能够保留先前交互的信息，从而学习反馈、适应用户偏好，并高效处理复杂任务。Agent记忆可分为短期记忆和长期记忆。本章节重点介绍短期记忆相关内容。
+短期记忆介绍短期记忆（Short-term Memory），也称为线程范围记忆（Thread-scoped Memory），是指应用程序在单个线程或会话中记住先前交互的能力，其本质是维护当前会话的完整对话历史，以实现多轮对话的连贯性、个性化响应及上下文感知。
+在LangChain生态中，短期记忆被作为Agent状态（State）的一部分进行管理。状态通...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/LangChain/Agent%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/LangChain/Models%E6%A8%A1%E5%9E%8B/">Models 模型</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            模型初始化LangChain 支持所有主流模型提供商，包括  OpenAI、Anthropic、Google、Azure、AWS Bedrock  等，每个提供商都提供多种具有不同功能的模型(Chat、Embedding、图像、多模态等)，有关 LangChain  支持模型的完整列表，请参阅：https://docs.langchain.com/oss/python/integrations/providers/all_providers
+LangChain中使用模型可以单独使用或者在Agent中使用，无论哪种使用方式，都要进行模型初始化，本小节重点讲解LangChain中单独使用模型...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/LangChain/Models%E6%A8%A1%E5%9E%8B/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/LangChain/LangChain%E4%BB%8B%E7%BB%8D/">LangChain 介绍</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            LangChain的由来LangChain是一个用于开发由大语言模型（LLM）驱动的应用程序的开源框架，它并非仅是对模型API的简单封装，而是提供了一个预构建的智能体（Agent）架构和丰富的工具集成，使开发者无需从零搭建复杂的集成架构，就能快速构建基于LLM的高级应用。
+LangChain这一开源框架诞生于2022年10月，由哈佛大学的Harrison Chase（哈里森·蔡斯）创建，其名称来源于”Language”（语言模型）和”Chain”（链式连接）的组合，体现了其核心设计理念——将大语言模型与其他计算资源和数据源以链式方式连接，构建出功能更加强大的AI应用。
+LangChain...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/LangChain/LangChain%E4%BB%8B%E7%BB%8D/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E9%85%8D%E7%BD%AE%E6%B6%88%E6%81%AF%E5%B9%B3%E5%8F%B0/">Hermes Agent 配置消息平台</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            我们可以通过 Telegram、Discord、Slack、WhatsApp、Signal、短信、电子邮件、Home Assistant、Mattermost、Matrix、钉钉、飞书（Lark）、企业微信、微信、QQ与Hermes Agent进行聊天，Hermes Agent可连接到以上所有平台，管理会话，运行定时任务，并发送语音消息。
+微信Hermes 通过腾讯 iLink Bot API 实现与个人微信的对接，该方案基于 HTTP 长轮询（Long-polling）机制，最大的优势是无需公网 IP、Webhook 或反向代理，内网即可部署。按照如下步骤配置在微信中直接操作Herme...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E9%85%8D%E7%BD%AE%E6%B6%88%E6%81%AF%E5%B9%B3%E5%8F%B0/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%85%B6%E4%BB%96/">Hermes Agent 其他</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Hermes Agent 语音模式Hermes Agent 的语音模式（Voice Mode）是一套集成了语音识别（STT）、大语言模型推理（LLM）和语音合成（TTS）的全双工语音交互系统。它允许用户通过麦克风与智能体进行实时对话，并接收智能体的口语化回复。该系统支持在终端（CLI）、网页终端（TUI）以及主流社交平台（Discord、Telegram）上运行。
+按照如下步骤在Ubuntu系统中使用Hermes Agent 语音模式：
+1) 在对应系统中需要安装相关依赖：
+# macOS 
+brew install portaudio ffmpeg opus
+brew install ...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%85%B6%E4%BB%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E8%AE%B0%E5%BF%86%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/">Hermes Agent 记忆与上下文</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            持久记忆在传统的 AI 对话应用中，上下文（Context）通常局限于当前会话窗口，一旦会话结束，Agent 就会“失忆”。Hermes Agent 的持久化记忆（Persistent Memory）旨在打破这一限制，通过文件系统与系统提示词（System Prompt）的巧妙结合，让 Agent 能够跨会话记住你的开发环境、项目架构以及个人偏好及所学知识。
+Hermes Agent 的持久记忆保存在本地客户端的文件系统中，具体位于 ~&#x2F;.hermes&#x2F;memories&#x2F;目录下。系统通过两个核心文件来划分记忆的边界：
+
+MEMORY.md(Agent 的个人...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E8%AE%B0%E5%BF%86%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Skill/">Hermes Agent Skill</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Skill介绍在 Hermes Agent 的架构中，Skill（技能）可以理解为 Agent 的“外挂知识包”或“专项操作手册”。它是一套按需加载的文档和指令集合，采用了渐进式披露（Progressive Disclosure）模式。这意味着 Agent 不会一次性把所有知识塞进有限的上下文窗口（Token），而是在真正需要时才会读取具体的 Skill 内容。这种设计极大地节省了 Token 消耗，并且完美兼容 agentskills.io 开放标准。
+Hermes Agent中所有的 Skill 默认都存放在 ~&#x2F;.hermes&#x2F;skills&#x2F;目录下，该...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Skill/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%B7%A5%E5%85%B7/">Hermes Agent 工具</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            内置工具Hermes Agent 内置了大量开箱即用的工具集，每个工具集中包含一到多个工具，如下是几个最核心的内置工具集。
+
+File工具集
+File 工具集是 Agent 进行代码开发和系统管理的基础，其设计原则是安全优先，避免使用危险的 shell 命令。包含的主要工具如下：
+
+read_file：读取文件，支持行号显示和分页读取。
+write_file：写文件，自动创建父目录，但会完全覆盖原文件。
+patch：修改文件，有多种模糊匹配策略，能容忍微小的缩进和空格差异，实现精准的代码修改，是进行代码重构和配置更新的首选工具。
+search_files：查找文件，支持正则表达式搜索。
+...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%B7%A5%E5%85%B7/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Session%E4%BC%9A%E8%AF%9D/">Hermes Agent Session会话</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Session会话工作原理Hermes Agent 的核心特性之一是将每一次交互自动持久化为“会话”（Session）。这不仅是为了断点续传，更是为了支持跨平台的历史回溯与全文检索。
+Hermes 采用 SQLite 数据库与 JSONL 文件互补的存储方案，分别应对结构化查询与原始日志的需求：
+
+SQLite 数据库 (~&#x2F;.hermes&#x2F;state.db)：负责存储结构化元数据，包括 Session ID、来源平台（CLI&#x2F;Telegram 等）、用户 ID、会话标题、模型配置、Token 消耗统计及完整消息历史。
+JSONL 转录文件 (~&#x2F;...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Session%E4%BC%9A%E8%AF%9D/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%85%A5%E9%97%A8/">Hermes Agent入门</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Hermes Agent介绍Hermes Agent 是由 Nous Research （也是 Hermes 系列大模型背后的实验室）推出的具备自我进化能力的通用AI Agent框架，它不仅能自主使用工具、编写并执行代码，还能在任务完成后自动总结经验，将工作流沉淀为可复用的“技能”，并在后续使用中持续优化这些技能。配合跨会话的持久化记忆与用户画像建模，Hermes 能够随着使用时间的增长变得越来越懂用户，真正实现了从“被动执行”到“主动进化”的跨越。
+Hermes Agent 特点如下：
+
+可灵活配置多种模型厂商，支持200+主流模型（从 OpenAI 到国产 Kimi、MiMo 等）
+...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%85%A5%E9%97%A8/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+</div>
+
+
+  <nav style="text-align: center;">
+    <div class="pagination">
+      <a class="extend prev" rel="prev" href="/page/3/"><i class="iconfont icon-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="iconfont icon-angle-right"></i></a>
+    </div>
+  </nav>
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

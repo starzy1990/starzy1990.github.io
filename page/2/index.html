@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+    
+        <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        
+            load: ['[tex]/mhchem'],
+        
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        
+            packages: {'[+]': ['mhchem']},
+        
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+          
+
+
+    
+    
+    <title>
+          
+            starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <div class="articles-list">
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/">Flink 内存优化</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Flink内存分布Flink1.10版本后为了满足更细粒度以及灵活的内存管理,升级了内存模型，对内存组成进行了比较大的调整，由于在Flink中计算主要存在于TaskManager节点，这里说的Flink内存模型也就是TaskManager的内存模型，JobManager的内存模型与TaskManager的内存模型类似。
+
+上图是Flink内存模型，从图中可以看出Flink 进程总内存(Total Process Memory)包含了Flink总内存（Total Flink Memory）和JVM特定内存。Flink总内存又包括JVM堆内存（JVM Heap）、托管内存（Managed M...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/%E8%B5%84%E6%BA%90%E5%92%8C%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/">Flink 资源和代码优化</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Slot资源配置Flink中有TaskSlot概念，每个taskSlot都有固定的资源，假设一个TaskManager有三个TaskSlots,那么每个TaskSlot会将TaskMananger中的内存均分，即每个任务槽的内存是总内存的1&#x2F;3，分配资源意味着subtask不会与其他作业的subtask竞争内存，taskslot的作用就是分离任务的托管内存，不会发生cpu隔离。
+用户无论是基于Standalone或者Yarn提交Flink任务时，都可以通过配置$FLINK_HOME&#x2F;conf&#x2F;flink-conf.yaml文件中的“taskmanager.n...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/%E8%B5%84%E6%BA%90%E5%92%8C%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/Flink%E5%8F%8D%E5%8E%8B%E4%BC%98%E5%8C%96/">Flink 反压优化</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Flink反压优化在Flink中，反压是指当一个任务（task）生成数据的速率超过下游任务消费数据的速率时触发的警告。以一个简单的Source -&gt; Sink任务链为例，如果Source生成数据的速率高于Sink消费数据的速率，就会发生反压警告。这表示数据流向下游，但由于下游处理速度较慢，系统发出警告以通知上游任务，反压信息沿着相反的方向传播，向上游传递，帮助系统调整任务链以维持平衡，防止性能问题。
+Flink任务中出现反压会有如下影响：
+
+Flink任务处理性能下降：反压会导致任务链中某些任务被迫减缓数据生成速率，以适应下游任务的处理速度，从而影响整体性能。如：Flink消费Ka...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/Flink%E5%8F%8D%E5%8E%8B%E4%BC%98%E5%8C%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-27
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/27/interview/Spark/">spark 面试题</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/spark/">spark</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/27/interview/Spark/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-27
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/27/interview/Hadoop/">Hadoop 面试题</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hadoop/">Hadoop</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/27/interview/Hadoop/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-27
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/27/interview/Flink/">Flink 面试题</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Flink反压优化在Flink中，反压是指当一个任务（task）生成数据的速率超过下游任务消费数据的速率时触发的警告。以一个简单的Source -&gt; Sink任务链为例，如果Source生成数据的速率高于Sink消费数据的速率，就会发生反压警告。这表示数据流向下游，但由于下游处理速度较慢，系统发出警告以通知上游任务，反压信息沿着相反的方向传播，向上游传递，帮助系统调整任务链以维持平衡，防止性能问题。
+Flink任务中出现反压会有如下影响：
+
+Flink任务处理性能下降：反压会导致任务链中某些任务被迫减缓数据生成速率，以适应下游任务的处理速度，从而影响整体性能。如：Flink消费Ka...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/27/interview/Flink/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-15
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw-Skills%E6%8A%80%E8%83%BD/">OpenClaw Skills 技能</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Skills 介绍Skills是OpenClaw中用于添加新功能的模块，每个Skill是一个目录，包含一个SKILL.md 文件（提供Skill功能和对应执行指令给大语言模型），以及可选的脚本或资源。Skills允许用户通过自定义指令和工具来增强OpenClaw助手的功能，使其能够执行特定任务，例如处理问候、运行脚本或访问外部服务。
+Skills解决了OpenClaw的扩展性和定制化问题，OpenClaw设计为易于扩展，但默认功能可能有限。通过Skills，用户可以：
+
+灵活添加能力：无需修改核心代码，就能集成自定义操作或集成第三方工具。
+模块化管理：每个Skill独立存在，便于开发、测...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw-Skills%E6%8A%80%E8%83%BD/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-15
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E8%81%8A%E5%A4%A9%E6%B8%A0%E9%81%93/">OpenClaw 聊天渠道</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            飞书配置OpenClaw飞书是字节跳动旗下的一站式AI工作平台与协作办公套件,最初是字节跳动在2016年为保障其全球数万员工高效协作而自主研发的内部工具，于2020年2月24日正式向全国所有企业和组织免费开放。
+飞书功能主要有如下三部分：
+
+协同办公：即时沟通、云文档、日历、音视频会议。
+业务提效：多维表格、审批、合同、报销等。
+组织管理：招聘、绩效、人事等功能。
+
+OpenClaw通过飞书开放平台的WebSocket事件订阅与飞书机器人连接，无需暴露公网Webhook URL。当用户在飞书中@机器人或发送私聊消息时，事件通过长连接推送给OpenClaw网关，再由相应的AI智能体处理并回...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E8%81%8A%E5%A4%A9%E6%B8%A0%E9%81%93/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-15
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%B7%A5%E5%85%B7/">OpenClaw 工具</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            内置工具介绍内置工具介绍OpenClaw 有很多内置工具，这些工具是OpenClaw丰富功能的基石，可以通过 https://docs.openclaw.ai/tools 查看内置工具，这些内置工具介绍如下：
+
+apply_patch Tool:允许一次性、原子性地对单个或多个文件进行复杂的更改。
+Brave Search：OpenClaw 使用 Brave Search 作为 web_search 的默认提供商，可以进行网络搜索。注意：需要付费。
+Perplexity Sonar ：OpenClaw 中 web_search工具的另一个搜索提供商（provider）选项。注意：需要付费...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%B7%A5%E5%85%B7/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-15
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">OpenClaw 安装及使用</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            OpenClaw安装及访问安装OpenClaw进入Ubuntu系统，打开终端：
+按照如下步骤安装OpenClaw，特别提示需要打开科学上网工具，负责后续安装访问一些网络访问不到。
+1) 安装必要依赖
+# 更新本地软件包列表
+sudo apt update
+
+# 2. 安装所需的基础开发工具包（包含 gcc, g++, make 等）
+sudo apt install build-essential -y
+
+# 3. 安装 CMake、Curl、vim
+sudo apt install cmake curl vim -y
+
+注意：如果执行后续安装命令出现：“正在等待缓存锁：无法获得锁 &#...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-15
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E4%BB%8B%E7%BB%8D/">OpenClaw 介绍</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            OpenClaw介绍OpenClaw是一款在2026年初爆火的开源AI Agent框架，由奥地利开发者Peter Steinberger创建，它最大的创新在于将大语言模型从”只会聊天”的工具转变为”真正会做事”的管家，其能够直接操作计算机系统，执行跨平台跨应用的复杂任务，像人类一样操作电脑，管理文件、发送消息、浏览网页等。
+2026年1月，项目最初以Clawdbot命名，1月27更名为Moltbot，1月29号最终定名为OpenClaw。
+OpenClaw核心概念如下：
+
+Gateway（网关）：作为控制平面，负责路由消息、管理并发Agent会话、调用LLM API，默认端口18789。...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E4%BB%8B%E7%BB%8D/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-06
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E4%B8%8E%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6/">Milvus 核心参数与核心机制</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            配置层级关系milvus.yaml          ← 主配置文件（Milvus 镜像内置默认值）
+    │
+    └── user.yaml    ← 用户覆盖配置（优先级最高，覆盖 milvus.yaml）
+         │
+         └── 环境变量  ← 部分参数可通过环境变量注入
+                        （如 ETCD_ENDPOINTS、MINIO_ADDRESS）
+
+配置加载顺序（后者覆盖前者）：
+
+代码内置默认值
+milvus.yaml（镜像内 /milvus/configs/milvus.yaml）
+user.yaml（用户映射...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Milvus/">Milvus</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E4%B8%8E%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+</div>
+
+
+  <nav style="text-align: center;">
+    <div class="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-angle-right"></i></a>
+    </div>
+  </nav>
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

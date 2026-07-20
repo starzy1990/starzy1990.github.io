@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+    
+        <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        
+            load: ['[tex]/mhchem'],
+        
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        
+            packages: {'[+]': ['mhchem']},
+        
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+          
+
+
+    
+    
+    <title>
+          
+            starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <div class="articles-list">
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-06
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%9E%B6%E6%9E%84/">Milvus 核心概念与架构</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Milvus 核心概念这是理解 Milvus 的基石，它们定义了 Milvus 处理的对象和基本单位。
+
+非结构化数据 (Unstructured Data) ：指那些不符合预定义数据模型、不便于用数据库二维逻辑表来表现的数据，如图像、视频、音频和自然语言文本等。传统数据库难以高效处理这类数据的相似性检索，这正是 Milvus 擅长解决的问题。
+向量 (Vector) ：非结构化数据的“数学翻译”。它本质上是一个由浮点数或二进制数组成的列表（数组），用于描述原始数据的特征。
+密集向量 (Dense Vector) ：维度通常为数百，每个位置都有非零值，适合表达包含丰富语义的文本或图像整体...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Milvus/">Milvus</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%9E%B6%E6%9E%84/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-06
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/06/AI/Milvus/Milvus%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Milvus 快速入门</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            中文官网：https://milvus.io/docs/zh/overview.md
+Milvus 简介Milvus 是专为大规模向量数据设计的数据库，通过高效的近似最近邻（ANN）算法，让应用程序能在海量非结构化数据（图、文、音、视）中，快速找到相似的目标信息，是 AI 应用的必备数据底座。
+【核心特点】
+
+开源项目：由 Zilliz 公司开发，现已捐赠给 Linux 基金会 LF AI &amp; Data
+高性能：专门优化了向量存储和检索性能，支持十亿级向量规模
+多场景：支持多种部署形态（轻量版、单机版、分布式集群）
+
+【名称由来】Milvus 一词来源于鹰科 Milvus 属（鸢...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Milvus/">Milvus</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/06/AI/Milvus/Milvus%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/Nginx%E5%AE%89%E8%A3%85%E8%A1%A5%E5%85%85/">Nginx安装补充</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            安装前置工具sudo yum install yum-utils -y
+
+配置 Nginx 官方仓库创建并写入仓库配置文件 /etc/yum.repos.d/nginx.repo：下面的内容都复制到/etc/yum.repos.d/nginx.repo文件里面
+[nginx-stable]
+name=nginx stable repo
+baseurl=https://nginx.org/packages/centos/\$releasever/\$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=https://nginx.org/keys/nginx_sign...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/Nginx%E5%AE%89%E8%A3%85%E8%A1%A5%E5%85%85/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8ESSE%E4%BA%8B%E4%BB%B6%E6%B5%81%E7%9A%84%E5%AE%8C%E6%95%B4%E7%9A%84%E5%89%8D%E5%90%8E%E7%AB%AF/">基于SSE事件流的完整的前后端</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            架构概览：三文件分工api_view/api/
+├── chat.py      ★ 核心：SSE 流式对话 + 中断检测 + 中断恢复 + 展示消息持久化
+├── history.py   ← 历史会话列表 / 消息查询 / 会话删除
+└── agent_loader.py (上层) ← Agent 单例 / MongoDB 连接 / 展示消息存取
+
+整体数据流
+前端 (浏览器)                       后端 (FastAPI)                     LangGraph Agent
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8ESSE%E4%BA%8B%E4%BB%B6%E6%B5%81%E7%9A%84%E5%AE%8C%E6%95%B4%E7%9A%84%E5%89%8D%E5%90%8E%E7%AB%AF/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%85%B7%E4%BD%93Harness%E6%9E%B6%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/">项目中具体Harness架构的实现</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            完整的Agent Harness由几个相互配合的核心能力层构成，它们共同决定了Agent的行为和性能：
+
+任务规划：通过内置的任务清单功能，将复杂目标分解为一系列可执行的子任务，并追踪每一步的执行状态。
+虚拟文件系统：为Agent提供一个内置的虚拟文件管理系统，支持读写、编辑、搜索等操作，使其能像人类开发者一样进行工作。
+子Agent委派：主Agent可以创建专门的“子Agent”来执行特定任务，实现任务隔离和上下文压缩。
+上下文管理：通过文件系统等策略，管理长对话中的Token消耗，防止因上下文溢出而导致性能下降。
+可插拔中间件：通过一组Hook函数，在模型和工具调用的关键节点注入自定...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%85%B7%E4%BD%93Harness%E6%9E%B6%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8EHarness%E6%9E%B6%E6%9E%84%E7%9A%84ERP%E6%99%BA%E8%83%BD%E9%87%87%E8%B4%AD%E5%8A%A9%E6%89%8B%E9%A1%B9%E7%9B%AE/">基于Harness架构的ERP智能采购助手项目</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            项目准备
+Java的ERP系统
+模拟的供应商网站
+魔塔社区免费的可视化分析工具
+DeepAgents &#x3D;&#x3D;0.4.12版本&#x2F; 先不要更新到最新的 DeepAgents
+后台长周期复杂任务的执行（0.5后可以）AsyncSubAgent（子Agent）—-ASGI协议——&gt; 主Agent（langgraph dev或者langsmith的服务器中托管）
+5月12日-0.6 （上下文优化策略：内置代码解释器：支持TypeScript，下一版本会支持Python语言）
+
+
+
+项目目录架构src/
+├── agent/                     ...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8EHarness%E6%9E%B6%E6%9E%84%E7%9A%84ERP%E6%99%BA%E8%83%BD%E9%87%87%E8%B4%AD%E5%8A%A9%E6%89%8B%E9%A1%B9%E7%9B%AE/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%88Context-Engineering%EF%BC%89/">上下文工程（Context-Engineering）</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            上下文工程（Context Engineering）是设计和控制智能体在运行过程中可获取的信息的过程。在 Deep Agents 中，智能体能够访问多种类型的上下文，有些在启动时提供，有些在运行时动态补充。框架内置了自动管理上下文的机制，使得智能体即使在长时间运行的任务中，也不会超出模型上下文窗口的限制。
+下表总结了主要的上下文类型及其作用范围：
+
+
+
+上下文类型
+控制内容
+作用范围
+
+
+
+输入上下文
+系统提示、记忆文件、技能文件、工具提示
+每次运行均生效，静态加载
+
+
+运行时上下文
+用户元数据、API 密钥、数据库连接等
+单次调用（invoke）级别，可传播给子智能体
+
+
+上下文压缩
+...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%88Context-Engineering%EF%BC%89/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8EOpenSandbox%E7%9A%84%E6%B2%99%E7%AE%B1%E5%90%8E%E7%AB%AF/">基于 OpenSandbox 的沙箱后端</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            什么是沙箱（Sandbox）智能体（Agent）需要生成代码、操作文件系统并运行 Shell 命令。由于我们无法预测智能体会执行什么操作，因此必须将其环境与主机系统隔离，防止其访问凭证、文件或网络。沙盒（Sandbox）通过创建智能体执行环境与主机系统之间的边界，提供了这种隔离能力。
+在 Deep Agents 中，沙盒是一种特殊的后端（Backend）。与其他仅暴露文件操作的后端（State, Filesystem, Store）不同，沙盒后端还为智能体提供了一个 execute工具，用于在隔离环境中运行任意 Shell 命令。
+沙盒就是给智能体准备的一个“封闭房间”：
+
+智能体在里面...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8EOpenSandbox%E7%9A%84%E6%B2%99%E7%AE%B1%E5%90%8E%E7%AB%AF/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/SubAgent%E5%AD%90%E6%99%BA%E8%83%BD%E4%BD%93/">SubAgent 子智能体</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            
+多Agent的必要性问题：复杂任务通常需要多个步骤和不同领域的专业知识。让一个Agent“全能”地处理所有事情会导致：
+
+上下文臃肿：Agent在一次对话中可能调用很多工具，产生大量中间结果，这些都会挤占有限的上下文窗口，影响后续决策。
+缺乏专业性：一个Agent的指令（System Prompt）难以兼顾所有 specialized 任务的最佳实践。
+
+解决方案：多Agent系统。引入一个“主Agent”（Supervisor）负责协调，将特定子任务分配给具有专业能力的“子Agent”（Subagent）执行。子Agent在独立的环境中完成任务后，将精简的结果返回给主Agent。
+核...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/SubAgent%E5%AD%90%E6%99%BA%E8%83%BD%E4%BD%93/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/%E6%96%87%E4%BB%B6%E5%90%8E%E7%AB%AF%EF%BC%88Backend%EF%BC%89%E7%B3%BB%E7%BB%9F/">文件后端（Backend）系统</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Backend系统概述后端是智能体（Agent）文件系统工具的底层实现，它决定了Agent可以访问哪些存储介质（如内存、本地磁盘、数据库等）以及如何访问。
+DeepAgents 通过一套文件系统工具（如 ls, read_file, write_file等）为Agent提供与外界存储交互的能力。这些工具并不直接操作存储，而是通过一个可插拔的后端（Backend）来执行实际的操作。后端是一个遵循特定协议（BackendProtocol）的组件。
+Agent的文件系统工具调用后端，后端再根据配置将操作路由到不同的具体存储实现，DeepAgents 提供了多种开箱即用的后端，适用于不同场景。例...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/%E6%96%87%E4%BB%B6%E5%90%8E%E7%AB%AF%EF%BC%88Backend%EF%BC%89%E7%B3%BB%E7%BB%9F/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/DeepAgents%E6%A1%86%E6%9E%B6%E5%88%9D%E6%8E%A2/">DeepAgents框架初探</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            DeepAgents框架的核心DeepAgents 是 LangChain 团队 在 LangChain 和 LangGraph 之上推出的 第三个独立开源项目，是一个 “开箱即用”的深度智能体框架。
+DeepAgent框架的由来和定义
+Deep Agents 并非颠覆性技术创新，而是将业界验证过的最佳实践打包成开箱即用的框架。它的灵感来源于 Claude Code、Deep Research、Manus 等成功应用，这些应用证明了四个关键点：
+
+Agent 需要规划能力 —— 不能上来就开干，得先拆解任务
+Agent 需要文件系统 —— 长对话中，得有地方放中间结果，需要加载本地环境
+...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/DeepAgents%E6%A1%86%E6%9E%B6%E5%88%9D%E6%8E%A2/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/Agent%E5%92%8COpenClaw%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/">Agent和OpenClaw的相关概念</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            什么是Agent？Agent的核心定义是：将大语言模型与工具结合，创建一个能够推理任务、决定使用哪个工具，并迭代式地寻找解决方案，一直到最后完成用户指定任务的系统软件。
+可以这样理解：
+
+大语言模型 是系统的“大脑”，负责理解和推理，规划下一步行动。
+工具 是系统的“手”和“感官”，能让Agent执行具体的操作（如计算、搜索网络、查询数据库等）。
+Agent 是一个协调“大脑”和“手”的自动化工作流。它根据模型对任务的理解，智能地选择并调用一个或多个工具，根据工具的返回结果（观察）再次进行推理，循环往复，直到任务完成或达到停止条件。
+
+
+Agent和传统调用大模型的区别2025年是“Ag...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/Agent%E5%92%8COpenClaw%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+</div>
+
+
+  <nav style="text-align: center;">
+    <div class="pagination">
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="iconfont icon-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="iconfont icon-angle-right"></i></a>
+    </div>
+  </nav>
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

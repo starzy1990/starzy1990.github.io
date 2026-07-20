@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            DeepAgents框架初探 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-05
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">DeepAgents框架初探</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h2 id="DeepAgents框架的核心"><a href="#DeepAgents框架的核心" class="headerlink" title="DeepAgents框架的核心"></a>DeepAgents框架的核心</h2><p><strong>DeepAgents</strong> 是 <strong>LangChain 团队</strong> 在 LangChain 和 LangGraph 之上推出的 <strong>第三个独立开源项目</strong>，是一个 <strong>“开箱即用”的深度智能体框架。</strong></p>
+<h3 id="DeepAgent框架的由来和定义"><a href="#DeepAgent框架的由来和定义" class="headerlink" title="DeepAgent框架的由来和定义"></a>DeepAgent框架的由来和定义</h3><p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260620113107207.png" alt="image-20260620113107207"></p>
+<p>Deep Agents 并非颠覆性技术创新，而是将业界验证过的最佳实践打包成开箱即用的框架。它的灵感来源于 Claude Code、Deep Research、Manus 等成功应用，这些应用证明了四个关键点：</p>
+<ul>
+<li><strong>Agent 需要规划能力</strong> —— 不能上来就开干，得先拆解任务</li>
+<li><strong>Agent 需要文件系统</strong> —— 长对话中，得有地方放中间结果，需要加载本地环境</li>
+<li><strong>Agent 需要子 Agent</strong> —— 单体 Agent 会被上下文撑爆</li>
+<li><strong>Agent 需要子 Skills</strong> ——  Agent 功能可以弹性扩展，并且支持模块化开发。</li>
+</ul>
+<p>LangChain 团队的想法很简单：既然这些经验都验证过了，为什么不打包成一个库？于是就有了 Deep Agents。</p>
+<p>DeepAgents是一个Langchain团队在2025年11月推出的新框架，专门用于构建能够处理<strong>复杂、长周期任务</strong>的智能体（Agent）的<strong>框架</strong>。它的核心目标是让开发者能够更容易地创建出功能强大、可靠且可长期运行的AI智能体。</p>
+<h3 id="DeepAgents-的核心能力-Harness-Engineering"><a href="#DeepAgents-的核心能力-Harness-Engineering" class="headerlink" title="DeepAgents 的核心能力 + Harness Engineering"></a>DeepAgents 的核心能力 + Harness Engineering</h3><h4 id="什么是-Harness-Engineering（驾驭工程）"><a href="#什么是-Harness-Engineering（驾驭工程）" class="headerlink" title="什么是 Harness Engineering（驾驭工程）"></a>什么是 Harness Engineering（驾驭工程）</h4><ul>
+<li>**<code>Prompt Engineering</code>**（2022-2024 主流）主要优化单次交互的质量，重点是 “一句提示词该怎么写，模型才更容易给出想要的结果”</li>
+<li>**<code>Context Engineering</code>**（2025 年2月后兴起）则动态构建知识、记忆、RAG，解决 “模型看什么” 的问题，减少幻觉、提高检索命中率</li>
+<li>**<code>Harness Engineering</code>**（当前阶段）重点构建整个运行环境，解决 “模型怎么把长链路任务稳定做完” 的系统级问题。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260620113647634.png" alt="image-20260620113647634"></p>
+<p><strong>Harness Engineering</strong> 是当前 AI Agent 开发领域的一个核心范式转变。它不再仅仅关注如何通过提示词（Prompt Engineering）或上下文管理（Context Engineering）来“优化模型输出”，而是聚焦于<strong>构建包裹在模型之外的一整套系统化基础设施</strong>，旨在将大语言模型（LLM）那种“不稳定、非确定性”的智能，转化为能够<strong>稳定、可靠、长时间执行复杂任务</strong>的工作引擎。</p>
+<ul>
+<li><strong>核心定义</strong>：Harness（马具&#x2F;缰绳）指的是除了模型本身之外的所有东西——工具、记忆、规划、安全护栏、执行循环、状态管理等。LangChain 团队将其精炼为公式：<strong>Agent &#x3D; Model + Harness</strong>。<ul>
+<li><strong>模型（Model）</strong>：负责思考和决策</li>
+<li><strong>驾驭层（Harness）</strong>：负责把思考变成稳定执行，决定Agent能访问什么、能调用什么、能走到哪一步、什么时候停下、出了错怎么回退、结果如何校验</li>
+</ul>
+</li>
+<li><strong>解决的问题</strong>：传统 Agent 在应对长周期、多步骤的复杂任务时，常面临上下文窗口爆炸、状态丢失、工具调用混乱、缺乏规划、无法从失败中恢复等工程难题。Harness Engineering 正是为了解决这些“工程上的‘稳’的问题”而生的。</li>
+</ul>
+<h4 id="DeepAgents-中全面采用-Harness-Engineering"><a href="#DeepAgents-中全面采用-Harness-Engineering" class="headerlink" title="DeepAgents 中全面采用 Harness Engineering"></a>DeepAgents 中全面采用 Harness Engineering</h4><p>DeepAgents 框架本身就是 Harness Engineering 思想的<strong>具体实现</strong>。DeepAgents 可以看作是 Harness Engineering 理念的一个具体技术实现，它通过内置能力，为 Agent 提供了稳定运行的“内核”，让开发者无需从零搭建复杂系统，只需通过配置即可获得一个功能完备的深度智能体。</p>
+<p><strong>DeepAgents提供Harness Engineering 的实现</strong></p>
+<ol>
+<li><p><strong>规划能力（Planning）</strong></p>
+<ul>
+<li><p><strong>功能</strong>：提供一个 <code>write_todos</code>工具，允许智能体维护一个结构化的任务清单。</p>
+</li>
+<li><p><strong>作用</strong>：帮助智能体跟踪多个任务及其状态（<code>‘pending’</code>， <code>‘in_progress’</code>， <code>‘completed’</code>），以组织复杂的多步骤工作，尤其适用于长周期任务。</p>
+</li>
+<li><p><strong>Harness 价值</strong>：将非结构化的模型思考，转化为可追踪、可恢复的确定性工作流。这避免了 Agent 在复杂任务中迷失方向，是长周期任务的基础。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>虚拟文件系统（Virtual Filesystem）</strong></p>
+<ul>
+<li><p><strong>功能</strong>：提供一个可配置的虚拟文件系统，支持 <code>ls</code>（列出文件）、<code>read_file</code>（读取文件，支持图片和大型文件）、<code>write_file</code>（创建文件）、<code>edit_file</code>（编辑文件）、<code>glob</code>（模式匹配）、<code>grep</code>（内容搜索）和 <code>execute</code>（执行命令，仅在沙盒后端可用）等工具。</p>
+</li>
+<li><p><strong>作用</strong>：为其他能力（如技能、记忆、代码执行）提供基础存储和操作层，也可用于构建自定义工具。</p>
+</li>
+<li><p><strong>Harness 价值</strong>：这是对抗 <strong>Context Rot（上下文腐烂）</strong> 的核心手段。它通过外部存储扩展了有效的上下文窗口，显著降低了 Token 消耗，并让 Agent 能处理远超单次模型限制的长任务。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>任务委托&#x2F;子智能体（Task Delegation &#x2F; Subagents）</strong></p>
+<ul>
+<li><p><strong>功能</strong>：主 Agent 通过内置的 <code>task</code>工具和 <code>SubAgentMiddleware</code>，可以将专项任务（如“代码审查”、“网络研究”）委托给一个独立的子Agent。开发者可以预定义具有不同系统提示和工具集的子Agent（通过 <code>subagents</code>参数），实现专业化分工。</p>
+<ul>
+<li><strong>作用</strong>：<ul>
+<li><strong>上下文隔离</strong>：子智能体的工作不会干扰主智能体的上下文。</li>
+<li><strong>并行执行</strong>：多个子智能体可以并发运行。</li>
+<li><strong>专业化</strong>：可以为子智能体配置不同的工具集。</li>
+<li><strong>Token高效</strong>：将大型子任务的上下文压缩为单一结果报告返回给主智能体。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Harness 价值</strong>：实现了<strong>上下文隔离</strong>和<strong>算力分配</strong>。子Agent在独立的上下文中运行，其繁杂的中间过程不会污染主Agent的思维空间，最终仅返回一个精简的结果。这本质上是为 Agent 系统引入了“多线程”和“微服务”架构。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>上下文管理（Context Management）</strong></p>
+<p>这是智能体处理长对话和复杂任务的关键，通过多种技术管理其工作记忆（上下文），确保不超出模型的处理窗口限制。主要包括：</p>
+<ul>
+<li><p><strong>输入上下文</strong>：包括系统提示词、待办列表、记忆、技能、文件系统工具说明等，在智能体启动时注入。</p>
+</li>
+<li><p><strong>运行时上下文压缩</strong>：</p>
+<ul>
+<li><strong>卸载大型工具输入和结果</strong>：当工具调用的输入或结果超过一定大小时（默认20，000 tokens），智能体会自动将其内容保存到文件系统，并在对话历史中用文件路径和摘要替换，以节省上下文空间。当会话上下文超过模型窗口的85%时，会触发此操作。</li>
+<li>**摘要化 (Summarization)**：当上下文大小达到极限且无可卸载内容时，智能体会将过去的对话历史总结为一段结构化摘要，替换原有的详细历史，同时将完整历史保存到文件系统。</li>
+<li>**长期记忆 (Long-term memory)**：通过混合存储后端，允许智能体将特定路径（如 <code>/memories/</code>）下的信息持久化存储，使其能够跨不同的会话和线程访问，用于存储用户偏好、累积知识等。</li>
+<li><strong>Harness 价值</strong>：注入领域知识与持久状态。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>代码执行（Code Execution）与安全沙箱 (Sandbox)</strong> </p>
+<ul>
+<li><p><strong>功能</strong>：当使用沙盒后端时，会向智能体暴露一个 <code>execute</code>工具，允许其在隔离环境中运行 shell 命令。</p>
+</li>
+<li><p><strong>作用</strong>：使智能体能够安装依赖、运行脚本、执行代码，从而完成更复杂的任务，同时保证了主机系统的安全。</p>
+</li>
+<li><p><strong>Harness 价值</strong>：遵循 <strong>“Trust the LLM”但隔离执行环境</strong> 的安全哲学。它赋予 Agent 与真实操作系统交互的能力，同时通过沙箱机制防止破坏性操作，是编码、运维等场景的基石。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>人工介入（Human-in-the-loop, HITL）</strong></p>
+<ul>
+<li><p><strong>功能</strong>：通过 <code>interrupt_on</code>参数配置，可以在指定的工具调用前暂停智能体执行，等待人工批准或修改输入。</p>
+</li>
+<li><p><strong>作用</strong>：为具有破坏性或昂贵的操作（如编辑文件、调用API）增加安全闸门，便于交互式调试和指导。</p>
+</li>
+<li><p><strong>Harness 价值</strong>：在高风险或关键操作前插入确定性的人工控制点。这是将 Agent 集成到生产工作流中的必备安全机制。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>技能包加载和管理（Skills）</strong></p>
+<ul>
+<li><p><strong>功能</strong>：采用“渐进式披露”，仅在需要时加载，以减少系统提示的 token 占用。适用于任务特定、内容可能很多的场景。</p>
+<ul>
+<li>- <strong>渐进式披露</strong>：这是技能加载的核心机制。智能体启动时，<strong>仅读取</strong>所有 <code>SKILL.md</code>文件的<strong>元数据部分</strong>。当接收到用户提示后，智能体根据元数据中的描述判断是否有相关技能可用。只有匹配到相关技能时，才会去<strong>读取该技能文件夹的完整内容</strong>（包括 <code>SKILL.md</code>的详细指令和其他资源文件）。这大大减少了初始上下文的 token 消耗。</li>
+<li>- <strong>智能体使用流程</strong>：匹配（根据描述）→ 读取（完整技能内容）→ 执行（遵循技能指令）。</li>
+</ul>
+</li>
+<li><p><strong>作用</strong>：Skills 是用于扩展 Deep Agent 能力的可重用模块。</p>
+</li>
+<li><p><strong>Harness 价值</strong>：实现了知识的模块化、按需加载。让 Agent 的行为具备领域专长。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="DeepAgents框架中Harness-Engineering-的核心原理"><a href="#DeepAgents框架中Harness-Engineering-的核心原理" class="headerlink" title="DeepAgents框架中Harness Engineering 的核心原理"></a>DeepAgents框架中Harness Engineering 的核心原理</h4><ol>
+<li><strong>配置优于编码</strong>：DeepAgents 将上述所有复杂能力封装为可配置的<strong>中间件（Middleware）</strong> 栈。开发者通过 <code>create_deep_agent</code>函数，以声明式的方式组合这些中间件，而非编写底层控制流。这实现了 <strong>“Batteries Included, Customize in Minutes”</strong>（开箱即用，分钟级定制）。</li>
+<li><strong>中间件架构</strong>：每个核心能力（规划、文件、子Agent等）都是一个独立的 <code>AgentMiddleware</code>。这些中间件在 Agent 运行的生命周期各阶段插入钩子（hooks），动态注入工具、修改提示、管理上下文。这种架构使得 Harness 高度模块化和可扩展。</li>
+<li><strong>后端协议抽象</strong>：统一的 <code>BackendProtocol</code>抽象了文件存储和执行环境。无论是内存、本地磁盘、云存储还是沙箱，对 Agent 而言都是统一的 <code>ls</code>、<code>read</code>、<code>write</code>接口。这种设计实现了存储与计算环境的解耦和灵活替换。</li>
+<li><strong>上下文工程自动化</strong>：Harness 承担了“上下文工程师”的角色。它自动执行摘要压缩、内容卸载、按需加载等策略，确保模型在任何时刻看到的都是最相关、最精炼的信息，从而将有限的模型注意力集中在核心决策上。</li>
+<li><strong>从智能到系统</strong>：Harness Engineering 的本质是将模型的“认知能力”系统化、工程化。它通过<strong>规划</strong>来管理目标，通过<strong>文件系统</strong>来管理状态，通过<strong>子Agent</strong>来管理复杂度，通过<strong>安全沙箱</strong>来管理风险，通过<strong>人在回路</strong>来管理不确定性。最终，它将一个“聪明的对话者”转变为一个“可靠的操作者”。</li>
+</ol>
+<p>在 DeepAgents 框架中全面采用 <strong>Harness Engineering</strong>，意味着您的开发范式发生了根本转变：</p>
+<ul>
+<li><strong>从前</strong>：您需要手动编写任务分解逻辑、管理上下文窗口、实现子Agent通信、构建安全机制。</li>
+<li><strong>现在</strong>：您只需通过 <code>create_deep_agent</code>配置所需的“能力模块”（规划、文件、子Agent、技能、内存、沙箱、人工审批），即可立即获得一个具备生产级可靠性的深度智能体。</li>
+</ul>
+<h3 id="框架对比"><a href="#框架对比" class="headerlink" title="框架对比"></a>框架对比</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>LangGraph</th>
+<th>LangChain</th>
+<th>Deep Agents</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定位</td>
+<td>智能体核心开发框架</td>
+<td>智能体开发的基础框架</td>
+<td>复杂智能体开发框架</td>
+</tr>
+<tr>
+<td>抽象层级</td>
+<td>低层（自己造轮子）</td>
+<td>基础层（积木块）</td>
+<td>高层（开箱即用）</td>
+</tr>
+<tr>
+<td>核心抽象</td>
+<td>StateGraph、Node、Edge</td>
+<td>Chain、Runnable、Tool</td>
+<td>DeepAgent、Middleware、Backend</td>
+</tr>
+<tr>
+<td>规划能力</td>
+<td>需要自己实现</td>
+<td>非原生支持</td>
+<td>✅ write_todos 内置</td>
+</tr>
+<tr>
+<td>文件系统</td>
+<td>需要自己实现</td>
+<td>非原生支持</td>
+<td>✅ 完整文件系统工具集</td>
+</tr>
+<tr>
+<td>子代理委托</td>
+<td>可通过子图实现</td>
+<td>非原生支持</td>
+<td>✅ task 工具内置</td>
+</tr>
+<tr>
+<td>长期记忆</td>
+<td>需要自己配置</td>
+<td>基础记忆抽象</td>
+<td>✅ 原生支持 + 外部持久化</td>
+</tr>
+<tr>
+<td>上下文管理</td>
+<td>通过图结构控制</td>
+<td>依赖模型上下文窗口</td>
+<td>✅ 文件系统 + 持久化记忆</td>
+</tr>
+<tr>
+<td>学习曲线</td>
+<td>陡峭</td>
+<td>中等</td>
+<td>陡峭</td>
+</tr>
+<tr>
+<td>灵活性</td>
+<td>极高</td>
+<td>高</td>
+<td>中等（但很实用）</td>
+</tr>
+<tr>
+<td>适用对象</td>
+<td>复杂企业流程序列化开发者</td>
+<td>库开发者 &#x2F; 底层构建</td>
+<td>应用开发者 &#x2F; 企业级解决方案</td>
+</tr>
+</tbody></table>
+<p>DeepAgents的核心定位是：DeepAgents 是 <strong>LangChain 生态中面向“复杂任务”的“上层应用框架”。</strong></p>
+<p><strong>专门为构建能够处理复杂、多步骤、长时间运行任务的“深度”智能体（Deep Agent）而设计</strong>。它并非要取代 LangChain 或 LangGraph，而是在它们提供的底层运行时和基础抽象之上，<strong>封装了业界已验证的最佳实践</strong>（如 Claude Code、Manus 等应用的模式），将这些复杂能力标准化、产品化，模块化，工程化。</p>
+<p><strong>开发建议和Agent生态分层</strong></p>
+<ul>
+<li><strong>底层框架</strong>（如LangChain）解决通用性问题。提供 <code>create_agent</code>，tool, LLM调用等高层抽象和标准组件。<ul>
+<li><strong>简单、直接的任务</strong> → 使用 <code>LangChain</code>的 <code>create_agent</code>。</li>
+</ul>
+</li>
+<li><strong>专项框架</strong>（如LangGraph for 多Agent， DeepAgents for 长任务）在通用框架上针对特定场景做深度优化。<ul>
+<li>LangGraph：提供最底层的状态管理、工作流编排。<strong>需要完全自定义、复杂控制流的工作流</strong> → 使用 <code>LangGraph</code>从底层构建。</li>
+<li>DeepAgents：专为 <strong>“重任务”</strong> 设计，不适合简单聊天机器人，<strong>需要处理复杂、多步骤、长时间运行的“深度”任务</strong> → 选择 <code>DeepAgents</code>。<ul>
+<li>其典型场景包括：</li>
+<li><strong>深度研究与报告撰写</strong>：自动进行多轮搜索、阅读、分析并生成长篇报告。</li>
+<li><strong>全栈代码生成与重构</strong>：在沙箱中编写、测试、调试和重构整个代码库。</li>
+<li><strong>复杂数据分析流水线</strong>：连接数据库、执行查询、处理中间文件并生成可视化图表。</li>
+<li><strong>自动化运维与业务流程</strong>：操作文件、执行命令、编排需要多角色协作的复杂工作流。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="DeepAgents的Agent开发"><a href="#DeepAgents的Agent开发" class="headerlink" title="DeepAgents的Agent开发"></a>DeepAgents的Agent开发</h2><p>参考：<a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/langgraph/local-server#2-create-a-langgraph-ap">https://docs.langchain.com/oss/python/langgraph/local-server#2-create-a-langgraph-ap</a></p>
+<ol>
+<li><p>创建虚拟环境，并安装依赖库</p>
+<pre><code class="shell"> pip install deepagents dotenv langchain-openai zai-sdk
+
+ pip install -U &quot;langgraph-cli[inmem]&quot;
+</code></pre>
+</li>
+<li><p>复制 langgraph 本地服务所支持的项目模板</p>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/langchain-ai/new-langgraph-project%EF%BC%8C%EF%BC%88%E5%A4%87%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%EF%BC%9Ahttps://github.com/starzy1990/new-langgraph-project%EF%BC%89">https://github.com/langchain-ai/new-langgraph-project，（备用下载地址：https://github.com/starzy1990/new-langgraph-project）</a></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260621190015031.png" alt="image-20260621190015031"></p>
+<p>将上述内容复制到项目中，src 目录设置为 <strong>Sources Root</strong>，并修改文件 <strong>.env.example</strong> 为 <strong>.env</strong> ，并将模型对应的 API_KEY 和 BASE_URL 放在此文件中。</p>
+</li>
+<li><p>调用LLM和定义工具</p>
+<pre><code class="python">from langchain_openai import ChatOpenAI
+from src.utils.env_util import ZHIPU_API_KEY, ZHIPU_API_URL, QWEN3_API_KEY, QWEN3_API_URL
+
+llm_qwen3 = ChatOpenAI(
+    api_key=QWEN3_API_KEY,
+    base_url=QWEN3_API_URL,
+    model=&quot;qwen-plus&quot;,
+    temperature=0.9,
+)
+
+llm_zhipu = ChatOpenAI(
+    model=&quot;glm-5.2&quot;,
+    temperature=0.9,
+    api_key=ZHIPU_API_KEY,
+    base_url=ZHIPU_API_URL
+)
+</code></pre>
+</li>
+<li><p>创建一个DeepAgent对象</p>
+<pre><code class="python">import os
+from deepagents import create_deep_agent
+
+from utils.llm_util import llm_zhipu
+from utils.tools_util import web_search
+
+agent = create_deep_agent(
+    model=llm_zhipu,
+    tools=[web_search],
+    system_prompt=&quot;你是一位财经分析师。请用简洁的语言总结网络搜索结果中的关键信息，按重要性排序并引用来源日期。今天的日期是2026年6月29日。&quot;,
+)
+</code></pre>
+</li>
+<li><p>修改配置文件： langgraph.json</p>
+<p>修改 graphs 中 的 agent 属性修改为自定义的 deepagent，以及后面对应自定义的 deepagent 名称</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260623230832246.png" alt="image-20260623230832246"></p>
+<pre><code>1.&quot;$schema&quot;
+•作用：指定用于验证此 JSON 配置文件结构的 JSON Schema 文件的地址。
+•解释：它指向一个在线模式定义文件 (https://langgra.ph/schema.json)。支持 JSON Schema 的代码编辑器（如 VS Code）可以利用它来为这个配置文件提供自动完成、语法高亮和错误检查，帮助你更准确、高效地编写配置。
+
+
+2.&quot;dependencies&quot;
+•作用：声明此项目运行所依赖的代码路径或包。
+•解释：当前配置为 [&quot;.&quot;]，表示依赖当前目录（即项目根目录）下的所有代码。这意味着当你运行 LangGraph 应用时，框架会将当前目录添加到 Python 的模块搜索路径中，从而能够找到并导入你编写的本地模块（例如 src目录下的文件）。
+
+
+3.&quot;graphs&quot;
+•作用：定义本项目中的一个或多个“图”（即智能体工作流），并为每个图指定一个可调用的入口点。
+•解释：这是一个键值对对象。在本配置中：
+    •键 &quot;agent&quot;：这是你为这个图定义的名称。你之后可以通过这个名字（例如在命令行中）来引用并运行这个特定的工作流。
+    •值 &quot;./src/agent/test1.py:agent&quot;：这是指向图中入口点的路径，采用 文件路径:可调用对象名的格式。
+
+        •./src/agent/test1.py：是包含图定义代码的 Python 文件路径。
+        •agent：是 test1.py文件中导出的、代表整个图的主要可调用对象（通常是一个已经编译好的 Graph或 StateGraph对象）。
+       
+        
+4.&quot;env&quot;
+•作用：指定项目使用的环境变量文件。
+•解释：其值为 &quot;.env&quot;，表示在项目根目录下存在一个名为 .env的文件。LangGraph 在运行时会加载这个文件，将其中的键值对设置为环境变量。这通常用于安全地管理 API 密钥、数据库连接字符串等敏感或可配置的信息（例如 OPENAI_API_KEY）。
+</code></pre>
+</li>
+<li><p>启动langgraph的本地服务</p>
+<ul>
+<li><p>初始化服务安装依赖（首次启动）</p>
+<pre><code class="shell"># 第一次启动需要先安装依赖
+pip install -e .
+</code></pre>
+</li>
+<li><p>本地启动服务</p>
+<pre><code class="shell">    langgraph dev
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260623231305252.png" alt="image-20260623231305252"></p>
+</li>
+</ul>
+</li>
+<li><p>打开LangSmith Studio-Langmith UI并测试</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260629144037823.png" alt="image-20260629144029255"></p>
+</li>
+<li><p>Agent本地测试并流式输出</p>
+<p>定义一个函数：负责流式输出</p>
+<pre><code class="python">import asyncio
+from typing import AsyncIterator
+
+from agent.test1 import agent
+
+
+async def stream_agent_interaction_corrected(agent, thread_id: str) -&gt; AsyncIterator[str]:
+    &quot;&quot;&quot;
+    使用官方推荐的 `agent.stream()` 方法进行流式交互。
+    根据调试信息，chunk的结构是 (AIMessageChunk, metadata_dict)
+    &quot;&quot;&quot;
+    config = {&quot;configurable&quot;: {&quot;thread_id&quot;: thread_id}}
+
+    while True:
+        try:
+            user_input = input(&quot;\n\n[用户] &gt;&gt;&gt; &quot;).strip()
+        except (EOFError, KeyboardInterrupt):
+            print(&quot;\n\n对话结束。&quot;)
+            break
+
+        if user_input.lower() in (&#39;quit&#39;, &#39;exit&#39;, &#39;退出&#39;, &#39;q&#39;):
+            print(&quot;再见！&quot;)
+            break
+        if not user_input:
+            continue
+
+        print(&quot;\n[Agent] &quot;, end=&quot;&quot;, flush=True)
+
+        # 准备输入
+        inputs = {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: user_input}]}
+
+        # 关键修正：使用 agent.stream() 并设置 stream_mode
+        stream = agent.stream(inputs, config=config, stream_mode=&quot;messages&quot;, subgraphs=False)
+
+        full_response = &quot;&quot;
+        try:
+            # 使用同步 for 循环，因为 agent.stream() 返回的是同步生成器
+            for chunk in stream:  # 移除 async
+                # 根据调试信息，chunk 的结构是 (AIMessageChunk, metadata_dict)
+                if isinstance(chunk, tuple) and len(chunk) == 2:
+                    token, metadata = chunk
+
+                    # 1. 流式输出 AI 生成的文本内容
+                    if hasattr(token, &#39;content&#39;) and token.content is not None:
+                        content_str = str(token.content)
+                        if content_str:
+                            yield content_str  # 生成器
+                            full_response += content_str
+
+                    # 2. 捕获并显示工具调用开始
+                    if hasattr(token, &#39;tool_call_chunks&#39;) and token.tool_call_chunks:
+                        for tool_chunk in token.tool_call_chunks:
+                            if tool_chunk and hasattr(tool_chunk, &#39;get&#39;):
+                                if tool_chunk.get(&#39;name&#39;):
+                                    tool_name = tool_chunk[&#39;name&#39;]
+                                    yield f&quot;\n[调用工具: {tool_name}]\n&quot;
+
+                    # 3. 捕获并显示工具调用结果
+                    # 注意：工具调用结果通常不会出现在同一个 token 中
+                    # 它们通常以独立的 token 形式出现
+
+                else:
+                    # 如果 chunk 不是预期的元组结构，打印调试信息
+                    print(f&quot;\n[调试] 意外的 chunk 结构: {type(chunk)}&quot;)
+                    continue
+
+        except Exception as e:
+            yield f&quot;\n❌ Agent 执行出错: {e}\n&quot;
+            import traceback
+            traceback.print_exc()
+            continue
+
+
+async def main_test():
+    # 测试运行Agent，并且进行交互
+    thread_id = &quot;demo_thread_01&quot;
+    async for response in stream_agent_interaction_corrected(agent, thread_id):
+        print(response, end=&quot;&quot;, flush=True)
+
+if __name__ == &#39;__main__&#39;:
+    asyncio.run(main_test())
+</code></pre>
+</li>
+</ol>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/05/AI/OpenClaw/%E6%96%87%E4%BB%B6%E5%90%8E%E7%AB%AF%EF%BC%88Backend%EF%BC%89%E7%B3%BB%E7%BB%9F/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">文件后端（Backend）系统</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/05/AI/OpenClaw/Agent%E5%92%8COpenClaw%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">Agent和OpenClaw的相关概念</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#DeepAgents%E6%A1%86%E6%9E%B6%E7%9A%84%E6%A0%B8%E5%BF%83"><span class="toc-list-number">1.</span> <span class="toc-list-text">DeepAgents框架的核心</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#DeepAgent%E6%A1%86%E6%9E%B6%E7%9A%84%E7%94%B1%E6%9D%A5%E5%92%8C%E5%AE%9A%E4%B9%89"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">DeepAgent框架的由来和定义</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#DeepAgents-%E7%9A%84%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B-Harness-Engineering"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">DeepAgents 的核心能力 + Harness Engineering</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Harness-Engineering%EF%BC%88%E9%A9%BE%E9%A9%AD%E5%B7%A5%E7%A8%8B%EF%BC%89"><span class="toc-list-number">1.2.1.</span> <span class="toc-list-text">什么是 Harness Engineering（驾驭工程）</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#DeepAgents-%E4%B8%AD%E5%85%A8%E9%9D%A2%E9%87%87%E7%94%A8-Harness-Engineering"><span class="toc-list-number">1.2.2.</span> <span class="toc-list-text">DeepAgents 中全面采用 Harness Engineering</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#DeepAgents%E6%A1%86%E6%9E%B6%E4%B8%ADHarness-Engineering-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86"><span class="toc-list-number">1.2.3.</span> <span class="toc-list-text">DeepAgents框架中Harness Engineering 的核心原理</span></a></li></ol></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94"><span class="toc-list-number">1.3.</span> <span class="toc-list-text">框架对比</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#DeepAgents%E7%9A%84Agent%E5%BC%80%E5%8F%91"><span class="toc-list-number">2.</span> <span class="toc-list-text">DeepAgents的Agent开发</span></a></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

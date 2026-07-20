@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+    
+        <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        
+            load: ['[tex]/mhchem'],
+        
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        
+            packages: {'[+]': ['mhchem']},
+        
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+          
+
+
+    
+    
+    <title>
+          
+            starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <div class="articles-list">
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-20
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/20/hello-world/">Hello World</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick Start安装 hexo
+npm install -g hexo-cli
+
+rm -rf node_modules &amp;&amp; npm install --force
+
+Create...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+          <a href="/2026/07/20/hello-world/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-17
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/17/AI/LangChain/Model-Context-Protocol%EF%BC%88MCP%EF%BC%89%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE/">post</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            MCP介绍什么是MCPModel Context Protocol（MCP）是一套开放协议，规定了LLM应用与外部工具、数据源之间的标准化通信方式。它为”模型如何发现工具有哪些能力、怎么调用工具、工具怎么返回结果”这个问题，提供了一套通用规范。MCP由 Anthropic于2024年11月发布并开源，至今已获得几乎所有主流 AI 平台的支持。
+
+没有MCP之前，开发者每接入一个外部服务，就要写一套适配代码：定义工具 Schema、处理认证、解析返回值、写工具描述让LLM理解怎么用。100个工具 × 3个Agent &#x3D; 300次重复劳动，这个场景被称为 “N×M 问题”。
+MCP...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+          <a href="/2026/07/17/AI/LangChain/Model-Context-Protocol%EF%BC%88MCP%EF%BC%89%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-17
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/17/AI/LangChain/Runtime%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8EAgent%E4%B8%8A%E4%B8%8B%E6%96%87/">post</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            https://cloud.fynote.com/share/d/HzIHUzVPE
+
+          
+        </div>
+        
+        <div class="post-footer">
+          
+          <a href="/2026/07/17/AI/LangChain/Runtime%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8EAgent%E4%B8%8A%E4%B8%8B%E6%96%87/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-17
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/17/AI/LangChain/Guardrails%E5%AE%89%E5%85%A8%E6%8A%A4%E6%A0%8F/">post</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            https://cloud.fynote.com/share/d/AzIccRxAB
+
+          
+        </div>
+        
+        <div class="post-footer">
+          
+          <a href="/2026/07/17/AI/LangChain/Guardrails%E5%AE%89%E5%85%A8%E6%8A%A4%E6%A0%8F/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-17
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/17/AI/LangChain/%E4%BA%BA%E6%9C%BA%E5%8D%8F%E5%90%8C-Human-in-the-loop/">post</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            https://cloud.fynote.com/share/d/HzIbcRwz
+Human-in-the-loop 介绍Human-in-the-loop（HITL，人工参与循环&#x2F;人机协同&#x2F;人工审批&#x2F;人工介入&#x2F;人工审查）是一种在 AI Agent 执行关键操作时引入人工监督的机制。其核心理念很简单：有些操作不应该由 AI 独立完成。当模型提议执行涉及敏感数据的操作时——比如删除数据库记录、发送对外通知、执行资金交易——HITL 中间件可以暂停 Agent 的执行，等待真人做出决策后再继续。
+HITL在LangChain中是通过Middlewar...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+          <a href="/2026/07/17/AI/LangChain/%E4%BA%BA%E6%9C%BA%E5%8D%8F%E5%90%8C-Human-in-the-loop/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-16
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/16/AI/Agent-Loop/LoopLoop-Engineering%E6%A1%88%E4%BE%8B/">LoopLoop Engineering 案例</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Loop Engineering 案例一案例业务这是一个合同质量的自动迭代打磨系统。不是简单的”审一下→通过&#x2F;驳回”，而是让两个AI Agent（Editor和Reviewer）像律师团队一样循环协作：一个负责改，一个负责审，改完再审，审完再改，直到合同质量达标。
+业务逻辑
+四大审查维度（定义在 skills&#x2F;contract-improver&#x2F;SKILL.md）：
+
+
+
+维度
+检查内容
+示例
+
+
+
+A.完整性
+必备要素是否齐全？
+双方信息、金额(大小写)、付款方式、交付时间、违约金、保密、知识产权、签署信息
+
+
+B.明确性
+有没有模糊表述？
+“尽快”→”6...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent-Loop/">Agent Loop</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/07/16/AI/Agent-Loop/LoopLoop-Engineering%E6%A1%88%E4%BE%8B/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-16
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/16/AI/Agent-Loop/Agent-Loop%E4%BA%94%E5%A4%A7%E6%9E%84%E5%BB%BA%E5%9D%97%E5%92%8C%E8%AE%B0%E5%BF%86%E5%B1%82/">Agent Loop五大构建块和记忆层</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Addy Osmani将 Loop 的设计方法论提炼为五大构建块（Five Primitives）+ 记忆层。这六个组件构成了Loop Engineering的工程骨架——它们不是抽象概念，每一个都对应 Loop 系统中一项具体的职责。六大组件在真实Loop中的协作关系如下：
+
+自动化&#x2F;调度自动化是Loop的触发器，它决定了系统”什么时候开始工作”。没有自动化，Agent必须等人手动调用agent.invoke()。
+自动化有三种触发模式：定时触发、事件触发、目标驱动。
+
+定时触发
+
+按固定时间间隔唤醒系统，适合周期性巡检——每天早上生成运营日报、每 10 分钟扫描待处理队列、...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent-Loop/">Agent Loop</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/07/16/AI/Agent-Loop/Agent-Loop%E4%BA%94%E5%A4%A7%E6%9E%84%E5%BB%BA%E5%9D%97%E5%92%8C%E8%AE%B0%E5%BF%86%E5%B1%82/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-16
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/16/AI/Agent-Loop/Agent-Loop%E5%92%8CLoop-Engineering%E6%A6%82%E8%BF%B0/">Agent Loop和Loop Engineering概述</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Agent Loop 介绍Agent Loop（智能体循环）是AI Agent的核心工作机制。它让大语言模型（LLM）从”只会聊天”变成”能干活”的关键——通过一个”观察-&gt;思考-&gt;行动-&gt;反馈”的循环，Agent 能够自主调用工具、获取信息、根据结果调整策略，持续迭代直到完成任务。
+一句话理解：Agent Loop&#x3D;把LLM的推理能力放进一个while循环里，让它可以反复思考和行动。
+graph TD
+    %% 定义组件样式
+    classDef startEnd fill:#e1f5fe,stroke:#01579b,stroke-width:2p...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent-Loop/">Agent Loop</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/07/16/AI/Agent-Loop/Agent-Loop%E5%92%8CLoop-Engineering%E6%A6%82%E8%BF%B0/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/Table%E5%92%8CSQL%E4%BC%98%E5%8C%96/">Flink Table和SQL优化</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/Table%E5%92%8CSQL%E4%BC%98%E5%8C%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E5%A4%84%E7%90%86/">Flink 数据倾斜处理</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E5%A4%84%E7%90%86/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/%E7%BD%91%E7%BB%9C%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/">Flink 网络内存优化</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/%E7%BD%91%E7%BB%9C%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/Checkpoint%E5%92%8C%E5%A4%A7%E7%8A%B6%E6%80%81%E4%BC%98%E5%8C%96/">Flink Checkpoint和大状态优化</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Flink的checkpoint是一种实现容错和状态恢复的机制。Checkpoint会定期将Flink程序的状态保存到持久化存储系统中，通常是分布式文件系统，当Flink程序发生故障时，可以重新启动应用程序并从之前的状态中恢复，使得Flink程序能够回到故障发生前的一致状态。因此Flink中的checkpoint非常重要，本小节主要讲解Flink Checkpoint和大状态相关优化内容点。
+
+Checkpoint的监控在Flink WebUI界面中提供了Flink Job的checkpoint监控信息。当Job结束后，这些信息仍然可用。如下图所示，有四个不同的选项卡（概览、历史记录、摘...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/Checkpoint%E5%92%8C%E5%A4%A7%E7%8A%B6%E6%80%81%E4%BC%98%E5%8C%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+</div>
+
+
+  <nav style="text-align: center;">
+    <div class="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-angle-right"></i></a>
+    </div>
+  </nav>
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

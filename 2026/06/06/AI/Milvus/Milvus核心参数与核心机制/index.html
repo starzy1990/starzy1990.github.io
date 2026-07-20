@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Milvus 核心参数与核心机制 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-06
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">Milvus 核心参数与核心机制</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Milvus/">Milvus</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h1 id="配置层级关系"><a href="#配置层级关系" class="headerlink" title="配置层级关系"></a>配置层级关系</h1><pre><code>milvus.yaml          ← 主配置文件（Milvus 镜像内置默认值）
+    │
+    └── user.yaml    ← 用户覆盖配置（优先级最高，覆盖 milvus.yaml）
+         │
+         └── 环境变量  ← 部分参数可通过环境变量注入
+                        （如 ETCD_ENDPOINTS、MINIO_ADDRESS）
+</code></pre>
+<p><strong>配置加载顺序（后者覆盖前者）：</strong></p>
+<ol>
+<li>代码内置默认值</li>
+<li><code>milvus.yaml</code>（镜像内 <code>/milvus/configs/milvus.yaml</code>）</li>
+<li><code>user.yaml</code>（用户映射 <code>/milvus/configs/user.yaml</code>）</li>
+<li>环境变量（仅部分参数支持）</li>
+</ol>
+<h2 id="挂载自定义配置"><a href="#挂载自定义配置" class="headerlink" title="挂载自定义配置"></a>挂载自定义配置</h2><pre><code># docker-compose.yml 中的配置挂载
+services:
+  standalone:
+    volumes:
+      # 方式1：挂载完整的 milvus.yaml（完全替换）
+      - ./my_milvus.yaml:/milvus/configs/milvus.yaml
+
+      # 方式2：挂载 user.yaml（仅覆盖需要修改的参数，推荐）
+      - ./user.yaml:/milvus/configs/user.yaml
+</code></pre>
+<pre><code class="shell"># Docker run 方式挂载配置
+docker run -d --name milvus-standalone \
+  -p 19530:19530 -p 9091:9091 \
+  -v /host/path/user.yaml:/milvus/configs/user.yaml \
+  milvusdb/milvus:v2.6.16 milvus run standalone
+</code></pre>
+<h2 id="查看当前运行时配置"><a href="#查看当前运行时配置" class="headerlink" title="查看当前运行时配置"></a>查看当前运行时配置</h2><pre><code class="shell"># 进入容器查看完整配置
+docker exec -it milvus-standalone cat /milvus/configs/milvus.yaml
+
+# 查看特定配置段
+docker exec milvus-standalone cat /milvus/configs/milvus.yaml | grep -A 20 &quot;^proxy:&quot;
+
+# 查看合并后的运行时参数（通过 API）
+curl -s http://localhost:9091/api/v1/health
+</code></pre>
+<hr>
+<h1 id="核心参数分类详解"><a href="#核心参数分类详解" class="headerlink" title="核心参数分类详解"></a>核心参数分类详解</h1><h2 id="milvus-yaml-配置"><a href="#milvus-yaml-配置" class="headerlink" title="milvus.yaml 配置"></a>milvus.yaml 配置</h2><ul>
+<li><strong>依赖组件配置</strong><ul>
+<li>etcd—元数据存储与服务发现</li>
+<li>minio— S3 兼容对象存储（binlog +索引文件持久化）</li>
+<li>mq —消息队列：rocksmq(SD默认) &#x2F; pulsar &#x2F; kafka &#x2F; woodpecker</li>
+</ul>
+</li>
+<li><strong>自身组件配置</strong><ul>
+<li>proxy &#x2F; rootCoord &#x2F; queryCoord &#x2F; queryNode</li>
+<li>dataCoord &#x2F; dataNode &#x2F; indexCoord &#x2F; indexNode</li>
+</ul>
+</li>
+<li><strong>通用功能配置</strong><ul>
+<li>common（安全&#x2F;多租户&#x2F;TLS）&#x2F;quotaAndLimits（配额限流）&#x2F;log（日志）</li>
+</ul>
+</li>
+</ul>
+<p>如果要理解这块，得了解Milvus的架构：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260715212651555.png" alt="image-20260715212651555"></p>
+<ol>
+<li><p>流节点 (StreamingNode) &#x3D; 逻辑功能， <strong>没有专门的配置</strong> 。它的功能分布融合在了 <strong>datanode</strong> 和 <strong>querynode</strong> 上。<strong>所有 Worker Node（包含 QueryNode&#x2F;DataNode）都可以视为 Streaming Node</strong>在物理部署上，它则表现为独立的 QueryNode 和 DataNode 进程。</p>
+</li>
+<li><p>IndexNode 的角色被 DataNode 替代</p>
+</li>
+<li><p><strong>独立的 coord 配置项也被融合</strong> ：<code>querycoord</code> 和 <code>indexcoord</code> 在较新版本中也已合并，不再单独配置。</p>
+</li>
+</ol>
+<p>本质可以通过以下命令去快速定位到对应的模块</p>
+<pre><code class="shell"># 查看特定配置段
+docker exec milvus-standalone cat /milvus/configs/milvus.yaml | grep -A 20 &quot;^proxy:&quot;
+docker exec milvus-standalone cat /milvus/configs/milvus.yaml | grep -A 20 &quot;^etcd:&quot;
+</code></pre>
+<p>不过这里要查看，有更好的方式。我把Milvus 这种 <strong><code>milvus.yaml</code></strong> 复制出来，给大家查看！</p>
+<pre><code class="shell"># 假设容器名为 milvus-standalone
+docker cp milvus-standalone:/milvus/configs/milvus.yaml /home/milvus.yaml
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260716154023219.png" alt="image.png"></p>
+<h2 id="依赖组件参数"><a href="#依赖组件参数" class="headerlink" title="依赖组件参数"></a>依赖组件参数</h2><h3 id="etcd-—-元数据存储"><a href="#etcd-—-元数据存储" class="headerlink" title="etcd — 元数据存储"></a>etcd — 元数据存储</h3><p>etcd 是 Milvus 的<strong>元数据大脑</strong>，存储所有 Collection Schema、索引元数据、Segment 状态、节点拓扑信息。</p>
+<pre><code>etcd:
+  endpoints:
+    - etcd:2379              # etcd 服务地址（Standalone 模式下 localhost:2379）
+  rootPath: by-dev           # Milvus 数据在 etcd 中的键前缀（多实例隔离用）
+  metaSubPath: meta          # 元数据子路径
+  kvSubPath: kv              # 键值数据子路径
+  requestTimeout: 10000      # 请求超时（毫秒）
+  dialTimeout: 10000         # 连接超时（毫秒）
+  use:
+    embed: false             # Standalone 是否使用内嵌 etcd
+  auth:
+    enabled: false           # 是否启用 etcd 认证
+    userName: &quot;&quot;             # etcd 用户名
+    password: &quot;&quot;             # etcd 密码
+  ssl:
+    enabled: false           # 是否启用 TLS
+</code></pre>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th>默认值</th>
+<th>说明</th>
+<th>调优建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>endpoints</code></td>
+<td><code>[&quot;localhost:2379&quot;]</code></td>
+<td>etcd 地址列表</td>
+<td>生产环境建议 3 节点 etcd 集群</td>
+</tr>
+<tr>
+<td><code>rootPath</code></td>
+<td><code>by-dev</code></td>
+<td>数据前缀</td>
+<td>多环境隔离时修改此项</td>
+</tr>
+<tr>
+<td><code>requestTimeout</code></td>
+<td><code>10000</code></td>
+<td>请求超时 ms</td>
+<td>网络延迟大时适当增大</td>
+</tr>
+<tr>
+<td><code>use.embed</code></td>
+<td><code>false</code></td>
+<td>内嵌模式</td>
+<td>Standalone embed 版自动设为 true</td>
+</tr>
+</tbody></table>
+<h3 id="minio-—-对象存储"><a href="#minio-—-对象存储" class="headerlink" title="minio — 对象存储"></a>minio — 对象存储</h3><p>MinIO&#x2F;S3 负责存储所有<strong>持久化的向量数据</strong>，包括 binlog（数据日志）、index（索引文件）、delta_log（删除日志）。</p>
+<pre><code>minio:
+  address: minio:9000       # S3 兼容存储地址
+  port: 9000                # S3 API 端口
+  accessKeyID: minioadmin   # 访问密钥 ID
+  secretAccessKey: minioadmin # 访问密钥 Secret
+  useSSL: false             # 是否使用 HTTPS
+  bucketName: a-bucket      # 存储桶名称
+  rootPath: files           # 数据存储根路径
+
+  # 云存储提供商（可选）
+  cloudProvider: aws        # aws / gcp / azure / aliyun
+  iamEndpoint: &quot;&quot;           # IAM 端点
+
+  # 连接池配置
+  useVirtualHost: false
+  requestTimeout: 10000     # 请求超时（毫秒）
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>说明</th>
+<th>调优建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>bucketName</code></td>
+<td><code>a-bucket</code></td>
+<td>存储桶名</td>
+<td>按项目&#x2F;环境划分不同 bucket</td>
+</tr>
+<tr>
+<td><code>rootPath</code></td>
+<td><code>files</code></td>
+<td>数据前缀</td>
+<td>多实例共享 MinIO 时设不同前缀</td>
+</tr>
+<tr>
+<td><code>useSSL</code></td>
+<td><code>false</code></td>
+<td>SSL&#x2F;TLS</td>
+<td>生产环境必须启用</td>
+</tr>
+<tr>
+<td><code>requestTimeout</code></td>
+<td><code>10000</code></td>
+<td>请求超时</td>
+<td>大文件场景适当增大</td>
+</tr>
+</tbody></table>
+<p>浏览器访问 MinIO Console（需提前暴露 9001 端口）</p>
+<p>浏览器打开 <a target="_blank" rel="noopener" href="http://localhost:9001/">http://localhost:9001</a></p>
+<p>用户名: minioadmin, 密码: minioadmin</p>
+<h3 id="mq-—-消息队列（WAL-底层实现）"><a href="#mq-—-消息队列（WAL-底层实现）" class="headerlink" title="mq — 消息队列（WAL 底层实现）"></a>mq — 消息队列（WAL 底层实现）</h3><p>消息队列在 Milvus 中充当<strong>预写日志 (WAL)</strong> 的角色，保障数据可靠性。</p>
+<pre><code>mq:
+  type: rocksmq             # Standalone 默认：rocksmq
+                            # 可选：pulsar / kafka / woodpecker
+
+# 使用 RocksMQ（Standalone 默认，基于 RocksDB，无需额外容器）
+rocksmq:
+  path: /var/lib/milvus/rdb_data  # RocksDB 数据存储路径
+  rocksmqPageSize: 67108864        # 每页大小 (64MB)
+  retentionTimeInMinutes: 4320     # 消息保留时间 (72小时)
+
+# 使用 Pulsar（Distributed 默认，集群模式推荐）
+# pulsar:
+#   address: pulsar://pulsar:6650
+#   maxMessageSize: 5242880        # 单消息最大 5MB
+
+# 使用 Kafka
+# kafka:
+#   brokerList: kafka:9092
+</code></pre>
+<p><strong>消息队列选择指南：</strong></p>
+<table>
+<thead>
+<tr>
+<th>MQ 类型</th>
+<th>适用场景</th>
+<th>外部依赖</th>
+<th>性能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>rocksmq</strong></td>
+<td>Standalone 单机</td>
+<td>无（内嵌 RocksDB）</td>
+<td>低延迟，无网络开销</td>
+</tr>
+<tr>
+<td><strong>pulsar</strong></td>
+<td>Distributed 集群</td>
+<td>需独立 Pulsar 集群</td>
+<td>高吞吐，支持多租户</td>
+</tr>
+<tr>
+<td><strong>kafka</strong></td>
+<td>已有 Kafka 生态</td>
+<td>需独立 Kafka 集群</td>
+<td>成熟稳定，生态丰富</td>
+</tr>
+<tr>
+<td><strong>woodpecker</strong></td>
+<td>v2.6 新增</td>
+<td>无（直接写 S3）</td>
+<td>零磁盘占用，云原生</td>
+</tr>
+</tbody></table>
+<h2 id="核心组件参数"><a href="#核心组件参数" class="headerlink" title="核心组件参数"></a>核心组件参数</h2><h3 id="proxy-—-访问层网关"><a href="#proxy-—-访问层网关" class="headerlink" title="proxy — 访问层网关"></a>proxy — 访问层网关</h3><p>Proxy 是客户端与 Milvus 交互的<strong>唯一入口</strong>，负责认证、限流、路由和结果合并。</p>
+<pre><code>proxy:
+  port: 19530                    # gRPC 服务端口
+  http:
+    enabled: true                # 启用 HTTP 端点
+    port: 9091                   # HTTP 端口
+    debug_mode: false            # 调试模式（生产关闭）
+
+  timeTickInterval: 200          # 时间滴答间隔（毫秒）
+  msgStream:
+    timeTick:
+      bufSize: 512               # 时间滴答缓冲区大小
+
+  # 连接管理
+  maxUserNum: 100                # 最大客户端连接数
+  maxNameLength: 255             # Collection/Field 名称最大长度
+  maxFieldNum: 64                # 单 Collection 最大字段数
+  maxVectorFieldNum: 10          # 单 Collection 最大向量字段数
+  maxShardNum: 64                # 单 Collection 最大分片数
+  maxDimension: 32768            # 向量最大维度
+
+  # 访问日志
+  accessLog:
+    enabled: false               # 是否记录访问日志
+    maxSize: 512                 # 单日志文件最大大小(MB)
+    maxBackups: 8                # 日志备份数
+    maxAge: 7                    # 日志保留天数
+
+  # 超时配置
+  searchTimeout: 0               # 搜索超时（0 = 不限制）
+  createTimeout: 60000           # 创建操作超时(ms)
+
+  # 连接保活
+  connectionCheckInterval: 120   # 连接检查间隔(秒)
+  gracefulStopTimeout: 30        # 优雅关闭超时(秒)
+
+  # 客户端缓存
+  cache:
+    enabled: true                # 启用查询结果缓存
+    ttl: 0                       # 缓存 TTL（0 = 永不过期）
+
+  # 请求限制
+  maxTaskNum: 1024              # 最大并发任务数
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>说明</th>
+<th>调优建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>maxFieldNum</code></td>
+<td>64</td>
+<td>最大标量字段数</td>
+<td>按需调整，单表字段 ≤ 32 更佳</td>
+</tr>
+<tr>
+<td><code>maxVectorFieldNum</code></td>
+<td>10</td>
+<td>最大向量字段</td>
+<td>混合搜索场景可增大</td>
+</tr>
+<tr>
+<td><code>maxShardNum</code></td>
+<td>64</td>
+<td>最大分片数</td>
+<td>每 2 亿数据 1 个 shard</td>
+</tr>
+<tr>
+<td><code>maxDimension</code></td>
+<td>32768</td>
+<td>最大向量维度</td>
+<td>超大规模 embedding 模型需调大</td>
+</tr>
+<tr>
+<td><code>timeTickInterval</code></td>
+<td>200ms</td>
+<td>Time Tick 间隔</td>
+<td>实时性要求高可减小（最低 10ms）</td>
+</tr>
+</tbody></table>
+<h3 id="rootCoord-—-根协调器（DDL-TSO）"><a href="#rootCoord-—-根协调器（DDL-TSO）" class="headerlink" title="rootCoord — 根协调器（DDL + TSO）"></a>rootCoord — 根协调器（DDL + TSO）</h3><pre><code>rootCoord:
+  address: localhost:53100       # 服务地址
+  port: 53100                    # 服务端口
+  maxPartitionNum: 1024          # 单 Collection 最大分区数
+  maxDatabaseNum: 64             # 最大数据库数
+  enableActiveStandby: false     # 主备高可用开关
+
+  # DDL 操作限制
+  minDdlChannalRpcTimeout: 20000 # DDL 最小 RPC 超时(ms)  --legacy
+  dmlChannelNum: 16             # DML 通道数  --legacy
+  maxDdlChanNum: 16             # 最大 DDL 通道数  --legacy
+
+  # TSO 时间戳
+  timestamp:
+    timetickInterval: 200        # 时间滴答间隔(ms)
+
+  # 优雅关闭
+  gracefulStopTimeout: 30
+</code></pre>
+<h3 id="queryCoord-—-查询协调器"><a href="#queryCoord-—-查询协调器" class="headerlink" title="queryCoord — 查询协调器"></a>queryCoord — 查询协调器</h3><pre><code>queryCoord:
+  address: localhost:53110
+  port: 53110
+
+  # 负载均衡
+  autoBalance: true              # 自动负载均衡
+  checkInterval: 1               # 负载检查间隔(秒)
+  balanceIntervalSeconds: 60     # 负载均衡执行间隔(秒)
+  overloadedMemoryThreshold: 70  # 过载内存阈值(百分比)
+
+  # Segment 分配
+  taskExecutionTimeout: 120000   # 任务执行超时(ms)
+
+  # 握手
+  enableHandoff: true           # 启用 Segment Handoff
+  handoffTimeout: 5000          # Handoff 超时(ms)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>说明</th>
+<th>调优建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>autoBalance</code></td>
+<td><code>true</code></td>
+<td>自动负载均衡</td>
+<td>生产环境保持开启</td>
+</tr>
+<tr>
+<td><code>balanceIntervalSeconds</code></td>
+<td>60s</td>
+<td>均衡检查间隔</td>
+<td>频繁写入时适当缩短</td>
+</tr>
+<tr>
+<td><code>overloadedMemoryThreshold</code></td>
+<td>70%</td>
+<td>过载阈值</td>
+<td>内存资源紧张时调低至 50-60%</td>
+</tr>
+<tr>
+<td><code>handoffTimeout</code></td>
+<td>5000ms</td>
+<td>交接超时</td>
+<td>大 Segment 场景适当增加</td>
+</tr>
+</tbody></table>
+<h3 id="dataCoord-—-数据协调器"><a href="#dataCoord-—-数据协调器" class="headerlink" title="dataCoord — 数据协调器"></a>dataCoord — 数据协调器</h3><pre><code>dataCoord:
+  address: localhost:53120
+  port: 53120
+
+  # Segment 管理（核心！）
+  segment:
+    maxSize: 1024               # 单 Segment 最大容量(MB)
+    diskSegmentMaxSize: 2048     # 磁盘索引 Segment 最大容量(MB)
+    sealProportion: 0.12         # Growing→Sealed 触发系数
+    expansionRate: 1.25          # Compaction 膨胀倍数
+
+    # 生命周期
+    maxLifetime: 86400           # Segment 最大存活时间(秒)
+    minSizeFromIdToSealed: 16    # Growing→Sealed 最小行数(MB)
+    maxBinlogFileNum: 10         # 触发 Flush 的 binlog 文件数上限
+
+  # Compaction 压缩合并
+  enableCompaction: true
+  compaction:
+    mix:
+      triggerInterval: 60        # 混合合并触发间隔(秒)
+    levelzero:
+      triggerInterval: 60        # L0 合并触发间隔(秒)
+    clustering:
+      enable: false              # 聚类压缩开关
+      autoEnable: false           # 自动触发聚类压缩
+      triggerInterval: 600       # 触发间隔(ms)
+      minInterval: 3600          # 最小间隔(秒)
+      maxInterval: 259200        # 最大间隔(秒, 默认3天)
+      newDataSizeThreshold: 512m  # 新数据量阈值
+      timeout: 7200              # 压缩超时(秒)
+
+  # 垃圾回收
+  enableGarbageCollection: true
+  gc:
+    interval: 3600               # GC 执行间隔(秒)
+    dropTolerance: 86400         # 删除容忍时间(秒, 24小时)
+    scanInterval: 168            # 对象存储孤儿文件扫描间隔(小时)
+
+  # 索引构建
+  index:
+    taskSlot: 1                  # 索引任务并发槽位
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>说明</th>
+<th>调优建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>segment.maxSize</code></td>
+<td>1024MB</td>
+<td>Segment 最大大小</td>
+<td>内存充裕可增至 4096MB（减少 Segment 数）</td>
+</tr>
+<tr>
+<td><code>segment.sealProportion</code></td>
+<td>0.12</td>
+<td>Seal 触发系数</td>
+<td>写入吞吐高时设小（如 0.08）；离线场景设大（如 0.3）</td>
+</tr>
+<tr>
+<td><code>segment.expansionRate</code></td>
+<td>1.25</td>
+<td>合并膨胀率</td>
+<td>默认即可</td>
+</tr>
+<tr>
+<td><code>gc.dropTolerance</code></td>
+<td>86400s</td>
+<td>数据删除宽限期</td>
+<td>若需要 Time Travel 超过 24h，需增大</td>
+</tr>
+<tr>
+<td><code>enableCompaction</code></td>
+<td><code>true</code></td>
+<td>合并开关</td>
+<td>纯只读场景可关闭</td>
+</tr>
+</tbody></table>
+<h3 id="indexCoord-—-索引协调器"><a href="#indexCoord-—-索引协调器" class="headerlink" title="indexCoord — 索引协调器"></a>indexCoord — 索引协调器</h3><pre><code>indexCoord:
+  address: localhost:53130
+  port: 53130
+  enable: true                 # v2.5+ 索引协调功能已并入 DataCoord
+  bindInterval: 5000
+</code></pre>
+<blockquote>
+<p><strong>v2.6 变更：</strong> IndexCoord 功能已合并到 DataCoord。此配置段保留向后兼容。</p>
+</blockquote>
+<h3 id="queryNode-—-查询节点"><a href="#queryNode-—-查询节点" class="headerlink" title="queryNode — 查询节点"></a>queryNode — 查询节点</h3><pre><code>queryNode:
+  port: 21123
+
+  # 缓存管理（v2.6 重要特性）
+  cache:
+    enabled: true
+    memory: 2048               # 缓存内存容量(MB)
+    warmup: async              # 预热策略: async | sync | disable
+
+    # 块缓存 (Chunk Cache)
+    chunk:
+      enabled: false           # 是否启用本地磁盘缓存
+      path: /var/lib/milvus/chunk_cache
+      size: 104857600          # 缓存大小(字节, 默认100MB)
+
+  # 内存映射 (mmap)
+  mmap:
+    vectorField: false         # 向量字段是否使用 mmap
+    scalarField: false         # 标量字段是否使用 mmap
+    vectorIndex: false         # 向量索引是否使用 mmap
+
+  # 搜索配置
+  scheduler:
+    receiveChanSize: 10240     # 调度接收通道大小
+    readChanSize: 128
+    maxReadConcurrentRatio: 1.0 # 最大并发读比例
+
+  # 优雅关闭
+  gracefulStopTimeout: 1800    # 优雅关闭超时(秒)
+
+  # 磁盘索引
+  disk:
+    enabled: false             # 是否启用磁盘索引(DiskANN)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>说明</th>
+<th>调优建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>cache.memory</code></td>
+<td>2048MB</td>
+<td>查询缓存大小</td>
+<td>内存充裕可增大至 4-8GB</td>
+</tr>
+<tr>
+<td><code>cache.warmup</code></td>
+<td><code>async</code></td>
+<td>预热策略</td>
+<td><code>async</code>: 加载快但初期慢；<code>sync</code>: 加载慢但查询无延迟；<code>disable</code>: 不预热</td>
+</tr>
+<tr>
+<td><code>mmap.vectorField</code></td>
+<td><code>false</code></td>
+<td>向量 mmap</td>
+<td>内存不足时设为 true，用磁盘换内存</td>
+</tr>
+<tr>
+<td><code>mmap.scalarField</code></td>
+<td><code>false</code></td>
+<td>标量 mmap</td>
+<td>有大标量字段(JOSN&#x2F;Array)时推荐开启</td>
+</tr>
+<tr>
+<td><code>disk.enabled</code></td>
+<td><code>false</code></td>
+<td>DiskANN 磁盘索引</td>
+<td>十亿级数据且内存有限时开启</td>
+</tr>
+</tbody></table>
+<h3 id="dataNode-—-数据节点"><a href="#dataNode-—-数据节点" class="headerlink" title="dataNode — 数据节点"></a>dataNode — 数据节点</h3><pre><code>dataNode:
+  port: 21124
+
+  # 数据刷新
+  flush:
+    insertBufSize: 16777216    # 插入缓冲区大小(字节, 16MB)
+    mergeBufSize: 16777216     # 合并缓冲区大小(字节)
+    interval: 1                # Flush 检查间隔(秒)
+
+  # 数据导入
+  import:
+    maxConcurrentTaskNum: 16
+    MaxImportFileSize: 4194304 # 最大导入文件大小(字节, 4GB)
+    memoryLimit: 2147483648    # 导入内存限制(字节, 2GB)
+
+  # Compaction 执行
+  compaction:
+    useMergeSort: true         # 使用归并排序
+    memoryBufferRatio: 0.1     # 压缩内存缓冲比例
+    workPoolSize: 8            # 压缩工作池大小
+
+  # 优雅关闭
+  gracefulStopTimeout: 1800
+</code></pre>
+<h3 id="indexNode-—-索引构建节点"><a href="#indexNode-—-索引构建节点" class="headerlink" title="indexNode — 索引构建节点"></a>indexNode — 索引构建节点</h3><pre><code>indexNode:
+  port: 21121
+  scheduler:
+    buildParallel: 1           # 并行构建索引的任务数
+
+  # 磁盘索引
+  disk:
+    enabled: false
+
+  gracefulStopTimeout: 1800
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>说明</th>
+<th>调优建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>buildParallel</code></td>
+<td>1</td>
+<td>并行构建数</td>
+<td>CPU 充裕可增至 2-4，但会增加内存压力</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="通用配置参数"><a href="#通用配置参数" class="headerlink" title="通用配置参数"></a>通用配置参数</h2><h3 id="common-—-通用安全配置"><a href="#common-—-通用安全配置" class="headerlink" title="common — 通用安全配置"></a>common — 通用安全配置</h3><pre><code>common:
+  # 安全
+  security:
+    authorizationEnabled: false       # RBAC 鉴权开关
+    defaultRootPassword: Milvus       # 默认 root 密码（首次启动后修改！）
+    superUsers: &quot;&quot;                    # 超级用户列表
+    tlsMode: 0                        # TLS 模式: 0=关闭 1=单向 2=双向
+
+  # 多租户
+  session:
+    ttl: 604800                       # 会话 TTL(秒, 7天)
+    retryTimes: 30                    # 重试次数
+
+  # 存储
+  storageType: remote                 # 存储类型: remote(MinIO/S3) | local
+  retentionDuration: 86400            # 数据保留时长(秒)，影响 Time Travel 窗口
+
+  # 时间戳
+  usePartitionKeyAsClusteringKey: false  # 分区键用作聚类键
+
+  # 会话管理
+  sessionTTL: 60                      # 会话超时(秒)
+  sessionRetryTimes: 30               # 会话重试次数
+
+  # 指标
+  metrics:
+    port: 9090                        # Prometheus 指标端口
+</code></pre>
+<h3 id="quotaAndLimits-—-配额与限流"><a href="#quotaAndLimits-—-配额与限流" class="headerlink" title="quotaAndLimits — 配额与限流"></a>quotaAndLimits — 配额与限流</h3><p>这是 milvus.yaml 中<strong>配置项最多的章节</strong>，防止单个操作或用户打爆系统。</p>
+<pre><code>quotaAndLimits:
+  enabled: true                # 全局限流开关
+
+  # ====== 内存保护 ======
+  forceDenyAllDDL: false       # 紧急开关：内存不足时强制拒绝所有 DDL
+  forceDenyAllDML: false       # 紧急开关：内存不足时强制拒绝所有 DML
+
+  # ====== DDL 限制 ======
+  ddl:
+    enabled: false             # DDL 限流开关
+    collectionRate: -1         # -1 不限制
+    partitionRate: -1
+
+  # ====== DML 限制（数据写入） ======
+  dml:
+    enabled: false
+    insertRate:
+      collection:
+        max: -1                # 单 Collection 最大插入速率(MB/s)
+      db:
+        max: -1
+    upsertRate:
+      collection:
+        max: -1
+    deleteRate:
+      collection:
+        max: -1
+    bulkLoadRate:
+      collection:
+        max: -1
+
+  # ====== DQL 限制（查询搜索） ======
+  dql:
+    enabled: false
+    searchRate:
+      collection:
+        max: -1                # 单 Collection 最大搜索 QPS
+      db:
+        max: -1
+    queryRate:
+      collection:
+        max: -1
+
+  # ====== 写入保护 ======
+  flushRate:
+    enabled: false
+    collection:
+      max: 0.1                 # 每 Collection Flush 频率(次/秒)，默认 10s 1 次
+
+  # ====== 磁盘保护 ======
+  diskProtection:
+    enabled: true
+    diskQuota: -1              # 磁盘配额限制(字节), -1 = 不限制
+
+  # ====== 内存保护 ======
+  memoryProtection:
+    enabled: true
+    waterMarkMemoryRatio: 0.85 # 内存水位线（85% 触发保护）
+
+  # ====== 结果限制 ======
+  limits:
+    maxCollectionNum: 65536    # 最大 Collection 数量
+    maxInsertSize: -1          # 单次 Insert 最大数据量(字节)
+    maxSearchSize: -1          # 单次 Search 最大数据量
+    maxQuerySize: -1           # 单次 Query 最大数据量
+    maxQueryResultWindow: 16384  # 查询结果最大窗口
+
+  # ====== Deny Writing ======
+  denyWritingOnMemoryWatermark: true  # 内存水位触发时拒绝写入
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>说明</th>
+<th>调优建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>flushRate.collection.max</code></td>
+<td>0.1</td>
+<td>Flush 频率限制</td>
+<td>写入密集时可增至 1.0</td>
+</tr>
+<tr>
+<td><code>waterMarkMemoryRatio</code></td>
+<td>0.85</td>
+<td>内存水位</td>
+<td>系统内存紧张时调低至 0.7</td>
+</tr>
+<tr>
+<td><code>maxCollectionNum</code></td>
+<td>65536</td>
+<td>最大 Collection 数</td>
+<td>多租户场景默认够用</td>
+</tr>
+<tr>
+<td><code>maxQueryResultWindow</code></td>
+<td>16384</td>
+<td>查询窗口</td>
+<td>需要大量分页时增大</td>
+</tr>
+</tbody></table>
+<h3 id="log-—-日志配置"><a href="#log-—-日志配置" class="headerlink" title="log — 日志配置"></a>log — 日志配置</h3><pre><code>log:
+  level: info                  # 日志级别: debug | info | warn | error | panic | fatal
+  file:
+    rootPath: &quot;&quot;               # 日志目录
+    maxSize: 512               # 单文件最大(MB)
+    maxBackups: 20             # 最大备份文件数
+    maxAge: 7                  # 最大保留天数
+  format: text                 # 格式: text | json
+  stdout: true                 # 输出到标准输出
+</code></pre>
+<blockquote>
+<p><strong>⚠️ 重要提醒：</strong><code>debug</code> 级别日志量非常大，仅调试时使用。生产环境必须设为 <code>info</code>。Docker 部署时务必限制容器日志大小：</p>
+<pre><code>// /etc/docker/daemon.json
+{
+ &quot;log-driver&quot;: &quot;json-file&quot;,
+ &quot;log-opts&quot;: {
+   &quot;max-size&quot;: &quot;10m&quot;,
+   &quot;max-file&quot;: &quot;3&quot;
+}
+}
+</code></pre>
+</blockquote>
+<hr>
+<h1 id="Milvus-2-6-x-核心机制深度解析"><a href="#Milvus-2-6-x-核心机制深度解析" class="headerlink" title="Milvus 2.6.x-核心机制深度解析"></a>Milvus 2.6.x-核心机制深度解析</h1><h2 id="核心机制-—-流批分离架构（v2-6-重大变更）"><a href="#核心机制-—-流批分离架构（v2-6-重大变更）" class="headerlink" title="核心机制 — 流批分离架构（v2.6 重大变更）"></a>核心机制 — 流批分离架构（v2.6 重大变更）</h2><p><a target="_blank" rel="noopener" href="https://milvus.io/docs/v2.5.x/assets/milvus_architecture.png">https://milvus.io/docs/v2.5.x/assets/milvus_architecture.png</a></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260716154207265.png"></p>
+<p><a target="_blank" rel="noopener" href="https://milvus.io/docs/v2.5.x/assets/milvus_architecture.png">https://milvus.io/docs/v2.5.x/assets/milvus_architecture.png</a></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260716154158131.png"></p>
+<p><strong>2.5 vs 2.6 组件变化对比：</strong></p>
+<table>
+<thead>
+<tr>
+<th>2.5.x 组件</th>
+<th>2.6.x 组件</th>
+<th>变化说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>QueryNode</td>
+<td><strong>QueryNode</strong></td>
+<td>仅处理 Sealed Segment 批量查询</td>
+</tr>
+<tr>
+<td>DataNode</td>
+<td><strong>DataNode</strong></td>
+<td>仅做 Compaction + 索引构建</td>
+</tr>
+<tr>
+<td>—</td>
+<td><strong>StreamingNode</strong></td>
+<td><strong>全新！</strong>接管所有实时数据写入</td>
+</tr>
+<tr>
+<td>IndexNode 独立</td>
+<td>合并入 DataNode</td>
+<td>简化拓扑</td>
+</tr>
+<tr>
+<td>RootCoord&#x2F;QueryCoord&#x2F;DataCoord</td>
+<td><strong>MixCoord</strong></td>
+<td>协调器三合一</td>
+</tr>
+</tbody></table>
+<h2 id="核心机制-—-数据写入完整路径"><a href="#核心机制-—-数据写入完整路径" class="headerlink" title="核心机制 — 数据写入完整路径"></a>核心机制 — 数据写入完整路径</h2><p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260716154124492.png" alt="image.png"></p>
+<p>这里的TSO：<strong>它是一个全局单调递增的时钟，给每条写入数据盖一个”时间邮戳”，用来确定”谁先谁后”。</strong></p>
+<p>因为这里有可能有多个stream的node节点，<strong>TSO 解决的就是这个问题</strong> ：不管你从哪个 StreamingNode 写入，所有数据都用同一个全局序号，绝对的”先来后到”。</p>
+<h2 id="核心机制-—-WAL-预写日志"><a href="#核心机制-—-WAL-预写日志" class="headerlink" title="核心机制 — WAL 预写日志"></a>核心机制 — WAL 预写日志</h2><p>WAL &#x3D; 数据可靠性核心支柱。任何操作先写 WAL，后处理。</p>
+<p><strong>WAL 关键特性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>先写后处理</strong></td>
+<td>任何 DML&#x2F;DDL 先记录到 WAL，然后才处理</td>
+</tr>
+<tr>
+<td><strong>崩溃恢复</strong></td>
+<td>StreamingNode 崩溃 → 重放 WAL → 完整恢复</td>
+</tr>
+<tr>
+<td><strong>TSO 排序</strong></td>
+<td>每条消息带全局 TSO，WAL 中的顺序 &#x3D; 操作发生的顺序</td>
+</tr>
+<tr>
+<td><strong>原子写入</strong></td>
+<td>VChannel 级别保证原子性</td>
+</tr>
+<tr>
+<td><strong>可迁移</strong></td>
+<td>WAL 可在 StreamingNode 间迁移，实现高可用</td>
+</tr>
+</tbody></table>
+<h2 id="核心机制-—-Segment-生命周期"><a href="#核心机制-—-Segment-生命周期" class="headerlink" title="核心机制 — Segment 生命周期"></a>核心机制 — Segment 生命周期</h2><p><strong>Segment 是 Milvus 中数据管理的****最小物理单元</strong>。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260716154138085.png" alt="image.png"></p>
+<p><strong>segment 状态速查：</strong></p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>可写</th>
+<th>可查</th>
+<th>索引</th>
+<th>存储位置</th>
+<th>持久化</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Growing</td>
+<td>✅</td>
+<td>✅ (BF)</td>
+<td>❌</td>
+<td>StreamingNode 内存</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Sealed</td>
+<td>❌</td>
+<td>❌</td>
+<td>待构建</td>
+<td>MinIO + QueryNode</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Loaded</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>QueryNode 内存&#x2F;磁盘</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Compacted</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>QueryNode + MinIO</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+<h2 id="核心机制-—-Flush-Compaction"><a href="#核心机制-—-Flush-Compaction" class="headerlink" title="核心机制 — Flush + Compaction"></a>核心机制 — Flush + Compaction</h2><p><strong>Flush 是将 Growing Segment 的数据从内存****持久化到对象存储</strong>的过程。</p>
+<p>触发条件（满足任一）：<br>① 大小：≥ 1024MB × 0.12 ≈ 123MB<br>② 文件数：binlog ≥ 10 个<br>③ 时长：Segment ≥ 86400s<br>④ 手动：client.flush() API</p>
+<p>执行流程：<br>Seal 指令 → WAL 消费完毕<br>→ 序列化为 binlog → 上传 S3<br>→ 标记 Sealed → Handoff<br>→ DataNode 异步建索引</p>
+<p>✅ 非阻塞：其他 Segment 不受影响<br>✅ TSO 保证一致性快照</p>
+<p>Compaction 压缩合并:**Compaction 将多个小 Sealed Segment **<strong>合并</strong>为更大的 Segment。</p>
+<p>三种类型：<br>① Binlog(L0)：合并 insert+delta log<br>② Segment(Mix)：小段合并<br>③ Clustering：按标量 key 重排</p>
+<p>合并流程：<br>检测小段 → 下发任务 → 读取<br>→ 合并去重 → 新段写 S3<br>→ 建索引 → QueryNode 加载<br>→ 旧段标记 GC → 异步清理</p>
+<p>✅ 后台异步：不阻塞查询<br>✅ 原子切换：新段就绪后切换</p>
+<p><strong>三种 Compaction 类型：</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Binlog Compaction (L0)</strong></td>
+<td>delta binlog 行数 &gt; 总量的 20%</td>
+<td>合并 insert log + delta log，清理已删除数据</td>
+</tr>
+<tr>
+<td><strong>Segment Compaction (Mix)</strong></td>
+<td>小于 0.5×maxSize 的段 &gt; 10 个</td>
+<td>小段合并，减少碎片</td>
+</tr>
+<tr>
+<td><strong>Clustering Compaction</strong></td>
+<td>需手动开启 + 按配置触发</td>
+<td>按标量 key 重排数据，优化标量过滤</td>
+</tr>
+</tbody></table>
+<h2 id="核心机制-—-Timestamp-Oracle"><a href="#核心机制-—-Timestamp-Oracle" class="headerlink" title="核心机制 — (Timestamp Oracle)"></a>核心机制 — (Timestamp Oracle)</h2><p><strong>TSO 是 Milvus 分布式一致性的****核心支柱</strong>。</p>
+<p><strong>TSO 核心作用：</strong></p>
+<table>
+<thead>
+<tr>
+<th>作用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>全局有序</strong></td>
+<td>所有操作获得严格递增的时间戳，操作顺序明确</td>
+</tr>
+<tr>
+<td><strong>因果一致性</strong></td>
+<td>TSO(A) &lt; TSO(B) ⇒ 操作 A 发生在操作 B 之前</td>
+</tr>
+<tr>
+<td><strong>一致性快照</strong></td>
+<td>查询可指定 Guarantee Timestamp，读取某时间点快照</td>
+</tr>
+<tr>
+<td><strong>崩溃恢复</strong></td>
+<td>WAL 中按 TSO 顺序重放，恢复状态一致</td>
+</tr>
+</tbody></table>
+<p><strong>一致性级别与 TSO 的关系：</strong></p>
+<table>
+<thead>
+<tr>
+<th>一致性级别</th>
+<th>Guarantee Timestamp</th>
+<th>性能</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Strong</strong></td>
+<td>最新 TSO（等待所有已提交数据）</td>
+<td>最低</td>
+<td>金融、强一致业务</td>
+</tr>
+<tr>
+<td><strong>Bounded</strong></td>
+<td>TSO − 可配置时间窗口</td>
+<td>中</td>
+<td>大多数业务</td>
+</tr>
+<tr>
+<td><strong>Session</strong></td>
+<td>同一会话内自己的写入可见</td>
+<td>中</td>
+<td>Web 应用</td>
+</tr>
+<tr>
+<td><strong>Eventually</strong></td>
+<td>不保证</td>
+<td>最高</td>
+<td>推荐系统、搜索</td>
+</tr>
+</tbody></table>
+<h2 id="Time-Tick-负载均衡机制"><a href="#Time-Tick-负载均衡机制" class="headerlink" title="Time Tick + 负载均衡机制"></a>Time Tick + 负载均衡机制</h2><p><strong>Time Tick 是 WAL 流中的****心跳&#x2F;推进信号</strong>，代表”此时间点之前的所有消息都已写入 WAL”。</p>
+<p><strong>Time Tick 四大作用：</strong></p>
+<ol>
+<li><strong>推进可读水位：</strong> QueryNode 需要知道 WAL 已写到哪个时间点，以确定哪些 Growing Data 可安全读取</li>
+<li><strong>触发 Flush 决策：</strong> Time Tick 推进到 Segment 所有数据已写入时，可安全 Flush</li>
+<li><strong>一致性边界：</strong> Bounded Consistency 的”允许滞后 N 秒”依赖 Time Tick 确定当前最新可读时间</li>
+<li><strong>防止查询饥饿：</strong> 即使无新数据写入，Time Tick 也周期性推进，查询不被无限阻塞</li>
+</ol>
+<p>**Proxy 在路由查询请求到 QueryNode 时，通过 **<code>LoadBalancer</code> 接口选择目标节点。</p>
+<p>三种策略（Proxy 路由到 QueryNode）：</p>
+<p>① RoundRobin 轮询<br>Q1→Q2→Q3→Q1 轮流，简单高效<br>适合：节点同配、数据均匀</p>
+<p>② LeastCost 最少代价<br>选 CPU&#x2F;内存&#x2F;请求数最轻的节点<br>适合：节点异构、负载波动大</p>
+<p>③ LookAside 旁路<br>查本地缓存 → 命中直接转发<br>适合：高并发 + 低延迟</p>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E4%BB%8B%E7%BB%8D/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">OpenClaw 介绍</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%9E%B6%E6%9E%84/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">Milvus 核心概念与架构</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E9%85%8D%E7%BD%AE%E5%B1%82%E7%BA%A7%E5%85%B3%E7%B3%BB"><span class="toc-list-number">1.</span> <span class="toc-list-text">配置层级关系</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%8C%82%E8%BD%BD%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">挂载自定义配置</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E8%BF%90%E8%A1%8C%E6%97%B6%E9%85%8D%E7%BD%AE"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">查看当前运行时配置</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E5%88%86%E7%B1%BB%E8%AF%A6%E8%A7%A3"><span class="toc-list-number">2.</span> <span class="toc-list-text">核心参数分类详解</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#milvus-yaml-%E9%85%8D%E7%BD%AE"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">milvus.yaml 配置</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%BE%9D%E8%B5%96%E7%BB%84%E4%BB%B6%E5%8F%82%E6%95%B0"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">依赖组件参数</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#etcd-%E2%80%94-%E5%85%83%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8"><span class="toc-list-number">2.2.1.</span> <span class="toc-list-text">etcd — 元数据存储</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#minio-%E2%80%94-%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8"><span class="toc-list-number">2.2.2.</span> <span class="toc-list-text">minio — 对象存储</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#mq-%E2%80%94-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%EF%BC%88WAL-%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%EF%BC%89"><span class="toc-list-number">2.2.3.</span> <span class="toc-list-text">mq — 消息队列（WAL 底层实现）</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6%E5%8F%82%E6%95%B0"><span class="toc-list-number">2.3.</span> <span class="toc-list-text">核心组件参数</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#proxy-%E2%80%94-%E8%AE%BF%E9%97%AE%E5%B1%82%E7%BD%91%E5%85%B3"><span class="toc-list-number">2.3.1.</span> <span class="toc-list-text">proxy — 访问层网关</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#rootCoord-%E2%80%94-%E6%A0%B9%E5%8D%8F%E8%B0%83%E5%99%A8%EF%BC%88DDL-TSO%EF%BC%89"><span class="toc-list-number">2.3.2.</span> <span class="toc-list-text">rootCoord — 根协调器（DDL + TSO）</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#queryCoord-%E2%80%94-%E6%9F%A5%E8%AF%A2%E5%8D%8F%E8%B0%83%E5%99%A8"><span class="toc-list-number">2.3.3.</span> <span class="toc-list-text">queryCoord — 查询协调器</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#dataCoord-%E2%80%94-%E6%95%B0%E6%8D%AE%E5%8D%8F%E8%B0%83%E5%99%A8"><span class="toc-list-number">2.3.4.</span> <span class="toc-list-text">dataCoord — 数据协调器</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#indexCoord-%E2%80%94-%E7%B4%A2%E5%BC%95%E5%8D%8F%E8%B0%83%E5%99%A8"><span class="toc-list-number">2.3.5.</span> <span class="toc-list-text">indexCoord — 索引协调器</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#queryNode-%E2%80%94-%E6%9F%A5%E8%AF%A2%E8%8A%82%E7%82%B9"><span class="toc-list-number">2.3.6.</span> <span class="toc-list-text">queryNode — 查询节点</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#dataNode-%E2%80%94-%E6%95%B0%E6%8D%AE%E8%8A%82%E7%82%B9"><span class="toc-list-number">2.3.7.</span> <span class="toc-list-text">dataNode — 数据节点</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#indexNode-%E2%80%94-%E7%B4%A2%E5%BC%95%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9"><span class="toc-list-number">2.3.8.</span> <span class="toc-list-text">indexNode — 索引构建节点</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%80%9A%E7%94%A8%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="toc-list-number">2.4.</span> <span class="toc-list-text">通用配置参数</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#common-%E2%80%94-%E9%80%9A%E7%94%A8%E5%AE%89%E5%85%A8%E9%85%8D%E7%BD%AE"><span class="toc-list-number">2.4.1.</span> <span class="toc-list-text">common — 通用安全配置</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#quotaAndLimits-%E2%80%94-%E9%85%8D%E9%A2%9D%E4%B8%8E%E9%99%90%E6%B5%81"><span class="toc-list-number">2.4.2.</span> <span class="toc-list-text">quotaAndLimits — 配额与限流</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#log-%E2%80%94-%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE"><span class="toc-list-number">2.4.3.</span> <span class="toc-list-text">log — 日志配置</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#Milvus-2-6-x-%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="toc-list-number">3.</span> <span class="toc-list-text">Milvus 2.6.x-核心机制深度解析</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6-%E2%80%94-%E6%B5%81%E6%89%B9%E5%88%86%E7%A6%BB%E6%9E%B6%E6%9E%84%EF%BC%88v2-6-%E9%87%8D%E5%A4%A7%E5%8F%98%E6%9B%B4%EF%BC%89"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">核心机制 — 流批分离架构（v2.6 重大变更）</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6-%E2%80%94-%E6%95%B0%E6%8D%AE%E5%86%99%E5%85%A5%E5%AE%8C%E6%95%B4%E8%B7%AF%E5%BE%84"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">核心机制 — 数据写入完整路径</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6-%E2%80%94-WAL-%E9%A2%84%E5%86%99%E6%97%A5%E5%BF%97"><span class="toc-list-number">3.3.</span> <span class="toc-list-text">核心机制 — WAL 预写日志</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6-%E2%80%94-Segment-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-list-number">3.4.</span> <span class="toc-list-text">核心机制 — Segment 生命周期</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6-%E2%80%94-Flush-Compaction"><span class="toc-list-number">3.5.</span> <span class="toc-list-text">核心机制 — Flush + Compaction</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6-%E2%80%94-Timestamp-Oracle"><span class="toc-list-number">3.6.</span> <span class="toc-list-text">核心机制 — (Timestamp Oracle)</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Time-Tick-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%9C%BA%E5%88%B6"><span class="toc-list-number">3.7.</span> <span class="toc-list-text">Time Tick + 负载均衡机制</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

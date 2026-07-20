@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            项目中具体Harness架构的实现 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-05
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">项目中具体Harness架构的实现</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <p>完整的<strong>Agent Harness由几个相互配合的核心能力层构成</strong>，它们共同决定了Agent的行为和性能：</p>
+<ul>
+<li>任务规划：通过内置的任务清单功能，将复杂目标分解为一系列可执行的子任务，并追踪每一步的执行状态。</li>
+<li>虚拟文件系统：为Agent提供一个内置的虚拟文件管理系统，支持读写、编辑、搜索等操作，使其能像人类开发者一样进行工作。</li>
+<li>子Agent委派：主Agent可以创建专门的“子Agent”来执行特定任务，实现任务隔离和上下文压缩。</li>
+<li>上下文管理：通过文件系统等策略，管理长对话中的Token消耗，防止因上下文溢出而导致性能下降。</li>
+<li>可插拔中间件：通过一组Hook函数，在模型和工具调用的关键节点注入自定义逻辑，实现缓存、重试、日志、PII检测等增强功能。</li>
+<li>Skills技能系统：将提示词、文档、脚本等打包为可复用的标准模块，为Agent注入特定领域的知识和能力。并做到自我进化。</li>
+<li>持久化记忆：为Agent提供短期（对话历史）和长期记忆能力，使其能从历史交互中学习。</li>
+</ul>
+<h2 id="项目中Harness架构的核心能力-一-：长周期复杂任务的Planning能力"><a href="#项目中Harness架构的核心能力-一-：长周期复杂任务的Planning能力" class="headerlink" title="项目中Harness架构的核心能力(一)：长周期复杂任务的Planning能力"></a>项目中Harness架构的核心能力(一)：长周期复杂任务的Planning能力</h2><p>提供 <code>write_todos</code> 工具，Agent 可维护结构化任务列表（pending&#x2F;in_progress&#x2F;completed），持久化在 Agent state 中。</p>
+<p><strong>项目实现</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DeepAgents 内置</td>
+<td>write_todos 工具由框架自动注册，无需显式配置</td>
+</tr>
+<tr>
+<td>受益方</td>
+<td>三个 Agent 全部受益：主 Agent 协调复杂任务、analyst 执行 5 步分析流程、order 执行 4 步订单操作</td>
+</tr>
+<tr>
+<td>典型触发</td>
+<td>analyst 启动时：”ls → 读 SKILL.md → 收集数据 → 分析 → 图表 → 报告”，框架自动建议拆为 todo</td>
+</tr>
+<tr>
+<td>持久化</td>
+<td>CHECKPOINTER（MongoDBSaver）持久化 Agent state，跨重启保留任务进度</td>
+</tr>
+</tbody></table>
+<h2 id="项目中harness架构的核心能力-二-：安全的和动态路由的文件系统"><a href="#项目中harness架构的核心能力-二-：安全的和动态路由的文件系统" class="headerlink" title="项目中harness架构的核心能力(二)：安全的和动态路由的文件系统"></a>项目中harness架构的核心能力(二)：安全的和动态路由的文件系统</h2><p><strong>项目实现</strong>：通过 <code>CompositeBackend</code> 实现<strong>三层路由文件系统</strong>。</p>
+<p><strong>路由分流效果</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>路径前缀</th>
+<th>后端</th>
+<th>生命周期</th>
+<th>隔离粒度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;AGENTS.md</td>
+<td>OpenSandbox</td>
+<td>沙箱生命周期</td>
+<td>全局一份（只读）</td>
+</tr>
+<tr>
+<td>&#x2F;memories&#x2F;{user_id}&#x2F;</td>
+<td>StoreBackend → MongoDB</td>
+<td>跨会话永久</td>
+<td>按 user_id 隔离</td>
+</tr>
+<tr>
+<td>&#x2F;persisted-skills&#x2F;</td>
+<td>StoreBackend → MongoDB</td>
+<td>跨会话永久</td>
+<td>按 namespace 组织</td>
+</tr>
+<tr>
+<td>&#x2F;skills&#x2F;</td>
+<td>OpenSandbox</td>
+<td>沙箱生命周期</td>
+<td>每次沙箱重建</td>
+</tr>
+<tr>
+<td>&#x2F;data&#x2F;、&#x2F;analysis&#x2F;</td>
+<td>OpenSandbox</td>
+<td>沙箱生命周期</td>
+<td>临时工作区</td>
+</tr>
+</tbody></table>
+<pre><code class="Python">backend = lambda rt: CompositeBackend(
+    default=sandbox_backend,           # OpenSandbox（临时文件、代码执行）
+    routes={
+        &quot;/memories/&quot;: StoreBackend(    # 用户偏好 → MongoDB 持久化
+            runtime=rt,
+            namespace=lambda rt: (getattr(rt.runtime.context, &#39;user_id&#39;, &#39;default_user&#39;),),
+        ),
+        &quot;/persisted-skills/&quot;: StoreBackend(  # 持久化技能 → MongoDB
+            runtime=rt,
+            namespace=lambda rt: SKILLS_STORE_NAMESPACE,
+        ),
+    },
+)
+</code></pre>
+<h2 id="项目中harness架构的核心能力-三-：-Subagent的任务委派"><a href="#项目中harness架构的核心能力-三-：-Subagent的任务委派" class="headerlink" title="项目中harness架构的核心能力(三)： Subagent的任务委派"></a>项目中harness架构的核心能力(三)： Subagent的任务委派</h2><p>主 Agent 拥有 <code>task</code> 工具，每次调用创建全新 Agent 实例，独立上下文，执行完返回单个报告。支持并行执行和特殊化配置。</p>
+<p><strong>项目实现</strong>：</p>
+<p><strong>子 Agent 配置加载</strong>：loader.py</p>
+<pre><code class="Plain">YAML 配置文件 (configs/*.yaml)
+  │ load_subagent_configs()      ← YAML → dict 列表
+  │ resolve_subagent_tools()     ← 工具名子串匹配 → 可调用对象
+  │ _validate_subagent_config()  ← 必填字段校验
+  ▼
+</code></pre>
+<p><strong>两个子 Agent 对比</strong>：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>procurement-analyst</th>
+<th>procurement-order</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>YAML</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/subagents/configs/procurement_analyst.yaml">procurement_analyst.yaml</a></td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/subagents/configs/procurement_order.yaml">procurement_order.yaml</a></td>
+</tr>
+<tr>
+<td>description</td>
+<td>含触发关键词（”分析”、”对比”、”报告”…）</td>
+<td>含触发关键词（”下单”、”创建订单”、”修改”…）</td>
+</tr>
+<tr>
+<td>工具数</td>
+<td>8 个（6 MCP + web_search + generate_visualization）</td>
+<td>5 个（3 MCP + web_search + request_order_info）</td>
+</tr>
+<tr>
+<td>技能 scope</td>
+<td>&#x2F;skills&#x2F;procurement&#x2F;</td>
+<td>&#x2F;skills&#x2F;order&#x2F;</td>
+</tr>
+<tr>
+<td>中间件</td>
+<td>Summarization + 调用限制(50&#x2F;200)</td>
+<td>调用限制(20&#x2F;50)</td>
+</tr>
+<tr>
+<td>interrupt_on</td>
+<td>无</td>
+<td>order_create: approve&#x2F;reject, order_update: approve&#x2F;reject</td>
+</tr>
+<tr>
+<td>context 隔离</td>
+<td>独立上下文，analyst 长篇工具结果不污染主 Agent</td>
+<td>独立上下文，订单操作不干扰分析对话</td>
+</tr>
+</tbody></table>
+<p><strong>委派模板</strong>（AGENTS.md:74-121）：</p>
+<p>主 Agent 的 <code>AGENTS.md</code> 为每个子 Agent 定义了结构化的 <code>task</code> 调用模板，确保 user_id&#x2F;username&#x2F;偏好 正确传递到子 Agent。</p>
+<h2 id="项目中harness架构的核心能力-四-：Context-Management-—-上下文管理"><a href="#项目中harness架构的核心能力-四-：Context-Management-—-上下文管理" class="headerlink" title="项目中harness架构的核心能力(四)：Context Management — 上下文管理"></a>项目中harness架构的核心能力(四)：Context Management — 上下文管理</h2><p>四种策略——Input context（启动时加载）、Compression（自动 offload + summarization）、Isolation（子 Agent 隔离）、Long-term memory（跨线程持久化）。</p>
+<p><strong>项目实现</strong>：</p>
+<h4 id="a-Input-Context"><a href="#a-Input-Context" class="headerlink" title="a. Input Context"></a>a. Input Context</h4><table>
+<thead>
+<tr>
+<th>输入</th>
+<th>来源</th>
+<th>何时加载</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>system_prompt</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/memory/prompts.py">prompts.py</a></td>
+<td>Agent 创建时</td>
+</tr>
+<tr>
+<td>AGENTS.md</td>
+<td>本地 → 沙箱 &#x2F;AGENTS.md（<a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/main_agent.py#L122-L124">main_agent.py:122-124</a>）</td>
+<td>Agent 创建时，memory 参数</td>
+</tr>
+<tr>
+<td>用户偏好</td>
+<td>&#x2F;memories&#x2F;{user_id}&#x2F;preferences.md（StoreBackend）</td>
+<td>每轮对话前 read_file</td>
+</tr>
+<tr>
+<td>技能 frontmatter</td>
+<td>各 SKILL.md 的 YAML frontmatter（渐进式披露）</td>
+<td>Agent 启动时扫描</td>
+</tr>
+<tr>
+<td>用户上下文</td>
+<td>ContextInjectionMiddleware 注入 SystemMessage</td>
+<td>每轮 before_agent</td>
+</tr>
+<tr>
+<td>子Agent报告路径&#x2F;订单确认</td>
+<td>委派结果</td>
+<td>收到返回后</td>
+</tr>
+</tbody></table>
+<h4 id="b-Compression"><a href="#b-Compression" class="headerlink" title="b. Compression"></a>b. Compression</h4><table>
+<thead>
+<tr>
+<th>机制</th>
+<th>实现</th>
+<th>配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自动 Offloading</td>
+<td>DeepAgents 内置，工具结果 &gt; 20k tokens → 写入文件，上下文只保留路径+前10行预览</td>
+<td>框架默认</td>
+</tr>
+<tr>
+<td>自动 Summarization</td>
+<td>SummarizationMiddleware，上下文 85% 窗口 → 自动压缩历史为摘要，完整历史保存到 &#x2F;conversation_history&#x2F;</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/middlewares/tools_summarization.py">tools_summarization.py</a></td>
+</tr>
+<tr>
+<td>手动 compact_conversation</td>
+<td>SummarizationToolMiddleware 注册的工具，Agent 在收到子Agent长篇报告&#x2F;对话超6轮&#x2F;用户频繁切换话题时主动调用</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/middlewares/tools_summarization.py#L40-L42">tools_summarization.py:40-42</a>, model&#x3D;deepseek-v4-flash</td>
+</tr>
+</tbody></table>
+<h4 id="c-Isolation（子-Agent-上下文隔离）"><a href="#c-Isolation（子-Agent-上下文隔离）" class="headerlink" title="c. Isolation（子 Agent 上下文隔离）"></a>c. Isolation（子 Agent 上下文隔离）</h4><p>analyst 执行 5 步分析流程时会产生大量中间结果（MCP 返回的供应商&#x2F;零部件 JSON、Python 脚本输出、图表生成参数等），全部隔离在子 Agent 自己的上下文窗口中。主 Agent 只收到最终的结构化报告。</p>
+<h4 id="d-Long-term-Memory"><a href="#d-Long-term-Memory" class="headerlink" title="d. Long-term Memory"></a>d. Long-term Memory</h4><table>
+<thead>
+<tr>
+<th>存储</th>
+<th>后端</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户偏好</td>
+<td>StoreBackend → MongoDB</td>
+<td>&#x2F;memories&#x2F;{user_id}&#x2F;preferences.md</td>
+</tr>
+<tr>
+<td>持久化技能</td>
+<td>StoreBackend → MongoDB</td>
+<td>&#x2F;persisted-skills&#x2F; 下技能文件</td>
+</tr>
+<tr>
+<td>对话状态</td>
+<td>MongoDBSaver</td>
+<td>Checkpoint（HITL 中断恢复、跨重启对话）</td>
+</tr>
+<tr>
+<td>对话历史</td>
+<td>MongoDB（<a target="_blank" rel="noopener" href="http://history.py/">history.py</a>）</td>
+<td>会话列表&#x2F;消息历史</td>
+</tr>
+</tbody></table>
+<h2 id="项目中harness架构的核心能力-五-：Skills-—-渐进式技能系统（自我进化）"><a href="#项目中harness架构的核心能力-五-：Skills-—-渐进式技能系统（自我进化）" class="headerlink" title="项目中harness架构的核心能力(五)：Skills — 渐进式技能系统（自我进化）"></a>项目中harness架构的核心能力(五)：Skills — 渐进式技能系统（自我进化）</h2><p>遵循 Agent Skills 标准，每个技能是含 <code>SKILL.md</code> 的目录，支持渐进式披露——启动时只读 frontmatter，需要时再加载完整内容。</p>
+<p><strong>项目实现</strong>：</p>
+<h4 id="Skills自我进化（4-阶段）"><a href="#Skills自我进化（4-阶段）" class="headerlink" title="Skills自我进化（4 阶段）"></a>Skills自我进化（4 阶段）</h4><pre><code class="mermaid">flowchart TD
+    %% 样式定义
+    classDef stage1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
+    classDef stage2 fill:#e0f2f1,stroke:#00695c,stroke-width:2px;
+    classDef stage3 fill:#fff3e0,stroke:#ef6c00,stroke-width:2px;
+    classDef stage4 fill:#ede7f6,stroke:#5e35b1,stroke-width:2px;
+
+    %% 阶段 1
+    subgraph S1 [&quot;阶段 1: 同步到沙箱&quot;]
+        direction TB
+        Task1[&quot;&lt;b&gt;SkillsSyncMiddleware&lt;/b&gt; (增量)&lt;br&gt;+ &lt;b&gt;_seed_files()&lt;/b&gt; (首次)&lt;br&gt;路径: src/skills/ → /skills/{scope}/&quot;]:::stage1
+    end
+
+    %% 阶段 2
+    subgraph S2 [&quot;阶段 2: 渐进式发现&quot;]
+        direction TB
+        Task2[&quot;&lt;b&gt;目录扫描&lt;/b&gt;&lt;br&gt;ls /skills/procurement/&lt;br&gt;解析 SKILL.md Frontmatter&quot;]:::stage2
+        Task3[&quot;&lt;b&gt;按需加载&lt;/b&gt;&lt;br&gt;read_file() (仅需要时加载)&quot;]:::stage2
+    end
+
+    %% 阶段 3
+    subgraph S3 [&quot;阶段 3: 运行时创建/下载&quot;]
+        direction TB
+        Task4[&quot;&lt;b&gt;skill-management&lt;/b&gt;&lt;br&gt;execute(download_skill.py)&quot;]:::stage3
+        Task5[&quot;&lt;b&gt;部署与验证&lt;/b&gt;&lt;br&gt;解压到 /skills/main/ → 测试验证&quot;]:::stage3
+    end
+
+    %% 阶段 4
+    subgraph S4 [&quot;阶段 4: 分配与持久化&quot;]
+        direction TB
+        Task6[&quot;&lt;b&gt;分配&lt;/b&gt;&lt;br&gt;assign_skill(skill_name, agent_name)&lt;br&gt;复制到 /skills/{scope}/&quot;]:::stage4
+        Task7[&quot;&lt;b&gt;持久化&lt;/b&gt;&lt;br&gt;store.aput() (StoreBackend)&quot;]:::stage4
+        Task8[&quot;&lt;b&gt;清理与恢复&lt;/b&gt;&lt;br&gt;UserSkillsRestoreMiddleware &amp; 清理压缩包&quot;]:::stage4
+    end
+
+    %% 流程连线
+    Task1 --&gt; Task2
+    Task2 --&gt; Task3
+    Task3 --&gt; Task4
+    Task4 --&gt; Task5
+    Task5 --&gt; Task6
+    Task6 --&gt; Task7
+    Task7 --&gt; Task8
+</code></pre>
+<h4 id="基于SkillsSyncMiddleware发现链"><a href="#基于SkillsSyncMiddleware发现链" class="headerlink" title="基于SkillsSyncMiddleware发现链"></a>基于SkillsSyncMiddleware发现链</h4><pre><code class="Plain">yaml system_prompt: &quot;ls /skills/procurement/ 扫描可用技能&quot;
+  → 返回: chart_params.md, procurement-analysis/, supplier-price-urls/, web-scraper/
+  → read_file(&quot;procurement-analysis/SKILL.md&quot;) 加载操作手册
+  → 按流程激活各技能
+</code></pre>
+<h2 id="项目中harness架构的核心能力-六-：-Human-in-the-Loop-—-人工介入"><a href="#项目中harness架构的核心能力-六-：-Human-in-the-Loop-—-人工介入" class="headerlink" title="项目中harness架构的核心能力(六)： Human-in-the-Loop — 人工介入"></a>项目中harness架构的核心能力(六)： Human-in-the-Loop — 人工介入</h2><p>通过 <code>interrupt_on</code> 参数选择性地在工具调用前暂停，等待人工审批或修改。</p>
+<p><strong>项目实现</strong>：<strong>双层中断体系</strong>。</p>
+<pre><code class="Plain">第1层: 数据补充 (tool-internal interrupt)
+  request_order_info 工具内部调用 interrupt()
+  ├─ 触发时机: Schema校验发现必填字段缺失
+  ├─ 恢复格式: {&quot;supplement&quot;: &quot;自由文本补充信息&quot;}
+  └─ 循环: 校验→补充→解析→校验...直到完整
+
+第2层: 最终审批 (interrupt_on 配置)
+  order_create / order_update 的 interrupt_on 配置
+  ├─ 触发时机: 数据完整，准备执行
+  ├─ 恢复格式: {&quot;decisions&quot;: [{&quot;type&quot;: &quot;approve&quot;|&quot;reject&quot;}]}
+  └─ 特性: approve → 执行 / reject → 取消
+</code></pre>
+<p><strong>代码位置</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>位置</th>
+<th>职责</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>interrupt_on 配置</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/subagents/configs/procurement_order.yaml#L30-L34">procurement_order.yaml:30-34</a></td>
+<td>声明哪些工具需审批</td>
+</tr>
+<tr>
+<td>request_order_info</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/tools/hitl_tools.py">hitl_tools.py</a></td>
+<td>数据补充中断工具</td>
+</tr>
+<tr>
+<td>SSE 中断检测</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/api_view/api/chat.py">chat.py</a></td>
+<td>stream_mode&#x3D;[“messages”,”values”]，检测 values 中的 interrupts</td>
+</tr>
+<tr>
+<td>前端恢复端点</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/api_view/api/chat.py">chat.py</a> POST &#x2F;chat&#x2F;{thread_id}&#x2F;resume</td>
+<td>接收 ResumeRequest → Command(resume&#x3D;…)</td>
+</tr>
+<tr>
+<td>前端中断横幅</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/frontend/src/components/InterruptBanner.vue">InterruptBanner.vue</a></td>
+<td>两种模式：数据补充输入框 vs HITL 审批卡片</td>
+</tr>
+</tbody></table>
+<p><strong>两层中断互不干扰的原因</strong>：<code>request_order_info</code> 不在 <code>interrupt_on</code> 列表中，不会被 HITL 中间件拦截。两者是<strong>顺序关系</strong>——先补齐数据，再审批执行。</p>
+<h2 id="项目中harness架构的核心能力-七-：Memory-—-用户偏好记忆管理"><a href="#项目中harness架构的核心能力-七-：Memory-—-用户偏好记忆管理" class="headerlink" title="项目中harness架构的核心能力(七)：Memory — 用户偏好记忆管理"></a>项目中harness架构的核心能力(七)：Memory — 用户偏好记忆管理</h2><p><strong>项目实现</strong>：以用户作用域来管理Memory</p>
+<h4 id="记忆层次"><a href="#记忆层次" class="headerlink" title="记忆层次"></a>记忆层次</h4><pre><code class="Plain">┌─ 用户层（读写，跨会话持久化）──────────────────────┐
+│ /memories/{user_id}/preferences.md                 │
+│ 来源: StoreBackend → MongoDB                      │
+│ 内容: preferred_output, preferred_chart_type,      │
+│       preferred_currency, preferred_language,      │
+│       recent_suppliers, recent_queries             │
+│ 加载: 每轮对话前 Agent 主动 read_file             │
+│ 更新: Agent 手动 edit_file（偏好变更）             │
+│       + MemoryUpdateMiddleware 自动维护            │
+│         (recent_suppliers + recent_queries)        │
+└───────────────────────────────────────────────────┘
+</code></pre>
+<h4 id="记忆更新流程"><a href="#记忆更新流程" class="headerlink" title="记忆更新流程"></a>记忆更新流程</h4><pre><code class="Plain">【手动路径】用户说&quot;以后都用饼图&quot;
+  → Agent edit_file /memories/{user_id}/preferences.md
+  → 更新 preferred_chart_type: pie
+
+【自动路径】对话结束后
+  → MemoryUpdateMiddleware.aafter_agent()
+  → LLM 提取 {suppliers: [...], query: &quot;...&quot;}
+  → store.aput() 写入 StoreBackend
+  → 跨会话保留
+</code></pre>
+<h2 id="项目的最大安全问题：-基于OpenSandbox来解决"><a href="#项目的最大安全问题：-基于OpenSandbox来解决" class="headerlink" title="项目的最大安全问题： 基于OpenSandbox来解决"></a>项目的最大安全问题： 基于OpenSandbox来解决</h2><p>OpenSandbox 就是这个项目的<strong>唯一安全边界</strong>。所有 Agent 行为——运行 Python 脚本、执行 Shell 命令、读写文件、下载技能、爬取网页——全部发生在这个容器内部。<strong>OpenSandbox 的配置决定了这道墙有多厚。</strong></p>
+<h3 id="综合风险评估"><a href="#综合风险评估" class="headerlink" title="综合风险评估"></a>综合风险评估</h3><table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>影响</th>
+<th>当前状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>沙箱无网络出口限制</td>
+<td>高</td>
+<td>数据外传、内网探测、云凭证窃取</td>
+<td>network_policy 解决</td>
+</tr>
+<tr>
+<td>无 URL 白名单 (download_skill)</td>
+<td>中</td>
+<td>从恶意服务器下载</td>
+<td>network_policy 解决</td>
+</tr>
+<tr>
+<td>skill_name 路径穿越</td>
+<td>中</td>
+<td>assign_skill 访问任意沙箱路径</td>
+<td>文件操作</td>
+</tr>
+<tr>
+<td>user_id 隔离弱</td>
+<td>中</td>
+<td>多用户数据可被跨用户访问</td>
+<td>文件操作</td>
+</tr>
+<tr>
+<td>AGENTS.md 无技术只读</td>
+<td>低</td>
+<td>Agent 可能修改全局准则</td>
+<td>防止文件修改</td>
+</tr>
+<tr>
+<td>无边载配额&#x2F;进程限制</td>
+<td>低</td>
+<td>沙箱资源耗尽</td>
+<td>docker容器可以随时增加</td>
+</tr>
+<tr>
+<td>download_sandbox_file 无敏感文件过滤</td>
+<td>低</td>
+<td>沙箱文件可外传到本地</td>
+<td>无限制</td>
+</tr>
+</tbody></table>
+<p><strong>OpenSandbox 在这里扮演的角色</strong>：它是最后的兜底线。即使Skills全部失守——恶意技能被下载、解压、恶意代码、文件操作——第 5 阶段执行时，恶意代码仍然被关在容器里。<strong>容器的网络策略决定了恶意代码能造成多大的外部影响。</strong></p>
+<h3 id="Sandbox-做边界定义：墙内-vs-墙外"><a href="#Sandbox-做边界定义：墙内-vs-墙外" class="headerlink" title="Sandbox 做边界定义：墙内 vs 墙外"></a>Sandbox 做边界定义：墙内 vs 墙外</h3><pre><code class="Plain">┌──────────────────────────────────────────────────────┐
+│                    宿主机 (Windows)                    │
+│                                                      │
+│     FastAPI（Agent服务器）   MongoDB   MCP Server               │
+│                                                      │
+│  ┌────────────────────────────────────────────────┐  │
+│  │          OpenSandbox 容器 (Linux)               │  │
+│  │                                                │  │
+│  │   /skills/        /data/       /analysis/      │  │
+│  │   /memories/      /AGENTS.md   /workspace/     │  │
+│  │                                                │  │
+│  │   Python，Go，Java，Nodejs 环境                              │  │
+│  │   execute(&quot;任意命令&quot;) → 在这里运行               │  │
+│  │   web-scraper → 从这里发出 HTTP 请求            │  │
+│  │   技能脚本 → 在这里被调用                        │  │
+│  │                                                │  │
+│  │   网络出口 ──────────────────────────────→ ???  │  │
+│  └────────────────────────────────────────────────┘  │
+│                                                      │
+└──────────────────────────────────────────────────────┘
+</code></pre>
+<h3 id="OpenSandbox-防护了三件事："><a href="#OpenSandbox-防护了三件事：" class="headerlink" title="OpenSandbox 防护了三件事："></a>OpenSandbox 防护了三件事：</h3><table>
+<thead>
+<tr>
+<th>防护</th>
+<th>机制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>宿主机文件系统不可见</td>
+<td>容器内 &#x2F;skills&#x2F;、&#x2F;data&#x2F; 都是容器自己的文件系统，与宿主机 E:\my_project\ 物理隔离</td>
+</tr>
+<tr>
+<td>进程隔离</td>
+<td>execute() 启动的进程在容器内运行，无法直接操作宿主机进程</td>
+</tr>
+<tr>
+<td>资源限制</td>
+<td>cpu: “2”、memory: “4Gi” 防止容器耗尽宿主机资源</td>
+</tr>
+</tbody></table>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8ESSE%E4%BA%8B%E4%BB%B6%E6%B5%81%E7%9A%84%E5%AE%8C%E6%95%B4%E7%9A%84%E5%89%8D%E5%90%8E%E7%AB%AF/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">基于SSE事件流的完整的前后端</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8EHarness%E6%9E%B6%E6%9E%84%E7%9A%84ERP%E6%99%BA%E8%83%BD%E9%87%87%E8%B4%AD%E5%8A%A9%E6%89%8B%E9%A1%B9%E7%9B%AE/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">基于Harness架构的ERP智能采购助手项目</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%A1%B9%E7%9B%AE%E4%B8%ADHarness%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B-%E4%B8%80-%EF%BC%9A%E9%95%BF%E5%91%A8%E6%9C%9F%E5%A4%8D%E6%9D%82%E4%BB%BB%E5%8A%A1%E7%9A%84Planning%E8%83%BD%E5%8A%9B"><span class="toc-list-number">1.</span> <span class="toc-list-text">项目中Harness架构的核心能力(一)：长周期复杂任务的Planning能力</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%A1%B9%E7%9B%AE%E4%B8%ADharness%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B-%E4%BA%8C-%EF%BC%9A%E5%AE%89%E5%85%A8%E7%9A%84%E5%92%8C%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-list-number">2.</span> <span class="toc-list-text">项目中harness架构的核心能力(二)：安全的和动态路由的文件系统</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%A1%B9%E7%9B%AE%E4%B8%ADharness%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B-%E4%B8%89-%EF%BC%9A-Subagent%E7%9A%84%E4%BB%BB%E5%8A%A1%E5%A7%94%E6%B4%BE"><span class="toc-list-number">3.</span> <span class="toc-list-text">项目中harness架构的核心能力(三)： Subagent的任务委派</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%A1%B9%E7%9B%AE%E4%B8%ADharness%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B-%E5%9B%9B-%EF%BC%9AContext-Management-%E2%80%94-%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86"><span class="toc-list-number">4.</span> <span class="toc-list-text">项目中harness架构的核心能力(四)：Context Management — 上下文管理</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#a-Input-Context"><span class="toc-list-number">4.1.</span> <span class="toc-list-text">a. Input Context</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#b-Compression"><span class="toc-list-number">4.2.</span> <span class="toc-list-text">b. Compression</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#c-Isolation%EF%BC%88%E5%AD%90-Agent-%E4%B8%8A%E4%B8%8B%E6%96%87%E9%9A%94%E7%A6%BB%EF%BC%89"><span class="toc-list-number">4.3.</span> <span class="toc-list-text">c. Isolation（子 Agent 上下文隔离）</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#d-Long-term-Memory"><span class="toc-list-number">4.4.</span> <span class="toc-list-text">d. Long-term Memory</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%A1%B9%E7%9B%AE%E4%B8%ADharness%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B-%E4%BA%94-%EF%BC%9ASkills-%E2%80%94-%E6%B8%90%E8%BF%9B%E5%BC%8F%E6%8A%80%E8%83%BD%E7%B3%BB%E7%BB%9F%EF%BC%88%E8%87%AA%E6%88%91%E8%BF%9B%E5%8C%96%EF%BC%89"><span class="toc-list-number">5.</span> <span class="toc-list-text">项目中harness架构的核心能力(五)：Skills — 渐进式技能系统（自我进化）</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#Skills%E8%87%AA%E6%88%91%E8%BF%9B%E5%8C%96%EF%BC%884-%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="toc-list-number">5.1.</span> <span class="toc-list-text">Skills自我进化（4 阶段）</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%9F%BA%E4%BA%8ESkillsSyncMiddleware%E5%8F%91%E7%8E%B0%E9%93%BE"><span class="toc-list-number">5.2.</span> <span class="toc-list-text">基于SkillsSyncMiddleware发现链</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%A1%B9%E7%9B%AE%E4%B8%ADharness%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B-%E5%85%AD-%EF%BC%9A-Human-in-the-Loop-%E2%80%94-%E4%BA%BA%E5%B7%A5%E4%BB%8B%E5%85%A5"><span class="toc-list-number">6.</span> <span class="toc-list-text">项目中harness架构的核心能力(六)： Human-in-the-Loop — 人工介入</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%A1%B9%E7%9B%AE%E4%B8%ADharness%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B-%E4%B8%83-%EF%BC%9AMemory-%E2%80%94-%E7%94%A8%E6%88%B7%E5%81%8F%E5%A5%BD%E8%AE%B0%E5%BF%86%E7%AE%A1%E7%90%86"><span class="toc-list-number">7.</span> <span class="toc-list-text">项目中harness架构的核心能力(七)：Memory — 用户偏好记忆管理</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E8%AE%B0%E5%BF%86%E5%B1%82%E6%AC%A1"><span class="toc-list-number">7.1.</span> <span class="toc-list-text">记忆层次</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E8%AE%B0%E5%BF%86%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B"><span class="toc-list-number">7.2.</span> <span class="toc-list-text">记忆更新流程</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9C%80%E5%A4%A7%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%EF%BC%9A-%E5%9F%BA%E4%BA%8EOpenSandbox%E6%9D%A5%E8%A7%A3%E5%86%B3"><span class="toc-list-number">8.</span> <span class="toc-list-text">项目的最大安全问题： 基于OpenSandbox来解决</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E7%BB%BC%E5%90%88%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0"><span class="toc-list-number">8.1.</span> <span class="toc-list-text">综合风险评估</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Sandbox-%E5%81%9A%E8%BE%B9%E7%95%8C%E5%AE%9A%E4%B9%89%EF%BC%9A%E5%A2%99%E5%86%85-vs-%E5%A2%99%E5%A4%96"><span class="toc-list-number">8.2.</span> <span class="toc-list-text">Sandbox 做边界定义：墙内 vs 墙外</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#OpenSandbox-%E9%98%B2%E6%8A%A4%E4%BA%86%E4%B8%89%E4%BB%B6%E4%BA%8B%EF%BC%9A"><span class="toc-list-number">8.3.</span> <span class="toc-list-text">OpenSandbox 防护了三件事：</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

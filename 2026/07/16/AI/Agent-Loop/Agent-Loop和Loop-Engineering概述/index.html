@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Agent Loop和Loop Engineering概述 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-07-16
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">Agent Loop和Loop Engineering概述</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent-Loop/">Agent Loop</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h1 id="Agent-Loop-介绍"><a href="#Agent-Loop-介绍" class="headerlink" title="Agent Loop 介绍"></a>Agent Loop 介绍</h1><p>Agent Loop（智能体循环）是AI Agent的核心工作机制。它让大语言模型（LLM）从”只会聊天”变成”能干活”的关键——通过一个”观察-&gt;思考-&gt;行动-&gt;反馈”的循环，Agent 能够自主调用工具、获取信息、根据结果调整策略，持续迭代直到完成任务。</p>
+<p>一句话理解：Agent Loop&#x3D;把LLM的推理能力放进一个while循环里，让它可以反复思考和行动。</p>
+<pre><code class="mermaid">graph TD
+    %% 定义组件样式
+    classDef startEnd fill:#e1f5fe,stroke:#01579b,stroke-width:2px,rx:5,ry:5;
+    classDef process fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    classDef decision fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,stroke-dasharray: 2 2;
+    classDef container fill:#fcfcfc,stroke:#bdbdbd,stroke-width:1px,stroke-dasharray: 5 5;
+
+    %% 流程区域
+    subgraph AgentLoop [&quot;Agent Loop 核心循环&quot;]
+        StartNode[用户输入任务]:::startEnd
+        
+        %% 循环内过程
+        Observe[观察 - Observe]:::process
+        Think[思考 - Think/Reason]:::process
+        Act[行动 - Act/Tool Call]:::process
+        Feedback[反馈 - Feedback/Observe]:::process
+        Check{判断是否完成?}:::decision
+        
+        EndNode[任务完成]:::startEnd
+        
+        %% 配置连线
+        StartNode --&gt; Observe
+        Observe --&gt; Think --&gt; Act --&gt; Feedback --&gt; Check
+        
+        %% 反馈循环连线
+        Check --&quot;否&quot;--&gt; Observe
+        Check --&quot;是&quot;--&gt; EndNode
+    end
+
+    %% 设置容器样式
+    class AgentLoop container
+</code></pre>
+<p>Agent Loop 形式化定义如下：</p>
+<pre><code># Agent Loop 的核心：一个 while 循环
+while not termination_condition:
+    # ① 观察：获取当前环境状态
+    observation = environment.perceive()
+  
+    # ② 思考：LLM 推理下一步该做什么
+    plan = llm.reason(observation, history=memory)
+  
+    # ③ 行动：执行工具调用
+    result = tool_executor.run(plan)
+  
+    # ④ 反馈：将结果存入记忆
+    memory.store(observation=observation, plan=plan, result=result)
+  
+    # ⑤ 检查终止条件
+    if plan.is_final_answer() or max_steps_reached():
+        break
+</code></pre>
+<h1 id="Loop-Engineering-介绍"><a href="#Loop-Engineering-介绍" class="headerlink" title="Loop Engineering 介绍"></a>Loop Engineering 介绍</h1><p>Loop Engineering（循环工程）是2026年由Google工程总监Addy Osmani系统化定义、Anthropic Claude Code负责人Boris Cherny和OpenAI的Peter Steinberger共同推动的新范式。它描述的是：不再亲手给AI写Prompt，而是设计一个系统（Loop），让这个系统自动调度 AI Agent 去发现任务、执行任务、验证结果，直到目标达成。</p>
+<p>Loop Engineering 不是替代 Agent Loop，而是在其之上增加一层自动化的调度和控制。你仍然需要一个能干的 Agent（不管是手写的还是用 LangChain 封装的），Loop Engineering 教你怎么让它自动运转起来。如下图所示：</p>
+<pre><code class="mermaid">graph BT
+    %% 定义组件样式
+    classDef layer1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
+    classDef layer2 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:5,ry:5;
+    classDef layer3 fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,rx:5,ry:5;
+
+    %% 第一层：LLM API
+    subgraph L1 [&quot;第一层: LLM API — 大模型调用层&quot;]
+        Node1[&quot;init_chat_model(model).bind(tools).invoke(messages)&lt;br/&gt;&lt;br/&gt;&lt;b&gt;关注:&lt;/b&gt; 模型选择、Token管理、参数设置、流式输出&quot;]:::layer1
+    end
+
+    %% 第二层：Agent Loop
+    subgraph L2 [&quot;第二层: Agent Loop — 智能体循环层&quot;]
+        Node2[&quot;while not done: 观察 → LLM思考 → 调用工具 → 获取结果 → 再思考&lt;br/&gt;&lt;br/&gt;&lt;b&gt;关注:&lt;/b&gt; 工具定义、推理策略、错误处理、上下文管理&lt;br/&gt;LangChain create_agent() / Claude Agent SDK&quot;]:::layer2
+    end
+
+    %% 第三层：Loop Engineering
+    subgraph L3 [&quot;第三层: Loop Engineering — 自动化调度层&quot;]
+        Node3[&quot;每天早上9点扫描异常订单 → 派Agent诊断 → 验证修复 → 提PR&lt;br/&gt;&lt;br/&gt;&lt;b&gt;关注:&lt;/b&gt; 触发条件、验证标准、退出条件、升级路径、循环状态&lt;br/&gt;不是在写 Agent，而是在设计一套&#39;自动化运行系统&#39;&quot;]:::layer3
+    end
+
+    %% 连接关系
+    Node1 -- &quot;推理和执行&quot; --&gt; Node2
+    Node2 -- &quot;调度和控制&quot; --&gt; Node3
+</code></pre>
+<p>旧模式（Prompt Engineering）：</p>
+<pre><code>旧模式（Prompt Engineering）：
+  人 → 写 Prompt → LLM 回答 → 人读结果 → 不满意再写 Prompt → ...
+  
+  问题举例：
+  1)每次都要人介入
+  2)复杂的多步骤任务需要人手动拆解
+  3)人无法 24 小时盯着
+  4)上下文窗口有限，长对话会&quot;失忆&quot;
+  
+新模式（Loop Engineering）：
+  人 → 设计 Loop（目标 + 触发条件 + 验证标准 + 退出条件）
+       └─ Loop 自动运行：
+           ├─ 发现任务（触发条件满足）
+           ├─ 调度 Agent 执行
+           ├─ 自动验证结果
+           ├─ 通过 → 记录并继续下一个
+           └─ 不通过 → 修正重试或升级给人类
+</code></pre>
+<p>Prompt Engineering与Loop Engineering一些角度的对比如下：</p>
+<table>
+<thead>
+<tr>
+<th><strong>对比维度</strong></th>
+<th><strong>Prompt Engineering（提示词工程）</strong></th>
+<th><strong>Loop Engineering（循环工程）</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>工作方式</strong></td>
+<td>人写Prompt → Agent执行一次 → 人看结果再写</td>
+<td>人设计Loop → Loop自动发现任务 → 调度 Agent → 验证 → 循环</td>
+</tr>
+<tr>
+<td><strong>人的角色</strong></td>
+<td>每轮都要手动交互，写prompt</td>
+<td>设定目标、约束和退出条件，然后放手</td>
+</tr>
+<tr>
+<td><strong>Agent角色</strong></td>
+<td>一次性工具</td>
+<td>持续运行的”数字员工”</td>
+</tr>
+<tr>
+<td><strong>典型工具</strong></td>
+<td>ChatGPT对话框、API 单次调用</td>
+<td>Claude Code &#x2F;loop、&#x2F;goal、Agent SDK</td>
+</tr>
+</tbody></table>
+<p>附录：Loop Engineering原文：<a target="_blank" rel="noopener" href="https://addyosmani.com/blog/loop-engineering/">https://addyosmani.com/blog/loop-engineering/</a></p>
+<h1 id="Loop-Engineering历史演进"><a href="#Loop-Engineering历史演进" class="headerlink" title="Loop Engineering历史演进"></a>Loop Engineering历史演进</h1><p>一个新兴范式的诞生从来不是一夜之间的事。从 2022 年一篇开创性论文，到 2026 年三方大佬同步发声，Agent Loop 走向 Loop Engineering 走过了整整四年。下面逐年梳理这条演进脉络中的关键节点、关键人物和关键突破。</p>
+<ul>
+<li><p><strong>2022 年：ReAct 论文——理论地基</strong></p>
+<p>2022 年 10 月，普林斯顿大学与Google Research的联合团队在arXiv上提交了一篇注定改变行业走向的论文：《ReAct: Synergizing Reasoning and Acting in Language Models》。第一作者是当时在普林斯顿读博的 Shunyu Yao（姚舜宇），合作者包括 Google Brain 团队的 Jeffrey Zhao、Dian Yu（于佃）、Nan Du（杜楠）、Izhak Shafran、Karthik Narasimhan 以及 Yuan Cao（曹原）。论文后来被 ICLR 2023 正式收录，至今引用量已超过 1100 次。</p>
+<p>这篇论文的核心洞见用一句话说就是：<strong>在这之前，”推理”（Reasoning，如 Chain-of-Thought）和”行动”（Acting，如工具调用）是两拨人在分别研究的事，ReAct 第一次把它们融进了一个交替进行的循环里。</strong></p>
+<pre><code>Thought（思考）→ Action（行动）→ Observation（观察）→ Thought → Action → Observation → ...
+</code></pre>
+<p>这个循环之所以强大，在于它创造了一种”协同效应”：思考指导行动——模型根据推理结果决定下一步该查什么、调哪个工具；行动反过来修正思考——从外部环境拿回的真实数据把模型从幻觉中拉回现实，让推理有了”地面实况”（ground truth）的约束，这里形成了早期的ReAct概念，今天几乎所有生产级的Agent框架——LangChain、CrewAI、Anthropic的Agent SDK、OpenAI的Agents API——底层架构都长着ReAct的基因。</p>
+<p>不过，ReAct 解决的是”单次推理+行动的循环”，它假设每次执行都需要人来启动。</p>
+</li>
+<li><p><strong>2023 年：AutoGPT&#x2F;BabyAGI——第一次”自动驾驶”尝试</strong></p>
+<p>2023年3月，两个项目几乎同时冒了出来，在GitHub上引发了现象级关注。</p>
+<p>AutoGPT由Toran Bruce Richards（托兰·布鲁斯·理查兹） 创建。它的核心设计是让 GPT-4 自己给自己设定子目标，然后逐个执行，执行完一个再生成下一个——相当于把一个大的用户目标拆成一系列由 Agent 自己管理的子任务链。</p>
+<p>BabyAGI由Yohei Nakajima（中岛洋平）创建，核心更简洁：一个任务列表 → 取第一个任务 → Agent 执行 → 根据执行结果生成新任务 → 插入任务列表 → 循环。它把整个系统抽象成了三个角色：执行者（Execution Agent）、任务创建者（Task Creation Agent）和任务优先级排序者（Prioritization Agent）。</p>
+<p>这两个项目在短时间内合计斩获了超过20万GitHub Stars，是AI Agent 历史上第一次出圈级传播。</p>
+<p>但它们也暴露了一个致命缺陷：”空转”。Agent 会陷入一个诡异的循环——比如 AutoGPT 在”写一篇博客”的任务里不断 Google 搜索”如何写博客”，搜了 50 轮还在搜，Token 烧了几十美元，产出零。因为没有真正的环境反馈闭环和外部验证机制，Agent 无法判断自己到底有没有进步。就像一辆没有 GPS 和仪表盘的自动驾驶汽车——踩了油门，但不知道开去哪了。</p>
+<p>这次失败给后来的 Loop Engineering 留下了一条最重要的教训：<strong>闭环必须依赖可验证的客观条件，不能靠 Agent 自己说”我觉得差不多了”。</strong></p>
+</li>
+<li><p><strong>2024 年：Function Calling 标准化 + 框架化</strong></p>
+<p>2024年是Agent基础设施快速成熟的一年。两个重要变化发生了。</p>
+<p>第一，工具调用标准化。OpenAI推出原生Function Calling能力，Anthropic推出 Tool Use，让LLM不再”凭空编造”工具调用，而是按照严格的JSON Schema输出结构化的调用指令。在此之前，让模型调用外部工具需要复杂的Prompt工程和脆弱的输出解析。标准化之后，框架开发者终于可以把精力从”怎么稳定调工具”转向”怎么把工具调得更好”。</p>
+<p>第二，Agent 框架走向成熟。以Harrison Chase（哈里森·蔡斯）创立的 LangChain 为代表，Agent开发从”手写 while 循环”进入”框架化”时代。LangChain的 create_agent()把消息管理、工具调度、错误重试这些底层琐事封装了起来，开发者只需要定义工具和系统提示词。围绕 LangChain 形成的生态（LangSmith 可观测性、LangGraph 状态图编排、LangServe 部署）让Agent从Demo走向了准生产。</p>
+<p>这个阶段的核心主题是”让 Agent 跑起来”——工具调用不再是一个需要手写正则的体力活，Agent 开发的门槛大幅降低，更多人开始尝试”让 Agent 持续运行”。</p>
+</li>
+<li><p><strong>2025年：MCP 协议——工具即插即用，Agent 能力爆发</strong></p>
+<p>2025年是Agent生态的关键基础设施年。Anthropic推出了MCP（Model Context Protocol，模型上下文协议），这是一个开放标准，定义了 LLM 如何与外部系统（数据库、API、文件系统、GitHub、Slack……）通信。MCP 的核心理念是”写一次连接器，到处用”——一个 MCP Server 可以同时被 Claude Desktop、Claude Code、以及任何支持MCP的第三方Agent工具消费。</p>
+<p>同一年，LangChain发布了DeepAgents——它在create_agent()的基础上增加了三个关键能力：子代理隔离（SubAgent，每个子代理有独立的上下文窗口和工具权限）、Skills 渐进式加载（启动时只注入名称，用到才读完整内容，节省 97.5% Token）、以及文件系统沙盒。DeepAgents为Loop Engineering 的”工作树&#x2F;隔离”和”技能&#x2F;知识”两个构建块提供了开箱即用的实现。</p>
+<p>Anthropic也发布了Claude Agent SDK，正式将Agent Loop作为一等公民提供给开发者。</p>
+<p>不过，所有这些框架和工具仍然依赖一个前提：由人来启动每次 Agent 执行。</p>
+</li>
+<li><p><strong>2025年7月：Ralph Loop——“Ralph 就是一个Bash循环”</strong></p>
+<p>Geoffrey Huntley（杰弗里·亨特利）是一位澳大利亚软件工程师。他花了三个月时间，让一个AI Agent在一段while true的Bash循环里持续运行，最终自主构建出一门叫Cursed的完整编程语言——包含了词法分析器、语法解析器、LLVM 后端、标准库，甚至是自举编译器。</p>
+<p>他把这套方法命名为Ralph Loop（典故来自《辛普森一家》里傻乎乎但坚持不懈的角色 Ralph Wiggum（拉尔夫·维古姆）），而核心代码只有三行：</p>
+<pre><code>... ...
+while :; do
+  cat PROMPT.md | claude-code --continue
+done
+... ...
+</code></pre>
+<p>其设计里藏着两个精妙的点：</p>
+<p>第一，环境状态就是上下文。Ralph不靠Agent的”记忆”来判断进度——每次新会话，Agent看到的是被修改过的代码文件、Git 提交历史、测试运行结果这些”外部事实”。Huntley管这个叫”上下文即文件系统”（the filesystem is the context）。Agent可以忘记一切，但git log和npm test不会撒谎。</p>
+<p>第二，Stop Hook——不让Agent自己说”干完了”。Huntley在Claude Code里引入了Stop Hook机制：当Agent试图退出会话时，Hook拦截它，检查两个条件：①Agent 是否输出了约定的完成承诺字符串（如 <promise>COMPLETE</promise>）；②是否达到了最大迭代次数限制。两个条件都不满足？退回继续工作。这就从机制上杜绝了Agent “自我感觉良好、提前下班”的问题。</p>
+<p>Huntley对这套方法的哲学总结非常精辟：Agent 单次执行失败不可怕，只要每次失败的信息（测试报错、编译错误、Git diff）能被下一次执行读到，系统就会朝着正确的方向收敛。</p>
+<p>Ralph Loop的最大贡献不是技术复杂度——它恰恰因为简单而伟大。它证明了：<strong>不需要复杂的编排框架，一段Bash循环+文件系统作为状态记忆+外部验证条件，就能让AI Agent实现无人值守的自主工作。</strong></p>
+<p>2025 年底，Anthropic官方将Ralph Loop收编为Claude Code的第一方插件（&#x2F;ralph-loop命令）。Loop从社区实验走向了产品化。</p>
+</li>
+<li><p><strong>2026 年春：&#x2F;goal命令——Maker-Checker分离的产品化</strong></p>
+<p>Ralph Loop的思路很快被三个主流AI编程工具产品化了。2026年4月底到5月中旬，在短短三周内，OpenAI Codex CLI、Anthropic Claude Code和Qwen Code 先后发布了第一方&#x2F;goal命令。其中Claude Code v2.1的&#x2F;goal（2026年5月14日正式发布）在设计上最为成熟。</p>
+<p>&#x2F;goal 命令的核心架构创新是Maker-Checker分离——这是Loop Engineering 历史上最重要的一次设计原则定型：</p>
+<blockquote>
+<p>Maker（构建者）：一个能力强的模型（如Claude Opus），拥有完整的读写和执行权限，负责真正干活——写代码、运行命令、修改文件。</p>
+</blockquote>
+<blockquote>
+<p>Checker（评估者）：一个独立的小模型（如Claude Haiku），只有只读权限——没有Write、Edit、Bash 权限，想改代码都改不了。它在构建者每完成一轮工作后介入，根据用户定义的客观验收条件（如 npm test exits 0、lint 无报错、Lighthouse accessibility score ≥ 90）判断”完成了吗？”。</p>
+</blockquote>
+<p>如果条件不满足，Checker会把具体的不通过原因注入下一轮Builder的上下文——“你还有14个测试失败，主要集中在&#x2F;auth模块，错误是Token验证超时”。这比Ralph Loop原版的”把同一个Prompt丢回去”要精准得多。</p>
+<p>这个设计的精妙之处在于：干活的不能给自己打分。Anthropic自己的研究表明，同一个模型评估自己的产出时，会”自信地表扬平庸的工作”。把Builder和Checker拆成两个独立的模型（甚至不同型号、不同权重），是从架构层面硬性消除这个偏差——这不是靠 Prompt 约束实现的，是靠权限隔离实现的。</p>
+<p>与之配套，Anthropic还开源了参考实现cwc-long-running-agents（在2026年3月的Code with Claude大会上发布），形式化了三个关键原语：① Default-FAIL 契约——每个完成条件默认是 false，Agent 必须”打开证据”（打开文件、读取测试输出截图）才能标记通过，由 PreToolUse Hook 强制执行；② 独立上下文评估者——一个没有Write&#x2F;Edit工具的子代理审查Diff和截图，只能返回PASS或NEEDS_WORK；③ Agent 自维护交接文档——Agent在检查点自动写 <a target="_blank" rel="noopener" href="http://progress.md/">PROGRESS.md</a>和Git提交，确保新会话能从git log干净地接上。</p>
+<p>从Ralph Loop到&#x2F;goal，Loop Engineering完成了从”民间实验”到”产品级功能”的跨越。而真正把这一切提炼为方法论、推向公众的，是三位行业领袖在2026年6月的同步发声。</p>
+</li>
+<li><p><strong>2026年6月：Loop Engineering 概念爆发——三方同步推动</strong></p>
+<p>2026年6月7日，Addy Osmani（阿迪·奥斯马尼）在他的个人博客上发表了一篇题为《Loop Engineering》的长文。这是他第一次系统化地使用Loop Engineering这个术语来命名正在发生的范式转变，并提出了著名的五大构建块（Five Primitives）+记忆层框架。这个框架后来成为整个 Loop Engineering 方法论的标准参考模型。</p>
+<p>Osmani当时是Google的工程总监，在此之前他以Chrome DevTools团队负责人和大量前端工程畅销书作者（《Learning JavaScript Design Patterns》等）的身份为开发者社区所熟知。他在这篇博文结尾留下了一句后来被反复引用的警告：</p>
+<pre><code>&quot;设计循环。但请以一个打算继续当工程师的人来设计它，而不是只想按下&#39;开始执行&#39;按钮的人。&quot;（Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go.）
+</code></pre>
+<p>这句话点中了Loop Engineering的深层矛盾：循环让Agent替你写了更多代码，但你的理解不能同步外包出去。自动化越高，人对系统的理解越容易落后——这就是Osmani后来反复强调的”理解负债”（comprehension debt）问题。</p>
+<p>几乎同一时间，Boris Cherny（鲍里斯·切尔尼）在接受 Acquired 播客采访时说出了那句引爆传播的名言：</p>
+<pre><code>&quot;我已经不再 prompt Claude 了。我让循环跑着去 prompt Claude，由循环自己决定要做什么。我的工作是写循环。&quot;（I don&#39;t prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops.）
+</code></pre>
+<p>Cherny是Anthropic的Claude Code负责人，Claude Code这款产品的核心架构师。他披露了一组震撼的数据：在30天内，他通过Loop驱动的开发方式合入了259个PR、497 次提交、新增4万行代码、删除3.8万行——每一行都由Claude Code + Opus 4.5写成，他自己只负责设计和审查循环。他还描述了在夜间运行”数千个” AI Agent 并行扫描GitHub Issues、Twitter反馈和Slack消息的场景——Agent自己发现问题、自己修复、自己提 PR，工程师第二天早上只做 Code Review。</p>
+<p>Cherny的出现让Loop Engineering有了产品落地的支点。他不只是在谈理论，而是在展示一套已经在Anthropic内部大规模使用的系统工程实践。</p>
+<p>就在 Osmani 发布博文的同一天，Peter Steinberger（彼得·斯坦伯格）在X（Twitter）上发了一条仅12个单词的推文，24小时内突破500万浏览量：</p>
+<pre><code>&quot;每月提醒一次：你不该再手动 prompt 编码 Agent 了。你应该设计会 prompt Agent 的循环。&quot;（Here&#39;s your monthly reminder that you shouldn&#39;t be prompting coding agents anymore. You should be designing loops that prompt your agents.）
+</code></pre>
+<p>Steinberger是OpenClaw的创始人——这是一个开源AI编程工具，三个月内冲到18万GitHub Stars。他在发完这条推文后不久加入了OpenAI。围绕着这条推文和Osmani的博文，Loop Engineering 迅速成为2026年6月AI工程师社区最火爆的讨论话题。</p>
+<p>三方同步发声不是巧合，而是这个范式已经积累到了临界点——基础设施（MCP、DeepAgents）、产品形态（Claude Code &#x2F;goal、Codex CLI）、工程实践（Ralph Loop）和实践方法论（五大构建块）同时就位了。</p>
+</li>
+</ul>
+<p>以上演进脉络总览：</p>
+<pre><code>2022    ReAct论文(Yao et al.)
+        └─ 提出 Reasoning + Acting 交替循环，Agent Loop理论奠基
+        └─ 发表在 ICLR 2023，被引 1100+ 次
+
+2023    AutoGPT (Toran Bruce Richards) / BabyAGI (Yohei Nakajima)
+        └─ 首次尝试 Agent 自主设定目标并循环执行
+        └─ 合计 20 万+ GitHub Stars，但暴露&quot;空转&quot;问题
+
+2024    Function Calling 标准化/LangChain Agent 框架化
+        └─ OpenAI Function Calling + Anthropic Tool Use → 工具调用不再靠正则
+        └─ LangChain (Harrison Chase) 封装 Agent Loop，降低开发门槛
+
+2025    MCP 协议/Claude Agent SDK/DeepAgents发布
+        └─ MCP → 工具即插即用，Agent 能力爆发
+        └─ DeepAgents → 子代理隔离+Skills 渐进式加载+文件沙盒
+        └─ 基础设施就位，但&quot;自动触发&quot;仍缺最后一环
+
+2025.7  Ralph Loop (Geoffrey Huntley)
+        └─ Bash while true + Stop Hook，首次无人值守自修正循环
+        └─ 理念：环境状态即上下文，不让Agent自己说&quot;干完了&quot;
+        └─ 年底被Anthropic收编为官方插件
+
+2026春  /goal 命令产品化 (Claude Code v2.1 / Codex CLI / Qwen Code)
+        └─ Maker-Checker 分离：构建者(Opus) + 评估者(Haiku)，硬性权限隔离
+        └─ Default-FAIL 契约 + 独立评估者 + 自维护交接文档
+        └─ Loop 从民间实验走向产品级功能
+
+2026.6  Loop Engineering 概念爆发
+        └─ Addy Osmani (Google) → 五大构建块 + &quot;理解负债&quot;警告
+        └─ Boris Cherny (Anthropic) → 30天259个PR，产品实践标杆
+        └─ Peter Steinberger (OpenAI/OpenClaw) → 500万浏览引爆社区
+        └─ 三方同步推动，范式正式确立
+</code></pre>
+<h1 id="从Prompt-Engineering到Loop-Engineering"><a href="#从Prompt-Engineering到Loop-Engineering" class="headerlink" title="从Prompt Engineering到Loop Engineering"></a>从Prompt Engineering到Loop Engineering</h1><p>在进入”怎么落地Loop Engineering”之前，有必要先回答一个问题：<strong>为什么 Loop Engineering 这个概念在2026年才爆发，而不是2023年或2024年？</strong></p>
+<p>答案很简单：<strong>此前的条件不成熟</strong>。让Agent自主循环运转，需要三样东西同时就位——<strong>能稳定调用外部工具的能力、能持续运行不”破产”的成本、以及能独立验证Agent产出不被”忽悠”的机制</strong>。这三样东西在2025年末到2026年初先后达到了生产级可用水平，Loop Engineering才从少数人的实验变成了可推广的工程方法论。</p>
+<p>换句话说，之前不是”我们不想这么做”，而是”我们现在终于可以这么做了”。</p>
+<p>在Prompt Engineering旧范式中，其本质是”人机单轮交互”：人写 Prompt → Agent 执行一次 → 人读结果判断好坏 → 再写 Prompt。这套模型在信息查询、文案润色、单段代码生成等场景游刃有余，但在面对”每天处理 500 个订单，自动分类、自动退款、自动复核、异常自动升级”这类持续型任务时，暴露出三个无法靠”把 Prompt 写得更好”来解决的结构性问题：</p>
+<p><strong>① 人的时间成为系统瓶颈</strong>。每轮Agent执行结束都必须人来判断结果、启动下一轮。Agent处理100个任务，人就要判断100次。吞吐量被人的注意力上限锁死。</p>
+<p><strong>② 上下文会过期</strong>。一个复杂的多步骤任务动辄几十轮交互，越往后Agent越容易忘记最初的目标——这就是”目标漂移”。Prompt Engineering 没有内置”将关键状态持久化到对话之外”的机制。</p>
+<p><strong>③ Agent自己给自己打分，不可靠</strong>。传统模式下，同一个Agent既干活又判断”干完了没”。Anthropic的研究表明，模型会”自信地表扬平庸的工作”——不是因为它坏，而是因为它无法跳出自己建立的推理路径来做独立审视。</p>
+<p>这三个问题指向同一个结论：<strong>让人在每一轮都介入的”手动模式”无法支撑 Agent的规模化使用。必须有一种”自动模式”，让 Agent 自己跑，人只在异常时介入，这就是 Loop Engineering 要解决的问题。</strong></p>
+<p>Loop Engineering不是Prompt Engineering的”加强版”，而是建立在三根新支柱上的新范式，这三根支柱在 2025 年末到 2026 年初恰好同时达到了生产级成熟度。</p>
+<p><strong>支柱一：MCP协议——让Agent长出”手”。</strong> 2025年Anthropic推出的Model Context Protocol（模型上下文协议）定义了一套统一的Agent 到外部系统的通信标准。在此之前，Agent要对接GitHub、Slack、数据库、Jira，每套组合都要写单独的连接器代码——N个Agent框架× M个外部系统&#x3D; N×M套连接器，维护成本不可承受。MCP 把这个矩阵压缩成了”写一次，到处用”的线性关系。Agent 第一次可以稳定地操作外部世界，而不只是”聊天”。</p>
+<p><strong>支柱二：上下文管理升级——让Loop烧得起钱、记得住事</strong>。两个关键突破让Agent的持续运行在经济和技术上都变得可行。一是 Prompt Caching（提示缓存）：Loop 运行中反复出现的系统提示词、工具定义、Skills 内容只需计费一次，LLM的token费用越来越低——没有这个，一个Loop跑一晚上光Token费用就能让人破产。二是三层记忆架构（工作记忆→短期记忆→长期记忆）的工程化落地——如：DeepAgents内置的SummarizationMiddleware（自动压缩）+ checkpointer（跨轮次状态）+ store（永久知识库）让Agent既能记住”刚才在干什么”，也能记住”昨天干到哪了”，还能记住”公司的政策是什么”。</p>
+<pre><code class="mermaid">graph TD
+    %% 定义节点外观样式
+    classDef memoryLayer fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#333,rx:5,ry:5;
+    classDef container fill:#fffcf8,stroke:#ecd98a,stroke-width:2px,stroke-dasharray: 5 5;
+
+    subgraph Architecture [&quot;记忆三层架构&quot;]
+        %% 这里定义节点内容，使用了HTML换行符 &lt;br/&gt; 保持格式整齐
+        WM[&quot;&lt;b&gt;工作记忆 (Working Memory)&lt;/b&gt;&lt;br/&gt;- 存储位置: 当前上下文窗口&lt;br/&gt;- 时效: 单次会话&lt;br/&gt;- 内容: 当前任务的思考链、工具调用记录&quot;]:::memoryLayer
+        
+        STM[&quot;&lt;b&gt;短期记忆 (Short-term Memory)&lt;/b&gt;&lt;br/&gt;- 存储位置: 可以是向量数据库(FAISS等)&lt;br/&gt;- 时效: 跨轮次 (数天-数周)&lt;br/&gt;- 内容: 对话摘要、关键节点、错误经验&quot;]:::memoryLayer
+
+        LTM[&quot;&lt;b&gt;长期记忆 (Long-term Memory)&lt;/b&gt;&lt;br/&gt;- 存储位置: 知识库/配置文件/向量库&lt;br/&gt;- 时效: 永久&lt;br/&gt;- 内容: 用户偏好、项目规范、领域知识&quot;]:::memoryLayer
+
+        %% 定义层级间的流转关系
+        WM -- &quot;压缩/摘要&quot; --&gt; STM
+        STM -- &quot;提炼/沉淀&quot; --&gt; LTM
+    end
+
+    %% 应用容器样式
+    class Architecture container
+</code></pre>
+<p><strong>支柱三：Maker-Checker分离——独立”打分”。</strong> 这可能是三项突破中最关键的一个。让Agent自主循环运行，最大的风险不是”做不完”，而是”做错了但没人发现”。Maker-Checker 模式直接把”干活的”和”检查的”拆成两个独立的 Agent，三条规定让它从源头杜绝了自欺欺人的问题：①硬性权限隔离——Checker的工具列表里根本没有写入权限，不是prompt让它”别乱改”，而是它想乱改都没能力；②独立上下文——Checker只看Maker的产出物，看不到Maker的推理过程，避免”路径依赖”；③客观验证条件——Checker的判断依据是可度量的事实（所有测试是否通过？退款金额是否在政策范围里？），而不是主观感受。</p>
+<p>以上三个支柱缺一不可。没有MCP，Agent就困在只能用于聊天；没有上下文管理，Loop持续运行的成本和记忆问题无解；没有Maker-Checker，自主运行就是盲飞——跑得越久越危险。正因这三样东西在 2026 年同时成熟，Addy Osmani 才有底气在6月7日正式命名”Loop Engineering”并给出五大构建块框架。</p>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/07/16/AI/Agent-Loop/Agent-Loop%E4%BA%94%E5%A4%A7%E6%9E%84%E5%BB%BA%E5%9D%97%E5%92%8C%E8%AE%B0%E5%BF%86%E5%B1%82/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">Agent Loop五大构建块和记忆层</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/30/interview/Flink/Table%E5%92%8CSQL%E4%BC%98%E5%8C%96/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">Flink Table和SQL优化</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#Agent-Loop-%E4%BB%8B%E7%BB%8D"><span class="toc-list-number">1.</span> <span class="toc-list-text">Agent Loop 介绍</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#Loop-Engineering-%E4%BB%8B%E7%BB%8D"><span class="toc-list-number">2.</span> <span class="toc-list-text">Loop Engineering 介绍</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#Loop-Engineering%E5%8E%86%E5%8F%B2%E6%BC%94%E8%BF%9B"><span class="toc-list-number">3.</span> <span class="toc-list-text">Loop Engineering历史演进</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E4%BB%8EPrompt-Engineering%E5%88%B0Loop-Engineering"><span class="toc-list-number">4.</span> <span class="toc-list-text">从Prompt Engineering到Loop Engineering</span></a></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

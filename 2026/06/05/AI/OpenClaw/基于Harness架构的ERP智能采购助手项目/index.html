@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            基于Harness架构的ERP智能采购助手项目 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-05
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">基于Harness架构的ERP智能采购助手项目</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h2 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h2><ul>
+<li>Java的ERP系统</li>
+<li>模拟的供应商网站</li>
+<li>魔塔社区免费的可视化分析工具</li>
+<li>DeepAgents &#x3D;&#x3D;0.4.12版本&#x2F; 先不要更新到最新的 DeepAgents<ul>
+<li>后台长周期复杂任务的执行（0.5后可以）AsyncSubAgent（子Agent）—-ASGI协议——&gt; 主Agent（langgraph dev或者langsmith的服务器中托管）</li>
+<li>5月12日-0.6 （上下文优化策略：内置代码解释器：支持TypeScript，下一版本会支持Python语言）</li>
+</ul>
+</li>
+</ul>
+<h2 id="项目目录架构"><a href="#项目目录架构" class="headerlink" title="项目目录架构"></a>项目目录架构</h2><pre><code class="Plain">src/
+├── agent/                              # Agent 核心
+│   ├── main_agent.py                   # 主 Agent 入口（11阶段初始化流水线）
+│   ├── config.py                       # 全局配置（模型/沙箱/MongoDB/路径/Store）
+│   ├── schema.py                       # 数据结构（ProcurementContext / SSE事件模型 / API模型）
+│   ├── env_utils.py                    # 环境变量读取
+│   ├── middleware_config.py            # 子 Agent 中间件工厂
+│   │
+│   ├── memory/
+│   │   ├── AGENTS.md                   # 主 Agent 通用行为准则（沙箱 /AGENTS.md）
+│   │   └── prompts.py                  # 主 Agent system_prompt（精简版协调者角色）
+│   │
+│   ├── backends/
+│   │   ├── sandbox_setup.py            # 沙箱创建 + 基础文件播种（seed）
+│   │   └── custom_opensandbox.py       # OpenSandboxBackend 自定义封装
+│   │
+│   ├── middlewares/                    # 中间件栈（7个，按主 Agent 注入顺序）
+│   │   ├── context_injection.py        # 1. 注入用户上下文到 system prompt
+│   │   ├── skills_sync.py              # 2. 本地技能 → 沙箱同步（增量）
+│   │   ├── user_skills_restore.py      # 3. StoreBackend → 沙箱恢复持久化技能
+│   │   ├── tools_summarization.py      # 4. SummarizationToolMiddleware 封装
+│   │   └── memory_update.py            # 5. 自动更新 recent_suppliers / recent_queries
+│   │
+│   ├── subagents/
+│   │   ├── loader.py                   # YAML 配置加载 + 工具名称匹配解析
+│   │   └── configs/
+│   │       ├── procurement_analyst.yaml # 分析子 Agent 配置
+│   │       └── procurement_order.yaml  # 订单子 Agent 配置
+│   │
+│   └── tools/
+│       ├── mcp_client.py               # MCP 多服务器连接 + 工具按前缀分组
+│       ├── chart_generator.py          # 26种图→1个 generate_visualization 入口
+│       ├── web_search.py               # 智谱搜狗 Web 搜索
+│       ├── hitl_tools.py               # request_order_info（数据补充中断）
+│       ├── assign_skill.py             # 技能分配（复制+StoreBackend持久化+清理）
+│       └── download_sandbox_file.py    # 沙箱文件下载到本地
+│
+├── skills/                             # 技能资源（本地 → 沙箱同步）
+│   ├── main/skill-management/          # 技能生命周期管理
+│   └── procurement/
+│       ├── chart_params.md             # 26种图表完整参数参考
+│       ├── procurement-analysis/SKILL.md  # 分析流程操作手册（5步）
+│       ├── supplier-price-urls/        # 供应商报价URL映射表
+│       └── web-scraper/                # 网页抓取（直接HTTP+HTML→MD）
+│
+├── api_view/                           # FastAPI Web层
+│   ├── web_main.py                     # FastAPI app 入口（lifespan/路由/CORS）
+│   ├── agent_loader.py                 # Agent 懒加载 + MongoDB 管理
+│   ├── web_config.py                   # API 元信息
+│   └── api/
+│       ├── chat.py                     # SSE 流式对话 + 中断检测 + resume 端点
+│       └── history.py                  # 历史会话管理（MongoDB CRUD）
+│
+├── mcp_server/                         # MCP Server（ERP 业务接口代理）
+│   ├── server_main.py                  # MCP 服务入口（端口8000）
+│   └── tools/
+│       ├── suppliers_tools.py          # supplier_query / supplier_*
+│       ├── parts_tools.py              # part_query / part_search / part_by_supplier
+│       ├── order_tools.py              # order_create / order_update / order_search_details
+│       └── inventory_tools.py          # inventory_warning
+│
+└── test/
+    └── agent_test.py                   # 终端测试脚本
+</code></pre>
+<h2 id="Multi-Agent的描述"><a href="#Multi-Agent的描述" class="headerlink" title="Multi-Agent的描述"></a>Multi-Agent的描述</h2><h3 id="主-Agent（Orchestrator）"><a href="#主-Agent（Orchestrator）" class="headerlink" title="主 Agent（Orchestrator）"></a>主 Agent（Orchestrator）</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模型</td>
+<td>deepseek-v4-pro (temperature&#x3D;1.1)</td>
+</tr>
+<tr>
+<td>角色</td>
+<td>协调者 — 理解需求、委派子Agent、管理记忆，不直接调用ERP业务工具</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>直接工具</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>web_search</td>
+<td>通用知识问答（行业资讯、技术概念、市场行情）</td>
+</tr>
+<tr>
+<td>assign_skill</td>
+<td>将已测试技能分配给指定子 Agent</td>
+</tr>
+<tr>
+<td>read_file &#x2F; write_file &#x2F; edit_file</td>
+<td>读写 &#x2F;memories&#x2F;{user_id}&#x2F;preferences.md（由框架内置 FilesystemMiddleware 提供）</td>
+</tr>
+<tr>
+<td>task</td>
+<td>委派子Agent（SubagentsMiddleware 内置）</td>
+</tr>
+<tr>
+<td>compact_conversation</td>
+<td>主动压缩上下文（SummarizationMiddleware 内置）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>预置技能</th>
+<th>路径</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>skill-management</td>
+<td>&#x2F;skills&#x2F;main&#x2F;skill-management&#x2F;</td>
+<td>技能下载&#x2F;创建&#x2F;测试&#x2F;分配&#x2F;持久化 全生命周期管理</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>中间件</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ContextInjectionMiddleware</td>
+<td>注入 user_id&#x2F;username 到 system prompt</td>
+</tr>
+<tr>
+<td>SkillsSyncMiddleware</td>
+<td>本地 src&#x2F;skills&#x2F; → 沙箱同步</td>
+</tr>
+<tr>
+<td>UserSkillsRestoreMiddleware</td>
+<td>StoreBackend 持久化技能 → 沙箱恢复</td>
+</tr>
+<tr>
+<td>SummarizationToolMiddleware</td>
+<td>提供 compact_conversation 工具 + 自动摘要</td>
+</tr>
+<tr>
+<td>ModelCallLimitMiddleware</td>
+<td>最多 50 次模型调用</td>
+</tr>
+<tr>
+<td>ToolCallLimitMiddleware</td>
+<td>最多 200 次工具调用</td>
+</tr>
+</tbody></table>
+<p><strong>委派规则：</strong></p>
+<ul>
+<li>触发”分析&#x2F;对比&#x2F;报告&#x2F;建议&#x2F;评估&#x2F;行情&#x2F;比价&#x2F;筛选” → <code>procurement-analyst</code></li>
+<li>触发”下单&#x2F;创建订单&#x2F;修改&#x2F;更新&#x2F;取消&#x2F;订单状态” → <code>procurement-order</code></li>
+<li>问候&#x2F;知识问答&#x2F;技能管理 → 主Agent自行处理</li>
+</ul>
+<h3 id="procurement-analyst（采购分析子Agent）"><a href="#procurement-analyst（采购分析子Agent）" class="headerlink" title="procurement-analyst（采购分析子Agent）"></a>procurement-analyst（采购分析子Agent）</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模型</td>
+<td>继承主Agent (deepseek-v4-pro)</td>
+</tr>
+<tr>
+<td>角色</td>
+<td>数据收集 → 执行分析 → 生成图表 → 输出报告</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>MCP 业务工具（ERP查询）</th>
+<th>来源</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>supplier_query</td>
+<td>erp-api</td>
+<td>按名称模糊搜索供应商 → GET &#x2F;suppliers&#x2F;search</td>
+</tr>
+<tr>
+<td>part_query</td>
+<td>erp-api</td>
+<td>分页查询采购零部件（可按名称&#x2F;分类&#x2F;供应商ID筛选）</td>
+</tr>
+<tr>
+<td>part_search</td>
+<td>erp-api</td>
+<td>按名称搜索零部件 → GET &#x2F;parts&#x2F;search</td>
+</tr>
+<tr>
+<td>part_by_supplier</td>
+<td>erp-api</td>
+<td>按供应商ID查其所有零部件 → GET &#x2F;parts&#x2F;supplier&#x2F;{id}</td>
+</tr>
+<tr>
+<td>order_search_details</td>
+<td>erp-api</td>
+<td>搜索订单明细（含零部件详情+供应商信息）</td>
+</tr>
+<tr>
+<td>inventory_warning</td>
+<td>erp-api</td>
+<td>查询库存预警列表</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>图表工具</th>
+<th>来源</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>generate_visualization</td>
+<td>魔塔社区 MCP</td>
+<td>26合1可视化入口，通过 chart_type 参数路由到 19种标准图表 + 3种地图 + 3种关系图 + 1种思维导图</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>通用工具</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>web_search</td>
+<td>外部市场价格搜索、供应商背景调查、行业资讯</td>
+</tr>
+<tr>
+<td>execute &#x2F; read_file &#x2F; write_file &#x2F; ls &#x2F; glob &#x2F; grep</td>
+<td>沙箱内 Python 分析、文件操作（框架内置）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>预置技能（&#x2F;skills&#x2F;procurement&#x2F;）</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>supplier-price-urls</td>
+<td>零部件+供应商名 → 报价URL映射表，外部数据采集第一步</td>
+</tr>
+<tr>
+<td>procurement-analysis</td>
+<td>采购分析主流程：5阶段（数据收集→外部数据→分析→图表→报告）</td>
+</tr>
+<tr>
+<td>web-content-fetcher</td>
+<td>反爬虫备用：<a target="_blank" rel="noopener" href="http://jina.ai/">jina.ai</a> &#x2F; markdown.new &#x2F; defuddle.md 三级方案</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>中间件</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SummarizationToolMiddleware</td>
+<td>阶段完成后主动压缩上下文</td>
+</tr>
+<tr>
+<td>ModelCallLimitMiddleware</td>
+<td>最多 50 次模型调用</td>
+</tr>
+<tr>
+<td>ToolCallLimitMiddleware</td>
+<td>最多 200 次工具调用</td>
+</tr>
+</tbody></table>
+<p><strong>分析工作流（5阶段）：</strong></p>
+<pre><code class="Plain">1. ls /skills/procurement/ → 扫描可用技能
+2. MCP工具获取ERP数据 + supplier-price-urls找外部URL + web-content-fetcher爬取报价
+3. Python脚本分析 → /data/analysis_result.json
+4. generate_visualization → 2-4张关键图表
+5. write_file /analysis/report_*.md → 返回结构化摘要+结论+建议
+</code></pre>
+<h3 id="procurement-order（采购订单子Agent）"><a href="#procurement-order（采购订单子Agent）" class="headerlink" title="procurement-order（采购订单子Agent）"></a>procurement-order（采购订单子Agent）</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模型</td>
+<td>继承主Agent (deepseek-v4-pro)</td>
+</tr>
+<tr>
+<td>角色</td>
+<td>理解订单操作需求 → 调用MCP工具 → 验证结果 → 返回确认</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>MCP 业务工具</th>
+<th>来源</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>order_create</td>
+<td>erp-api</td>
+<td>创建采购订单 → POST &#x2F;orders&#x2F;create</td>
+</tr>
+<tr>
+<td>order_update</td>
+<td>erp-api</td>
+<td>更新采购订单 → PUT &#x2F;orders&#x2F;update&#x2F;{order_id}</td>
+</tr>
+<tr>
+<td>order_search_details</td>
+<td>erp-api</td>
+<td>搜索订单明细（含零部件详情+供应商信息）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>通用工具</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>web_search</td>
+<td>验证供应商信息、查询外部参考</td>
+</tr>
+<tr>
+<td>read_file &#x2F; write_file（框架内置）</td>
+<td>辅助文件操作</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>预置技能（&#x2F;skills&#x2F;order&#x2F;）</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>（暂无预置，留空扩展）</td>
+<td>未来可添加订单模板、审批流程等技能</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>中间件</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ModelCallLimitMiddleware</td>
+<td>最多 20 次模型调用（订单操作短链，限制更严）</td>
+</tr>
+<tr>
+<td>ToolCallLimitMiddleware</td>
+<td>最多 50 次工具调用</td>
+</tr>
+</tbody></table>
+<h2 id="核心数据流程"><a href="#核心数据流程" class="headerlink" title="核心数据流程"></a>核心数据流程</h2><pre><code class="Plain">1. 用户输入 &quot;帮我对摩托车火花塞做供应商比价分析&quot;
+
+2. ContextInjectionMiddleware
+   → runtime.context 提取 user_id=&quot;laoxiao&quot;, username=&quot;laoxiao&quot;
+   → 注入 SystemMessage: &quot;当前用户 user_id: laoxiao, 偏好文件: /memories/laoxiao/preferences.md&quot;
+
+3. MemoryMiddleware
+   → 从沙箱 /AGENTS.md 加载全局准则 → 注入 system prompt
+
+4. Agent 推理
+   → 读取 /memories/laoxiao/preferences.md (StoreBackend)
+   → 判断: &quot;比价分析&quot; → 委派 procurement-analyst
+
+5. task(procurement-analyst) 委派格式:
+   【任务目标】【用户偏好】【分析需求正文】【输出要求】
+
+6. 子 Agent (procurement-analyst) 执行:
+   a. ls /skills/procurement/ → 扫描可用技能
+   b. supplier_query(&quot;火花塞&quot;) → MCP → Java后端 → ERP数据
+   c. part_by_supplier(supplier_id) → 按供应商查零部件
+   d. 技能: 读取 supplier-price-urls/data/url_mapping.yaml
+      → 匹配 URL → web-content-fetcher 爬取外部报价
+   e. Python 分析脚本 → /data/analysis_result.json
+   f. generate_visualization(&quot;bar&quot;, chart_config={...}) → 图表URL
+   g. write_file(&quot;/analysis/report_20260509.md&quot;) → 最终报告
+
+7. 子 Agent → compact_conversation → 返回结构化结果给主 Agent
+
+8. 主 Agent → 组织用户友好回复 → 更新 /memories/laoxiao/preferences.md (如有新偏好)
+</code></pre>
+<h2 id="存储架构（CompositeBackend-分流）"><a href="#存储架构（CompositeBackend-分流）" class="headerlink" title="存储架构（CompositeBackend 分流）"></a>存储架构（CompositeBackend 分流）</h2><table>
+<thead>
+<tr>
+<th>路径</th>
+<th>后端</th>
+<th>持久化</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;AGENTS.md</td>
+<td>OpenSandbox（default路由）</td>
+<td>沙箱生命周期</td>
+<td>全局行为准则（Phase 1.4 上传）</td>
+</tr>
+<tr>
+<td>&#x2F;skills&#x2F;</td>
+<td>OpenSandbox（default路由）</td>
+<td>沙箱生命周期 + StoreBackend恢复</td>
+<td>技能文件（预置 + 持久化混合）</td>
+</tr>
+<tr>
+<td>&#x2F;memories&#x2F;{user_id}&#x2F;</td>
+<td>StoreBackend → InMemoryStore</td>
+<td>跨会话</td>
+<td>用户偏好文件</td>
+</tr>
+<tr>
+<td>&#x2F;persisted-skills&#x2F;</td>
+<td>StoreBackend → InMemoryStore</td>
+<td>跨会话</td>
+<td>持久化技能</td>
+</tr>
+<tr>
+<td>其余路径</td>
+<td>OpenSandbox（default路由）</td>
+<td>沙箱生命周期</td>
+<td>临时文件、代码执行、分析产物</td>
+</tr>
+</tbody></table>
+<h2 id="项目中的自定义中间件"><a href="#项目中的自定义中间件" class="headerlink" title="项目中的自定义中间件"></a>项目中的自定义中间件</h2><h3 id="设计原则总结"><a href="#设计原则总结" class="headerlink" title="设计原则总结"></a>设计原则总结</h3><ol>
+<li><strong>读写分离</strong>：ContextInjection（读记忆）↔ MemoryUpdate（写记忆），注入时明确告知 Agent “系统自动维护，你无需手动更新”</li>
+<li><strong>三层 skills 同步</strong>：SkillsSync（本地→沙箱）+ UserSkillsRestore（Store→沙箱）+ SkillsMiddleware（沙箱→Agent 发现），各管一段</li>
+<li><strong>主&#x2F;子差异化管理</strong>：主 Agent 有全量中间件，analyst 保留摘要，order 只要限制——按需减配</li>
+<li><strong>静默失败 &gt; 崩溃</strong>：ContextInjection 三级降级、SkillsSync 异常捕获、MemoryUpdate 全 try&#x2F;except——任何中间件挂了都不能拖垮 Agent</li>
+</ol>
+<pre><code class="Plain">before_agent ──────────────────────────────────────►  after_agent
+    │                                                      │
+    ▼                                                      ▼
+[1] ContextInjection    →  注入用户身份 SystemMessage
+[2] SkillsSync          →  同步本地 skills → 沙箱
+[3] UserSkillsRestore   →  恢复持久化 skills → 沙箱
+[4] SummarizationTool   →  上下文压缩 + compact_conversation 工具
+[5] MemoryUpdate        →                                   自动更新用户记忆
+[6] ModelCallLimit      →  限制 LLM 调用 ≤ 50 次
+[7] ToolCallLimit       →  限制工具调用 ≤ 200 次
+</code></pre>
+<p>LangChain <code>AgentMiddleware</code> 提供 6 个钩子，项目使用了其中 4 个：</p>
+<table>
+<thead>
+<tr>
+<th>钩子</th>
+<th>使用者</th>
+<th>语义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>before_agent</td>
+<td>ContextInjection, SkillsSync, UserSkillsRestore</td>
+<td>Agent run 开始前，注入信息&#x2F;准备环境</td>
+</tr>
+<tr>
+<td>abefore_agent</td>
+<td>同上（异步版）</td>
+<td>同上，异步流</td>
+</tr>
+<tr>
+<td>after_agent</td>
+<td>MemoryUpdate（仅占位）</td>
+<td>Agent run 结束后</td>
+</tr>
+<tr>
+<td>aafter_agent</td>
+<td>MemoryUpdate（核心逻辑）</td>
+<td>Agent run 结束后，写记忆</td>
+</tr>
+<tr>
+<td>before_model</td>
+<td>SummarizationTool（内部）</td>
+<td>每次 LLM 调用前，检查是否需要压缩</td>
+</tr>
+<tr>
+<td>wrap_tool_call</td>
+<td>未使用</td>
+<td>包装每次工具调用</td>
+</tr>
+</tbody></table>
+<pre><code class="Plain">chat.py:282  agent_loader.agent.astream(...)
+                │                                          ← astream() 被调用
+                │  ┌─────────────────────────────────┐
+                │  │ LangGraph 内部启动：              │
+                │  │ 1. 根据 config 恢复 checkpoint    │
+                │  │ 2. 初始化 state（含历史消息）      │
+                │  │ 3. 构建 runtime.context          │
+                │  │                                  │
+                │  │ 4. before_agent 钩子触发 ← 这里！  │  ← 在 astream 内部
+                │  │    ├─ ContextInjection           │
+                │  │    ├─ SkillsSync                 │
+                │  │    └─ UserSkillsRestore          │
+                │  │                                  │
+                │  │ 5. before_model 钩子触发          │
+                │  │ 6. LLM 推理                       │
+                │  │ 7. 生成第一个 token               │
+                │  └─────────────────────────────────┘
+                │                                          ← 第一条 chunk yield
+chat.py:282  async for chunk in ...:    ← chat.py 收到第一条数据
+
+                      after_agent 钩子                           ← &quot;结束后&quot;
+                │      └─ MemoryUpdate 在这里写 Store
+                │  astream() 生成器退出                       
+chat.py:xxx  # async for 循环结束，代码继续往下走              ← chat.py 继续执行
+</code></pre>
+<h3 id="每个中间件的说明"><a href="#每个中间件的说明" class="headerlink" title="每个中间件的说明"></a>每个中间件的说明</h3><h4 id="1-ContextInjectionMiddleware-before-agent"><a href="#1-ContextInjectionMiddleware-before-agent" class="headerlink" title="[1] ContextInjectionMiddleware before_agent"></a>[1] ContextInjectionMiddleware <code>before_agent</code></h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/middlewares/context_injection.py">middlewares&#x2F;context_injection.py</a></td>
+</tr>
+<tr>
+<td>钩子</td>
+<td>before_agent + abefore_agent</td>
+</tr>
+<tr>
+<td>触发时机</td>
+<td>每次 Agent run 开始时（仅一次）</td>
+</tr>
+<tr>
+<td>数据来源</td>
+<td>runtime.context（由 context_schema&#x3D;ProcurementContext 从 configurable 映射）</td>
+</tr>
+<tr>
+<td>做了什么</td>
+<td>注入一条 SystemMessage：当前用户 user_id: xxx，偏好文件路径: &#x2F;memories&#x2F;{user_id}&#x2F;preferences.md，请首先 read_file 读取偏好</td>
+</tr>
+<tr>
+<td>返回值</td>
+<td>{“messages”: [SystemMessage(…)]} 或 None（跳过）</td>
+</tr>
+<tr>
+<td>容错</td>
+<td>三级降级：context 为 None → 跳过；user_id 为空 → 跳过；username 为空 → 用 user_id 兜底</td>
+</tr>
+</tbody></table>
+<h4 id="2-SkillsSyncMiddleware-before-agent"><a href="#2-SkillsSyncMiddleware-before-agent" class="headerlink" title="[2] SkillsSyncMiddleware before_agent"></a>[2] SkillsSyncMiddleware <code>before_agent</code></h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/middlewares/skills_sync.py">middlewares&#x2F;skills_sync.py</a></td>
+</tr>
+<tr>
+<td>钩子</td>
+<td>before_agent + abefore_agent（异步版用 run_in_executor 执行同步 I&#x2F;O）</td>
+</tr>
+<tr>
+<td>触发时机</td>
+<td>每次 Agent run 开始时</td>
+</tr>
+<tr>
+<td>数据来源</td>
+<td>本地 src&#x2F;skills&#x2F; 目录 vs 沙箱 &#x2F;skills&#x2F; 目录</td>
+</tr>
+<tr>
+<td>做了什么</td>
+<td>① 遍历本地 skills 目录 ② MD5 比对本地 vs 沙箱文件 ③ 使用 test -f 避免 404 ERROR 日志 ④ 增量上传变更文件 ⑤ 有变更时注入 SystemMessage 通知 Agent</td>
+</tr>
+<tr>
+<td>返回值</td>
+<td>{“messages”: [SystemMessage(“以下技能包已更新: …”)]} 或 None（无变更）</td>
+</tr>
+<tr>
+<td>性能优化</td>
+<td>_last_hashes 字典缓存本地文件 MD5，避免重复计算和上传</td>
+</tr>
+</tbody></table>
+<h4 id="3-UserSkillsRestoreMiddleware-before-agent"><a href="#3-UserSkillsRestoreMiddleware-before-agent" class="headerlink" title="[3] UserSkillsRestoreMiddleware before_agent"></a>[3] UserSkillsRestoreMiddleware <code>before_agent</code></h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/middlewares/user_skills_restore.py">middlewares&#x2F;user_skills_restore.py</a></td>
+</tr>
+<tr>
+<td>钩子</td>
+<td>abefore_agent（仅异步版；同步版直接返回 None）</td>
+</tr>
+<tr>
+<td>触发时机</td>
+<td>每次 Agent run 开始时</td>
+</tr>
+<tr>
+<td>数据来源</td>
+<td>runtime.store（StoreBackend，内存存储）</td>
+</tr>
+<tr>
+<td>做了什么</td>
+<td>① store.asearch(namespace) 搜索所有持久化 skill ② 映射 key &#x2F;{scope}&#x2F;{skill_name}&#x2F;… → 沙箱路径 &#x2F;skills&#x2F;{scope}&#x2F;{skill_name}&#x2F;… ③ backend.aupload_files() 恢复到沙箱</td>
+</tr>
+<tr>
+<td>返回值</td>
+<td>始终 None（不注入消息）</td>
+</tr>
+<tr>
+<td>与 [2] 的分工</td>
+<td>SkillsSync &#x3D; 预置技能同步（本地→沙箱）；UserSkillsRestore &#x3D; 持久化技能恢复（Store→沙箱）</td>
+</tr>
+</tbody></table>
+<h4 id="4-SummarizationToolMiddleware-before-model"><a href="#4-SummarizationToolMiddleware-before-model" class="headerlink" title="[4] SummarizationToolMiddleware before_model"></a>[4] SummarizationToolMiddleware <code>before_model</code></h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/middlewares/tools_summarization.py">middlewares&#x2F;tools_summarization.py</a></td>
+</tr>
+<tr>
+<td>来源</td>
+<td>DeepAgents 内置 create_summarization_tool_middleware() 工厂</td>
+</tr>
+<tr>
+<td>模型</td>
+<td>SUMMARY_MODEL（deepseek-v4-flash，轻量模型）</td>
+</tr>
+<tr>
+<td>做了什么</td>
+<td>① 内部含一个 SummarizationMiddleware：上下文达到 ~85% 上限时自动压缩历史消息 ② 额外注入 compact_conversation 工具：Agent 可在关键节点（如收到子 Agent 报告后）主动压缩 ③ 被压缩的完整对话持久化到 CompositeBackend</td>
+</tr>
+<tr>
+<td>返回值</td>
+<td>内部处理，不显式返回</td>
+</tr>
+</tbody></table>
+<h4 id="5-MemoryUpdateMiddleware-after-agent"><a href="#5-MemoryUpdateMiddleware-after-agent" class="headerlink" title="[5] MemoryUpdateMiddleware after_agent"></a>[5] MemoryUpdateMiddleware <code>after_agent</code></h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件</td>
+<td><a href="vscode-webview://13opndhaihpk8nhapeqqbged9cmgf4klgab7r2o8r5a40jnsshdm/src/agent/middlewares/memory_update.py">middlewares&#x2F;memory_update.py</a></td>
+</tr>
+<tr>
+<td>钩子</td>
+<td>aafter_agent（仅异步版；同步版直接返回 None）</td>
+</tr>
+<tr>
+<td>触发时机</td>
+<td>Agent run 完成后</td>
+</tr>
+<tr>
+<td>数据来源</td>
+<td>state[“messages”] + runtime.context + runtime.store</td>
+</tr>
+<tr>
+<td>做了什么</td>
+<td>详见下方流程图</td>
+</tr>
+<tr>
+<td>返回值</td>
+<td>始终 None（副作用写入 Store，不修改消息）</td>
+</tr>
+</tbody></table>
+<p><strong>MemoryUpdate 内部流程</strong>：</p>
+<pre><code class="Plain">after_agent 触发
+  │
+  ├─ ① 从 runtime.context 获取 user_id
+  │
+  ├─ ② _is_meaningful_erp_exchange(messages)
+  │      ├─ 找最后一条 HumanMessage
+  │      ├─ 跳过闲聊（_SKIP_PATTERNS：你好/在吗/你是谁...）
+  │      ├─ 检查是否包含 ERP 关键词（供应商/采购/订单/报价...）
+  │      └─ 兜底：检查是否有 task（子 Agent）工具调用
+  │
+  ├─ ③ _extract_ai_summary(messages)
+  │      取最后一条 AIMessage 前 300 字符
+  │
+  ├─ ④ _extract_entities(model, user_msg, ai_summary)
+  │      LLM 提取 JSON: {&quot;suppliers&quot;: [...], &quot;query&quot;: &quot;...&quot;}
+  │
+  ├─ ⑤ store.aget(namespace, key)
+  │      读取 /memories/{user_id}/preferences.md 当前内容
+  │
+  ├─ ⑥ _merge_preferences(current_lines, new_suppliers, new_query)
+  │      解析旧的 recent_suppliers / recent_queries 区块
+  │      → 移除旧区块 → 合并新旧 → 去重 → 截断（suppliers ≤ 10, queries ≤ 5）
+  │      → 追加到文件末尾
+  │
+  └─ ⑦ store.aput(namespace, key, file_value)
+         写回 StoreBackend
+</code></pre>
+<h4 id="6-ModelCallLimitMiddleware"><a href="#6-ModelCallLimitMiddleware" class="headerlink" title="[6] ModelCallLimitMiddleware"></a>[6] ModelCallLimitMiddleware</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>来源</td>
+<td>langchain.agents.middleware.ModelCallLimitMiddleware</td>
+</tr>
+<tr>
+<td>限制</td>
+<td>run_limit&#x3D;50（最多 50 次 LLM 调用）</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>防止 Agent 陷入无限推理循环，超限后抛出异常终止</td>
+</tr>
+</tbody></table>
+<h4 id="7-ToolCallLimitMiddleware"><a href="#7-ToolCallLimitMiddleware" class="headerlink" title="[7] ToolCallLimitMiddleware"></a>[7] ToolCallLimitMiddleware</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>来源</td>
+<td>langchain.agents.middleware.ToolCallLimitMiddleware</td>
+</tr>
+<tr>
+<td>限制</td>
+<td>run_limit&#x3D;200（最多 200 次工具调用）</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>防止工具调用爆炸（如循环调用 web_search），超限后终止</td>
+</tr>
+</tbody></table>
+<h2 id="Agent懒加载的设计"><a href="#Agent懒加载的设计" class="headerlink" title="Agent懒加载的设计"></a>Agent懒加载的设计</h2><h3 id="为什么需要懒加载"><a href="#为什么需要懒加载" class="headerlink" title="为什么需要懒加载"></a>为什么需要懒加载</h3><p><code>create_main_agent()</code> 内部是 <strong>11 个阶段的初始化流水线</strong>：</p>
+<pre><code class="Plain">沙箱创建 → MCP 工具加载 → 26→1 工具合并 → 子Agent YAML加载 → 
+中间件构建 → create_deep_agent() 编译 StateGraph
+</code></pre>
+<p>这个流程涉及网络 I&#x2F;O（MCP 连接、沙箱 API）和计算（LangGraph 编译），可能耗时 5-15 秒。如果放在模块 <code>import</code> 阶段执行，会导致：</p>
+<ul>
+<li><code>import agent.main_agent</code> 卡死 10 秒</li>
+<li>模块级别错误无法被 try&#x2F;except 捕获</li>
+<li>测试&#x2F;CLI 每次启动都要等，即使不调用 Agent</li>
+</ul>
+<p>懒加载的核心思想：<strong>模块导入时只创建一个空壳，真正使用时才初始化。</strong></p>
+<p><strong>实际流程时序</strong></p>
+<pre><code class="Plain">FastAPI 启动
+  │
+  ├─ lifespan 事件触发
+  │    agent_loader.initialize()
+  │      from agent.main_agent import get_agent_async  ← 导入模块
+  │      │                                               ← _AgentProxy() 创建（空壳）
+  │      │                                               ← 无事件循环，什么都不发生
+  │      │
+  │      agent = await get_agent_async()                ← 显式异步初始化
+  │        ├─ _is_initialized? → False
+  │        ├─ await _create_agent()                      ← 11 个阶段，5-15 秒
+  │        │    ├─ Phase 1: setup_sandbox()
+  │        │    ├─ Phase 2: load_mcp_tools()             ← 连接 MCP 服务器
+  │        │    ├─ Phase 3: create_generate_chart_tool()
+  │        │    ├─ ...
+  │        │    └─ Phase 9: create_deep_agent()          ← 编译 StateGraph
+  │        └─ agent._agent = graph
+  │
+  ├─ HTTP 请求到达
+  │    agent.astream(...)                                ← _AgentProxy._agent 已有值
+  │                                                      ← __getattr__ → 直接返回 graph
+  │                                                      ← 不经过 _ensure_initialized 检测
+</code></pre>
+<h3 id="AgentProxy-的三层设计"><a href="#AgentProxy-的三层设计" class="headerlink" title="_AgentProxy 的三层设计"></a><code>_AgentProxy</code> 的三层设计</h3><pre><code class="mermaid">flowchart TD
+    %% 定义组件样式
+    classDef proxy fill:#f5f5f5,stroke:#333,stroke-width:3px,color:#333;
+    classDef branch fill:#e1f5fe,stroke:#0277bd,stroke-width:2px,color:#0277bd;
+    classDef internal fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,stroke-dasharray: 5 5;
+    classDef result fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+
+    subgraph EntryPoint [&quot;代理类结构&quot;]
+        Proxy[&quot;&lt;b&gt;_AgentProxy()&lt;/b&gt;&lt;br/&gt;self._agent = None&lt;br/&gt;&lt;i&gt;(导入时：空壳，0 开销)&lt;/i&gt;&quot;]:::proxy
+    end
+
+    subgraph AccessModes [&quot;接入模式&quot;]
+        direction LR
+        getattr[&quot;&lt;b&gt;__getattr__(&#39;astream&#39;)&lt;/b&gt;&lt;br/&gt;(透明属性访问)&quot;]:::branch
+        async_init[&quot;&lt;b&gt;get_agent_async()&lt;/b&gt;&lt;br/&gt;(显式异步初始化)&quot;]:::branch
+    end
+
+    subgraph ExecutionLogic [&quot;初始化逻辑&quot;]
+        ensure[&quot;_ensure_initialized()&quot;]:::internal
+        create[&quot;_create_agent()&quot;]:::internal
+        
+        run_sync[&quot;asyncio.run()&quot;]:::internal
+        run_async[&quot;await _create_agent()&quot;]:::internal
+    end
+
+    %% 连接关系
+    Proxy --&gt; getattr
+    Proxy --&gt; async_init
+
+    %% 路径映射
+    getattr --&gt; ensure --&gt; run_sync --&gt; create
+    async_init --&gt; run_async --&gt; create
+
+    %% 最终结果
+    create --&gt; Result[&quot;&lt;b&gt;self._agent = graph&lt;/b&gt;&quot;]:::result
+
+    %% 布局优化
+    Proxy --- ExecutionLogic
+</code></pre>
+<h4 id="getattr-透明代理（agent-astream-直接用）"><a href="#getattr-透明代理（agent-astream-直接用）" class="headerlink" title="getattr 透明代理（agent.astream() 直接用）"></a><code>getattr</code> 透明代理（<code>agent.astream()</code> 直接用）</h4><pre><code class="Python"># main_agent.py:297
+def __getattr__(self, name):
+    return getattr(self._ensure_initialized(), name)
+</code></pre>
+<p>任何对 <code>agent.xxx</code> 的访问（<code>.astream()</code>, <code>.ainvoke()</code>, <code>.aget_state()</code> 等）都先触发 <code>_ensure_initialized()</code>，然后委托给真实的编译后 graph 对象。调用方不需要感知代理的存在：</p>
+<pre><code class="Python"># agent_test.py:7
+from agent.main_agent import agent   # ← 空壳，不阻塞
+
+# agent_test.py:74  ——  首次访问触发初始化
+async for chunk in agent.astream(...):   # ← __getattr__ → 初始化 → 委托
+</code></pre>
+<h4 id="ensure-initialized-事件循环检测"><a href="#ensure-initialized-事件循环检测" class="headerlink" title="_ensure_initialized() 事件循环检测"></a><code>_ensure_initialized()</code> 事件循环检测</h4><pre><code class="Python"># main_agent.py:272-295
+def _ensure_initialized(self):
+    if self._agent is not None:
+        return self._agent           # 已初始化，直接返回
+
+    try:
+        loop = asyncio.get_event_loop()
+        if loop.is_running():        # ← 检测：当前在事件循环中？
+            raise RuntimeError(       #    是 → 无法用 asyncio.run()，报错
+                &quot;Agent 尚未初始化且当前在事件循环中，&quot;
+                &quot;请使用 await get_agent_async() 获取 agent&quot;
+            )
+    except RuntimeError as e:
+        if &quot;Agent 尚未初始化&quot; in str(e):
+            raise                     # ← 我们自己的错，往上抛
+        # asyncio.get_event_loop() 抛的错（无事件循环）→ 可以安全用 asyncio.run()
+
+    self._agent = asyncio.run(_create_agent())  # ← 同步包装异步创建
+    return self._agent
+</code></pre>
+<p>这里用了一个<strong>双重 RuntimeError 技巧</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>asyncio.get_event_loop() 行为</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>不在事件循环中（模块顶层、普通脚本）</td>
+<td>抛出 RuntimeError(“no current event loop”)</td>
+<td>被 except 捕获 → 放行 → asyncio.run()</td>
+</tr>
+<tr>
+<td>在运行中的事件循环（FastAPI 内部）</td>
+<td>返回运行中的 loop → loop.is_running() &#x3D; True</td>
+<td>抛出我们的 RuntimeError → 被重新抛出</td>
+</tr>
+</tbody></table>
+<p>用代码路径表示：</p>
+<pre><code class="Plain">场景 A: agent_test.py 控制台
+─────────────────────────────
+import agent.main_agent    → _AgentProxy() 创建（agent._agent = None）
+...其他代码...
+asyncio.run(main())        → 事件循环启动
+  main() 内:
+    agent.astream()        → __getattr__ → _ensure_initialized()
+      ├─ _agent 不是 None？→ 不是，继续
+      ├─ get_event_loop()  → RuntimeError(&quot;no current event loop&quot;)  ← 已在事件循环中！
+      │   等，这不对...
+</code></pre>
+<p><strong>等一下——这里有一个实际使用中的矛盾。</strong> <code>agent_test.py</code> 在 <code>asyncio.run(main())</code> 内调用 <code>agent.astream()</code>，此时事件循环正在运行。<code>_ensure_initialized()</code> 会检测到运行中的循环并抛出 RuntimeError。所以 <code>agent_test.py</code> <strong>不能直接用</strong> <strong><code>getattr</code></strong> <strong>路径</strong>——它必须在进入事件循环前调用 <code>get_agent()</code> 完成初始化。</p>
+<h4 id="get-agent-get-agent-async-显式初始化"><a href="#get-agent-get-agent-async-显式初始化" class="headerlink" title="get_agent() &#x2F; get_agent_async() 显式初始化"></a><code>get_agent()</code> &#x2F; <code>get_agent_async()</code> 显式初始化</h4><pre><code class="Python"># main_agent.py:310-325  ——  同步路径
+def get_agent():
+    global agent
+    if isinstance(agent, _AgentProxy):
+        if agent._is_initialized:
+            return agent._agent
+        return agent._ensure_initialized()  # 必须在事件循环外调用
+    return agent
+
+# main_agent.py:328-344  ——  异步路径
+async def get_agent_async():
+    global agent
+    if isinstance(agent, _AgentProxy):
+        if agent._is_initialized:
+            return agent._agent
+        agent._agent = await _create_agent()  # 在事件循环内 await
+        return agent._agent
+    return agent
+</code></pre>
+<h3 id="设计优势"><a href="#设计优势" class="headerlink" title="设计优势"></a>设计优势</h3><ol>
+<li><strong>模块导入零开销</strong>：<code>import agent.main_agent</code> 瞬间完成，不阻塞</li>
+<li><strong>透明代理</strong>：使用者写 <code>agent.astream()</code> 和直接持有 graph 对象写 <code>graph.astream()</code> 完全一样</li>
+<li><strong>双路径兼容</strong>：同步测试脚本用 <code>get_agent()</code>，异步服务用 <code>get_agent_async()</code>，同一个 <code>agent</code> 全局变量</li>
+<li><strong>只初始化一次</strong>：<code>self._agent</code> 一旦赋值，后续调用全部跳过</li>
+</ol>
+<h2 id="MCP服务器中26-个工具如何合并"><a href="#MCP服务器中26-个工具如何合并" class="headerlink" title="MCP服务器中26+个工具如何合并"></a>MCP服务器中26+个工具如何合并</h2><h3 id="它解决什么问题"><a href="#它解决什么问题" class="headerlink" title="它解决什么问题"></a>它解决什么问题</h3><p>魔塔社区 MCP Server 暴露了 26 个独立的可视化工具：</p>
+<pre><code class="Plain">generate_bar_chart, generate_line_chart, generate_pie_chart,
+generate_scatter_chart, generate_radar_chart, generate_sankey_chart,
+generate_area_chart, generate_column_chart, generate_boxplot_chart,
+generate_violin_chart, generate_histogram_chart, generate_funnel_chart,
+generate_treemap_chart, generate_word_cloud_chart, generate_waterfall_chart,
+generate_dual_axes_chart, generate_venn_chart, generate_liquid_chart,
+generate_organization_chart, generate_mind_map, generate_fishbone_diagram,
+generate_flow_diagram, generate_network_graph,
+generate_district_map, generate_pin_map, generate_path_map
+</code></pre>
+<p>如果全部直接注入 Agent，工具列表描述会占用大量上下文，每次 LLM 调用都要遍历 26 个工具的 schema。<code>chart_generator.py</code> 把这些合并成 <strong>1 个入口</strong>：<code>generate_visualization(chart_type, chart_config)</code>，通过 <code>chart_type</code> 字符串路由到实际的 MCP 工具。</p>
+<h3 id="工具描述的-token-预算策略"><a href="#工具描述的-token-预算策略" class="headerlink" title="工具描述的 token 预算策略"></a>工具描述的 token 预算策略</h3><p>合并后 <code>generate_visualization</code> 的工具描述分两部分：</p>
+<h4 id="第一部分：工具本体（-50-tokens）"><a href="#第一部分：工具本体（-50-tokens）" class="headerlink" title="第一部分：工具本体（~50 tokens）"></a>第一部分：工具本体（~50 tokens）</h4><pre><code class="Python"># 第 267-277 行
+&quot;Generate a data visualization and return the image URL.\n&quot;
+&quot;Use this tool to create charts, maps, diagrams, or mind maps for analysis reports.\n&quot;
+f&quot;Available chart_type values: {chart_list}\n&quot;
++ _COMPACT_TABLE  # ~800 tokens
++ &quot;\nWhen unsure about the exact fields for chart_config, read &quot;
++ &quot;`/skills/procurement/chart_params.md` first, then call this tool.&quot;
+</code></pre>
+<h4 id="第二部分：-COMPACT-TABLE-速查表（-800-tokens）"><a href="#第二部分：-COMPACT-TABLE-速查表（-800-tokens）" class="headerlink" title="第二部分：_COMPACT_TABLE 速查表（~800 tokens）"></a>第二部分：<code>_COMPACT_TABLE</code> 速查表（~800 tokens）</h4><p>按 6 种数据模式分组，每组列出 chart_type → data 格式 → 特有参数：</p>
+<pre><code class="Plain">category-value 模式 ─→ bar, column, pie, funnel, treemap, word_cloud
+time-value 模式     ─→ line, area
+分布/统计模式       ─→ boxplot, violin, histogram, scatter
+多维度/流向/集合    ─→ radar, sankey, venn, waterfall, dual_axes
+特殊图表            ─→ liquid, organization, mind_map, fishbone_diagram, flow_diagram, network_graph
+地图                ─→ district_map, pin_map, path_map
+</code></pre>
+<p>速查表只写 data 格式和<strong>特有</strong>参数（如 <code>liquid</code> 的 <code>percent</code> 必填、<code>pie</code> 的 <code>innerRadius</code>）。通用参数（<code>width</code>, <code>height</code>, <code>title</code>, <code>theme</code>, <code>style</code>）只在表头一句话概括，不逐图重复。</p>
+<h4 id="第三部分：完整参数文档（沙箱文件）"><a href="#第三部分：完整参数文档（沙箱文件）" class="headerlink" title="第三部分：完整参数文档（沙箱文件）"></a>第三部分：完整参数文档（沙箱文件）</h4><p>速查表装不下的细节（如 <code>district_map</code> 的 <code>subdistricts</code>&#x2F;<code>showAllSubdistricts</code>&#x2F;<code>dataType</code> 等字段含义、<code>dual_axes</code> 的嵌套 <code>series</code> 结构示例代码）放入沙箱 <code>/skills/procurement/chart_params.md</code>，Agent 不确定时主动 <code>read_file</code> 查看。</p>
+<p><strong>设计意图</strong>：工具描述是每次 LLM 调用都加载的，必须短（控制在 ~850 tokens）。完整参数参考只在需要时才加载进上下文。这就是”渐进式披露”在工具参数层面的应用。</p>
+<h3 id="工厂函数-create-generate-chart-tool-的输入输出"><a href="#工厂函数-create-generate-chart-tool-的输入输出" class="headerlink" title="工厂函数 create_generate_chart_tool() 的输入输出"></a>工厂函数 <code>create_generate_chart_tool()</code> 的输入输出</h3><pre><code class="Python">def create_generate_chart_tool(chart_mcp_tools: list):
+    &quot;&quot;&quot;
+    Returns:
+        (generate_visualization, other_tools) 二元组
+        - generate_visualization: 合并后的可视化入口工具
+        - other_tools: 未被合并且应保留的独立工具列表
+    &quot;&quot;&quot;
+</code></pre>
+<p>调用方从 <code>load_mcp_tools()</code> 拿到 <code>chart_mcp_tools</code> 后传入，拿到两个产物：</p>
+<pre><code class="Python"># main_agent.py:158-160
+generate_visualization, extra_mcp_tools = create_generate_chart_tool(chart_mcp_tools)
+</code></pre>
+<ul>
+<li><code>generate_visualization</code> 进入工具池，供主 Agent 和子 Agent 使用</li>
+<li><code>extra_mcp_tools</code>（如 <code>generate_spreadsheet</code>）也加入工具池，作为独立工具</li>
+</ul>
+<h3 id="运行时路由：generate-visualization-内部"><a href="#运行时路由：generate-visualization-内部" class="headerlink" title="运行时路由：generate_visualization 内部"></a>运行时路由：<code>generate_visualization</code> 内部</h3><pre><code class="Python"># 第 325-335 行
+@tool
+async def generate_visualization(chart_type: str, chart_config: dict) -&gt; str:
+    chart_tool = tool_map.get(chart_type)
+    if not chart_tool:
+        available = &quot;, &quot;.join(sorted(tool_map.keys()))
+        return f&quot;Error: Unknown chart type &#39;{chart_type}&#39;. Available types: {available}&quot;
+    result = await chart_tool.ainvoke(chart_config)
+    return result
+</code></pre>
+<p>逻辑极其简单——就是一个字符串查字典 + 委托调用：</p>
+<pre><code class="Plain">Agent 调用: generate_visualization(chart_type=&quot;pie&quot;, chart_config={&quot;data&quot;: [...], &quot;title&quot;: &quot;...&quot;})
+                │
+                ▼
+         tool_map[&quot;pie&quot;]  →  generate_pie_chart (原始 MCP StructuredTool)
+                │
+                ▼
+         chart_tool.ainvoke({&quot;data&quot;: [...], &quot;title&quot;: &quot;...&quot;})
+                │
+                ▼
+         魔塔社区 MCP Server → 返回图片 URL
+</code></pre>
+<h3 id="一个容易被忽略的细节"><a href="#一个容易被忽略的细节" class="headerlink" title="一个容易被忽略的细节"></a>一个容易被忽略的细节</h3><p>函数签名写的是 <code>chart_config: dict</code>，不是一个 Pydantic 模型。这意味着：</p>
+<ul>
+<li>Agent 传入的参数直接透传给 MCP 工具，不做任何校验</li>
+<li>如果传错了字段名或格式，错误由魔塔社区 MCP 返回，信息不可控</li>
+<li>这也是为什么 <code>chart_params.md</code> 存在——在没有结构化校验的情况下，只能靠文档引导 Agent 传对参数</li>
+</ul>
+<h3 id="当前设计的核心机制"><a href="#当前设计的核心机制" class="headerlink" title="当前设计的核心机制"></a>当前设计的核心机制</h3><pre><code class="mermaid">graph TD
+    %% --- 定义样式 ---
+    classDef toolStyle fill:#e3f2fd,stroke:#1565c0,stroke-width:1px,rx:5,ry:5;
+    classDef mergerStyle fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,stroke-dasharray: 5 5;
+    classDef gatewayStyle fill:#fbe9e7,stroke:#bf360c,stroke-width:2px,rx:10,ry:10;
+    classDef resourceStyle fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px;
+
+    %% --- 区域划分 ---
+    subgraph Server [魔塔社区 MCP Server]
+        Tools[&quot;&lt;b&gt;26 个工具集合&lt;/b&gt;&lt;br/&gt;(generate_bar, line, pie, scatter, radar, sankey, ... )&quot;]:::toolStyle
+    end
+
+    %% 合并逻辑
+    MergeLogic(&quot;create_generate_chart_tool()&lt;br/&gt;[转换与合并逻辑]&quot;):::mergerStyle
+
+    subgraph EntryPoint [统一路由入口]
+        Gateway[&quot;&lt;b&gt;generate_visualization&lt;/b&gt;&lt;br/&gt;(chart_type, chart_config)&quot;]:::gatewayStyle
+        Routing[&quot;路由逻辑:&lt;br/&gt;tool_map[chart_type].ainvoke(chart_config)&quot;]:::gatewayStyle
+    end
+
+    subgraph Dependency [运行时执行依赖]
+        Desc(&quot;工具描述 (~800t)&lt;br/&gt;(每次 LLM 调用)&quot;):::resourceStyle
+        Doc(&quot;chart_params.md&lt;br/&gt;(沙箱参考文件)&quot;):::resourceStyle
+        Invoke(&quot;运行时动态路由&lt;br/&gt;(ainvoke)&quot;):::resourceStyle
+    end
+
+    %% --- 逻辑连线 ---
+    Server --&gt;|注册| MergeLogic
+    MergeLogic --&gt; Gateway
+    Gateway --&gt; Routing
+    
+    Routing -.-&gt; Desc
+    Routing -.-&gt; Doc
+    Routing -.-&gt; Invoke
+
+    %% 设置统一的背景颜色，可选
+    style Server fill:#fcfcfc
+    style EntryPoint fill:#fafafa
+    style Dependency fill:#fcfcfc
+</code></pre>
+<p>三个关键设计决策：</p>
+<table>
+<thead>
+<tr>
+<th>决策</th>
+<th>做法</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>工具描述只放速查表</td>
+<td>_COMPACT_TABLE ~800 tokens</td>
+<td>每次 LLM 调用都加载工具描述，必须短</td>
+</tr>
+<tr>
+<td>完整参数放沙箱文件</td>
+<td>chart_params.md 手动维护</td>
+<td>Agent 需要时主动 read_file 查看</td>
+</tr>
+<tr>
+<td>两段式调用</td>
+<td>先 read_file 参考 → 再 generate_visualization</td>
+<td>需要时才加载详细 schema，不浪费上下文</td>
+</tr>
+</tbody></table>
+<h3 id="五、Agent-使用时的实际调用流程"><a href="#五、Agent-使用时的实际调用流程" class="headerlink" title="五、Agent 使用时的实际调用流程"></a>五、Agent 使用时的实际调用流程</h3><pre><code class="Plain">Agent 收到任务: &quot;对比博世、电装、德尔福的价格，用柱状图展示&quot;
+
+  Step 1: 分析需求 → 柱状图适合类别对比 → chart_type = &quot;bar&quot;
+  
+  Step 2: 看工具描述中的速查表 → bar 属于 category-value 模式
+          → data 格式: [{category, value}]
+          → 没有特殊必填参数 → 直接调用，不需要 read_file
+  
+  Step 3: generate_visualization(
+            chart_type=&quot;bar&quot;,
+            chart_config={
+              &quot;data&quot;: [
+                {&quot;category&quot;: &quot;博世&quot;, &quot;value&quot;: 45.5},
+                {&quot;category&quot;: &quot;电装&quot;, &quot;value&quot;: 38.2},
+                {&quot;category&quot;: &quot;德尔福&quot;, &quot;value&quot;: 52.0}
+              ],
+              &quot;title&quot;: &quot;火花塞供应商价格对比&quot;,
+              &quot;axisYTitle&quot;: &quot;单价 (元)&quot;
+            }
+          )
+  
+  Step 4: 返回图片 URL → Agent 展示给用户
+
+
+Agent 收到任务: &quot;用思维导图梳理采购策略&quot;
+
+  Step 1: 分析 → chart_type = &quot;mind_map&quot;
+  
+  Step 2: 看速查表 → mind_map 属于&quot;特殊图表&quot;分组
+          → data: {name, children: [{name, children: [...]}]}，最大深度3
+          → 格式不直观 → 不确定具体字段 → 先 read_file
+  
+  Step 3: read_file(&quot;/skills/procurement/chart_params.md&quot;)
+          → 看到完整的 data 结构示例，确认格式
+  
+  Step 4: generate_visualization(&quot;mind_map&quot;, {...})
+</code></pre>
+<p>两种路径：简单图表 Agent 可以凭速查表直接调，复杂图表 Agent 自己判断需要参考文件。这个”自己判断”的能力取决于模型对数据结构的推理——速查表的 <code>{name, children: [...]}</code> 语法是否足够清晰。</p>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/05/AI/OpenClaw/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%85%B7%E4%BD%93Harness%E6%9E%B6%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">项目中具体Harness架构的实现</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/05/AI/OpenClaw/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%88Context-Engineering%EF%BC%89/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">上下文工程（Context-Engineering）</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87"><span class="toc-list-number">1.</span> <span class="toc-list-text">项目准备</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E6%9E%B6%E6%9E%84"><span class="toc-list-number">2.</span> <span class="toc-list-text">项目目录架构</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Multi-Agent%E7%9A%84%E6%8F%8F%E8%BF%B0"><span class="toc-list-number">3.</span> <span class="toc-list-text">Multi-Agent的描述</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%B8%BB-Agent%EF%BC%88Orchestrator%EF%BC%89"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">主 Agent（Orchestrator）</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#procurement-analyst%EF%BC%88%E9%87%87%E8%B4%AD%E5%88%86%E6%9E%90%E5%AD%90Agent%EF%BC%89"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">procurement-analyst（采购分析子Agent）</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#procurement-order%EF%BC%88%E9%87%87%E8%B4%AD%E8%AE%A2%E5%8D%95%E5%AD%90Agent%EF%BC%89"><span class="toc-list-number">3.3.</span> <span class="toc-list-text">procurement-order（采购订单子Agent）</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A0%B8%E5%BF%83%E6%95%B0%E6%8D%AE%E6%B5%81%E7%A8%8B"><span class="toc-list-number">4.</span> <span class="toc-list-text">核心数据流程</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%AD%98%E5%82%A8%E6%9E%B6%E6%9E%84%EF%BC%88CompositeBackend-%E5%88%86%E6%B5%81%EF%BC%89"><span class="toc-list-number">5.</span> <span class="toc-list-text">存储架构（CompositeBackend 分流）</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-list-number">6.</span> <span class="toc-list-text">项目中的自定义中间件</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E6%80%BB%E7%BB%93"><span class="toc-list-number">6.1.</span> <span class="toc-list-text">设计原则总结</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%AF%8F%E4%B8%AA%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E8%AF%B4%E6%98%8E"><span class="toc-list-number">6.2.</span> <span class="toc-list-text">每个中间件的说明</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#1-ContextInjectionMiddleware-before-agent"><span class="toc-list-number">6.2.1.</span> <span class="toc-list-text">[1] ContextInjectionMiddleware before_agent</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#2-SkillsSyncMiddleware-before-agent"><span class="toc-list-number">6.2.2.</span> <span class="toc-list-text">[2] SkillsSyncMiddleware before_agent</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#3-UserSkillsRestoreMiddleware-before-agent"><span class="toc-list-number">6.2.3.</span> <span class="toc-list-text">[3] UserSkillsRestoreMiddleware before_agent</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#4-SummarizationToolMiddleware-before-model"><span class="toc-list-number">6.2.4.</span> <span class="toc-list-text">[4] SummarizationToolMiddleware before_model</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#5-MemoryUpdateMiddleware-after-agent"><span class="toc-list-number">6.2.5.</span> <span class="toc-list-text">[5] MemoryUpdateMiddleware after_agent</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#6-ModelCallLimitMiddleware"><span class="toc-list-number">6.2.6.</span> <span class="toc-list-text">[6] ModelCallLimitMiddleware</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#7-ToolCallLimitMiddleware"><span class="toc-list-number">6.2.7.</span> <span class="toc-list-text">[7] ToolCallLimitMiddleware</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Agent%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-list-number">7.</span> <span class="toc-list-text">Agent懒加载的设计</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="toc-list-number">7.1.</span> <span class="toc-list-text">为什么需要懒加载</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#AgentProxy-%E7%9A%84%E4%B8%89%E5%B1%82%E8%AE%BE%E8%AE%A1"><span class="toc-list-number">7.2.</span> <span class="toc-list-text">_AgentProxy 的三层设计</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#getattr-%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86%EF%BC%88agent-astream-%E7%9B%B4%E6%8E%A5%E7%94%A8%EF%BC%89"><span class="toc-list-number">7.2.1.</span> <span class="toc-list-text">getattr 透明代理（agent.astream() 直接用）</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#ensure-initialized-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%A3%80%E6%B5%8B"><span class="toc-list-number">7.2.2.</span> <span class="toc-list-text">_ensure_initialized() 事件循环检测</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#get-agent-get-agent-async-%E6%98%BE%E5%BC%8F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-list-number">7.2.3.</span> <span class="toc-list-text">get_agent() &#x2F; get_agent_async() 显式初始化</span></a></li></ol></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E8%AE%BE%E8%AE%A1%E4%BC%98%E5%8A%BF"><span class="toc-list-number">7.3.</span> <span class="toc-list-text">设计优势</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#MCP%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD26-%E4%B8%AA%E5%B7%A5%E5%85%B7%E5%A6%82%E4%BD%95%E5%90%88%E5%B9%B6"><span class="toc-list-number">8.</span> <span class="toc-list-text">MCP服务器中26+个工具如何合并</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%AE%83%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="toc-list-number">8.1.</span> <span class="toc-list-text">它解决什么问题</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%B7%A5%E5%85%B7%E6%8F%8F%E8%BF%B0%E7%9A%84-token-%E9%A2%84%E7%AE%97%E7%AD%96%E7%95%A5"><span class="toc-list-number">8.2.</span> <span class="toc-list-text">工具描述的 token 预算策略</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E5%B7%A5%E5%85%B7%E6%9C%AC%E4%BD%93%EF%BC%88-50-tokens%EF%BC%89"><span class="toc-list-number">8.2.1.</span> <span class="toc-list-text">第一部分：工具本体（~50 tokens）</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9A-COMPACT-TABLE-%E9%80%9F%E6%9F%A5%E8%A1%A8%EF%BC%88-800-tokens%EF%BC%89"><span class="toc-list-number">8.2.2.</span> <span class="toc-list-text">第二部分：_COMPACT_TABLE 速查表（~800 tokens）</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A%E5%AE%8C%E6%95%B4%E5%8F%82%E6%95%B0%E6%96%87%E6%A1%A3%EF%BC%88%E6%B2%99%E7%AE%B1%E6%96%87%E4%BB%B6%EF%BC%89"><span class="toc-list-number">8.2.3.</span> <span class="toc-list-text">第三部分：完整参数文档（沙箱文件）</span></a></li></ol></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%B7%A5%E5%8E%82%E5%87%BD%E6%95%B0-create-generate-chart-tool-%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-list-number">8.3.</span> <span class="toc-list-text">工厂函数 create_generate_chart_tool() 的输入输出</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E8%B7%AF%E7%94%B1%EF%BC%9Agenerate-visualization-%E5%86%85%E9%83%A8"><span class="toc-list-number">8.4.</span> <span class="toc-list-text">运行时路由：generate_visualization 内部</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%B8%80%E4%B8%AA%E5%AE%B9%E6%98%93%E8%A2%AB%E5%BF%BD%E7%95%A5%E7%9A%84%E7%BB%86%E8%8A%82"><span class="toc-list-number">8.5.</span> <span class="toc-list-text">一个容易被忽略的细节</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%BD%93%E5%89%8D%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6"><span class="toc-list-number">8.6.</span> <span class="toc-list-text">当前设计的核心机制</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BA%94%E3%80%81Agent-%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E5%AE%9E%E9%99%85%E8%B0%83%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="toc-list-number">8.7.</span> <span class="toc-list-text">五、Agent 使用时的实际调用流程</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

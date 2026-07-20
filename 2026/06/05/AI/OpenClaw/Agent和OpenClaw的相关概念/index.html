@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Agent和OpenClaw的相关概念 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-05
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">Agent和OpenClaw的相关概念</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h2 id="什么是Agent？"><a href="#什么是Agent？" class="headerlink" title="什么是Agent？"></a>什么是Agent？</h2><p><strong>Agent的核心定义是：将大语言模型与工具结合，创建一个能够推理任务、决定使用哪个工具，并迭代式地寻找解决方案，一直到最后完成用户指定任务的系统软件。</strong></p>
+<p>可以这样理解：</p>
+<ul>
+<li><strong>大语言模型</strong> 是系统的“大脑”，负责理解和推理，规划下一步行动。</li>
+<li><strong>工具</strong> 是系统的“手”和“感官”，能让Agent执行具体的操作（如计算、搜索网络、查询数据库等）。</li>
+<li><strong>Agent</strong> 是一个协调“大脑”和“手”的自动化工作流。它根据模型对任务的理解，智能地选择并调用一个或多个工具，根据工具的返回结果（观察）再次进行推理，循环往复，直到任务完成或达到停止条件。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260620111308150.png" alt="image-20260620111308150"></p>
+<h3 id="Agent和传统调用大模型的区别"><a href="#Agent和传统调用大模型的区别" class="headerlink" title="Agent和传统调用大模型的区别"></a>Agent和传统调用大模型的区别</h3><p><strong>2025年是“Agent元年”！从“思考”到“行动”的范式跃迁，2026年是Agent爆发年！</strong></p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>AIGC (如 ChatGPT)</th>
+<th>AI Agent (如 Manus, OpenClaw)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>核心能力</td>
+<td>内容生成</td>
+<td>任务规划与自主执行</td>
+</tr>
+<tr>
+<td>交互模式</td>
+<td>被动响应，依赖提示词</td>
+<td>主动规划，自主决策</td>
+</tr>
+<tr>
+<td>输出结果</td>
+<td>建议、方案、内容（需人工后续处理）</td>
+<td>可交付的最终成果（如已发送的邮件、整理好的报表）</td>
+</tr>
+<tr>
+<td>与外界交互</td>
+<td>有限，主要通过文本</td>
+<td>强大，可通过工具调用操作现实世界系统</td>
+</tr>
+</tbody></table>
+<h3 id="Agent的运行原理"><a href="#Agent的运行原理" class="headerlink" title="Agent的运行原理"></a>Agent的运行原理</h3><p>Agent的工作遵循经典的 <strong>ReAct（Reasoning + Acting， 推理+行动）</strong> 模式，</p>
+<p><strong>工作流程说明：</strong></p>
+<ol>
+<li><p><strong>用户输入</strong>：任务开始时，用户向Agent提出问题。</p>
+</li>
+<li><p><strong>模型推理</strong>：大语言模型分析当前任务和状态，决定下一步做什么。它可能决定“我无法直接回答，需要调用一个工具来获取信息”，并生成一个“工具调用动作”。</p>
+</li>
+<li><p><strong>工具调用</strong>：Agent执行模型指定的工具，例如进行一次网络搜索或数据库查询，并将执行结果（观察）返回。</p>
+</li>
+<li><p><strong>迭代</strong>：这个观察结果会和之前的对话历史一起，再次输入给模型。模型基于新的信息进行下一轮推理，可能继续调用其他工具，或认为已经掌握了足够信息，可以生成最终答案。</p>
+</li>
+<li><p><strong>最终输出</strong>：当模型认为任务已达成或达到迭代限制时，它会生成一个最终的、面向用户的答案。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260620111507712.png" alt="image-20260620111507712"></p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>说明</th>
+<th>关键点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Agent</td>
+<td>模型 + 工具的工作流协调器</td>
+<td>遵循ReAct循环，智能调度工具完成任务。</td>
+</tr>
+<tr>
+<td>模型</td>
+<td>大脑，负责推理</td>
+<td>可静态配置，也可动态选择。</td>
+</tr>
+<tr>
+<td>工具</td>
+<td>手脚，负责执行相关动作</td>
+<td>可静态定义，也可基于权限&#x2F;状态动态过滤或注册。</td>
+</tr>
+<tr>
+<td>系统提示</td>
+<td>角色设定与行为指南</td>
+<td>可静态设置，也可根据上下文动态生成。</td>
+</tr>
+<tr>
+<td>状态+上下文</td>
+<td>短期记忆</td>
+<td>包含消息历史，可扩展以存储自定义信息。</td>
+</tr>
+<tr>
+<td>中间件</td>
+<td>功能扩展插件</td>
+<td>在执行的各个阶段插入自定义逻辑，实现高级控制。</td>
+</tr>
+<tr>
+<td>结构化输出</td>
+<td>控制输出格式</td>
+<td>确保Agent的最终回答符合预定义的结构。</td>
+</tr>
+<tr>
+<td>Skills</td>
+<td>技能包，另外的手脚</td>
+<td>可通过渐进式加载来，让Agent动态加载需要用的Skill</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h3 id="WorkFlow和Agent区别"><a href="#WorkFlow和Agent区别" class="headerlink" title="WorkFlow和Agent区别"></a>WorkFlow和Agent区别</h3><p>React 的 Agent 是一种典型的智能体，而 Workflows 是一个更广泛的概念，代表多种预设的、结构化的 LLM 编排模式，之前的 React Agent 只是 WorkFlow 的其中一种简单模式。但 Workflows 还包括其他**非 React Agent **的模式，包含多样化的图形结构，例如串联、并行处理、路由等。这些模式也用 LLM 来做意图决策，但其流程是预设的、结构化的。它是一种更广泛的“编排模式”或“架构模式”的统称。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260620111715964.png" alt="image-20260620111715964"></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260620111735264.png" alt="image-20260620111735264"></p>
+<p>简单来说：</p>
+<ul>
+<li>当您需要一个能自己“思考”并决定如何使用工具来完成复杂、开放式任务的助手时，您应该构建一个 <strong>Agent</strong>。</li>
+<li>当您需要将一系列明确的、结构化的 LLM 调用步骤自动化时（例如先翻译、再总结、最后润色），您应该设计一个 <strong>Workflow</strong>。Agent可以作为这个Workflow 中的一个组件，但并非必须。</li>
+</ul>
+<h2 id="AI工具-框架分类"><a href="#AI工具-框架分类" class="headerlink" title="AI工具&#x2F;框架分类"></a>AI工具&#x2F;框架分类</h2><p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260620111847780.png" alt="image-20260620111847780"></p>
+<p>其核心定位和类别可归纳如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>概念</th>
+<th>核心定位与描述</th>
+<th>目标用户</th>
+<th>典型用例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AI大模型工具平台 (低代码&#x2F;可视化应用构建)</td>
+<td>Dify</td>
+<td>一个开源的LLM应用开发平台，提供可视化的方式搭建工作流、RAG引擎，旨在让开发者快速搭建Agent或者RAG和部署AI应用。</td>
+<td>应用开发者、产品经理、企业团队</td>
+<td>快速搭建客服机器人、知识库问答、AI智能体等。</td>
+</tr>
+<tr>
+<td></td>
+<td>Coze</td>
+<td>字节跳动推出的AI Bot开发平台，同样强调低代码和插件生态，用户可通过组装插件、工作流快速搭建并发布AI智能体。</td>
+<td>个人创作者、产品运营、开发者</td>
+<td>创建并发布到多种渠道（如飞书、微信）的聊天机器人、自动化助手。</td>
+</tr>
+<tr>
+<td></td>
+<td>n8n</td>
+<td>一个强大的开源工作流自动化工具。有强大的节点生态（含AI节点）和逻辑编排能力，常被用于搭建复杂的、多步骤的自动化AI Agent。</td>
+<td>业务人员、开发者、自动化工程师</td>
+<td>构建集成了AI判断、API调用、数据处理的复杂业务流程自动化。</td>
+</tr>
+<tr>
+<td>通用的Agent软件(可执行的智能体应用)</td>
+<td>OpenClaw</td>
+<td>一个开源的多模态AI智能体软件应用，旨在理解和操作图形用户界面（GUI），可模拟人类在电脑上完成各种任务。</td>
+<td>研究者、对桌面自动化有需求的业务人员</td>
+<td>自动完成网页操作、软件使用、信息收集等跨应用任务。</td>
+</tr>
+<tr>
+<td></td>
+<td>Claude Code</td>
+<td>它是一个可以被调用的、具有代码执行能力的AI“功能”，可被视为一个原子性的、功能强大的Agent软件。</td>
+<td>所有Claude用户</td>
+<td>执行数据分析、图表绘制、文件处理、数学计算等需要代码执行的任务。</td>
+</tr>
+<tr>
+<td>Agent的开发框架 (用于编程构建Agent)</td>
+<td>LangChain</td>
+<td>最流行的AI应用开发框架之一。提供模块化组件（Models, Tools, Memory等）和“链”的抽象，用于编排基于LLM的应用程序和基础Agent。</td>
+<td>AI应用开发者</td>
+<td>构建复杂的、多步骤的问答系统、文档分析工具、自定义Agent。</td>
+</tr>
+<tr>
+<td></td>
+<td>LangGraph</td>
+<td>构建在LangChain之上的框架，用于创建有状态的、多智能体工作流。其核心是通过“图”来定义Agent或工具之间的循环和条件流转，适合构建复杂、长期运行的Agent系统。</td>
+<td>需要构建复杂协作Agent的开发者</td>
+<td>构建模拟游戏、多角色协作系统、包含复杂决策循环的自治Agent。</td>
+</tr>
+<tr>
+<td></td>
+<td>DeepAgents</td>
+<td>LangChain生态中一个专注于构建“深度”或“长周期”任务Agent的框架。它提供了虚拟文件系统、任务规划、子Agent委托、高效的上下文管理等高级能力，专门为处理需要长时间运行、多步骤交互的复杂任务而设计。</td>
+<td>需要构建处理复杂、长期任务Agent的开发者</td>
+<td>执行代码库分析重构、自动化研究、需要多轮规划和文件交互的复杂项目。</td>
+</tr>
+<tr>
+<td></td>
+<td>Spring AI</td>
+<td>Spring生态系统的AI集成框架。它为Java&#x2F;Kotlin开发者提供了一套统一的API，来调用各种大模型并提供RAG、函数调用等基础组件，方便在Spring应用中集成AI能力。</td>
+<td>Java&#x2F;Spring生态的开发者</td>
+<td>在现有的Spring Boot企业应用中快速集成大模型聊天、摘要、分类等功能。</td>
+</tr>
+</tbody></table>
+<p><strong>平台 vs. 框架 vs. 软件</strong></p>
+<ul>
+<li><strong>平台 (Platform)<strong>：如 <strong>Dify, Coze</strong>。提供</strong>开箱即用</strong>的环境，通常有Web界面，通过可视化拖拽和配置来搭建应用Agent。它们负责底层的基础设施（如模型调度、部署），用户更关注业务逻辑组装。<strong>核心是“搭建”</strong>。</li>
+<li><strong>框架 (Framework)<strong>：如 <strong>LangChain, LangGraph, Spring AI, DeepAgents</strong>。是一套</strong>代码库和规范</strong>，为开发者提供构建模块和最佳实践。开发者需要编写代码来使用它们，拥有更高的灵活性和控制力。<strong>核心是“开发”</strong>。</li>
+<li><strong>软件&#x2F;应用 (Software)<strong>：如 <strong>OpenCode, OpenClaw</strong>。是一个</strong>可独立运行的程序</strong>，拥有自己的运行时和用户界面，用于完成特定类型的任务（自动化、GUI操作）。用户通过配置和使用它来直接产生价值。<strong>核心是：用</strong></li>
+</ul>
+<h2 id="OpenClaw-介绍"><a href="#OpenClaw-介绍" class="headerlink" title="OpenClaw 介绍"></a>OpenClaw 介绍</h2><p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260620112409458.png" alt="image-20260620112409458"></p>
+<p><strong>OpenClaw</strong>（曾用名 Clawdbot，中文昵称“小龙虾”）是一款 <strong>运行在本地设备上的开源通用型的AI智能体（Agent）</strong>。它由奥地利独立开发者 Peter Steinberger（PSPDFKit创始人）于2025年底创建，在2026年初迅速爆红，GitHub星标数在短时间内突破27万，成为全球最受关注的开源项目之一。</p>
+<p><strong>模块化与Skills系统架构：</strong></p>
+<ul>
+<li>OpenClaw的能力通过 <strong>Skills（技能）</strong> 进行扩展。每个Skill都是一个包含自然语言指令的文件夹，相当于一份“标准作业程序（SOP）”，教会AI处理特定任务。</li>
+<li>采用 <strong>“渐进式信息披露”</strong> 策略：启动时只加载Skill的元数据描述，当任务匹配时，才动态加载详细指令，极大优化了Token使用效率。</li>
+<li>拥有庞大的社区技能市场 <strong>ClawHub</strong>，提供超过500个现成技能，覆盖办公、开发、数据分析等场景。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260620112612597.png" alt="image-20260620112612597"></p>
+<p><strong>争议与风险：</strong></p>
+<ul>
+<li><strong>极高的安全风险</strong>：这是最受关注的问题。它需要<strong>极高的系统权限</strong>，一旦被恶意利用或遭受“提示注入攻击”，可能导致敏感数据泄露、系统被完全控制。国家网络与信息安全信息通报中心已发布专项风险预警。</li>
+<li><strong>供应链投毒</strong>：社区技能市场（ClawHub）中，<strong>约10.8%的Skill技能包被检测出包含恶意代码</strong>，用户安装技能时极易“中招”。</li>
+<li><strong>行为不可控</strong>：AI在执行复杂指令时可能发生“权限失控”，无视用户后续指令，进行危险操作（如删除文件）。</li>
+<li><strong>使用成本与门槛</strong>：复杂任务消耗的Token量巨大，账单可能失控；同时其部署和维护仍有技术门槛，对普通用户并不友好。</li>
+</ul>
+<h2 id="OpenClaw的影响"><a href="#OpenClaw的影响" class="headerlink" title="OpenClaw的影响"></a>OpenClaw的影响</h2><p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260620112703281.png" alt="image-20260620112703281"></p>
+<p>OpenClaw的崛起标志着AI从 “对话与内容生成” 时代，正式迈入 “自主执行与行动” 的Agent时代。它不再是一个玩具，而是一个切实的 生产力工具原型。它的模块化与Skills系统架构证明<strong>：</strong><em><strong>这是一套新的Agent软件开发中可行的方案！</strong></em></p>
+<p><strong>“Agent + Skills” 架构是一种高度模块化、可扩展的设计范式</strong>，用于构建复杂且专业的AI智能体系统。其核心思想是将智能体的基础推理与执行能力（Agent）与其专业技能和工作流（Skills）解耦。</p>
+<p>这种架构的具体构成及其为开发AI Agent系统软件带来的显著优势。该架构通常包含两个核心层级：</p>
+<ol>
+<li><strong>智能体核心层</strong><ul>
+<li>这是系统的“通用大脑”，由框架（如LangChain，DeepAgents）提供。它负责基础的任务理解、规划、决策、工具调用和上下文管理。</li>
+<li>一个强大的智能体核心应具备<strong>规划能力</strong>、<strong>环境交互能力</strong>（虚拟文件系统工具<code>ls</code>， <code>read_file</code>， <code>write_file</code>等）、<strong>任务分解能力</strong>（子Agent）以及关键的<strong>长上下文管理能力</strong>（通过内容卸载与摘要化来维持长期记忆）。这是支撑复杂任务的基础。</li>
+</ul>
+</li>
+<li><strong>技能模块层</strong><ul>
+<li>这是系统的“专业化技能包”。每个Skill是一个独立的模块，包含完成特定领域任务所需的所有知识、指令和资源。</li>
+<li>一个技能是一个目录，其核心是一个 <code>SKILL.md</code>文件。该文件包含元数据（名称、描述）和详细的、循序渐进的指令，并可引用其他脚本、模板等资源。</li>
+</ul>
+</li>
+</ol>
+<p>采用“Agent + Skills”的模块化架构，能为系统设计和开发带来多方面的重要优势：</p>
+<ol>
+<li><p>极致的可扩展性与灵活性：</p>
+<p>新能力的添加不再需要修改智能体核心代码。开发者或领域专家可以像“开发插件”一样，独立地创建和封装新的Skill（只需遵循<code>SKILL.md</code>规范）。系统能力可以通过累积Skills的方式无限扩展。</p>
+</li>
+<li><p>卓越的Token与上下文管理效率：</p>
+<p> 这是“渐进式披露”机制带来的最直接好处。智能体启动时无需将大量、可能无关的专业指令全部载入系统提示词，极大节省了初始上下文窗口。只有在确需时，才支付读取特定技能详细内容的Token成本。这直接支撑了更复杂、集成更多专业知识的智能体成为可能。</p>
+</li>
+<li><p>清晰的关注点分离与专业分工：</p>
+<p><strong>智能体核心开发者</strong>专注于提升基础能力：优化规划算法、增强工具使用稳定性、改进上下文管理策略等（如优化内容卸载策略 ）。<strong>技能开发者</strong>则专注于领域知识：将最佳实践编写成精准、可重复执行的指令，无需关心底层智能体如何调度与记忆。</p>
+</li>
+<li><p>提升系统的可维护性与可靠性：</p>
+<p>技能模块化使得调试和更新变得更容易。如果某个领域任务执行出错，可以独立检查和修复对应的Skill指令，而不会影响智能体核心或其他技能。技能的版本管理也变得可行。</p>
+</li>
+<li><p>实现动态的能力组合：</p>
+<p> 对于复杂任务，智能体核心可以规划并串联调用多个Skills来协同完成。这种动态组合能力使得智能体能够应对远超单个技能范围的复杂、跨领域工作流。</p>
+</li>
+</ol>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/05/AI/OpenClaw/DeepAgents%E6%A1%86%E6%9E%B6%E5%88%9D%E6%8E%A2/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">DeepAgents框架初探</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/05/AI/LangChain/Agent%E6%99%BA%E8%83%BD%E4%BD%93/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">Agent 智能体</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFAgent%EF%BC%9F"><span class="toc-list-number">1.</span> <span class="toc-list-text">什么是Agent？</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Agent%E5%92%8C%E4%BC%A0%E7%BB%9F%E8%B0%83%E7%94%A8%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">Agent和传统调用大模型的区别</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Agent%E7%9A%84%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">Agent的运行原理</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#WorkFlow%E5%92%8CAgent%E5%8C%BA%E5%88%AB"><span class="toc-list-number">1.3.</span> <span class="toc-list-text">WorkFlow和Agent区别</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#AI%E5%B7%A5%E5%85%B7-%E6%A1%86%E6%9E%B6%E5%88%86%E7%B1%BB"><span class="toc-list-number">2.</span> <span class="toc-list-text">AI工具&#x2F;框架分类</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#OpenClaw-%E4%BB%8B%E7%BB%8D"><span class="toc-list-number">3.</span> <span class="toc-list-text">OpenClaw 介绍</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#OpenClaw%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-list-number">4.</span> <span class="toc-list-text">OpenClaw的影响</span></a></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

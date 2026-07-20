@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Models 模型 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-05
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">Models 模型</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h2 id="模型初始化"><a href="#模型初始化" class="headerlink" title="模型初始化"></a>模型初始化</h2><p>LangChain 支持所有主流模型提供商，包括  OpenAI、Anthropic、Google、Azure、AWS Bedrock  等，每个提供商都提供多种具有不同功能的模型(Chat、Embedding、图像、多模态等)，有关 LangChain  支持模型的完整列表，请参阅：<a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/integrations/providers/all_providers">https://docs.langchain.com/oss/python/integrations/providers/all_providers</a></p>
+<p>LangChain中使用模型可以单独使用或者在Agent中使用，无论哪种使用方式，都要进行模型初始化，本小节重点讲解LangChain中单独使用模型的初始化方式，关于在Agent中使用大模型可以学习后续章节。</p>
+<p>在 LangChain 中初始化模型，主要可以通过直接使用特定的Model Class和使用统一的init_chat_model函数这两种方式来实现，下面分别介绍。</p>
+<h3 id="Model-Class方式初始化模型"><a href="#Model-Class方式初始化模型" class="headerlink" title="Model Class方式初始化模型"></a>Model Class方式初始化模型</h3><p>Model Class方式初始化模型最为直接，需要根据要使用的模型提供商，导入对应的具体类（如 ChatOpenAI, ChatAnthropic）并进行实例化。</p>
+<p>下面以聊天模型为例介绍常见的聊天模式初始化：ChatOpenAI、ChatAnthropic、ChatDeepSeek、ChatOllama、ChatHunyuan、ChatTongyi、ChatZhipuAI按照如下步骤初始化各个模型。</p>
+<ol>
+<li><p>安装必要依赖</p>
+<pre><code class="shell">#切换python环境
+conda activate langchain_v1.2
+
+#安装ChatOpenAI依赖包
+pip install langchain-openai==1.1.6
+
+#安装ChatAnthropic依赖包
+pip install langchain-anthropic==1.3.1
+
+#安装ChatDeepSeek 依赖包
+pip install langchain-deepseek==1.0.1
+
+#安装ChatOllama 依赖包
+pip install langchain-ollama==1.0.1
+
+#安装 ChatHunyuan、ChatTongyi、ChatZhipuAI依赖包
+pip install langchain-community==0.4.1
+
+#安装 ChatHunyuan依赖包
+pip install tencentcloud-sdk-python==3.1.28
+
+#安装 ChatTongyi依赖包
+pip install dashscope==1.25.6
+
+#安装 ChatZhipuAI依赖包
+pip install pyjwt==2.10.1
+</code></pre>
+</li>
+<li><p>在 <strong>.env</strong> 中配置各个模型所需的 <strong>API_KEY</strong> 和模型 <strong>BASE_URL</strong> 环境变量</p>
+<pre><code class="yaml">DEEPSEEK_API_KEY=sk-...4
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+
+OPENAI_API_KEY=sk-...F
+OPENAI_BASE_URL=https://api.uchat.site/v1
+
+ANTHROPIC_API_KEY=sk-...F
+ANTHROPIC_BASE_URL=https://api.uchat.site
+
+HUNYUAN_APP_ID=1...8
+HUNYUAN_SECRET_ID=A...7
+HUNYUAN_SECRET_KEY=Y0...W
+
+DASHSCOPE_API_KEY=sk-...4
+DASHSCOPE_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+
+ZHIPUAI_API_KEY=e...k
+ZHIPUAI_BASE_URL=https://open.bigmodel.cn/api/paas/v4
+</code></pre>
+<p>注意：以上<strong>OpenAI</strong>和 <strong>Anthropic</strong> 对应的 apikey 和 base_url 是通过中转key进行连接。</p>
+</li>
+<li><p>在 <strong>env_util.py</strong> 文件中获取配置的 API_KEY 和 BASE_URL 环境变量的值</p>
+<pre><code class="python">import os
+
+from dotenv import load_dotenv
+
+# override=True 确保.env文件优先
+load_dotenv(override=True)
+
+# 从环境变量读取配置
+DEEPSEEK_API_KEY = os.getenv(&quot;DEEPSEEK_API_KEY&quot;)
+DEEPSEEK_BASE_URL = os.getenv(&quot;DEEPSEEK_BASE_URL&quot;)
+
+OPENAI_API_KEY = os.getenv(&quot;OPENAI_API_KEY&quot;)
+OPENAI_BASE_URL = os.getenv(&quot;OPENAI_BASE_URL&quot;)
+
+ANTHROPIC_API_KEY = os.getenv(&quot;ANTHROPIC_API_KEY&quot;)
+ANTHROPIC_BASE_URL = os.getenv(&quot;ANTHROPIC_BASE_URL&quot;)
+
+HUNYUAN_APP_ID = os.getenv(&quot;HUNYUAN_APP_ID&quot;)
+HUNYUAN_SECRET_ID = os.getenv(&quot;HUNYUAN_SECRET_ID&quot;)
+HUNYUAN_SECRET_KEY = os.getenv(&quot;HUNYUAN_SECRET_KEY&quot;)
+
+DASHSCOPE_API_KEY = os.getenv(&quot;DASHSCOPE_API_KEY&quot;)
+DASHSCOPE_BASE_URL = os.getenv(&quot;DASHSCOPE_BASE_URL&quot;)
+
+ZHIPUAI_API_KEY = os.getenv(&quot;ZHIPUAI_API_KEY&quot;)
+ZHIPUAI_BASE_URL = os.getenv(&quot;ZHIPUAI_BASE_URL&quot;)
+</code></pre>
+</li>
+<li><p>在 <strong>llm_util.py</strong> 中创建各个聊天大模型对象</p>
+<pre><code class="python">from langchain_anthropic import ChatAnthropic
+from langchain_community.chat_models import ChatHunyuan, ChatTongyi, ChatZhipuAI
+from langchain_deepseek import ChatDeepSeek
+from langchain_ollama import ChatOllama
+from langchain_openai import ChatOpenAI
+
+from env_utils import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL, OPENAI_API_KEY, OPENAI_BASE_URL, ANTHROPIC_API_KEY, \
+    ANTHROPIC_BASE_URL, HUNYUAN_APP_ID, HUNYUAN_SECRET_ID, HUNYUAN_SECRET_KEY, DASHSCOPE_API_KEY, DASHSCOPE_BASE_URL, \
+    ZHIPUAI_API_KEY, ZHIPUAI_BASE_URL
+
+# 创建DeepSeek LLM
+deepseek_llm = ChatDeepSeek(
+    api_key=DEEPSEEK_API_KEY,
+    api_base=DEEPSEEK_BASE_URL, # 注意：这里是api_base，不是base_url
+    model=&quot;deepseek-chat&quot;,
+)
+
+
+openai_llm = ChatOpenAI(
+    api_key=OPENAI_API_KEY,
+    base_url=OPENAI_BASE_URL,
+    model=&quot;gpt-4&quot;,
+)
+
+anthropic_llm = ChatAnthropic(
+    api_key=ANTHROPIC_API_KEY,
+    base_url=ANTHROPIC_BASE_URL,
+    model=&quot;claude-3-5-haiku-latest&quot;,
+)
+
+
+ollama_llm = ChatOllama(
+    base_url=&quot;http://192.168.1.106:11434&quot;,
+    model=&quot;deepseek-r1:1.5b&quot;,
+)
+
+hunyuan_llm = ChatHunyuan(
+    hunyuan_app_id = HUNYUAN_APP_ID,
+    hunyuan_secret_id = HUNYUAN_SECRET_ID,
+    hunyuan_secret_key = HUNYUAN_SECRET_KEY,
+    model=&quot;hunyuan-lite&quot;,
+)
+
+tongyi_llm = ChatTongyi(
+    api_key=DASHSCOPE_API_KEY,
+    model=&quot;qwen-plus&quot;,
+)
+
+
+zhipu_llm = ChatZhipuAI(
+    api_key=ZHIPUAI_API_KEY,
+    model=&quot;glm-4&quot;,
+)
+</code></pre>
+<p><font color='red'>注意：使用不同的模型可能传入的参数名称不同，可以参考对应的源码。</font></p>
+</li>
+<li><p>创建 <strong>init_model.py</strong> 文件测试连接各个大模型</p>
+<pre><code class="python">from my_llm import openai_llm, anthropic_llm, deepseek_llm, ollama_llm, hunyuan_llm, tongyi_llm, zhipu_llm
+
+print(openai_llm.invoke(&quot;请介绍一下你自己&quot;))
+print(anthropic_llm.invoke(&quot;请介绍一下你自己&quot;))
+print(deepseek_llm.invoke(&quot;请介绍一下你自己&quot;))
+print(ollama_llm.invoke(&quot;请介绍一下你自己&quot;))
+print(hunyuan_llm.invoke(&quot;请介绍一下你自己&quot;))
+print(tongyi_llm.invoke(&quot;请介绍一下你自己&quot;))
+print(zhipu_llm.invoke(&quot;请介绍一下你自己&quot;))
+</code></pre>
+<p>使用Model Class方式初始化模型注意如下几点：</p>
+<ul>
+<li><p><strong>关于ChatOpenAI Model Class 进一步扩展使用</strong></p>
+<p>如果一些模型供应商也同时兼容OpenAI ,那么也可以直接使用ChatOpenAI方式进行连接，这样对于一些目前LangChain不支持的模型供应商，但这些供应商支持标准的OpenAI 方式连接，就可以使用这种方式。例如：</p>
+<pre><code class="python"># 通过ChatOpenAI 连接deepseek模型
+deepseek_llm2 = ChatOpenAI(
+    api_key=DEEPSEEK_API_KEY,
+    base_url=DEEPSEEK_BASE_URL,
+    model=&quot;deepseek-chat&quot;,
+)
+
+#通过ChatOpenAI 连接通义千问模型
+tongyi_llm2 = ChatOpenAI(
+    api_key=DASHSCOPE_API_KEY,
+    base_url=DASHSCOPE_BASE_URL,
+    model=&quot;qwen-plus&quot;,
+)
+
+#通过ChatOpenAI 连接智普AI模型
+zhipu_llm2 = ChatOpenAI(
+    api_key=ZHIPUAI_API_KEY,
+    base_url=ZHIPUAI_BASE_URL,
+    model=&quot;glm-4&quot;,
+)
+</code></pre>
+</li>
+<li><p><strong>关于各个聊天模型LangChain使用方式可以参考如下官网</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>模型</strong>供应商</th>
+<th><strong>LangChain使用相关链接</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>OpenAI</strong></td>
+<td><a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/integrations/chat/openai">https://docs.langchain.com/oss/python/integrations/chat/openai</a></td>
+</tr>
+<tr>
+<td><strong>Anthropic</strong></td>
+<td><a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/integrations/chat/anthropic">https://docs.langchain.com/oss/python/integrations/chat/anthropic</a></td>
+</tr>
+<tr>
+<td><strong>DeepSeek</strong></td>
+<td><a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/integrations/chat/deepseek">https://docs.langchain.com/oss/python/integrations/chat/deepseek</a></td>
+</tr>
+<tr>
+<td><strong>Ollama</strong></td>
+<td><a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/integrations/chat/ollama">https://docs.langchain.com/oss/python/integrations/chat/ollama</a></td>
+</tr>
+<tr>
+<td><strong>腾讯混元</strong></td>
+<td><a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/integrations/chat/tencent_hunyuan">https://docs.langchain.com/oss/python/integrations/chat/tencent_hunyuan</a></td>
+</tr>
+<tr>
+<td><strong>通义千问</strong></td>
+<td><a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/integrations/chat/tongyi">https://docs.langchain.com/oss/python/integrations/chat/tongyi</a></td>
+</tr>
+<tr>
+<td><strong>智普AI</strong></td>
+<td><a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/integrations/chat/zhipuai">https://docs.langchain.com/oss/python/integrations/chat/zhipuai</a></td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>关于各个聊天模型在线API_Key及BaseURL查找</strong></p>
+<ol>
+<li><p>OpenAI:</p>
+<blockquote>
+<p>api_key地址：<a target="_blank" rel="noopener" href="https://platform.openai.com/api-keys">https://platform.openai.com/api-keys</a></p>
+<p>base_url地址：固定值：<a target="_blank" rel="noopener" href="https://api.openai.com/v1">https://api.openai.com/v1</a></p>
+<p>模型地址：<a target="_blank" rel="noopener" href="https://platform.openai.com/docs/models">https://platform.openai.com/docs/models</a></p>
+<p>模型价格：<a target="_blank" rel="noopener" href="https://platform.openai.com/docs/pricing">https://platform.openai.com/docs/pricing</a></p>
+</blockquote>
+<p>Anthropic:</p>
+<blockquote>
+<p>api_key地址：<a target="_blank" rel="noopener" href="https://console.anthropic.com/settings/keys">https://console.anthropic.com/settings/keys</a></p>
+<p>base_url地址：<a target="_blank" rel="noopener" href="https://console.anthropic.com/docs/zh-CN/get-started">https://console.anthropic.com/docs/zh-CN/get-started</a></p>
+<p>模型地址：<a target="_blank" rel="noopener" href="https://console.anthropic.com/docs/zh-CN/about-claude/models/overview">https://console.anthropic.com/docs/zh-CN/about-claude/models/overview</a></p>
+<p>模型价格：<a target="_blank" rel="noopener" href="https://console.anthropic.com/docs/zh-CN/about-claude/pricing">https://console.anthropic.com/docs/zh-CN/about-claude/pricing</a></p>
+</blockquote>
+<p>DeepSeek:</p>
+<blockquote>
+<p>api_key地址：<a target="_blank" rel="noopener" href="https://platform.deepseek.com/api_keys">https://platform.deepseek.com/api_keys</a></p>
+<p>base_url地址:<a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/">https://api-docs.deepseek.com/zh-cn/</a></p>
+<p>模型地址：<a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/quick_start/pricing">https://api-docs.deepseek.com/zh-cn/quick_start/pricing</a></p>
+<p>模型价格：<a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/quick_start/pricing">https://api-docs.deepseek.com/zh-cn/quick_start/pricing</a></p>
+</blockquote>
+<p>腾讯混元：</p>
+<blockquote>
+<p>api_key地址：<a target="_blank" rel="noopener" href="https://console.cloud.tencent.com/cam/capi">https://console.cloud.tencent.com/cam/capi</a></p>
+<p>base_url地址：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/api/1729/105701">https://cloud.tencent.com/document/api/1729/105701</a><br>模型地址：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/1729/104753">https://cloud.tencent.com/document/product/1729/104753</a></p>
+<p>模型价格：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/1729/97731">https://cloud.tencent.com/document/product/1729/97731</a></p>
+</blockquote>
+<p>通义千问：</p>
+<blockquote>
+<p>api_key地址：<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/?tab=model#/api-key">https://bailian.console.aliyun.com/?tab=model#/api-key</a></p>
+<p>base_url地址：<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/?tab=api#/api">https://bailian.console.aliyun.com/?tab=api#/api</a></p>
+<p>模型地址：<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/?tab=model#/model-market/all">https://bailian.console.aliyun.com/?tab=model#/model-market/all</a></p>
+<p>模型价格：<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/?tab=doc#/doc/?type=model&url=2987148">https://bailian.console.aliyun.com/?tab=doc#/doc/?type=model&amp;url=2987148</a></p>
+</blockquote>
+<p>智普AI:</p>
+<blockquote>
+<p>api_key地址：<a target="_blank" rel="noopener" href="https://bigmodel.cn/usercenter/proj-mgmt/apikeys">https://bigmodel.cn/usercenter/proj-mgmt/apikeys</a></p>
+<p>base_url地址：<a target="_blank" rel="noopener" href="https://docs.bigmodel.cn/cn/api/introduction">https://docs.bigmodel.cn/cn/api/introduction</a></p>
+<p>模型地址：<a target="_blank" rel="noopener" href="https://docs.bigmodel.cn/cn/guide/start/model-overview">https://docs.bigmodel.cn/cn/guide/start/model-overview</a></p>
+<p>模型价格：<a target="_blank" rel="noopener" href="https://open.bigmodel.cn/pricing">https://open.bigmodel.cn/pricing</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>模型供应商</th>
+<th>相关链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>OpenAI</strong></td>
+<td>api_key地址：<a target="_blank" rel="noopener" href="https://platform.openai.com/api-keys">https://platform.openai.com/api-keys</a> <br /> base_url地址：固定值：<a target="_blank" rel="noopener" href="https://api.openai.com/v1">https://api.openai.com/v1</a> <br />模型地址：<a target="_blank" rel="noopener" href="https://platform.openai.com/docs/models">https://platform.openai.com/docs/models</a> <br />模型价格：<a target="_blank" rel="noopener" href="https://platform.openai.com/docs/pricing">https://platform.openai.com/docs/pricing</a></td>
+</tr>
+<tr>
+<td><strong>Anthropic</strong></td>
+<td>api_key地址：<a target="_blank" rel="noopener" href="https://console.anthropic.com/settings/keys">https://console.anthropic.com/settings/keys</a> <br/>base_url地址：<a target="_blank" rel="noopener" href="https://console.anthropic.com/docs/zh-CN/get-started">https://console.anthropic.com/docs/zh-CN/get-started</a> <br />模型地址：<a target="_blank" rel="noopener" href="https://console.anthropic.com/docs/zh-CN/about-claude/models/overview">https://console.anthropic.com/docs/zh-CN/about-claude/models/overview</a> <br />模型价格：<a target="_blank" rel="noopener" href="https://console.anthropic.com/docs/zh-CN/about-claude/pricing">https://console.anthropic.com/docs/zh-CN/about-claude/pricing</a></td>
+</tr>
+<tr>
+<td><strong>DeepSeek</strong></td>
+<td>api_key地址：<a target="_blank" rel="noopener" href="https://platform.deepseek.com/api_keys">https://platform.deepseek.com/api_keys</a> <br />base_url地址:<a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/">https://api-docs.deepseek.com/zh-cn/</a> <br />模型地址：<a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/quick_start/pricing">https://api-docs.deepseek.com/zh-cn/quick_start/pricing</a> <br />模型价格：<a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/quick_start/pricing">https://api-docs.deepseek.com/zh-cn/quick_start/pricing</a></td>
+</tr>
+<tr>
+<td><strong>腾讯混元</strong></td>
+<td>api_key地址：<a target="_blank" rel="noopener" href="https://console.cloud.tencent.com/cam/capi">https://console.cloud.tencent.com/cam/capi</a> <br />base_url地址：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/api/1729/105701">https://cloud.tencent.com/document/api/1729/105701</a> <br />模型地址：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/1729/104753">https://cloud.tencent.com/document/product/1729/104753</a> <br />模型价格：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/1729/97731">https://cloud.tencent.com/document/product/1729/97731</a></td>
+</tr>
+<tr>
+<td><strong>通义千问</strong></td>
+<td>api_key地址：<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/?tab=model#/api-key">https://bailian.console.aliyun.com/?tab=model#/api-key</a> <br />base_url地址：<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/?tab=api#/api">https://bailian.console.aliyun.com/?tab=api#/api</a> <br />模型地址：<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/?tab=model#/model-market/all">https://bailian.console.aliyun.com/?tab=model#/model-market/all</a> <br />模型价格：<a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/?tab=doc#/doc/?type=model&url=2987148">https://bailian.console.aliyun.com/?tab=doc#/doc/?type=model&amp;url=2987148</a></td>
+</tr>
+<tr>
+<td><strong>智普AI</strong></td>
+<td>api_key地址：<a target="_blank" rel="noopener" href="https://bigmodel.cn/usercenter/proj-mgmt/apikeys">https://bigmodel.cn/usercenter/proj-mgmt/apikeys</a> <br />base_url地址：<a target="_blank" rel="noopener" href="https://docs.bigmodel.cn/cn/api/introduction">https://docs.bigmodel.cn/cn/api/introduction</a> <br />模型地址：<a target="_blank" rel="noopener" href="https://docs.bigmodel.cn/cn/guide/start/model-overview">https://docs.bigmodel.cn/cn/guide/start/model-overview</a> <br />模型价格：<a target="_blank" rel="noopener" href="https://open.bigmodel.cn/pricing">https://open.bigmodel.cn/pricing</a></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="init-chat-model初始化模型"><a href="#init-chat-model初始化模型" class="headerlink" title="init_chat_model初始化模型"></a>init_chat_model初始化模型</h3><p>init_chat_model 初始化模型是LangChain  v1.0版本后推出的模型统一初始化方法，该方法像一个智能工厂，需要传入“model”（模型）、“model_provider”（模型提供商）、“api_key”、“base_url”参数自动创建出对应的模型实例。初始化模型后，调用模型方式与ModelClass 方式完全一致。</p>
+<p>model_provider支持的常见参数:openai、anthropic、deepseek、ollama，同样，如果使用的模型供应商没有对应的provider，但是该模型供应商支持标准OpenAI访问，那么可以设置“model_provider”为“openai”。</p>
+<p>下面基于上文创建的.env、env_<a target="_blank" rel="noopener" href="http://utils.py/">utils.py</a>文件来演示init_chat_model方式初始化模型使用。</p>
+<ol>
+<li><p>创建 <strong>init_llm.py</strong> 文件使用 init_chat_model 方式初始化模型</p>
+<pre><code class="python">from langchain.chat_models import init_chat_model
+from langchain_core.language_models import BaseChatModel
+
+from env_utils import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL, OPENAI_API_KEY, OPENAI_BASE_URL, ANTHROPIC_API_KEY, \
+    ANTHROPIC_BASE_URL, DASHSCOPE_API_KEY, DASHSCOPE_BASE_URL, ZHIPUAI_API_KEY, ZHIPUAI_BASE_URL
+
+deepseek_llm: BaseChatModel = init_chat_model(
+    model=&quot;deepseek-chat&quot;,
+    model_provider=&quot;deepseek&quot;,
+    api_key=DEEPSEEK_API_KEY,
+    base_url=DEEPSEEK_BASE_URL,
+)
+
+
+openai_llm = init_chat_model(
+    model=&quot;gpt-4&quot;,
+    model_provider=&quot;openai&quot;,
+    api_key=OPENAI_API_KEY,
+    base_url=OPENAI_BASE_URL,
+)
+
+anthropic_llm = init_chat_model(
+    model=&quot;claude-3-5-haiku-latest&quot;,
+    model_provider=&quot;anthropic&quot;,
+    api_key=ANTHROPIC_API_KEY,
+    base_url=ANTHROPIC_BASE_URL,
+)
+
+
+ollama_llm = init_chat_model(
+    model=&quot;deepseek-r1:1.5b&quot;,
+    model_provider=&quot;ollama&quot;,
+    base_url=&quot;http://192.168.1.106:11434&quot;,
+)
+
+
+tongyi_llm = init_chat_model(
+    model=&quot;qwen-plus&quot;,
+    model_provider=&quot;openai&quot;,
+    api_key=DASHSCOPE_API_KEY,
+    base_url=DASHSCOPE_BASE_URL,
+
+)
+
+zhipu_llm = init_chat_model(
+    model=&quot;glm-4&quot;,
+    model_provider=&quot;openai&quot;,
+    api_key=ZHIPUAI_API_KEY,
+    base_url=ZHIPUAI_BASE_URL,
+
+)
+</code></pre>
+</li>
+<li><p>在 <strong>init_model.py</strong> 文件追加写入如下内容测试连接各个大模型</p>
+<pre><code class="python">from init_llm import deepseek_llm, openai_llm, anthropic_llm, ollama_llm, tongyi_llm, zhipu_llm
+
+print(deepseek_llm.invoke(&quot;请介绍一下你自己&quot;))
+print(openai_llm.invoke(&quot;请介绍一下你自己&quot;))
+print(anthropic_llm.invoke(&quot;请介绍一下你自己&quot;))
+print(ollama_llm.invoke(&quot;请介绍一下你自己&quot;))
+print(tongyi_llm.invoke(&quot;请介绍一下你自己&quot;))
+print(zhipu_llm.invoke(&quot;请介绍一下你自己&quot;))
+</code></pre>
+</li>
+</ol>
+<h3 id="模型初始化参数解释"><a href="#模型初始化参数解释" class="headerlink" title="模型初始化参数解释"></a>模型初始化参数解释</h3><p>在LangChain中，Model Class 和init_chat_model初始化模型共同的参数及解释：</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>参数描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>model</strong></td>
+<td>string</td>
+<td>指定要使用的模型标识符。</td>
+</tr>
+<tr>
+<td><strong>api_key</strong></td>
+<td>string</td>
+<td>用于身份验证的API密钥。建议通过环境变量设置，避免硬编码。</td>
+</tr>
+<tr>
+<td><strong>base_url</strong></td>
+<td>string</td>
+<td>指定API端点。</td>
+</tr>
+<tr>
+<td><strong>temperature</strong></td>
+<td>number</td>
+<td>控制输出的随机性，值越低，结果越确定、保守；值越高，结果越多样、有创意。</td>
+</tr>
+<tr>
+<td><strong>max_tokens</strong></td>
+<td>number</td>
+<td>限制模型响应生成的最大令牌数，有效控制回复长度。</td>
+</tr>
+<tr>
+<td><strong>timeout</strong></td>
+<td>number</td>
+<td>设置等待模型响应的最大时间（秒），超时则取消请求。</td>
+</tr>
+<tr>
+<td><strong>max_retries</strong></td>
+<td>number</td>
+<td>定义请求失败（如网络问题、速率限制）时的最大重试次数，提高鲁棒性。</td>
+</tr>
+</tbody></table>
+<p>特别提示：</p>
+<ul>
+<li>Model Class初始化模型中每个聊天模型可能有额外的参数，可以参考对应的LangChain集成页面查看；model_provider是init_chat_model方法中指定模型供应商的参数。</li>
+<li>Token并非简单的“字”或“词”，而是大模型通过分词器（Tokenizer）将输入文本拆分后的最小语义单元。不同的模型采用不同的分词算法（如BPE、WordPiece），因此同一段文本在不同模型中的Token数量可能不同。<ul>
+<li>英文Token估算：1个Token约对应0.75个英文单词或4个字符；</li>
+<li>中文Token估算：1个汉字通常对应1~2个Token，但优化较好的模型（如通义千问、文心一言）约1:1的映射。</li>
+</ul>
+</li>
+</ul>
+<h2 id="模型调用"><a href="#模型调用" class="headerlink" title="模型调用"></a>模型调用</h2><p>在 LangChain  中，模型调用（Invocation）是指通过特定方法触发大语言模型生成输出的过程。根据不同的应用场景和需求，LangChain  提供了几种核心的调用方式，主要是 invoke(), stream()和 batch()方法，以及它们的异步版本 ainvoke(),  astream(), 和 abatch(),下面将系统地介绍这些方法。</p>
+<table>
+<thead>
+<tr>
+<th><strong>核心方法</strong></th>
+<th><strong>主要特点</strong></th>
+<th><strong>适用场景</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>invoke()</strong></td>
+<td>阻塞式，一次性返回完整结果</td>
+<td>简单问答、批处理任务、无需实时反馈的场景。</td>
+</tr>
+<tr>
+<td><strong>ainvoke()</strong></td>
+<td>非阻塞，提高系统吞吐量</td>
+<td>高并发Web应用、IO密集型任务。</td>
+</tr>
+<tr>
+<td><strong>stream()</strong></td>
+<td>流式输出，实时返回每个token</td>
+<td>聊天机器人、长文本生成、需要提升用户体验的交互应用。</td>
+</tr>
+<tr>
+<td><strong>asteam()</strong></td>
+<td>非阻塞，提高系统吞吐量</td>
+<td>高并发Web应用、IO密集型任务。</td>
+</tr>
+<tr>
+<td><strong>batch()</strong></td>
+<td>批量处理多个输入</td>
+<td>高并发场景，需要同时处理大量请求。</td>
+</tr>
+<tr>
+<td><strong>abatch()</strong></td>
+<td>非阻塞，提高系统吞吐量</td>
+<td>高并发Web应用、IO密集型任务。</td>
+</tr>
+</tbody></table>
+<h3 id="Invoke调用模型"><a href="#Invoke调用模型" class="headerlink" title="Invoke调用模型"></a>Invoke调用模型</h3><p>invoke()是最直接、最常用的模型调用方法。它的工作模式是阻塞式的，即程序会等待模型完全生成整个响应后，再一次性将结果返回给用户。</p>
+<p>invoke方法非常灵活，支持三种形式的输入：单条消息、消息列表（字典格式）、消息列表（消息对象格式）。</p>
+<ol>
+<li>单条消息<br> 该方式是最简单的方式，直接传入一个问题或指令，适用于不需要保留对话历史的简单生成任务。</li>
+</ol>
+<pre><code class="python">from init_llm import deepseek_llm
+
+# 单条消息调用
+resp = deepseek_llm.invoke(&quot;请介绍一下你自己&quot;)
+print(resp.content)  # 输出:你好！我是DeepSeek，由深度求索公司创造的AI助手...
+</code></pre>
+<ol start="2">
+<li>消息列表（字典格式）</li>
+</ol>
+<p>  该方式用于表达多轮对话历史，每条消息都需要通过 role字段指定其角色（如 system, user, assistant）。</p>
+<pre><code class="python">from init_llm import deepseek_llm
+#消息列表（字典格式）调用
+conversation = [
+    {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个有帮助的助手，可以将汉语翻译成英语。&quot;},
+    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;翻译: 我喜欢编程&quot;},
+    {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;I love programming.&quot;},
+    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;翻译: 我喜欢大模型&quot;}
+]
+resp= deepseek_llm.invoke(conversation)
+print(resp.content)  # 输出: I like large models.
+</code></pre>
+<ol start="3">
+<li>消息列表（消息对象格式）</li>
+</ol>
+<p>  这是LangChain推荐的方式，使用内置的消息类（如 SystemMessage, HumanMessage, AIMessage），类型更安全，功能也更丰富。</p>
+<pre><code class="python">from init_llm import deepseek_llm
+from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+
+conversation = [
+    SystemMessage(&quot;你是一个有帮助的助手，可以将汉语翻译成英语。&quot;),
+    HumanMessage(&quot;翻译: 我喜欢编程&quot;),
+    AIMessage(&quot;I love programming.&quot;),
+    HumanMessage(&quot;翻译: 我喜欢大模型&quot;)
+]
+resp = deepseek_llm.invoke(conversation)
+print(resp.content)  # 输出: I like large models.
+</code></pre>
+<p>  使用Invoke时注意如下几点：</p>
+<ul>
+<li>关于Message types有 System message、Human message、AI message 、ToolMessage四种，解释如下：<ul>
+<li>System message：用于在对话开始时为模型设定角色、行为准则和上下文背景。它像是给AI助手的一份工作说明书，决定了其回答问题的风格、领域和专业范围。</li>
+<li>HumanMessage：代表用户的输入，包含简单的文本问题，也可以是复杂的多模态内容（如图片、音频、文档等）。在多轮对话中，它表示用户的一次发言。</li>
+<li>AIMessage ：代表模型的输出或回复，包括生成的文本、工具调用、元数据等。</li>
+<li>ToolMessage：将工具执行的结果返回给模型，让模型基于这个结果继续生成回复。</li>
+</ul>
+</li>
+<li>在“消息列表（字典格式）”输入中，支持“system、user、assistant”写法，在某些支持高级功能（如工具调用）的场景下，还可能看到 “tool”等角色，虽然 “user”和 “human”有时可以互换，但遵循你选择的主要模型提供商（如OpenAI）的惯例使用  “user”是最稳妥的做法。</li>
+<li>ChatModel（聊天模型）的 invoke方法返回的是一个 AIMessage对象，你需要通过 .content属性来获取模型生成的文本内容。</li>
+</ul>
+<h3 id="流式调用模型"><a href="#流式调用模型" class="headerlink" title="流式调用模型"></a>流式调用模型</h3><p>流式传输调用大模型允许大语言模型（LLM）在生成内容的过程中，逐块（Chunk）地实时输出结果，而不是等待整个响应完全生成后再一次性返回。流式调用大模型使用方式是通过调用 model.stream() 方法会返回一个迭代器（Iterator），你可以通过循环来实时处理每一个新生成的内容块。</p>
+<p>使用示例：</p>
+<pre><code class="python">from typing import Iterator
+from langchain_core.messages import AIMessageChunk
+from init_llm import deepseek_llm
+
+resp : Iterator[AIMessageChunk] = deepseek_llm.stream(&quot;使用20个字给我介绍什么是大模型？&quot;)
+
+for chunk in resp:
+    # print(chunk,type(chunk))
+    #end=&quot;&quot; 避免打印时自动换行，flush=True 及时刷新输出
+    print(chunk.content, end=&quot;|&quot;, flush=True)
+</code></pre>
+<p>注意：stream()方法是流式调用，立即返回一个迭代器，逐个产生 AIMessageChunk对象。每个块都包含输出内容的一部分，并且这些块可以通过拼接，最终组合成一个完整的消息，其最终效果与使用 invoke()得到的结果一致。</p>
+<h3 id="批量调用模型"><a href="#批量调用模型" class="headerlink" title="批量调用模型"></a>批量调用模型</h3><p>LangChain  中的批处理功能是一种通过并行处理多个独立请求来显著提升性能、降低成本的强大机制。批处理的核心思想是将多个独立的请求集合成一个批次，并行发送给模型处理。这与逐个顺序调用（invoke）相比，能大幅减少网络往返开销和等待时间，尤其适合处理问答、文本分类、情感分析等独立任务。</p>
+<p>batch使用示例：</p>
+<pre><code class="python">from langchain_core.runnables.utils import Output
+
+from init_llm import deepseek_llm
+
+responses:list[Output] = deepseek_llm.batch([
+    &quot;为什么鹦鹉的羽毛是彩色的？&quot;,
+    &quot;飞机是如何飞行的？&quot;,
+    &quot;什么是量子计算？&quot;
+])
+
+for response in responses:
+    print(response.content)
+</code></pre>
+<p>以上运行代码后输出结果如下：</p>
+<pre><code>========================================
+鹦鹉羽毛的绚丽色彩主要源于**色素沉积**、**结构色**以及**两者结合**的复杂机制，这些特征在进化中具有重要的生物学意义。以下是详细的解释：
+... ...
+========================================
+这是一个非常棒的问题！飞机的飞行是一个复杂但可以被基本原理解释的现象。简单来说，飞机能够飞行主要依赖于四个关键物理原理的协同作用：**升力、推力、重力（重量）和阻力**。
+... ...
+========================================
+量子计算是一种**利用量子力学原理进行信息处理的新型计算范式**，其核心在于利用量子比特（qubit）超越传统计算机的限制。以下是关键概念的清晰解析：
+... ...
+</code></pre>
+<p>batch()特点是等待所有请求处理完毕，按原始输入顺序返回结果列表。当输入列表很大或单个模型调用耗时差异显著时，batch_as_completed()允许应用在收到第一个结果后立即开始后续处理，而不必等待最慢的那个请求，也就是说</p>
+<p>batch_as_completed() 每个请求完成后立即 yield 结果，结果可能乱序，但包含索引信息。</p>
+<p>batch_as_completed使用示例如下：</p>
+<pre><code class="python">from typing import Iterator
+
+from langchain_core.runnables.utils import Output
+
+from init_llm import deepseek_llm
+
+responses:Iterator[tuple[int, Output | Exception]] = deepseek_llm.batch_as_completed([
+    &quot;为什么鹦鹉的羽毛是彩色的？&quot;,
+    &quot;飞机是如何飞行的？&quot;,
+    &quot;什么是量子计算？&quot;
+])
+
+for response in responses:
+    print(response) # response 是一个元组，包含索引和输出
+    # response 包含结果及其在原始列表中的索引
+    print(f&quot;第 {response[0]} 个问题回答完毕: {response[1].content}&quot;)
+</code></pre>
+<p>以上代码运行结果如下：</p>
+<pre><code class="json">(0, AIMessage(content=&#39;鹦鹉羽毛的绚丽色彩主要源于... ...也展现了生物适应环境的多样性。&#39;, additional_kwargs={&#39;refusal&#39;: None}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 479, &#39;prompt_tokens&#39;: 12, &#39;total_tokens&#39;: 491, &#39;completion_tokens_details&#39;: None, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: None, &#39;cached_tokens&#39;: 0}, &#39;prompt_cache_hit_tokens&#39;: 0, &#39;prompt_cache_miss_tokens&#39;: 12}, &#39;model_provider&#39;: &#39;deepseek&#39;, &#39;model_name&#39;: &#39;deepseek-chat&#39;, &#39;system_fingerprint&#39;: &#39;fp_eaab8d114b_prod0820_fp8_kvcache&#39;, &#39;id&#39;: &#39;c06c849a-8f33-4814-9994-bdf9ec8181f8&#39;, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;lc_run--019bb62c-0fdb-7672-a5c9-17262b980f48-0&#39;, tool_calls=[], invalid_tool_calls=[], usage_metadata={&#39;input_tokens&#39;: 12, &#39;output_tokens&#39;: 479, &#39;total_tokens&#39;: 491, &#39;input_token_details&#39;: {&#39;cache_read&#39;: 0}, &#39;output_token_details&#39;: {}}))
+第 0 个问题回答完毕: 鹦鹉羽毛的绚丽色彩主要源于**色素沉积**和**结构色**的复杂结合，这两种机制共同... ...
+
+(2, AIMessage(content=&#39;量子计算是一种... ...经典计算协同解决问题。&#39;, additional_kwargs={&#39;refusal&#39;: None}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 609, &#39;prompt_tokens&#39;: 8, &#39;total_tokens&#39;: 617, &#39;completion_tokens_details&#39;: None, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: None, &#39;cached_tokens&#39;: 0}, &#39;prompt_cache_hit_tokens&#39;: 0, &#39;prompt_cache_miss_tokens&#39;: 8}, &#39;model_provider&#39;: &#39;deepseek&#39;, &#39;model_name&#39;: &#39;deepseek-chat&#39;, &#39;system_fingerprint&#39;: &#39;fp_eaab8d114b_prod0820_fp8_kvcache&#39;, &#39;id&#39;: &#39;1ea8920c-5f59-4647-ad4d-9f57667169f3&#39;, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;lc_run--019bb62c-0fdc-7e21-9238-5be55277fb12-0&#39;, tool_calls=[], invalid_tool_calls=[], usage_metadata={&#39;input_tokens&#39;: 8, &#39;output_tokens&#39;: 609, &#39;total_tokens&#39;: 617, &#39;input_token_details&#39;: {&#39;cache_read&#39;: 0}, &#39;output_token_details&#39;: {}}))
+第 2 个问题回答完毕: 量子计算是... ...解决问题。
+
+(1, AIMessage(content=&#39;这是一个... ...由翱翔于天际。&#39;, additional_kwargs={&#39;refusal&#39;: None}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 1098, &#39;prompt_tokens&#39;: 9, &#39;total_tokens&#39;: 1107, &#39;completion_tokens_details&#39;: None, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: None, &#39;cached_tokens&#39;: 0}, &#39;prompt_cache_hit_tokens&#39;: 0, &#39;prompt_cache_miss_tokens&#39;: 9}, &#39;model_provider&#39;: &#39;deepseek&#39;, &#39;model_name&#39;: &#39;deepseek-chat&#39;, &#39;system_fingerprint&#39;: &#39;fp_eaab8d114b_prod0820_fp8_kvcache&#39;, &#39;id&#39;: &#39;c900a219-024c-406f-b786-cb4181828f30&#39;, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;lc_run--019bb62c-0fdb-7672-a5c9-17345aae478b-0&#39;, tool_calls=[], invalid_tool_calls=[], usage_metadata={&#39;input_tokens&#39;: 9, &#39;output_tokens&#39;: 1098, &#39;total_tokens&#39;: 1107, &#39;input_token_details&#39;: {&#39;cache_read&#39;: 0}, &#39;output_token_details&#39;: {}}))
+第 1 个问题回答完毕: 这是一个既简单... ...天际。
+</code></pre>
+<p>此外，当需要处理大量输入时，为了避免对模型服务造成过大压力或触发速率限制，可以通过 RunnableConfig字典中的 max_concurrency参数来控制最大并行数。</p>
+<p>使用示例如下：</p>
+<pre><code class="python"># 限制最多同时进行5个并发调用
+model.batch(
+    large_list_of_inputs,
+    config={
+        &#39;max_concurrency&#39;: 5  # 限制最大并发数为5
+    }
+)
+</code></pre>
+<h3 id="异步调用模型"><a href="#异步调用模型" class="headerlink" title="异步调用模型"></a>异步调用模型</h3><p>在LangChain框架中，异步方法（ainvoke、astream、abatch）与它们的同步版本（invoke、stream、batch）相比，具备如下特点：</p>
+<ul>
+<li>避免阻塞主线程：同步调用会阻塞程序执行，而异步方法让应用程序在等待API响应时保持响应性。</li>
+<li>优化资源利用：异步操作可以更高效地利用系统资源，减少空闲等待时间</li>
+</ul>
+<p>下面通过一个完整的示例展示如何在LangChain中使用异步方法调用模型。</p>
+<pre><code class="python">import asyncio
+import time
+from langchain.chat_models import init_chat_model
+
+from env_utils import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL
+
+# 初始化模型
+llm = init_chat_model(
+    model=&quot;deepseek-chat&quot;,
+    model_provider=&quot;deepseek&quot;,
+    api_key=DEEPSEEK_API_KEY,
+    base_url=DEEPSEEK_BASE_URL,
+)
+
+
+async def demo_async_invoke():
+    &quot;&quot;&quot;演示单个异步调用的非阻塞特性&quot;&quot;&quot;
+    print(&quot;=== 演示：ainvoke 的异步（非阻塞）效果 ===&quot;)
+
+    print(&quot;程序开始...&quot;)
+
+    # 1. 发起一个异步请求，但不等待它完成
+    print(&quot;&gt;&gt;&gt; 发起异步模型调用 (ainvoke)...&quot;)
+    async_task = llm.ainvoke(&quot;用一句话解释人工智能。&quot;)
+
+    # 2. 在等待模型响应的同时，主程序可以继续执行其他任务
+    print(&quot;&gt;&gt;&gt; 模型请求已发送，程序无需等待，继续执行...&quot;)
+    for i in range(3):
+        # 等待1s
+        await asyncio.sleep(1)
+        print(f&quot;&gt;&gt;&gt; 正在执行第{i + 1}个任务... &quot;)
+
+    # 3. 现在，我们需要模型的结果了，所以用 await 等待它完成
+    print(&quot;&gt;&gt;&gt; 其他任务已完成，现在等待模型返回结果...&quot;)
+    response = await async_task  # 此时才开始等待
+
+    print(f&quot;&gt;&gt;&gt; 模型返回: {response.content}&quot;)
+
+
+async def demo_async_stream():
+    &quot;&quot;&quot;演示异步调用的非阻塞特性&quot;&quot;&quot;
+    print(&quot;=== 演示：astream 的异步（非阻塞）效果 ===&quot;)
+
+    print(&quot;程序开始...&quot;)
+
+    # 1. 发起异步流式请求，但不立即处理结果
+    print(&quot;&gt;&gt;&gt; 发起异步流式调用 (astream)...&quot;)
+    stream_resp = llm.astream(&quot;请一句话解释机器学习的基本概念。&quot;)
+
+    # 2. 在等待流式响应的同时，执行其他任务
+    print(&quot;&gt;&gt;&gt; 流式请求已发送，程序无需等待，继续执行...&quot;)
+    for i in range(3):
+        # 等待1s
+        await asyncio.sleep(1)
+        print(f&quot;&gt;&gt;&gt; 正在执行第{i + 1}个任务... &quot;)
+
+    # 3. 现在开始处理流式结果
+    print(&quot;&gt;&gt;&gt; 其他任务已完成，开始处理流式结果...&quot;)
+
+    print(&quot;&gt;&gt;&gt; 流式输出: &quot;, end=&quot;&quot;, flush=True)
+    async for chunk in stream_resp:
+        if hasattr(chunk, &#39;content&#39;):
+            print(chunk.content, end=&quot;&quot;, flush=True)
+    print(&quot;&gt;&gt;&gt; 流式输出结束\n&quot;)
+
+async def demo_async_batch():
+    &quot;&quot;&quot;演示单个异步调用的非阻塞特性&quot;&quot;&quot;
+    print(&quot;=== 演示：abatch 的异步（非阻塞）效果 ===&quot;)
+
+    print(&quot;程序开始...&quot;)
+
+    # 准备批量输入（即使是单个输入，也用列表形式）
+    questions = [&quot;用一句话说明深度学习与传统机器学习的区别&quot;]
+
+    # 1. 发起异步批量请求
+    print(&quot;&gt;&gt;&gt; 发起异步批量调用 (abatch)...&quot;)
+    batch_resp = llm.abatch(questions)
+
+    # 2. 在等待批量处理的同时，执行其他任务
+    print(&quot;&gt;&gt;&gt; 批量请求已发送，程序无需等待，继续执行...&quot;)
+    for i in range(3):
+        # 等待1s
+        await asyncio.sleep(1)
+        print(f&quot;&gt;&gt;&gt; 正在执行第{i + 1}个任务... &quot;)
+
+    # 3. 等待批量处理结果
+    print(&quot;&gt;&gt;&gt; 其他任务已完成，现在等待批量处理结果...&quot;)
+    responses = await batch_resp
+
+    for response in responses:
+        print(f&quot;&gt;&gt;&gt; 批量响应: {response.content}&quot;)
+
+async def main():
+    &quot;&quot;&quot;主函数&quot;&quot;&quot;
+    await demo_async_invoke()
+    await demo_async_stream()
+    await demo_async_batch()
+
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())
+</code></pre>
+<p>以上代码运行后的结果如下：</p>
+<pre><code>=== 演示：ainvoke 的异步（非阻塞）效果 ===
+程序开始...
+&gt;&gt;&gt; 发起异步模型调用 (ainvoke)...
+&gt;&gt;&gt; 模型请求已发送，程序无需等待，继续执行...
+&gt;&gt;&gt; 正在执行第1个任务... 
+&gt;&gt;&gt; 正在执行第2个任务... 
+&gt;&gt;&gt; 正在执行第3个任务... 
+&gt;&gt;&gt; 其他任务已完成，现在等待模型返回结果...
+&gt;&gt;&gt; 模型返回: 人工智能是让机器模拟人类智能行为的技术。
+=== 演示：astream 的异步（非阻塞）效果 ===
+程序开始...
+&gt;&gt;&gt; 发起异步流式调用 (astream)...
+&gt;&gt;&gt; 流式请求已发送，程序无需等待，继续执行...
+&gt;&gt;&gt; 正在执行第1个任务... 
+&gt;&gt;&gt; 正在执行第2个任务... 
+&gt;&gt;&gt; 正在执行第3个任务... 
+&gt;&gt;&gt; 其他任务已完成，开始处理流式结果...
+&gt;&gt;&gt; 流式输出: 机器学习是让计算机从数据中自动学习规律并做出预测或决策的技术。&gt;&gt;&gt; 流式输出结束
+
+=== 演示：abatch 的异步（非阻塞）效果 ===
+程序开始...
+&gt;&gt;&gt; 发起异步批量调用 (abatch)...
+&gt;&gt;&gt; 批量请求已发送，程序无需等待，继续执行...
+&gt;&gt;&gt; 正在执行第1个任务... 
+&gt;&gt;&gt; 正在执行第2个任务... 
+&gt;&gt;&gt; 正在执行第3个任务... 
+&gt;&gt;&gt; 其他任务已完成，现在等待批量处理结果...
+&gt;&gt;&gt; 批量响应: 深度学习通过多层神经网络自动学习数据的层次化特征，而传统机器学习更依赖人工设计的特征和浅层模型。
+</code></pre>
+<h2 id="模型结构化输出"><a href="#模型结构化输出" class="headerlink" title="模型结构化输出"></a>模型结构化输出</h2><p>调用模型时，我们可以设置结构化输出来约束大模型输出结果，使其符合预定义的数据结构（如  JSON、Pydantic 模型或字典），而不是任意的自然文本。确保模型生成的结果能够被程序精准解析，并无缝集成到下游系统（如数据库、API  或前端展示逻辑）中，从而显著提升应用的可靠性和自动化程度。</p>
+<h3 id="定义输出结构的模式"><a href="#定义输出结构的模式" class="headerlink" title="定义输出结构的模式"></a>定义输出结构的模式</h3><p>在 LangChain 中，可以使用如下三种方式定义期望的输出结构：Pydantic 模型、TypedDict、JSON Schema，调用大模型时，三种方式都可通过“with_structured_output”方法来返回结构化结果。</p>
+<h4 id="Pydantic-模型（推荐）"><a href="#Pydantic-模型（推荐）" class="headerlink" title="Pydantic 模型（推荐）"></a>Pydantic 模型（推荐）</h4><p>Pydantic 模型是使用 Python 的 Pydantic 库定义强类型数据模型,支持复杂嵌套结构。适合需要严格数据验证和复杂结构的场景，如生成 API 响应。</p>
+<p>Pydanitc是一个基于 Python  类型注解的库，它通过在运行时强制执行类型提示，确保数据的正确性和一致性，定义这种类型时需要创建一个继承自BaseModel的类，使用类型提示（如 str, int）和 Field函数来声明每个字段的名称、类型、默认值和描述。使用方式参考：<a target="_blank" rel="noopener" href="https://docs.pydantic.dev/latest/concepts/models/#basic-model-usage%E3%80%82">https://docs.pydantic.dev/latest/concepts/models/#basic-model-usage。</a></p>
+<ul>
+<li><p>**示例一（返回简单结构）</p>
+<pre><code class="python">from pydantic import BaseModel, Field
+from init_llm import deepseek_llm
+
+class Movie(BaseModel):
+    title: str = Field(description=&quot;电影标题&quot;)
+    year: int = Field(description=&quot;上映年份&quot;)
+    director: str = Field(description=&quot;导演&quot;)
+    rating: float = Field(description=&quot;评分（10分制）&quot;)
+
+# 设置模型结构化输出
+model_with_structure  = deepseek_llm.with_structured_output(Movie)
+
+# 调用模型并获取结构化输出
+resp:Movie = model_with_structure.invoke(&quot;给我介绍下电影《星际穿越》&quot;)
+
+print(type(resp))
+print(resp)
+</code></pre>
+<p>运行代码后结果如下：</p>
+<pre><code>&lt;class &#39;__main__.Movie&#39;&gt;
+title=&#39;星际穿越&#39; year=2014 director=&#39;克里斯托弗·诺兰&#39; rating=9.3
+</code></pre>
+<p>注意：定义类型中字段的description 可以不写，但是强烈建议写上，这样可以帮助模型理解该字段应该存入什么样的数据。</p>
+</li>
+<li><p><strong>示例二:（返回嵌套结构）</strong></p>
+<pre><code class="python">&quot;&quot;&quot;
+使用 Pydantic 定义嵌套结构
+&quot;&quot;&quot;
+from pydantic import BaseModel, Field
+from typing import List
+
+# 1. 定义嵌套的 Pydantic 模型
+class Actor(BaseModel):
+    name: str = Field(description=&quot;演员姓名&quot;)
+    role: str = Field(description=&quot;饰演的角色&quot;)
+
+class Movie(BaseModel):
+    title: str = Field(description=&quot;电影标题&quot;)
+    year: int = Field(description=&quot;上映年份&quot;)
+    director: str = Field(description=&quot;导演&quot;)
+    cast: List[Actor] = Field(description=&quot;演员列表&quot;)  # 定义列表字段
+    rating: float = Field(description=&quot;评分&quot;)
+
+# 2. 初始化模型并绑定输出结构
+structured_model = deepseek_llm.with_structured_output(Movie)
+
+# 3. 调用模型，直接获取 Movie 实例
+response = structured_model.invoke(&quot;请介绍电影《盗梦空间》&quot;)
+
+# 4. 访问嵌套数据
+print(f&quot;电影名: {response.title}&quot;)
+print(f&quot;上映年份: {response.year}&quot;)
+print(f&quot;导演: {response.director}&quot;)
+print(f&quot;演员列表: {response.cast}&quot;)
+print(f&quot;评分: {response.rating}&quot;)
+</code></pre>
+<p>  以上代码输出结果如下：</p>
+<pre><code>电影名: 盗梦空间
+上映年份: 2010
+导演: 克里斯托弗·诺兰
+演员列表: [Actor(name=&#39;莱昂纳多·迪卡普里奥&#39;, role=&#39;多姆·柯布&#39;), Actor(name=&#39;约瑟夫·高登-莱维特&#39;, role=&#39;亚瑟&#39;), Actor(name=&#39;艾伦·佩姬&#39;, role=&#39;阿里阿德涅&#39;), Actor(name=&#39;汤姆·哈迪&#39;, role=&#39;伊姆斯&#39;), Actor(name=&#39;渡边谦&#39;, role=&#39;斋藤&#39;), Actor(name=&#39;玛丽昂·歌迪亚&#39;, role=&#39;梅尔&#39;)]
+评分: 8.8
+</code></pre>
+</li>
+</ul>
+<h4 id="TypedDict"><a href="#TypedDict" class="headerlink" title="TypedDict"></a>TypedDict</h4><p>TypedDict 是 Python 3.8+  引入的一种类型提示工具，它允许为字典对象定义固定的键名和对应的值类型。TypeDict是使用 Python 的  TypedDict来定义带有类型提示的字典结构，无需额外依赖，适合需要快速定义字典结构且无需 Pydantic 重量级功能的场景。</p>
+<ul>
+<li><p><strong>示例一（返回简单结构）</strong></p>
+<pre><code class="python">&quot;&quot;&quot;
+使用 TypedDict 模型定义结构化输出
+&quot;&quot;&quot;
+from init_llm import deepseek_llm
+from typing_extensions import TypedDict, Annotated
+
+class MovieTypedDict(TypedDict):
+    title: Annotated[str, &quot;电影的正式名称，例如《盗梦空间》&quot;]
+    year: Annotated[int, &quot;电影的公映年份，使用四位数字表示&quot;]
+    director: Annotated[str, &quot;电影导演的全名&quot;]
+    rating: Annotated[float, &quot;电影在10分制下的评分，可包含一位小数&quot;]
+
+# 设置模型结构化输出
+model_with_structure  = deepseek_llm.with_structured_output(MovieTypedDict)
+
+# 调用模型并获取结构化输出
+resp:MovieTypedDict = model_with_structure.invoke(&quot;给我介绍下电影《星际穿越》&quot;)
+
+print(type(resp))
+print(resp)
+</code></pre>
+<p>  代码运行结果如下：</p>
+<pre><code>&lt;class &#39;dict&#39;&gt;
+{&#39;title&#39;: &#39;星际穿越&#39;, &#39;year&#39;: 2014, &#39;director&#39;: &#39;克里斯托弗·诺兰&#39;, &#39;rating&#39;: 9.4}
+</code></pre>
+</li>
+<li><p><strong>示例二（返回嵌套结构）</strong></p>
+<pre><code class="python">from typing import TypedDict, List, Annotated
+from init_llm import deepseek_llm
+
+# 使用TypedDict定义嵌套结构
+class Actor(TypedDict):
+    name: Annotated[str, &quot;演员姓名&quot;]
+    role: Annotated[str, &quot;饰演的角色&quot;]
+
+class Movie(TypedDict):
+    title: Annotated[str, &quot;电影标题&quot;]
+    year: Annotated[int, &quot;上映年份&quot;]
+    director: Annotated[str, &quot;导演&quot;]
+    cast: Annotated[List[Actor], &quot;演员列表&quot;]  # 嵌套列表定义
+    rating: Annotated[float, &quot;评分&quot;]
+
+# 设置模型结构化输出
+model_with_structure  = deepseek_llm.with_structured_output(Movie)
+
+# 调用模型并获取结构化输出
+resp:Movie = model_with_structure.invoke(&quot;给我介绍下电影《盗梦空间》&quot;)
+
+# 访问嵌套数据
+print(f&quot;电影名: {resp[&#39;title&#39;]}&quot;)
+print(f&quot;上映年份: {resp[&#39;year&#39;]}&quot;)
+print(f&quot;导演: {resp[&#39;director&#39;]}&quot;)
+print(f&quot;演员列表:{resp[&#39;cast&#39;]}&quot;)
+print(f&quot;评分: {resp[&#39;rating&#39;]}&quot;)
+</code></pre>
+<p>  以上代码运行结果如下：</p>
+<pre><code>电影名: 盗梦空间
+上映年份: 2010
+导演: 克里斯托弗·诺兰
+演员列表:[{&#39;name&#39;: &#39;莱昂纳多·迪卡普里奥&#39;, &#39;role&#39;: &#39;多姆·柯布&#39;}, {&#39;name&#39;: &#39;约瑟夫·高登-莱维特&#39;, &#39;role&#39;: &#39;亚瑟&#39;}, {&#39;name&#39;: &#39;艾伦·佩姬&#39;, &#39;role&#39;: &#39;阿里阿德涅&#39;}, {&#39;name&#39;: &#39;汤姆·哈迪&#39;, &#39;role&#39;: &#39;伊姆斯&#39;}, {&#39;name&#39;: &#39;渡边谦&#39;, &#39;role&#39;: &#39;斋藤&#39;}, {&#39;name&#39;: &#39;玛丽昂·歌迪亚&#39;, &#39;role&#39;: &#39;梅尔&#39;}]
+评分: 8.8
+</code></pre>
+</li>
+</ul>
+<h4 id="JSON-Schema"><a href="#JSON-Schema" class="headerlink" title="JSON Schema"></a>JSON Schema</h4><p>JSON Schema是提供一个标准的 JSON Schema 字典来定义结构。适合需要与多种编程语言交互或进行复杂数据约束定义的场景。</p>
+<ul>
+<li><p><strong>使用示例一（返回简单结构）</strong></p>
+<pre><code class="python">&quot;&quot;&quot;
+使用 JSON Schema 模型定义结构化输出
+&quot;&quot;&quot;
+from init_llm import deepseek_llm
+
+# 使用 JSON Schema（最灵活，跨语言友好）
+json_schema = {
+    &quot;title&quot;: &quot;MovieInfo&quot;,
+    &quot;description&quot;: &quot;包含电影标题、上映年份、导演和评分的电影对象&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;title&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;电影标题&quot;},
+        &quot;year&quot;: {&quot;type&quot;: &quot;integer&quot;, &quot;description&quot;: &quot;上映年份&quot;},
+        &quot;director&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;导演&quot;},
+        &quot;rating&quot;: {&quot;type&quot;: &quot;number&quot;, &quot;description&quot;: &quot;评分（10分制）&quot;}
+    },
+    &quot;required&quot;: [&quot;title&quot;, &quot;year&quot;, &quot;director&quot;, &quot;rating&quot;]
+}
+
+# 设置模型结构化输出
+model_with_structure  = deepseek_llm.with_structured_output(json_schema)
+
+# 调用模型并获取结构化输出
+resp = model_with_structure.invoke(&quot;给我介绍下电影《星际穿越》&quot;)
+
+print(type(resp))
+print(resp)
+</code></pre>
+<p>  运行结果如下：</p>
+<pre><code class="json">&lt;class &#39;dict&#39;&gt;
+{&#39;title&#39;: &#39;星际穿越&#39;, &#39;year&#39;: 2014, &#39;director&#39;: &#39;克里斯托弗·诺兰&#39;, &#39;rating&#39;: 8.6}
+</code></pre>
+<p>  注意以上代码中定义json_schema的时候指定的title, description, type, properties, required是是遵循 JSON Schema 规范的标准关键字，是固定写法。几个关键字的解释如下：</p>
+<blockquote>
+<p>title：为整个 Schema 或特定属性提供一个人类可读的标题，不能是中文，用于提高可读性。</p>
+</blockquote>
+<blockquote>
+<p>description：提供更详细的文字描述，说明 Schema 或属性的用途等，和 title一样，旨在帮助理解。</p>
+</blockquote>
+<blockquote>
+<p>type：定义当前数据节点必须是什么数据类型。常见类型有 string, number, integer, boolean, object, array, null。object即是json对象。</p>
+</blockquote>
+<blockquote>
+<p>properties：用于定义JSON 对象（Object）中可以包含哪些属性（键），以及每个属性对应的值类型和说明。</p>
+</blockquote>
+<blockquote>
+<p>required：当 type为 “object”时使用，是一个数组，列出了对象中必须存在的属性名。</p>
+</blockquote>
+</li>
+<li><p><strong>使用示例二（返回嵌套结构）</strong></p>
+<pre><code class="python">&quot;&quot;&quot;
+使用 JSON Schema 定义嵌套结构
+&quot;&quot;&quot;
+# 1. 定义嵌套的 JSON Schema
+project_schema = {
+    &quot;title&quot;: &quot;MovieInfo&quot;,
+    &quot;description&quot;: &quot;包含电影标题、上映年份、导演、演员和评分的电影对象&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;title&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;电影标题&quot;},
+        &quot;year&quot;: {&quot;type&quot;: &quot;integer&quot;, &quot;description&quot;: &quot;上映年份&quot;},
+        &quot;director&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;导演&quot;},
+        &quot;cast&quot;: {  # 定义嵌套数组
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;description&quot;: &quot;演员列表&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;name&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;演员姓名&quot;},
+                    &quot;role&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;演员角色&quot;}
+                },
+                &quot;required&quot;: [&quot;name&quot;, &quot;role&quot;]
+            }
+        },
+        &quot;rating&quot;: {&quot;type&quot;: &quot;number&quot;, &quot;description&quot;: &quot;评分（10分制）&quot;}
+    },
+    &quot;required&quot;: [&quot;title&quot;, &quot;year&quot;, &quot;director&quot;, &quot;cast&quot;, &quot;rating&quot;]
+}
+
+# 绑定 JSON Schema 到模型
+structured_model = deepseek_llm.with_structured_output(project_schema)
+
+# 调用模型
+response = structured_model.invoke(&quot;生成一个关于《星际穿越》的电影信息，包含导演、演员、评分&quot;)
+print(response)
+</code></pre>
+<p>  以上代码运行后结果如下：</p>
+<pre><code class="json">{&#39;title&#39;: &#39;星际穿越&#39;, &#39;year&#39;: 2014, &#39;director&#39;: &#39;克里斯托弗·诺兰&#39;, &#39;rating&#39;: 8.6, &#39;cast&#39;: [{&#39;name&#39;: &#39;马修·麦康纳&#39;, &#39;role&#39;: &#39;库珀&#39;}, {&#39;name&#39;: &#39;安妮·海瑟薇&#39;, &#39;role&#39;: &#39;艾米莉亚·布兰德&#39;}, {&#39;name&#39;: &#39;杰西卡·查斯坦&#39;, &#39;role&#39;: &#39;墨菲·库珀（成年）&#39;}, {&#39;name&#39;: &#39;迈克尔·凯恩&#39;, &#39;role&#39;: &#39;布兰德教授&#39;}, {&#39;name&#39;: &#39;马特·达蒙&#39;, &#39;role&#39;: &#39;曼恩博士&#39;}, {&#39;name&#39;: &#39;麦肯吉·弗依&#39;, &#39;role&#39;: &#39;墨菲·库珀（10岁）&#39;}, {&#39;name&#39;: &#39;蒂莫西·柴勒梅德&#39;, &#39;role&#39;: &#39;汤姆·库珀（15岁）&#39;}, {&#39;name&#39;: &#39;卡西·阿弗莱克&#39;, &#39;role&#39;: &#39;汤姆·库珀（成年）&#39;}]}
+</code></pre>
+</li>
+</ul>
+<h3 id="获取结构化结果方式"><a href="#获取结构化结果方式" class="headerlink" title="获取结构化结果方式"></a>获取结构化结果方式</h3><p>以上定义输出结构的三种模式中，我们都是通过调用“with_structured_output”来获取结构化输出结果，除了这种方式外，还可以通过使用输出解释器来获取结构化输出结果。下面介绍这两种获取结构化结果的方式。</p>
+<h4 id="使用with-structured-output"><a href="#使用with-structured-output" class="headerlink" title="使用with_structured_output"></a>使用with_structured_output</h4><p>这种方式是最新、最简洁的API，直接让模型“理解”你需要的数据结构，并返回解析好的对象。但是一些国内大模型不支持这种方式，例如：deepseek-reasoner不支持该方式，那么就考虑其他两种方式。</p>
+<p>此外，我们可以在with_structured_output方法中传入include_raw&#x3D;True参数同时获取原始的 AI 消息对象,从而访问令牌用量等元数据，操作如下：</p>
+<pre><code class="python">from pydantic import BaseModel, Field
+from init_llm import deepseek_llm
+
+class Movie(BaseModel):
+    title: str = Field(description=&quot;电影标题&quot;)
+    year: int = Field(description=&quot;上映年份&quot;)
+    director: str = Field(description=&quot;导演&quot;)
+    rating: float = Field(description=&quot;评分（10分制）&quot;)
+
+# 设置模型结构化输出
+model_with_structure  = deepseek_llm.with_structured_output(Movie,include_raw=True)
+
+# 调用模型并获取结构化输出
+resp:Movie = model_with_structure.invoke(&quot;给我介绍下电影《星际穿越》&quot;)
+
+print(type(resp))
+print(resp)
+</code></pre>
+<p>以上代码运行结果如下：</p>
+<pre><code class="json">&lt;class &#39;dict&#39;&gt;
+{&#39;raw&#39;: AIMessage(content=&#39;&#39;, additional_kwargs={&#39;refusal&#39;: None}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 93, &#39;prompt_tokens&#39;: 373, &#39;total_tokens&#39;: 466, &#39;completion_tokens_details&#39;: None, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: None, &#39;cached_tokens&#39;: 320}, &#39;prompt_cache_hit_tokens&#39;: 320, &#39;prompt_cache_miss_tokens&#39;: 53}, &#39;model_provider&#39;: &#39;deepseek&#39;, &#39;model_name&#39;: &#39;deepseek-chat&#39;, &#39;system_fingerprint&#39;: &#39;fp_eaab8d114b_prod0820_fp8_kvcache&#39;, &#39;id&#39;: &#39;679228cd-956f-49bf-85b5-38ec684baca3&#39;, &#39;finish_reason&#39;: &#39;tool_calls&#39;, &#39;logprobs&#39;: None}, id=&#39;lc_run--019bbc7f-2c63-7611-a2e6-c413c2d11e52-0&#39;, tool_calls=[{&#39;name&#39;: &#39;Movie&#39;, &#39;args&#39;: {&#39;title&#39;: &#39;星际穿越&#39;, &#39;year&#39;: 2014, &#39;director&#39;: &#39;克里斯托弗·诺兰&#39;, &#39;rating&#39;: 9.3}, &#39;id&#39;: &#39;call_00_WCnHeO1OYKS1gjuJfvmB1QHz&#39;, &#39;type&#39;: &#39;tool_call&#39;}], invalid_tool_calls=[], usage_metadata={&#39;input_tokens&#39;: 373, &#39;output_tokens&#39;: 93, &#39;total_tokens&#39;: 466, &#39;input_token_details&#39;: {&#39;cache_read&#39;: 320}, &#39;output_token_details&#39;: {}}), &#39;parsed&#39;: Movie(title=&#39;星际穿越&#39;, year=2014, director=&#39;克里斯托弗·诺兰&#39;, rating=9.3), &#39;parsing_error&#39;: None}
+</code></pre>
+<h4 id="使用输出解析器"><a href="#使用输出解析器" class="headerlink" title="使用输出解析器"></a>使用输出解析器</h4><p>这种方法更传统，依赖于在提示词中明确指示模型输出特定格式的文本，然后使用解析器进行转换。其流程是：提示词指导 (引导生成指定类型）→ 模型生成文本 → 解析器转换。</p>
+<p>使用示例如下：</p>
+<pre><code class="python">from langchain.chat_models import init_chat_model
+from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from pydantic import BaseModel, Field
+
+from env_utils import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL
+
+deepseek_reasoner_llm = init_chat_model(
+    model=&quot;deepseek-reasoner&quot;,
+    model_provider=&quot;deepseek&quot;,
+    api_key=DEEPSEEK_API_KEY,
+    base_url=DEEPSEEK_BASE_URL,
+)
+
+# 1. 定义结构
+class Movie(BaseModel):
+    title: str = Field(description=&quot;电影标题&quot;)
+    year: int = Field(description=&quot;上映年份&quot;)
+
+# 2. 创建解析器和提示模板
+parser = JsonOutputParser(pydantic_object=Movie)
+
+prompt = ChatPromptTemplate.from_template(&quot;&quot;&quot;
+回答用户问题。
+问题：{question}
+你必须始终输出一个包含title(电影标题)和year(上映年份)的 JSON 对象。
+&quot;&quot;&quot;)
+
+# 3. 创建链
+chain = prompt | deepseek_reasoner_llm | parser
+
+# 4. 调用（返回字典）
+response = chain.invoke({&quot;question&quot;: &quot;介绍电影《盗梦空间》&quot;})
+print(response)
+</code></pre>
+<p>以上代码运行结果如下：</p>
+<pre><code class="json">{&#39;title&#39;: &#39;盗梦空间&#39;, &#39;year&#39;: 2010}
+</code></pre>
+<h2 id="模型工具调用"><a href="#模型工具调用" class="headerlink" title="模型工具调用"></a>模型工具调用</h2><p>大模型工具调用（Tool Calling）可以扩展模型能力，使模型能够突破纯文本生成的限制，与外部系统和功能进行交互。在LangChain框架中，这一功能也被称为函数调用（Function Calling），两种术语可以互换使用。</p>
+<h3 id="模型调用工具步骤"><a href="#模型调用工具步骤" class="headerlink" title="模型调用工具步骤"></a>模型调用工具步骤</h3><p>如下是定义一个查询天气工具，工具名称为 get_weather，具体工具创建可以参考Agent章节部分工具创建方式。</p>
+<pre><code class="python">@tool
+def get_weather(location: str) -&gt; str:
+    &quot;&quot;&quot;获取指定位置的天气&quot;&quot;&quot;
+    return f&quot; {location}的天气是晴朗的。&quot;
+</code></pre>
+<p>大模型使用工具前，需要通过“bind_tools()”方法将工具与模型绑定，让模型能够识别可用工具，绑定后，模型会根据输入内容自动判断是否需要调用工具：</p>
+<pre><code class="python">from init_llm import deepseek_llm
+model_with_tools = deepseek_llm.bind_tools([get_weather])
+# 查询触发工具调用
+response = model_with_tools.invoke(&quot;北京今天天气如何？&quot;)
+print(type(response))
+response.pretty_print()
+</code></pre>
+<p>以上代码运行后response对象是一个AIMessage，大模型根据用户提问如果调用了工具，该对象输出内容中只有调用工具的参数请求信息，并不会主动调用工具，如下：</p>
+<pre><code>================================== Ai Message ==================================
+
+我来帮您查询北京的天气情况。
+Tool Calls:
+  get_weather (call_00_KSFvPw6CQnMrR97Cp6y65k5v)
+ Call ID: call_00_KSFvPw6CQnMrR97Cp6y65k5v
+  Args:
+    location: 北京
+</code></pre>
+<p>所以如果真正要大模型根据工具调用结果进行回复，完整的调用流程包括如下四个步骤：</p>
+<ol>
+<li>模型绑定工具：通过model.bind_tools([…])绑定一个或者多个工具。</li>
+<li>模型生成工具调用请求：用户输入问题，如果调用工具，模型返回工具调用信息（如工具名称和参数）。</li>
+<li>开发者手动执行工具：用户从响应中提取工具调用信息并手动调用对应的工具。</li>
+<li>将工具执行结果传递给模型生成最终结果：将之前用户提问内容和手动执行工具结果返回模型，模型最终生成回复。</li>
+</ol>
+<p>按照以上步骤，实现大模型调用天气工具查询天气并输出结果的完整实现代码如下：</p>
+<pre><code class="python">from langchain.tools import tool
+from langchain_core.messages import HumanMessage
+from init_llm import deepseek_llm
+
+@tool
+def get_weather(location: str) -&gt; str:
+    &quot;&quot;&quot;获取指定位置的天气&quot;&quot;&quot;
+    return f&quot; {location}的天气是晴朗的。&quot;
+
+# 1.模型绑定工具
+model_with_tools = deepseek_llm.bind_tools([get_weather])
+
+messages = []
+# human_message = HumanMessage(content=&quot;北京的天气&quot;)
+human_message = HumanMessage(content=&quot;海水为什么是咸的？&quot;)
+messages.append(human_message)
+
+# 2. 模型生成调用工具请求
+response = model_with_tools.invoke(messages)
+
+print(&quot;response&quot;, response)
+messages = []
+messages.append(response)
+
+#3.开发者根据模型的响应，调用工具并获取结果
+for tool_call in response.tool_calls:
+    if tool_call[&#39;name&#39;] == &#39;get_weather&#39;:
+        # 调用工具并获取结果
+        tool_result = get_weather.invoke(tool_call)
+        messages.append(tool_result)
+
+#4. 模型根据工具调用结果生成最终响应
+final_response = model_with_tools.invoke(messages)
+print(&quot;final_response&quot;, final_response)
+print(final_response.content)
+</code></pre>
+<p>代码运行后结果如下：</p>
+<pre><code>根据查询结果，北京目前的天气是晴朗的。
+</code></pre>
+<p>特别注意：大模型调用工具是单次推理，直接响应，需要开发者手动执行工具并管理循环，适合简单、确定的任务。</p>
+<h3 id="模型多工具调用"><a href="#模型多工具调用" class="headerlink" title="模型多工具调用"></a>模型多工具调用</h3><p>大模型调用工具是单次推理，即每次运行调用一个工具，当调用多个工具时，需要用户自己管理多次调用循环。</p>
+<p>案例：模型调用多个工具进行回复</p>
+<pre><code class="python">from langchain_openai import ChatOpenAI
+from langchain_core.tools import tool
+from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
+from init_llm import deepseek_llm
+
+# 定义股票查询工具
+@tool
+def get_stock_price(company: str, timeframe: str = &quot;today&quot;) -&gt; str:
+    &quot;&quot;&quot;获取指定公司的股票价格信息
+
+    Args:
+        company: 公司名称（如：苹果公司, 微软公司, 谷歌公司）
+        timeframe: 时间范围（today-今日, week-本周, month-本月）
+    &quot;&quot;&quot;
+    # 模拟股票数据
+    mock_data = {
+        &quot;苹果公司&quot;: {&quot;today&quot;: 185.20, &quot;week&quot;: 183.50, &quot;month&quot;: 180.75},
+        &quot;微软公司&quot;: {&quot;today&quot;: 415.86, &quot;week&quot;: 412.30, &quot;month&quot;: 405.42},
+        &quot;谷歌公司&quot;: {&quot;today&quot;: 15.42, &quot;week&quot;: 15.20, &quot;month&quot;: 14.85}
+    }
+
+    if company in mock_data:
+        price = mock_data[company].get(timeframe, &quot;未知时间范围&quot;)
+        return f&quot;{company} {timeframe}价格: {price}美元&quot;
+    else:
+        return f&quot;未找到股票代码 {company} 的数据&quot;
+
+
+# 定义新闻搜索工具
+@tool
+def search_news(company: str) -&gt; str:
+    &quot;&quot;&quot;搜索指定公司的财经新闻
+
+    Args:
+        company: 公司名称
+    Return:
+        公司的财经新闻，每个新闻占一行
+    &quot;&quot;&quot;
+    # 模拟新闻数据
+    mock_news = {
+        &quot;苹果公司&quot;: [
+            &quot;苹果发布新款iPhone，股价上涨3%&quot;,
+            &quot;苹果与欧盟达成反垄断和解协议&quot;,
+            &quot;苹果将在印度扩大生产规模&quot;
+        ],
+        &quot;微软公司&quot;: [
+            &quot;微软Azure云业务季度增长超预期&quot;,
+            &quot;微软完成对Nuance的收购&quot;,
+            &quot;微软推出新一代AI助手Copilot&quot;
+        ],
+        &quot;谷歌公司&quot;: [
+            &quot;谷歌发布新AI模型，性能提升20%&quot;,
+            &quot;谷歌与OpenAI合作，开发新的AI助手&quot;,
+            &quot;谷歌在欧洲展开AI研究项目&quot;
+        ]
+    }
+
+    news_list = mock_news.get(company, [f&quot;未找到{company}的相关新闻&quot;])
+    return &quot;\n&quot;.join(news_list)
+
+
+# 1. 初始化模型并绑定工具
+tools = [get_stock_price, search_news]
+model_with_tools = deepseek_llm.bind_tools(tools)
+
+message = []
+# human_message = HumanMessage(content=&quot;苹果公司今天的股价是多少？最近有什么新闻？&quot;)
+# human_message = HumanMessage(content=&quot;比较一下微软和苹果的股价&quot;)
+human_message = HumanMessage(content=&quot;腾讯最近有什么重大新闻？&quot;)
+# human_message = HumanMessage(content=&quot;海水为什么是咸的？&quot;)
+message.append(human_message)
+
+# 2. 工具调用
+while True:
+    response = model_with_tools.invoke(message)
+    message.append(response)
+
+    # 如果有调用工具，处理工具调用响应
+    # 3.开发者根据模型的响应，调用工具并获取结果
+    if response.tool_calls:
+        for tool_call in response.tool_calls:
+            if tool_call[&quot;name&quot;] == &quot;get_stock_price&quot;:
+                stock_result = get_stock_price.invoke(tool_call)
+                print(&quot;stock_result&quot;, stock_result)
+                message.append(stock_result)
+            if tool_call[&quot;name&quot;] == &quot;search_financial_news&quot;:
+                news_result = search_news.invoke(tool_call)
+                print(&quot;news_result&quot;, news_result)
+                message.append(news_result)
+    else:
+        print(&quot;没有工具调用，直接返回答案&quot;)
+        break
+
+print(&quot;response&quot;, response)
+print(response.content)
+</code></pre>
+<p>以上示例中，有两个工具get_stock_price（获取公司股票价格）、search_news（获取新闻），当用户提问“苹果公司今天的股价是多少？最近有什么新闻？”显然需要调用两个工具，那么第一次“model_with_tools.invoke(message)”调用执行会调用到“get_stock_price”工具（AIMessage对象中的tool_calls有工具调用），第二次“model_with_tools.invoke(message)”会调用到“search_news”工具（AIMessage对象中的tool_calls有工具调用），当不再调用工具时，返回的AIMessage对象中的tool_calls为空，所以我们使用一个While循环来自己管理工具多次调用循环，这样最终将所有消息交个大模型后，得到最终结果。</p>
+<h2 id="模型其他使用"><a href="#模型其他使用" class="headerlink" title="模型其他使用"></a>模型其他使用</h2><h3 id="Reasoning-模型推理"><a href="#Reasoning-模型推理" class="headerlink" title="Reasoning-模型推理"></a>Reasoning-模型推理</h3><p>大模型的“推理”能力，指的是其处理复杂问题时，模拟人类思维过程，进行逻辑链式思考和多步骤分析，而不仅仅是依赖模式匹配或简单检索来给出答案。</p>
+<p>如果底层模型支持推理（一般是“深度思考模型”或“推理模型”，例如：deepseek-r1、openai o1&#x2F;o3、qwen3-max等），我们可以在输出结果中显示推理过程。</p>
+<p>这里以Deepseek中的“deepseek-reasoner”为例，可以看到输出结果会有推理过程。示例如下：</p>
+<pre><code class="python">&quot;&quot;&quot;
+模型推理演示
+&quot;&quot;&quot;
+from langchain.chat_models import init_chat_model
+from env_utils import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL
+
+deepseek_llm1 = init_chat_model(
+    model=&quot;deepseek-chat&quot;,
+    model_provider=&quot;deepseek&quot;,
+    api_key=DEEPSEEK_API_KEY,
+    base_url=DEEPSEEK_BASE_URL,
+)
+
+deepseek_llm2 = init_chat_model(
+    model=&quot;deepseek-reasoner&quot;,
+    model_provider=&quot;deepseek&quot;,
+    api_key=DEEPSEEK_API_KEY,
+    base_url=DEEPSEEK_BASE_URL,
+)
+
+print(&quot;-------无推理----------&quot;)
+print(deepseek_llm1.invoke(&quot;我有5个苹果，吃了3个，还剩几个？&quot;))
+
+print(&quot;-----------------&quot;)
+
+print(deepseek_llm2.invoke(&quot;我有5个苹果，吃了3个，还剩几个？&quot;))
+</code></pre>
+<p>以上输出结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714163415075.png" alt="image-20260714163406564"></p>
+<p>我们也可以在流式&#x2F;非流式调用大模型过程中获取推理输出内容，示例：</p>
+<pre><code class="python">from langchain.chat_models import init_chat_model
+from env_utils import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL
+
+deepseek_llm2 = init_chat_model(
+    model=&quot;deepseek-reasoner&quot;,
+    model_provider=&quot;deepseek&quot;,
+    api_key=DEEPSEEK_API_KEY,
+    base_url=DEEPSEEK_BASE_URL,
+)
+
+# 获取模型推理结果
+# 非流式输出获取推理过程
+response = deepseek_llm2.invoke(&quot;10个字解释为什么天空是蓝色的？&quot;)
+reasoning_steps = [b for b in response.content_blocks if b[&quot;type&quot;] == &quot;reasoning&quot;]
+print(&quot; &quot;.join(step[&quot;reasoning&quot;] for step in reasoning_steps))
+
+# 流式输出获取推理过程
+for chunk in deepseek_llm2.stream(&quot;10个字解释为什么天空是蓝色的？&quot;):
+    reasoning_steps = [r for r in chunk.content_blocks if r[&quot;type&quot;] == &quot;reasoning&quot;]
+    print(reasoning_steps if reasoning_steps else chunk.text)
+</code></pre>
+<p>注意：content_block是从消息中返回标准的、带类型的 ContentBlock 字典。关于LangChain中某些对象中的属性可以参考：<a target="_blank" rel="noopener" href="https://reference.langchain.org.cn/python/langchain/">https://reference.langchain.org.cn/python/langchain/</a></p>
+<h3 id="Rate-limiting-速率限制"><a href="#Rate-limiting-速率限制" class="headerlink" title="Rate limiting-速率限制"></a>Rate limiting-速率限制</h3><p>大模型服务商（如OpenAI、Anthropic）通常会设定调用速率上限，例如每分钟或每秒最多允许一定数量的请求或处理的Token数量。如果短时间内发送过多请求，就会收到 429 Too Many Requests错误，导致后续请求失败。</p>
+<p>LangChain 提供了  InMemoryRateLimiter对象用于限制调用大模型，实现在客户端主动控制请求发送的节奏，确保不会超过服务商的限制，调用大模型时通过rate_limiter参数指定该速率限制对象。此限制器是线程安全的，可以由同一进程中的多个线程共享。</p>
+<p>InMemoryRateLimiter对象参数如下：</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数名</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>requests_per_second</td>
+<td>核心限制：每秒允许的最大请求数。例如：0.1表示平均每10秒才允许发送1个请求。</td>
+</tr>
+<tr>
+<td>check_every_n_seconds</td>
+<td>控制检查频率的时间粒度。例如：0.1表示每100毫秒检查一次是否可发送新请求。</td>
+</tr>
+<tr>
+<td>max_bucket_size</td>
+<td>允许的瞬时突发请求量。例如：10表示最多允许连续突发10个请求。</td>
+</tr>
+</tbody></table>
+<p>使用示例如下：</p>
+<pre><code class="python">import time
+
+from langchain.chat_models import init_chat_model
+from langchain_core.language_models import BaseChatModel
+from langchain_core.rate_limiters import InMemoryRateLimiter
+
+from env_utils import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL
+
+# 初始化速率限制器
+rate_limiter = InMemoryRateLimiter(
+    requests_per_second=0.1,  # 每10s 允许1个请求
+    check_every_n_seconds=0.1,  # 每100毫秒检查一次，控制更精细
+    max_bucket_size=5,  # 允许短时间突发5个请求，应对流量小高峰
+)
+
+# 将限制器绑定到模型
+deepseek_llm: BaseChatModel = init_chat_model(
+    model=&quot;deepseek-chat&quot;,
+    model_provider=&quot;deepseek&quot;,
+    api_key=DEEPSEEK_API_KEY,
+    base_url=DEEPSEEK_BASE_URL,
+    rate_limiter=rate_limiter,  # 关键步骤
+)
+
+
+# 使用此model进行批量调用时，LangChain会自动控制节奏
+# 例如，在一个循环中调用 model.invoke()
+for i in range(3):
+    response = deepseek_llm.invoke(&quot;你好&quot;)
+    print(response.content)
+    print(time.time()) # 打印当前时间，用于查看请求间隔，返回时间单位为秒
+</code></pre>
+<p>以上代码运行后结果如下，每次调用间隔10s：</p>
+<pre><code>你好！很高兴见到你！... 
+1xxxx1078.4443293
+
+你好！...
+1xxx1088.1831949
+
+你好！我是deepseek...
+1xxx1099.4302862
+</code></pre>
+<h3 id="Invocation-Config-调用配置"><a href="#Invocation-Config-调用配置" class="headerlink" title="Invocation Config-调用配置"></a>Invocation Config-调用配置</h3><p>在调用模型时（如使用 invoke(), ainvoke(),  stream()等方法时），我们可以传入config参数（类型为  RunnableConfig）允许在运行时（即在调用模型时）动态地配置和控制模型的行为，而无需在初始化时就固定所有参数，这为应用带来了极大的灵活性和可维护性。如下：</p>
+<pre><code class="python">deepseek_llm.invoke(
+    &quot;你好&quot;,
+    config={
+        &quot;run_name&quot;: &quot;...&quot;,      # 在LangSmith中这次运行会显示为指定名称
+        &quot;tags&quot;: [&quot;tag1&quot;, &quot;tag2&quot;],           # 打上标签便于分类查找
+        &quot;metadata&quot;: {&quot;user_id&quot;: &quot;123&quot;},     # 记录用户ID
+        &quot;callbacks&quot;: [custom_handler],      # 启用自定义回调函数
+        &quot;configurable&quot;:{
+            &quot;model&quot;: &quot;deepseek-reasoner&quot;,   # 配置模型参数
+            &quot;temperature&quot;: 0.7,             # 配置温度参数
+            &quot;max_tokens&quot;: 100               # 配置最大令牌数
+        }
+    }
+)
+</code></pre>
+<p>config中支持配置的参数如下：</p>
+<table>
+<thead>
+<tr>
+<th><strong>配置项</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>run_name</td>
+<td>str</td>
+<td>为当前运行设置一个可读的名称。如在LangSmith追踪系统中快速定位和识别不同的运行任务。</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>List[str]</td>
+<td>为运行设置标签，用于分类和过滤。如在LangSmith追踪系统中快速定位和识别不同的运行任务。</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>Dict[str,Any]</td>
+<td>附加任意的键值对元数据。记录本次调用的业务上下文，如{“user_id”: “123”, “session_id”: “abc”}</td>
+</tr>
+<tr>
+<td>callbacks</td>
+<td>List[BaseCallbackHandler]</td>
+<td>设置回调处理器，在运行的不同阶段（开始、流输出、结束等）触发。与一些监控平台（如LangSmith）集成进行深度追踪和调试。</td>
+</tr>
+<tr>
+<td>max_concurrency</td>
+<td>int</td>
+<td>限制当前可运行对象的最大并发运行数。防止对API接口或本地资源造成过大压力，实现简单的速率限制。</td>
+</tr>
+<tr>
+<td>recursion_limit</td>
+<td>int</td>
+<td>限制运行时递归调用的最大深度。主要在复杂的工作流（如Agent执行多步工具调用）中，防止出现无限递归循环。</td>
+</tr>
+<tr>
+<td>configurable</td>
+<td>Dict[Str,Any]</td>
+<td>一个万能字典，用于传递其他可配置参数。实现更高级的动态行为，如配置可替代的模型或组件。</td>
+</tr>
+</tbody></table>
+<p>以上configurable中可配置的参数与init_chat_model初始化模型参数一样，与在初始化模型时设置的参数（如 temperature&#x3D;0.7）的关键区别在于：</p>
+<ul>
+<li>初始化参数：是模型的默认设置，适用于该模型实例的大部分场景。</li>
+<li>运行时 config：是单次调用的特定设置，优先级更高，允许针对本次调用进行特殊调整。</li>
+</ul>
+<p><strong>使用示例：</strong></p>
+<pre><code class="python">from langchain.chat_models import init_chat_model
+from langchain_core.callbacks import StdOutCallbackHandler, BaseCallbackHandler
+
+from env_utils import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL
+
+class MyCustomCallbackHandler(BaseCallbackHandler):
+    def on_llm_start(self, serialized, prompts, **kwargs):
+        # **kwargs 中的参数有如下
+        print(&quot;kwargs:&quot;, kwargs)
+
+        # 从 kwargs 中提取配置信息
+        run_name = kwargs.get(&quot;name&quot;)  # 对应 config 中的 &#39;run_name&#39;
+        tags = kwargs.get(&quot;tags&quot;, [])
+        metadata = kwargs.get(&quot;metadata&quot;, {})
+        run_id = kwargs.get(&quot;run_id&quot;)
+
+        print(f&quot;[LLM开始] 运行名称: {run_name}&quot;)
+        print(f&quot;          标签: {tags}&quot;)
+        print(f&quot;          元数据: {metadata}&quot;)
+        print(f&quot;          运行ID: {run_id}&quot;)
+
+        # 可以在这里执行更复杂的操作，比如：
+        # 1. 将信息记录到日志系统或数据库
+        # 2. 根据 metadata 中的 user_id 进行用户行为分析
+        # 3. 根据 tags 对运行进行分类和监控
+        # 4. 触发自定义事件，比如发送通知到监控系统
+
+    def on_llm_end(self, response, **kwargs):
+        # **kwargs 中的参数有如下
+        print(&quot;kwargs:&quot;, kwargs)
+
+        # 提取运行结束时的信息
+        run_id = kwargs.get(&quot;run_id&quot;)
+        print(f&quot;[LLM结束] 运行ID: {run_id}&quot;)
+        # 可以在这里记录运行结束的信息，比如消耗的令牌数等
+        # 从response中提取模型消耗令牌数
+        print(&quot;response:&quot;, response)
+
+        # 消耗的令牌数
+        num_tokens = response.llm_output[&quot;token_usage&quot;][&quot;total_tokens&quot;]
+        print(f&quot;          消耗的令牌数: {num_tokens}&quot;)
+
+# 使用您的自定义回调
+custom_handler = MyCustomCallbackHandler()
+
+# 1. 初始化模型
+deepseek_llm = init_chat_model(
+    model=&quot;deepseek-chat&quot;,
+    model_provider=&quot;deepseek&quot;,
+    api_key=DEEPSEEK_API_KEY,
+    base_url=DEEPSEEK_BASE_URL,
+    # 指定可调整参数
+    configurable_fields=(&quot;model&quot;, &quot;model_provider&quot;, &quot;temperature&quot;, &quot;max_tokens&quot;),
+)
+
+# 2. 准备 config 字典
+config = {
+    &quot;run_name&quot;: &quot;joke_generation&quot;,      # 在LangSmith中这次运行会显示为 &quot;joke_generation&quot;
+    &quot;tags&quot;: [&quot;tag1&quot;, &quot;tag2&quot;],           # 打上标签便于分类查找
+    &quot;metadata&quot;: {&quot;user_id&quot;: &quot;123&quot;},     # 记录用户ID
+    &quot;callbacks&quot;: [custom_handler],      # 启用自定义回调
+    &quot;configurable&quot;:{
+        &quot;model&quot;: &quot;deepseek-reasoner&quot;,   # 配置模型参数
+        &quot;temperature&quot;: 0.7,             # 配置温度参数
+        &quot;max_tokens&quot;: 1000              # 配置最大令牌数
+    }
+}
+
+# 3. 调用模型并传入 config
+response = deepseek_llm.invoke(
+    &quot;给我讲个AI相关的笑话&quot;,
+    config=config
+)
+
+print(response.content)
+</code></pre>
+<p>以上代码运行结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714163809230.png" alt="image-20260714163807934"></p>
+<p>使用config时注意如下几点：</p>
+<ul>
+<li><p>config中参数run_name、tags、callbacks主要用在LangSmith中，用于追踪、筛选和调试；metadata可以配置用户指定的一些信息，在工作流开发中，当整个流程被包装为Runnable链时，可以将这些参数传递给后续的链节点使用。</p>
+</li>
+<li><p>配置configurable覆盖默认参数时需要在“init_chat_model”初始化模型中指定“configurable_fields”参数来指定模型运行时可替换的参数有哪些，如果init_chat_model初始化模型时没有配置“configurable_fields”参数且没有配置“model”，那么”model”, “model_provider”两个参数默认是可配置的。</p>
+</li>
+<li><p>以上MyCustomCallbackHandler是自定义回调函数，其中on_llm_start方法在模型调用开始执行，on_llm_end方法在模型调用结束执行，回调函数可以对接外部系统进行数据记录操作。</p>
+</li>
+<li><p>关于config中可配参数的解释参考：</p>
+<p><a target="_blank" rel="noopener" href="https://reference.langchain.com/python/langchain_core/runnables/?_gl=1*r34k3j*_gcl_au*MjA0ODg2Mzc0NS4xNzY0MzQyNDg4*_ga*NjMzMjI3NTA2LjE3NjIxNTcwODg.*_ga_47WX3HKKY2*czE3Njg0MDYxMjUkbzQwJGcwJHQxNzY4NDA2MTI1JGo2MCRsMCRoMA..#langchain_core.runnables.RunnableConfig">https://reference.langchain.com/python/langchain_core/runnables/?_gl=1*r34k3j*_gcl_au*MjA0ODg2Mzc0NS4xNzY0MzQyNDg4*_ga*NjMzMjI3NTA2LjE3NjIxNTcwODg.*_ga_47WX3HKKY2*czE3Njg0MDYxMjUkbzQwJGcwJHQxNzY4NDA2MTI1JGo2MCRsMCRoMA..#langchain_core.runnables.RunnableConfig</a></p>
+</li>
+</ul>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/05/AI/LangChain/Agent%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">Agent 短期记忆</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/05/AI/LangChain/LangChain%E4%BB%8B%E7%BB%8D/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">LangChain 介绍</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A8%A1%E5%9E%8B%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-list-number">1.</span> <span class="toc-list-text">模型初始化</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Model-Class%E6%96%B9%E5%BC%8F%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A8%A1%E5%9E%8B"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">Model Class方式初始化模型</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#init-chat-model%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A8%A1%E5%9E%8B"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">init_chat_model初始化模型</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%A8%A1%E5%9E%8B%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A"><span class="toc-list-number">1.3.</span> <span class="toc-list-text">模型初始化参数解释</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A8%A1%E5%9E%8B%E8%B0%83%E7%94%A8"><span class="toc-list-number">2.</span> <span class="toc-list-text">模型调用</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Invoke%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9E%8B"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">Invoke调用模型</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%B5%81%E5%BC%8F%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9E%8B"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">流式调用模型</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%89%B9%E9%87%8F%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9E%8B"><span class="toc-list-number">2.3.</span> <span class="toc-list-text">批量调用模型</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8%E6%A8%A1%E5%9E%8B"><span class="toc-list-number">2.4.</span> <span class="toc-list-text">异步调用模型</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E5%8C%96%E8%BE%93%E5%87%BA"><span class="toc-list-number">3.</span> <span class="toc-list-text">模型结构化输出</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%AE%9A%E4%B9%89%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%84%E7%9A%84%E6%A8%A1%E5%BC%8F"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">定义输出结构的模式</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#Pydantic-%E6%A8%A1%E5%9E%8B%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-list-number">3.1.1.</span> <span class="toc-list-text">Pydantic 模型（推荐）</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#TypedDict"><span class="toc-list-number">3.1.2.</span> <span class="toc-list-text">TypedDict</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#JSON-Schema"><span class="toc-list-number">3.1.3.</span> <span class="toc-list-text">JSON Schema</span></a></li></ol></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E8%8E%B7%E5%8F%96%E7%BB%93%E6%9E%84%E5%8C%96%E7%BB%93%E6%9E%9C%E6%96%B9%E5%BC%8F"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">获取结构化结果方式</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BD%BF%E7%94%A8with-structured-output"><span class="toc-list-number">3.2.1.</span> <span class="toc-list-text">使用with_structured_output</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BD%BF%E7%94%A8%E8%BE%93%E5%87%BA%E8%A7%A3%E6%9E%90%E5%99%A8"><span class="toc-list-number">3.2.2.</span> <span class="toc-list-text">使用输出解析器</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A8%A1%E5%9E%8B%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8"><span class="toc-list-number">4.</span> <span class="toc-list-text">模型工具调用</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%A8%A1%E5%9E%8B%E8%B0%83%E7%94%A8%E5%B7%A5%E5%85%B7%E6%AD%A5%E9%AA%A4"><span class="toc-list-number">4.1.</span> <span class="toc-list-text">模型调用工具步骤</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%A8%A1%E5%9E%8B%E5%A4%9A%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8"><span class="toc-list-number">4.2.</span> <span class="toc-list-text">模型多工具调用</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A8%A1%E5%9E%8B%E5%85%B6%E4%BB%96%E4%BD%BF%E7%94%A8"><span class="toc-list-number">5.</span> <span class="toc-list-text">模型其他使用</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Reasoning-%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86"><span class="toc-list-number">5.1.</span> <span class="toc-list-text">Reasoning-模型推理</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Rate-limiting-%E9%80%9F%E7%8E%87%E9%99%90%E5%88%B6"><span class="toc-list-number">5.2.</span> <span class="toc-list-text">Rate limiting-速率限制</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Invocation-Config-%E8%B0%83%E7%94%A8%E9%85%8D%E7%BD%AE"><span class="toc-list-number">5.3.</span> <span class="toc-list-text">Invocation Config-调用配置</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

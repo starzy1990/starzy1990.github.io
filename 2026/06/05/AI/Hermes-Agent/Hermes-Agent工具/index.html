@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Hermes Agent 工具 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-05
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">Hermes Agent 工具</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h2 id="内置工具"><a href="#内置工具" class="headerlink" title="内置工具"></a>内置工具</h2><p>Hermes Agent 内置了大量开箱即用的工具集，每个工具集中包含一到多个工具，如下是几个最核心的内置工具集。</p>
+<ul>
+<li><p><strong>File工具集</strong></p>
+<p>File 工具集是 Agent 进行代码开发和系统管理的基础，其设计原则是安全优先，避免使用危险的 shell 命令。包含的主要工具如下：</p>
+<ul>
+<li>read_file：读取文件，支持行号显示和分页读取。</li>
+<li>write_file：写文件，自动创建父目录，但会完全覆盖原文件。</li>
+<li>patch：修改文件，有多种模糊匹配策略，能容忍微小的缩进和空格差异，实现精准的代码修改，是进行代码重构和配置更新的首选工具。</li>
+<li>search_files：查找文件，支持正则表达式搜索。</li>
+</ul>
+</li>
+<li><p><strong>Terminal工具集</strong></p>
+<p>Terminal 工具集提供了完整的进程管理能力，支持前台和后台任务。包含的主要工具如下：</p>
+<ul>
+<li>terminal：执行 shell 命令。支持 background&#x3D;true运行长时任务。</li>
+<li>process：后台进程管理器。可以 list（查看）、poll（检查状态）、log（获取输出）、kill（终止）后台任务</li>
+</ul>
+</li>
+<li><p><strong>Browser工具集</strong></p>
+<p>Browser 工具集提供了完整的浏览器控制能力，特别适合处理需要 JavaScript 渲染的动态网页。包含主要工具如下：</p>
+<ul>
+<li>browser_navigate：导航到 URL，是所有浏览器操作的起点。</li>
+<li>browser_snapshot：获取页面的无障碍树（Accessibility Tree）。这是理解网页结构的关键——它会将页面转换为带引用 ID（如 @e1）的文本结构。</li>
+<li>browser_click&#x2F; browser_type：基于快照中的引用 ID 进行操作，而非脆弱的 XPath 或 CSS Selector。</li>
+<li>browser_vision：对页面进行截图并用视觉 AI 分析，专用于处理验证码或复杂布局验证。</li>
+</ul>
+</li>
+</ul>
+<p>我们可以在 CLI 对话中询问Hermes支持的内置工具：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609210830613.png" alt="image-20260609210830613"></p>
+<p>或者在终端执行“hermes tools list”来查看Hermes支持的内置工具集：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609210922831.png" alt="image-20260609210922831"></p>
+<p>关于Hermes Agent支持的更多工具集可以查看官网：<a target="_blank" rel="noopener" href="https://hermes-agent.nousresearch.com/docs/zh-Hans/reference/tools-reference">https://hermes-agent.nousresearch.com/docs/zh-Hans/reference/tools-reference</a></p>
+<h2 id="MCP-扩展工具配置"><a href="#MCP-扩展工具配置" class="headerlink" title="MCP 扩展工具配置"></a>MCP 扩展工具配置</h2><p>Hermes Agent中，当内置工具无法满足你的定制化需求时（例如需要操作公司内部数据库、调用私有 API 或连接智能硬件），Hermes 提供了 MCP (Model Context Protocol)扩展机制。MCP 是一个开放协议，允许 Hermes 连接到外部的“MCP Server”从而获取海量第三方工具。</p>
+<p>Hermes 支持两种类型的 MCP 服务器：Stdio（本地进程）和 HTTP（远程服务）。所有的配置均位于 ~&#x2F;.hermes&#x2F;config.yaml文件的 mcp_servers块中，配置的形式如下：</p>
+<pre><code class="shell">mcp_servers:
+  &lt;server_name&gt;:
+    command: &quot;...&quot;      # stdio 服务器
+    args: []
+    env: {}
+
+    # 或者
+    url: &quot;...&quot;          # HTTP 服务器
+    headers: {}
+
+    enabled: true
+    timeout: 120
+    connect_timeout: 60
+</code></pre>
+<p>以上两种类型的配置参数参考如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">配置项</th>
+<th align="center">类型</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">command</td>
+<td align="center">string</td>
+<td align="center">stdio MCP服务器的可执行文件</td>
+</tr>
+<tr>
+<td align="left">args</td>
+<td align="center">list</td>
+<td align="center">传递给stdio服务器的参数</td>
+</tr>
+<tr>
+<td align="left">env</td>
+<td align="center">mapping</td>
+<td align="center">传递给stdio 服务器的环境变量</td>
+</tr>
+<tr>
+<td align="left">url</td>
+<td align="center">string</td>
+<td align="center">HTTP MCP 端点</td>
+</tr>
+<tr>
+<td align="left">headers</td>
+<td align="center">mapping</td>
+<td align="center">远程服务器的HTTP头信息</td>
+</tr>
+<tr>
+<td align="left">enabled</td>
+<td align="center">bool</td>
+<td align="center">为false跳过整个服务器</td>
+</tr>
+<tr>
+<td align="left">timeout</td>
+<td align="center">number</td>
+<td align="center">工具调用超时时间（秒）</td>
+</tr>
+<tr>
+<td align="left">conect_timeout</td>
+<td align="center">number</td>
+<td align="center">初始连接超时时间（秒）</td>
+</tr>
+</tbody></table>
+<p>使用两种类型的MCP前需要安装MCP支持：</p>
+<pre><code class="shell">#系统中安装pip 命令
+sudo apt install python3-pip
+
+#系统中安装uv
+pip3 install uv
+
+#用uv创建虚拟环境并激活环境
+cd ~/.hermes/hermes-agent
+uv venv
+source .venv/bin/activate
+
+#安装mcp支持
+cd ~/.hermes/hermes-agent
+uv pip install -e &quot;.[mcp]&quot;
+</code></pre>
+<p>注意：uv是一个使用Rust编写的python包管理器，速度快（比pip&#x2F;conda 快5-10倍），完全兼容 pip的命令。</p>
+<h3 id="Stdio服务器（本地）"><a href="#Stdio服务器（本地）" class="headerlink" title="Stdio服务器（本地）"></a>Stdio服务器（本地）</h3><p>Stdio 服务器作为本地子进程运行，Stdio进程间通过标准输入（stdin）和标准输出（stdout）流进行通信的方式。如下是Hermes Agent 配置 Stdio MCP工具步骤。</p>
+<ol>
+<li><p>配置“~&#x2F;.hermes&#x2F;config.yaml”文件</p>
+<p>在Ubuntu系统中找到“~&#x2F;.hermes&#x2F;config.yaml”文件，在该文件中添加“mcp_servers”字段，如下：</p>
+<pre><code class="shell">mcp_servers:
+  filesystem:
+    command: &quot;npx&quot;
+    args: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-filesystem&quot;, &quot;/root/.hermes&quot;]
+</code></pre>
+<p>注意：@modelcontextprotocol&#x2F;server-filesystem是由 Anthropic（Claude大模型的开发公司）官方编写并开源，当在命令行中执行 npx -y @modelcontextprotocol&#x2F;server-filesystem时，npx工具会自动从 npm (Node Package Manager)官方仓库中下载并临时运行这个由 Anthropic 发布的标准化包。更多工具参考：<a target="_blank" rel="noopener" href="https://github.com/modelcontextprotocol/servers">https://github.com/modelcontextprotocol/servers</a> 。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260605214928393.png" alt="image-20260605214928393"></p>
+</li>
+<li><p>重新启动hermes ，使用 mcp 工具</p>
+<pre><code>中文回复我你具备哪些mcp工具？ 
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609222037319.png" alt="image-20260609222037319"></p>
+<pre><code>列出 /root/.hermes 目录下的文件，并总结该目录下的内容结构。
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609222320303.png" alt="image-20260609222320303"></p>
+</li>
+</ol>
+<h2 id="HTTP服务器（远程）"><a href="#HTTP服务器（远程）" class="headerlink" title="HTTP服务器（远程）"></a>HTTP服务器（远程）</h2><p>这里以魔塔社区中MCP为例演示Hermes Agent中配置远程MCP 工具服务。登录 <a target="_blank" rel="noopener" href="https://www.modelscope.cn/mcp/servers/@Joooook/12306-mcp">https://www.modelscope.cn/mcp/servers/@Joooook/12306-mcp</a> ，启动该服务：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260605215339966.png" alt="image-20260605215339966"></p>
+<p>然后将远程URL配置在Hermes Agent中，步骤如下：</p>
+<ol>
+<li><p>配置“~&#x2F;.hermes&#x2F;config.yaml”文件</p>
+<p>在Ubuntu系统中找到“~&#x2F;.hermes&#x2F;config.yaml”文件，在该文件中的“mcp_servers”字段下添加如下内容：</p>
+<pre><code class="json">mcp_servers:
+  12306-mcp:
+    type: streamable_http
+    url: https://mcp.api-inference.modelscope.net/58bf9bfab9314a/mcp
+  filesystem:
+    command: &quot;npx&quot;
+    args: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-filesystem&quot;, &quot;/root/.hermes&quot;]
+</code></pre>
+</li>
+<li><p>重新启动hermes ，使用 mcp 工具</p>
+<pre><code>中文告诉我你具备哪些mcp工具？ 
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609224048746.png" alt="image-20260609224048746"></p>
+<pre><code>查询今日北京到上海的高铁还有座位的高铁车次
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609224455103.png" alt="image-20260609224455103"></p>
+</li>
+</ol>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Skill/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">Hermes Agent Skill</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Session%E4%BC%9A%E8%AF%9D/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">Hermes Agent Session会话</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%86%85%E7%BD%AE%E5%B7%A5%E5%85%B7"><span class="toc-list-number">1.</span> <span class="toc-list-text">内置工具</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#MCP-%E6%89%A9%E5%B1%95%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE"><span class="toc-list-number">2.</span> <span class="toc-list-text">MCP 扩展工具配置</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Stdio%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E6%9C%AC%E5%9C%B0%EF%BC%89"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">Stdio服务器（本地）</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#HTTP%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E8%BF%9C%E7%A8%8B%EF%BC%89"><span class="toc-list-number">3.</span> <span class="toc-list-text">HTTP服务器（远程）</span></a></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

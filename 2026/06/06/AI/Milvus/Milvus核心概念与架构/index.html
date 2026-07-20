@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Milvus 核心概念与架构 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-06
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">Milvus 核心概念与架构</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Milvus/">Milvus</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h1 id="Milvus-核心概念"><a href="#Milvus-核心概念" class="headerlink" title="Milvus 核心概念"></a>Milvus 核心概念</h1><p>这是理解 Milvus 的基石，它们定义了 Milvus 处理的对象和基本单位。</p>
+<ul>
+<li><strong>非结构化数据 (Unstructured Data)</strong> ：指那些不符合预定义数据模型、不便于用数据库二维逻辑表来表现的数据，如图像、视频、音频和自然语言文本等。传统数据库难以高效处理这类数据的相似性检索，这正是 Milvus 擅长解决的问题。</li>
+<li><strong>向量 (Vector)</strong> ：非结构化数据的“数学翻译”。它本质上是一个由浮点数或二进制数组成的列表（数组），用于描述原始数据的特征。<ul>
+<li><strong>密集向量 (Dense Vector)</strong> ：维度通常为数百，每个位置都有非零值，适合表达包含丰富语义的文本或图像整体特征。</li>
+<li><strong>稀疏向量 (Sparse Vector)</strong> ：维度可能高达数十万，但大部分位置为0，适合用于关键词匹配或在推荐系统中表达用户长尾兴趣等场景。</li>
+</ul>
+</li>
+<li><strong>嵌入 (Embedding)</strong> ：指将非结构化数据通过模型（如BERT、ResNet）转化为向量的过程。Milvus 2.6.x 引入了<strong>嵌入函数 (Embedding Function)</strong> 功能，你只需提供原始文本，它便能直接调用 OpenAI、Hugging Face 等模型自动完成向量化，并存储到指定向量字段，整个过程更加平滑。</li>
+<li><strong>实体 (Entity)</strong> ：类似于关系数据库中的“行”。它由一个主键和一组字段（包含标量字段和向量字段）组成，构成了Collection中的一条完整数据记录。</li>
+<li><strong>字段 (Field)</strong> ：实体的组成部分，类似于关系数据库中的“列”。Milvus 2.6.x 的字段分为两类：<ul>
+<li><strong>标量字段 (Scalar Field)</strong> ：存储元数据（如 <code>author</code>、<code>price</code>），用于数据过滤和查询。2.6.x版本大幅增强了标量字段能力，支持<strong>动态添加新字段</strong>而无需重建集合，并新增了<strong>GEOMETRY（地理空间）</strong> 类型，用于存储和查询空间数据。</li>
+<li><strong>向量字段 (Vector Field)</strong> ：核心数据所在，存储由嵌入生成的向量。</li>
+</ul>
+</li>
+<li><strong>主键 (Primary Key)</strong> ：实体的唯一标识符，类似于关系数据库的主键列。数据类型可以是 <code>INT64</code>或 <code>VARCHAR</code>。<ul>
+<li><strong>AutoID</strong> ：是主键的一个属性。若在创建集合时设置 <code>auto_id=True</code>，则插入数据时无需指定主键值，Milvus会自动生成并管理它。</li>
+</ul>
+</li>
+<li><strong>集合 (Collection)</strong> ：类似于关系数据库中的“表”。它是所有实体和字段的容器，我们正是通过在集合上定义结构（Schema）、建立索引和发起搜索来完成工作。</li>
+</ul>
+<h2 id="数据建模与管理"><a href="#数据建模与管理" class="headerlink" title="数据建模与管理"></a>数据建模与管理</h2><p>这部分涉及如何为数据设计蓝图，并进行物理分区管理。</p>
+<ul>
+<li><strong>模式 (Schema)</strong> ：数据结构的“蓝图”，定义了Collection包含哪些字段、字段类型及约束。在Milvus 2.6.x中，你可以随时向已有Schema添加新字段，实现不停机的模式演进。<ul>
+<li><strong>动态模式 (Dynamic Schema)</strong> ：一种灵活的Schema设计，允许你在插入数据时，定义Schema之外的字段。Milvus 会自动将这些未定义的字段放入一个名为 <code>$meta</code> 的保留字段中存储。这在处理JSON等半结构化数据时非常有用。</li>
+</ul>
+</li>
+<li><strong>索引 (Index)</strong> ：为加速字段（尤其是向量字段）搜索而构建的数据结构。Milvus 支持IVF_FLAT、HNSW等多种索引。<ul>
+<li><strong>自动索引 (Auto-Index)</strong> ：一种智能索引策略。Milvus会根据数据分布自动选择最合适的索引类型和参数，免去手动调参的繁琐。例如，配置向量字段自动索引会根据经验自动调整配置以优化性能。</li>
+</ul>
+</li>
+<li><strong>度量类型 (Metric Type)</strong> ：衡量两个向量间相似度或距离的方法，需与索引类型匹配。Milvus 2.6.x 支持的主要类型如下：<ul>
+<li><strong>欧氏距离 (L2)</strong> ：计算两点间的直线距离，值越小越相似。</li>
+<li><strong>内积 (IP)</strong> ：推荐系统中的常用指标，值越大越相似。</li>
+<li><strong>余弦相似度 (COSINE)</strong> ：关注方向而非大小，值越大越相似。</li>
+</ul>
+</li>
+<li><strong>分区 (Partition)</strong> ：Collection内部的逻辑划分。将实体按一定规则（如日期、类别）放入不同分区，查询时指定分区可显著提升效率。</li>
+<li><strong>分片 (Shard)</strong> ：用于横向扩展的物理分割。一个Collection的数据会被均分到多个分片，分布在多个计算节点上，以实现并行写入和存储。<ul>
+<li><strong>分区键 (Partition Key)</strong> ：从 <code>is_partition_key=True</code>的字段取值，自动将记录路由到对应分区。将分片、分区、分区键结合，可在不同粒度上实现数据隔离，常用于多租户场景。</li>
+</ul>
+</li>
+</ul>
+<h3 id="核心操作"><a href="#核心操作" class="headerlink" title="核心操作"></a>核心操作</h3><p>这部分是Milvus为用户提供的基本数据操作能力。</p>
+<ul>
+<li><strong>插入 (Insert)</strong> ：向指定Collection中添加一条或多条实体。<ul>
+<li><strong>批量写入工具 (Bulk Writer)</strong> ：一种辅助工具，用于将原始数据集（如JSON、NumPy文件）高效转换成Milvus可导入的格式。</li>
+<li><strong>批量插入 (Bulk Insert)</strong> ：一个API接口，允许你通过单个请求导入多个文件（如JSON、NumPy），从而高效地将海量数据一次性写入Milvus。批量插入需要先将数据文件上传到对象存储。</li>
+<li><strong>Upsert</strong> ：一种数据操作，若记录不存在则插入（Insert），若存在则更新（Update）。</li>
+</ul>
+</li>
+<li><strong>搜索 (Search)</strong> ：Milvus的核心操作，通过查询向量，找到Collection中与之最相似的Top-K向量（ <strong>近似最近邻搜索</strong> ，ANN），并返回其主键和标量字段值。</li>
+<li><strong>查询 (Query)</strong> ：基于标量字段条件的精确查询，与SQL的 <code>SELECT</code>语句类似。此操作不涉及向量相似度计算。</li>
+<li><strong>过滤搜索 (Filtered Search)</strong> ：最常见的搜索模式。在向量搜索中加入标量过滤条件 <code>expr</code>，实现语义匹配与元数据过滤的结合。</li>
+<li><strong>范围搜索 (Range Search)</strong> ：向量搜索的一个变种。不限定返回结果数量（K），而是搜索查询向量距离<strong>在指定半径内</strong>的所有向量。</li>
+<li><strong>混合搜索 (Hybrid Search)</strong> ：多向量检索与重排序。2.6.x版本极大增强了混合检索能力，核心功能如下：<ul>
+<li><strong><code>hybrid_search()</code> API</strong> ：支持在<strong>多个向量字段</strong>上同时发起ANN搜索（多路召回），然后通过RRF、Weighted Ranker等策略对结果进行<strong>重排序</strong>。</li>
+<li><strong>文本+向量混合检索</strong> ：原生集成了基于BM25的全文检索和向量检索能力，支持短语匹配等精确度控制。</li>
+<li><strong>空间+向量混合检索</strong> ：原生支持 <strong>几何搜索</strong> ，如上例所示，能在一个查询中完成空间范围过滤（地理围栏）和语义相关性搜索。</li>
+</ul>
+</li>
+</ul>
+<h1 id="Milvus核心架构"><a href="#Milvus核心架构" class="headerlink" title="Milvus核心架构"></a>Milvus核心架构</h1><h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p><strong>各 SDK 官方地址：</strong></p>
+<table>
+<thead>
+<tr>
+<th>SDK</th>
+<th>语言</th>
+<th>官方仓库 &#x2F; 文档</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>PyMilvus</strong></td>
+<td>Python</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/milvus-io/pymilvus">https://github.com/milvus-io/pymilvus</a>（<code>pip install pymilvus</code>）</td>
+</tr>
+<tr>
+<td><strong>Milvus Go SDK</strong></td>
+<td>Go</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/milvus-io/milvus-sdk-go">https://github.com/milvus-io/milvus-sdk-go</a>（<code>go get github.com/milvus-io/milvus-sdk-go/v2</code>）</td>
+</tr>
+<tr>
+<td><strong>Milvus Java SDK</strong></td>
+<td>Java</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/milvus-io/milvus-sdk-java">https://github.com/milvus-io/milvus-sdk-java</a>（Maven &#x2F; Gradle 引入）</td>
+</tr>
+<tr>
+<td><strong>Milvus Node.js SDK</strong></td>
+<td>JavaScript</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/milvus-io/milvus-sdk-node">https://github.com/milvus-io/milvus-sdk-node</a>（<code>npm install @zilliz/milvus2-sdk-node</code>）</td>
+</tr>
+<tr>
+<td><strong>RESTful API</strong></td>
+<td>通用</td>
+<td>内嵌于 Proxy 组件，通过 HTTP 端口访问，SDK 中以 <code>uri=&quot;http://...&quot;</code>方式连接</td>
+</tr>
+</tbody></table>
+<p>RESTful API 并非独立仓库，而是由 Proxy 进程内部启动的 HTTP Gateway 提供。</p>
+<p>所有语言 SDK 底层均通过 <strong>gRPC</strong>（默认端口 19530）与 Proxy 通信，Proxy 同时对外暴露 RESTful 端点（默认端口 9091），方便非 gRPC 语言直接通过 HTTP 调用。</p>
+<p>各 SDK 共享同一套 Protobuf 定义：<a target="_blank" rel="noopener" href="https://github.com/milvus-io/milvus-proto">https://github.com/milvus-io/milvus-proto</a> 。</p>
+<h2 id="访问层（Access-Layer）"><a href="#访问层（Access-Layer）" class="headerlink" title="访问层（Access Layer）"></a>访问层（Access Layer）</h2><p>访问层是Milvus系统的最前端，负责接收和处理所有客户端请求。它是用户与Milvus系统交互的入口点，扮演着至关重要的网关角色。</p>
+<h3 id="从-Docker-容器认识访问层"><a href="#从-Docker-容器认识访问层" class="headerlink" title="从 Docker 容器认识访问层"></a>从 Docker 容器认识访问层</h3><p>在 Milvus Standalone 部署中，访问层（Proxy）作为 Milvus 容器内的核心组件运行。通过 Docker 命令可以直接观察到 Proxy 的端口监听、请求处理和服务状态。</p>
+<pre><code class="shell"># 1. 查看 Milvus 容器及其端口映射
+$ docker ps --format &quot;table &#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Image&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;&quot;
+
+# 关键发现：
+#   端口 19530 → gRPC 端口（SDK 必须连接这个端口！）
+#   端口 9091  → HTTP 监控/管理端口
+#   etcd 的端口(2379-2380/tcp)
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260715171627762.png" alt="image-20260715171626297"></p>
+<p><strong>Proxy 启动日志</strong></p>
+<pre><code class="shell"># windows
+docker logs milvus-standalone 2&gt;&amp;1 | findstr /i &quot;proxy access layer&quot;
+# linux
+docker logs milvus-standalone 2&gt;&amp;1 | grep -i &quot;proxy\|access layer&quot;
+</code></pre>
+<p><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/5983/1779250022024/d331135cd133428ba66b4c7150eb5b5d.png" alt="image.png"></p>
+<h3 id="访问层核心职责"><a href="#访问层核心职责" class="headerlink" title="访问层核心职责"></a>访问层核心职责</h3><p><strong>1) 请求接收与路由</strong></p>
+<p>访问层通过统一的API接口（gRPC&#x2F;HTTP）接收来自客户端的请求，并根据请求类型将其路由到相应的协调器组件。当客户端发起连接时，访问层首先验证连接的有效性，然后根据操作类型（插入、搜索、查询等）将请求分发到对应的处理模块。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260715172850211.png" alt="ChatGPT Image 2026年7月15日 17_28_34"></p>
+<p><strong>2) 认证与授权</strong></p>
+<p>访问层集成了完整的用户认证和权限管理机制。Milvus支持基于角色的访问控制（RBAC），可以为不同的用户或用户组分配不同的权限级别。认证过程采用业界标准的JWT令牌机制，确保只有经过验证的请求才能访问系统资源。</p>
+<pre><code class="mermaid">flowchart LR
+    classDef client fill:#E3F2FD,stroke:#1976D2,color:#000;
+    classDef auth fill:#FFF3E0,stroke:#F57C00,color:#000;
+    classDef store fill:#E8F5E9,stroke:#43A047,color:#000;
+    classDef jwt fill:#F3E5F5,stroke:#8E24AA,color:#000;
+    classDef result fill:#E1F5FE,stroke:#0288D1,color:#000;
+
+    Client[&quot;客户端请求&quot;]:::client
+    Auth[&quot;访问层&lt;br/&gt;认证模块&quot;]:::auth
+    Etcd[&quot;etcd&lt;br/&gt;用户库&quot;]:::store
+    Result[&quot;验证结果&quot;]:::result
+    JWT[&quot;JWT Token&lt;br/&gt;验证&quot;]:::jwt
+
+    Client --&gt; Auth
+    Auth --&gt; Etcd
+    Etcd --&gt; Result
+
+    Auth --&gt; JWT
+    Result --&gt; JWT
+</code></pre>
+<p><strong>3) 负载均衡</strong></p>
+<p>访问层（Proxy）实现了智能负载均衡策略，能够根据各工作节点的当前负载情况，将请求分发到最合适的节点处理。Milvus 支持多种负载均衡策略，确保系统在高并发场景下仍能保持稳定的性能表现。</p>
+<p><strong>负载均衡的策略类型：</strong></p>
+<p>Proxy 内部在路由查询请求到 Query Node 时，通过 <code>LoadBalancer</code> 接口选择目标节点。源码中实现了以下策略（位于 <code>internal/proxy/</code> 目录）：</p>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>类名</th>
+<th>工作原理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>轮询（Round Robin）</strong></td>
+<td><code>RoundRobinBalancer</code></td>
+<td>依次轮流选择可用 Query Node，每个节点轮流承担请求</td>
+</tr>
+<tr>
+<td><strong>最少代价（Least Cost）</strong></td>
+<td><code>LeastCostBalancer</code></td>
+<td>实时采集各 Query Node 的 CPU&#x2F;内存&#x2F;请求数指标，选择当前负载最轻的节点</td>
+</tr>
+<tr>
+<td><strong>旁路（Look Aside）</strong></td>
+<td><code>LookAsideBalancer</code></td>
+<td>查询时先检查本地缓存的路由表，命中则直接转发，未命中则查询 QueryCoord 获取最新拓扑</td>
+</tr>
+</tbody></table>
+<p><strong>配置方式（milvus.yaml）：</strong></p>
+<p>负载均衡策略通过 Milvus 配置文件中的 Proxy 和 QueryCoord 相关参数进行配置：</p>
+<pre><code class="yaml"># milvus.yaml — Proxy 负载均衡相关配置
+proxy:
+  port: 19530                    # gRPC 端口
+  http:
+    port: 9091                   # HTTP/RESTful 端口
+    enabled: true
+  timeTickInterval: 200          # 时间滴答间隔（毫秒）
+  # 查询节点选择相关参数
+  queryNode:
+    selector: &quot;RoundRobin&quot;       # 节点选择策略：RoundRobin / LeastCost
+    failoverRetryTimes: 3        # 故障转移重试次数
+
+# QueryCoord 相关配置
+queryCoord:
+  autoBalance: true              # 是否开启自动负载均衡
+  balanceIntervalSeconds: 60     # 负载均衡检查间隔（秒）
+  overloadedMemoryWatermark: 0.85  # 内存过载水位线（超过 85% 触发均衡）
+  # Segment 分配策略
+  globalRowCountFactor: 0.25     # 全局行数因子
+  scoreBasedBalance: true        # 基于评分的均衡（CPU+内存综合打分）
+</code></pre>
+<p><strong>场景举例：</strong></p>
+<p><strong>场景 1：多 Query Node 轮询分发</strong></p>
+<pre><code>假设有 3 个 Query Node（QN1、QN2、QN3），配置 selector: &quot;RoundRobin&quot;：
+
+请求序列：
+  请求1 → QN1    请求4 → QN1    请求7 → QN1
+  请求2 → QN2    请求5 → QN2    请求8 → QN2
+  请求3 → QN3    请求6 → QN3    请求9 → QN3
+
+适用场景：各节点配置相同、数据均质分布
+</code></pre>
+<p><strong>场景 2：基于实际负载的智能分发（LeastCost）</strong></p>
+<pre><code>假设 3 个 Query Node 当前状态：
+  QN1: CPU 85%，内存 90%，当前排队请求 120  ← 负载高
+  QN2: CPU 30%，内存 45%，当前排队请求 20   ← 负载低
+  QN3: CPU 50%，内存 60%，当前排队请求 50   ← 负载中
+
+配置 selector: &quot;LeastCost&quot; 时：
+  新请求 → QN2（代价最低，优先选择）
+
+适用场景：节点配置不均、数据热点分布、弹性扩缩容过程中
+</code></pre>
+<p><strong>场景 3：自动负载再均衡（QueryCoord 触发）</strong></p>
+<pre><code>当某 Query Node 内存超过 overloadedMemoryWatermark (85%)：
+
+  1. QueryCoord 检测到 QN1 内存 90% &gt; 85% 水位线
+  2. 触发自动再均衡（balanceIntervalSeconds: 60s 周期检查）
+  3. 将 QN1 上的部分 Sealed Segment 迁移到 QN2/QN3
+  4. 迁移完成后，QN1 内存降至 60%，恢复健康状态
+
+无需人工介入，全程自动完成
+</code></pre>
+<p><strong>生产环境建议：</strong></p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐策略</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>节点同配、数据均匀</td>
+<td><code>RoundRobin</code></td>
+<td>简单高效，无额外采集开销</td>
+</tr>
+<tr>
+<td>节点异构、负载波动大</td>
+<td><code>LeastCost</code></td>
+<td>动态感知负载，避免”热点节点”</td>
+</tr>
+<tr>
+<td>高并发 + 低延迟要求</td>
+<td><code>LeastCost</code>+<code>autoBalance: true</code></td>
+<td>配合自动再均衡持续优化分布</td>
+</tr>
+<tr>
+<td>调试&#x2F;测试环境</td>
+<td><code>RoundRobin</code></td>
+<td>行为可预测，便于排查问题</td>
+</tr>
+</tbody></table>
+<pre><code class="yaml"># 客户端侧无法直接配置 Proxy 负载均衡策略（策略在服务端 milvus.yaml 中配置），
+# 但可以通过以下方式影响负载分布：
+
+from pymilvus import connections, Collection
+
+connections.connect(alias=&quot;default&quot;, address=&quot;localhost:19530&quot;)
+
+# 方式1：创建多个副本（replica），Proxy 会自动将查询负载分散到各副本
+collection = Collection(&quot;my_collection&quot;)
+collection.load(replica_number=3)  # 3 个内存副本 = 3 个 Query Node 可并行查询
+
+# 方式2：合理使用 Partition Key，将数据分散到不同分区
+# 不同分区可能由不同 Query Node 负责，天然分散查询负载
+
+# 方式3：连接池（SDK 侧）
+# PyMilvus 内部维护 gRPC 连接池，并发请求会自动多路复用
+# 无需额外配置，SDK 默认开启
+</code></pre>
+<h3 id="协调器组件详解"><a href="#协调器组件详解" class="headerlink" title="协调器组件详解"></a>协调器组件详解</h3><p>协调器是 Milvus 的”大脑”，负责调度和管理所有工作节点。四种协调器各司其职，共同组成系统的控制平面（Control Plane）。</p>
+<table>
+<thead>
+<tr>
+<th><strong>协调器</strong></th>
+<th>代码位置</th>
+<th>操作对象</th>
+<th>核心职责</th>
+<th>对外接口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Root Coord</strong></td>
+<td><code>internal/rootcoord/</code></td>
+<td>元数据（DB&#x2F;Collection&#x2F;Partition）</td>
+<td>DDL 操作、TSO 时间戳分配</td>
+<td><code>CreateCollection</code>、<code>DropCollection</code></td>
+</tr>
+<tr>
+<td><strong>Query Coord</strong></td>
+<td><code>internal/querycoordv2/</code></td>
+<td>Query Node 集群</td>
+<td>查询分发、结果合并、Segment 分配</td>
+<td><code>Search</code>、<code>Query</code>、<code>HybridSearch</code></td>
+</tr>
+<tr>
+<td><strong>Data Coord</strong></td>
+<td><code>internal/datacoord/</code></td>
+<td>Data Node 集群</td>
+<td>数据持久化调度、Segment 生命周期</td>
+<td><code>Insert</code>、<code>Delete</code>、<code>Flush</code></td>
+</tr>
+<tr>
+<td><strong>Index Coord</strong></td>
+<td><code>internal/indexcoord/</code></td>
+<td>Index Node 集群</td>
+<td>索引构建调度、进度监控</td>
+<td><code>CreateIndex</code>、<code>DropIndex</code></td>
+</tr>
+</tbody></table>
+<p><strong>技术实现与类比：</strong></p>
+<pre><code class="mermaid">flowchart LR
+
+subgraph Kitchen[&quot;餐厅后厨&quot;]
+    K1[&quot;👨‍🍳 厨师长&lt;br/&gt;（分配桌子）&quot;]
+    K2[&quot;🚶 传菜主管&lt;br/&gt;（调度传菜）&quot;]
+    K3[&quot;🔪 切配主管&lt;br/&gt;（管理食材）&quot;]
+    K4[&quot;🍽️ 摆盘主管&lt;br/&gt;（成品把关）&quot;]
+end
+
+subgraph Milvus[&quot;Milvus 协调器&quot;]
+    M1[&quot;Root Coord&lt;br/&gt;管理全局菜单（元数据）&quot;]
+    M2[&quot;Query Coord&lt;br/&gt;调度 Query Node&quot;]
+    M3[&quot;Data Coord&lt;br/&gt;调度 Data Node&quot;]
+    M4[&quot;Index Coord&lt;br/&gt;调度 Index Node&quot;]
+end
+
+K1 &lt;--&gt; M1
+K2 &lt;--&gt; M2
+K3 &lt;--&gt; M3
+K4 &lt;--&gt; M4
+
+classDef kitchen fill:#FFF8E1,stroke:#F9A825,stroke-width:2px;
+classDef milvus fill:#E3F2FD,stroke:#1E88E5,stroke-width:2px;
+
+class K1,K2,K3,K4 kitchen;
+class M1,M2,M3,M4 milvus;
+</code></pre>
+<p><strong>1) Root Coordinator（根协调器）—— 全局总管</strong></p>
+<p>Root Coord 是唯一拥有 TSO（Timestamp Oracle）能力的组件，所有时间戳由它统一分配，是整个系统<strong>时序一致性的根基</strong>。</p>
+<p>请求路径（以创建 Collection 为例）：</p>
+<pre><code class="mermaid">graph TD
+    %% 定义节点样式
+    classDef component fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef database fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    classDef action fill:#fff3e0,stroke:#e65100,stroke-width:1px,stroke-dasharray: 5 5;
+
+    %% 节点定义
+    Client([Client]):::component
+    Proxy([Proxy]):::component
+    RootCoord([Root Coord]):::component
+    Etcd[(etcd)]:::database
+    TSO[分配时间戳 TSO]:::action
+    DataCoord[通知 Data Coord 初始化 Segment]:::action
+
+    %% 连线关系
+    Client --&gt; Proxy
+    Proxy --&gt; RootCoord
+    
+    %% Root Coord 的水平/垂直操作
+    RootCoord --&gt; |写入元数据| Etcd
+    RootCoord --&gt; TSO
+    TSO --&gt; DataCoord
+</code></pre>
+<p><strong>2) Query Coordinator（查询协调器）—— 查询调度员</strong></p>
+<p>Query Coord 负责将查询请求路由到最优的 Query Node，并合并多个节点的搜索结果。它监听各 Query Node 的负载指标，在节点间动态迁移 Segment 以实现负载均衡。请求路径（以 Search 为例）：</p>
+<pre><code class="mermaid">graph TD
+    Client --&gt; Proxy
+    Proxy --&gt; QueryCoord[Query Coord]
+    
+    QueryCoord --&gt; Step1[查询 localMetaCache&lt;br&gt;哪个 QN 持有目标 Segment？]
+    QueryCoord --&gt; Step2[选择负载最低的 Query Node]
+    
+    Step1 --&gt; QueryNode[Query Node]
+    Step2 --&gt; QueryNode
+    
+    QueryNode --&gt; Search[执行向量搜索]
+    Search --&gt; Return[返回结果]
+    
+    Return --&gt; Merge[Query Coord 合并多个 QN 的结果]
+</code></pre>
+<p><strong>3) Data Coordinator（数据协调器）—— 数据大管家</strong></p>
+<p>Data Coord 负责决定”数据写到哪里”。它通过分配 vchannel（虚拟通道）和物理 Segment 来控制数据的流向和落地位置。请求路径（以 Insert 为例）：</p>
+<pre><code class="mermaid">graph TD
+    Client --&gt; Proxy
+    Proxy --&gt; DataCoord[Data Coord]
+    
+    DataCoord --&gt; VChannel[分配 vchannel&lt;br&gt;数据路由通道]
+    DataCoord --&gt; Segment[分配 Growing Segment&lt;br&gt;可写入的数据段]
+    
+    VChannel --&gt; DataNode[Data Node]
+    Segment --&gt; DataNode
+    
+    DataNode --&gt; WAL[写 WAL]
+    WAL --&gt; Storage[(落盘到对象存储)]
+</code></pre>
+<p><strong>4) Index Coordinator（索引协调器）—— 索引调度员</strong></p>
+<p>Index Coord 监控所有”尚未建索引”的 Sealed Segment，为它们创建索引构建任务，并分发给 Index Node 执行。请求路径（以 CreateIndex 为例）：</p>
+<pre><code class="mermaid">graph TD
+    Client --&gt; Proxy
+    Proxy --&gt; RootCoord[Root Coord]
+    RootCoord --&gt; IndexCoord[Index Coord]
+    
+    IndexCoord --&gt; Scan[扫描待建索引的 Segment 列表]
+    IndexCoord --&gt; Generate[生成索引构建任务]
+    
+    Scan --&gt; IndexNode[Index Node]
+    Generate --&gt; IndexNode
+    
+    IndexNode --&gt; Build[构建索引]
+    Build --&gt; Storage[(写入对象存储)]
+    
+    Storage --&gt; Notify[通知 Query Coord&lt;br&gt;&#39;索引就绪，可加载到查询节点&#39;]
+</code></pre>
+<p><strong>协调器相关配置（milvus.yaml）：</strong></p>
+<pre><code class="yaml"># 根协调器配置
+rootCoord:
+  address: localhost:53100
+  port: 53100
+  dmlChannelNum: 16          # DML 通道数
+  maxPartitionNum: 4096       # 最大分区数
+
+# 查询协调器配置
+queryCoord:
+  address: localhost:19531
+  port: 19531
+  autoBalance: true           # 自动 Segment 负载均衡
+  balanceIntervalSeconds: 60  # 均衡检查周期
+  overloadedMemoryWatermark: 0.85  # 内存过载水位线
+
+# 数据协调器配置
+dataCoord:
+  address: localhost:13333
+  port: 13333
+  segment:
+    maxSize: 1024            # 单个 Segment 最大容量（MB）
+    sealProportion: 0.12     # Sealed Segment 比例
+  compaction:
+    enableAutoCompaction: true  # 自动压缩合并
+
+# 索引协调器配置
+indexCoord:
+  address: localhost:31000
+  port: 31000
+  bindIndexNodeMode:
+    enable: false            # 是否绑定固定 Index Node
+</code></pre>
+<p><strong>协调器健康状态监控：</strong></p>
+<pre><code class="python"># 通过 SDK 检查协调器管理的资源状态
+from pymilvus import connections, Collection, utility
+
+connections.connect(alias=&quot;default&quot;, address=&quot;localhost:19530&quot;)
+
+# 查看 Root Coord 管理的资源
+print(f&quot;数据库数量: &#123;len(utility.list_databases())&#125;&quot;)
+print(f&quot;集合数量: &#123;len(utility.list_collections())&#125;&quot;)
+
+# 查看 Index Coord 管理的索引状态
+for coll_name in utility.list_collections():
+    collection = Collection(coll_name)
+    for idx in collection.indexes:
+        print(f&quot;集合 &#39;&#123;coll_name&#125;&#39; 字段 &#39;&#123;idx.field_name&#125;&#39; 索引就绪&quot;)
+
+# 查看 Data Coord 管理的分区状态
+collection = Collection(utility.list_collections()[0])
+for partition in collection.partitions:
+    print(f&quot;分区 &#39;&#123;partition.name&#125;&#39;: &#123;partition.num_entities&#125; 条数据&quot;)
+
+connections.disconnect(&quot;default&quot;)
+</code></pre>
+<p><strong>以上要点总结：</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Root Coord</th>
+<th>Query Coord</th>
+<th>Data Coord</th>
+<th>Index Coord</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>类比</strong></td>
+<td>数据库 DBA</td>
+<td>查询调度员</td>
+<td>存储管理员</td>
+<td>索引管理员</td>
+</tr>
+<tr>
+<td><strong>处理的操作</strong></td>
+<td>Create&#x2F;Drop&#x2F;Describe</td>
+<td>Search&#x2F;Query</td>
+<td>Insert&#x2F;Delete&#x2F;Flush</td>
+<td>CreateIndex&#x2F;DropIndex</td>
+</tr>
+<tr>
+<td><strong>调度对象</strong></td>
+<td>全局元数据</td>
+<td>Query Node</td>
+<td>Data Node</td>
+<td>Index Node</td>
+</tr>
+<tr>
+<td><strong>核心机制</strong></td>
+<td>TSO 时间戳</td>
+<td>Segment 负载均衡</td>
+<td>vchannel 分配</td>
+<td>异步任务队列</td>
+</tr>
+<tr>
+<td><strong>如果挂了</strong></td>
+<td>无法创建&#x2F;删除集合</td>
+<td>无法执行搜索</td>
+<td>无法写入新数据</td>
+<td>新数据无法建索引</td>
+</tr>
+</tbody></table>
+<h2 id="工作节点（Worker-Nodes）"><a href="#工作节点（Worker-Nodes）" class="headerlink" title="工作节点（Worker Nodes）"></a>工作节点（Worker Nodes）</h2><p>工作节点是 Milvus 中真正”干活”的角色——写入数据、构建索引、执行搜索都由它们完成。协调器只管”调度”，工作节点负责”执行”。工作节点采用<strong>无状态设计</strong>，支持水平扩展。</p>
+<h3 id="从-Docker-容器认识工作节点"><a href="#从-Docker-容器认识工作节点" class="headerlink" title="从 Docker 容器认识工作节点"></a>从 Docker 容器认识工作节点</h3><p>以 Milvus Standalone（Docker Compose 部署）为例，所有组件运行在单个容器内，但内部进程模型与分布式一致。通过 Docker 命令可以直观看到各组件的真实面貌。</p>
+<p><strong>Milvus Standalone 的 docker-compose.yml 示例：</strong></p>
+<pre><code class="yaml"># 单机版 Milvus Standalone 的 Docker Compose 配置
+version: &#39;3.5&#39;
+services:
+  etcd:
+    container_name: milvus-etcd
+    image: quay.io/coreos/etcd:v3.5.5
+    # ...
+
+  minio:
+    container_name: milvus-minio
+    image: minio/minio:RELEASE.2023-03-20T20-16-18Z
+    # ...
+
+  standalone:
+    container_name: milvus-standalone
+    image: milvusdb/milvus:v2.4.0
+    ports:
+      - &quot;19530:19530&quot;   # gRPC 端口（SDK 连接用）
+      - &quot;9091:9091&quot;     # HTTP 监控端口
+    depends_on:
+      - etcd
+      - minio
+    # 在这个容器内部，Proxy、Coordinator、Worker Node 全部以 Go 协程方式运行
+</code></pre>
+<p><strong>查看运行中的 Milvus 容器：</strong></p>
+<pre><code class="shell"># 1. 查看 Docker 容器列表
+$ docker ps --format &quot;table &#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Image&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;&quot;
+
+NAMES               IMAGE                                      STATUS                       PORTS
+attu                zilliz/attu:v3.0.0-beta.6                  Up 59 minutes                0.0.0.0:3000-&gt;3000/tcp, [::]:3000-&gt;3000/tcp
+milvus-standalone   milvusdb/milvus:v2.6.17                    Up About an hour (healthy)   0.0.0.0:9091-&gt;9091/tcp, [::]:9091-&gt;9091/tcp, 0.0.0.0:19530-&gt;19530/tcp, [::]:19530-&gt;19530/tcp
+milvus-minio        minio/minio:RELEASE.2024-12-18T13-15-44Z   Up About an hour (healthy)   0.0.0.0:9000-9001-&gt;9000-9001/tcp, [::]:9000-9001-&gt;9000-9001/tcp
+milvus-etcd         quay.io/coreos/etcd:v3.5.25                Up About an hour (healthy)   2379-2380/tcp
+
+
+# 2. 进入 Milvus 容器查看内部进程
+$ docker exec -it milvus-standalone /bin/bash
+
+# 3. 容器内查看 Milvus 进程（Standalone 模式下所有组件在同一进程内）
+$ ps aux | grep milvus
+root           1  0.0  0.2  19656  7772 ?        Ssl  08:52   0:00 /tini -- milvus run standalone
+root           8  5.7 10.0 2150216 374464 ?      Sl   08:52   3:39 milvus run standalone
+
+# 4. 查看 Milvus 日志 —— 日志中会打印各组件的角色标识
+$ docker logs --tail 20 milvus-standalone
+
+[INFO] &quot;Welcome to Milvus&quot;
+[INFO] &quot;Proxy successfully started&quot;            # ← Access Layer
+[INFO] &quot;RootCoord successfully started&quot;        # ← Coordinator
+[INFO] &quot;QueryCoord successfully started&quot;       # ← Coordinator
+[INFO] &quot;DataCoord successfully started&quot;        # ← Coordinator
+[INFO] &quot;IndexCoord successfully started&quot;       # ← Coordinator
+[INFO] &quot;QueryNode successfully started&quot;        # ← Worker Node ← 本章主角
+[INFO] &quot;DataNode successfully started&quot;         # ← Worker Node ← 本章主角
+[INFO] &quot;IndexNode successfully started&quot;        # ← Worker Node ← 本章主角
+[INFO] &quot;Milvus is ready&quot;
+</code></pre>
+<blockquote>
+<p><strong>关键认知：</strong> 从日志可以看到，Standalone 模式下<strong>每行 “successfully started” 都是一个 Go 协程&#x2F;子模块</strong>，它们在同一个操作系统进程内通过 gRPC loopback 互相通信。在分布式模式下，每个 “Node” 独立部署为单独的 Pod&#x2F;容器。</p>
+</blockquote>
+<p><strong>Docker 容器内部组件通信示意图：</strong></p>
+<pre><code class="mermaid">graph TD
+    subgraph Standalone[&quot;Milvus Standalone 进程 (单机模式)&quot;]
+        Proxy[&quot;Go 协程：Proxy          ← 监听 0.0.0.0:19530 (gRPC)&quot;]
+        RootCoord[&quot;Go 协程：RootCoord      ← 与 etcd 通信 (milvus-etcd)&quot;]
+        QueryCoord[&quot;Go 协程：QueryCoord     ← 调度 QueryNode&quot;]
+        DataCoord[&quot;Go 协程：DataCoord      ← 调度 DataNode&quot;]
+        IndexCoord[&quot;Go 协程：IndexCoord     ← 调度 IndexNode&quot;]
+        QueryNode[&quot;Go 协程：QueryNode      ← 加载索引，执行搜索&quot;]
+        DataNode[&quot;Go 协程：DataNode       ← 写入 WAL，持久化数据&quot;]
+        IndexNode[&quot;Go 协程：IndexNode      ← 构建向量索引&quot;]
+        
+        Note&gt;📢 所有协程通过本地 gRPC 通信（127.0.0.1），无需跨容器]
+        
+        %% 使用隐式连线强制内部节点垂直整齐排列
+        Proxy ~~~ RootCoord ~~~ QueryCoord ~~~ DataCoord ~~~ IndexCoord ~~~ QueryNode ~~~ DataNode ~~~ IndexNode ~~~ Note
+    end
+
+    Etcd[(milvus-etcd&lt;br&gt;元数据存储)]
+    Minio[(milvus-minio&lt;br&gt;对象存储)]
+
+    %% 从整个进程容器指向外部存储依赖
+    Standalone --&gt; Etcd
+    Standalone --&gt; Minio
+</code></pre>
+<hr>
+<h3 id="写节点-流节点（Stream-Node-Write-Node）"><a href="#写节点-流节点（Stream-Node-Write-Node）" class="headerlink" title="写节点 &#x2F; 流节点（Stream Node &#x2F; Write Node）"></a>写节点 &#x2F; 流节点（Stream Node &#x2F; Write Node）</h3><p>写节点（Milvus 内部称为 Stream Node）负责处理所有数据写入请求。在分布式部署中它是<strong>独立可扩展的组件</strong>，在 Standalone 模式下由 DataNode 协程兼任。</p>
+<p><strong>流节点的 Docker 视角：</strong></p>
+<pre><code class="shell"># 分布式部署中，流节点/写节点作为独立组件运行
+$ docker ps | grep stream
+milvus-streamnode-1    milvusdb/milvus:v2.4.0   &quot;milvus run streamnode&quot;
+
+# 查看写节点日志 —— 观察数据写入行为
+$ docker logs --tail 10 milvus-streamnode-1
+[INFO] &quot;StreamNode register success&quot;
+[INFO] &quot;Receive insert request, channel=by-dev-rootcoord-dml_0, size=1024&quot;
+[INFO] &quot;Write to WAL completed, msgID=18446744073709551615&quot;
+[INFO] &quot;Flush segment 440000000000000001 to MinIO&quot;
+
+# 在 Standalone 模式下，查看数据写入的实时日志
+$ docker logs -f milvus-standalone | grep -E &quot;DataNode|Flush|Insert&quot;
+[INFO] &quot;DataNode received insert, collection=my_demo, rows=1000&quot;
+[INFO] &quot;DataNode buffer flush triggered, size=128KB&quot;
+[INFO] &quot;Segment sealed and persisted to MinIO&quot;
+</code></pre>
+<p><strong>流节点工作流程：</strong></p>
+<pre><code class="mermaid">graph TD
+    Client[客户端] --&gt; Proxy[Proxy]
+    Proxy --&gt; DataNode[&quot;DataNode&lt;br&gt;(StreamNode)&quot;]
+    
+    DataNode --&gt; Step1[&quot;1. 数据写入内存 Buffer&quot;]
+    DataNode --&gt; Step2[&quot;2. 同步写 WAL&lt;br&gt;(Pulsar/Kafka)&quot;]
+    DataNode --&gt; Step3[&quot;3. Buffer 满或定时触发 Flush&quot;]
+    DataNode --&gt; Step4[&quot;4. 数据落盘到对象存储&lt;br&gt;(MinIO/S3)&quot;]
+    
+    %% 用虚线表示这四步的先后逻辑顺序，让图表更具可读性
+    Step1 -.-&gt; Step2 -.-&gt; Step3 -.-&gt; Step4
+    
+    %% 为存储组件添加不同的样式区分
+    classDef storage fill:#f9f2f4,stroke:#d37295,stroke-width:2px;
+    class Step2,Step4 storage;
+</code></pre>
+<p>查看 WAL 和 Flush 状态：</p>
+<pre><code class="shell">  docker exec milvus-standalone ls -la /var/lib/milvus/data/
+  docker exec milvus-minio ls -la /data/
+</code></pre>
+<p><strong>写节点核心特性：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>描述</strong></th>
+<th><strong>Docker 验证方式</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>异步写入</td>
+<td>数据先入内存，异步持久化</td>
+<td><code>docker logs milvus-standalone | grep Flush</code></td>
+</tr>
+<tr>
+<td>批量处理</td>
+<td>支持批量插入，减少网络 IO</td>
+<td>观察日志中 <code>rows=N</code>的变化</td>
+</tr>
+<tr>
+<td>WAL 保障</td>
+<td>崩溃后从 WAL 恢复未持久化数据</td>
+<td>查看 <code>/var/lib/milvus/wal/</code>目录</td>
+</tr>
+<tr>
+<td>流量控制</td>
+<td>内置写入速率限制</td>
+<td>查看 <code>milvus.yaml</code>中 <code>dataNode.flowGraph.maxQueueLength</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="查询节点（Query-Node）"><a href="#查询节点（Query-Node）" class="headerlink" title="查询节点（Query Node）"></a>查询节点（Query Node）</h3><p>查询节点是搜索性能的关键。它从对象存储加载索引到<strong>本地内存</strong>，在内存中执行向量相似度计算。</p>
+<p><strong>查询节点的 Docker 视角：</strong></p>
+<pre><code class="shell"># 分布式部署中查看 Query Node 容器
+$ docker ps | grep querynode
+milvus-querynode-1   milvusdb/milvus:v2.4.0   &quot;milvus run querynode&quot;
+
+# 查看 Query Node 加载的 Segment 信息
+$ docker logs milvus-querynode-1 2&gt;&amp;1 | grep -E &quot;load|segment|memory&quot;
+[INFO] &quot;QueryNode loading segment 440000000000000002, size=128MB&quot;
+[INFO] &quot;Segment loaded into memory, collection=my_demo&quot;
+[INFO] &quot;QueryNode memory usage: 256MB / 1024MB&quot;
+
+# 查看容器内存使用（观察加载索引前后的变化）
+$ docker stats milvus-standalone --no-stream
+CONTAINER            CPU %    MEM USAGE / LIMIT     MEM %
+milvus-standalone    12.5%    512.3MiB / 2GiB       25.01%
+
+# 在 Python 中 load 数据后再看
+$ docker stats milvus-standalone --no-stream
+CONTAINER            CPU %    MEM USAGE / LIMIT     MEM %
+milvus-standalone    25.0%    890.5MiB / 2GiB       43.48%    ← 内存涨了！
+</code></pre>
+<blockquote>
+<p><strong>教学技巧：</strong> 上面的 <code>docker stats</code> 对比是课堂上最直观的演示——让学生<strong>先记下 load 前的内存，再 load 后看内存增长</strong>，立即理解 “Query Node 是将索引加载到内存做搜索” 这句话的含义。</p>
+</blockquote>
+<p><strong>查询节点搜索流程：</strong></p>
+<pre><code class="mermaid">graph TD
+    Request([查询请求]) --&gt; QueryCoord[Query Coord]
+    
+    %% 定义 Query Node 集群子图
+    subgraph Cluster [Query Node 集群]
+        direction LR
+        QN1[&quot;QN-1&lt;br&gt;Seg: A, B&lt;br&gt;Mem: 30%&quot;]
+        QN2[&quot;QN-2&lt;br&gt;Seg: C, D&lt;br&gt;Mem: 55%&quot;]
+        QN3[&quot;QN-3&lt;br&gt;Seg: E, F&lt;br&gt;Mem: 85%&lt;br&gt;(Load 高会被绕过)&quot;]
+    end
+    
+    %% 下发查询请求（路由与绕过）
+    QueryCoord --&gt;|分发| QN1
+    QueryCoord --&gt;|分发| QN2
+    QueryCoord -.-&gt;|绕过不分发| QN3
+    
+    Merge[结果合并与排序]
+    
+    %% 结果汇总
+    QN1 --&gt; Merge
+    QN2 --&gt; Merge
+    %% QN3 被绕过所以没有返回箭头
+    
+    Merge --&gt; Output([返回 Top-K 结果])
+    
+    %% 样式区分（为高负载节点添加虚线边框标注）
+    style QN3 stroke:#f44336,stroke-width:2px,stroke-dasharray: 5 5
+</code></pre>
+<hr>
+<h3 id="索引节点（Index-Node）"><a href="#索引节点（Index-Node）" class="headerlink" title="索引节点（Index Node）"></a>索引节点（Index Node）</h3><p>索引节点是 <strong>CPU 密集型</strong>组件，负责计算和构建向量索引。在大规模数据场景下，索引构建可能占用大量 CPU 时间。</p>
+<p><strong>索引节点的 Docker 视角：</strong></p>
+<pre><code class="shell"># 观察索引构建时的 CPU 飙升
+$ docker stats milvus-standalone --no-stream
+CONTAINER    CPU %    MEM USAGE / LIMIT
+milvus-sa    8.2%     412MiB / 2GiB
+
+# Python 代码创建索引后立即观察
+# &gt;&gt;&gt; collection.create_index(&quot;vector&quot;, &#123;&quot;index_type&quot;: &quot;HNSW&quot;, ...&#125;)
+
+$ docker stats milvus-standalone --no-stream
+CONTAINER    CPU %    MEM USAGE / LIMIT
+milvus-sa    145.3%   890MiB / 2GiB    ← CPU 飙升，正在构建索引！
+
+# 索引构建完成后 CPU 回落
+$ docker stats milvus-standalone --no-stream
+CONTAINER    CPU %    MEM USAGE / LIMIT
+milvus-sa    6.5%     780MiB / 2GiB    ← 索引构建完成，CPU 恢复正常
+
+# 查看索引文件是否已写入 MinIO
+$ docker exec milvus-minio ls -la /data/default/my_collection/
+-rw-r--r--  index_440000000000000001.hnsw  24567890  ← HNSW 索引文件已生成
+</code></pre>
+<hr>
+<h3 id="数据节点（Data-Node）"><a href="#数据节点（Data-Node）" class="headerlink" title="数据节点（Data Node）"></a>数据节点（Data Node）</h3><p>数据节点是数据的”管家”，管理数据从内存到磁盘的完整生命周期。它的核心工作单元是 <strong>Segment（数据段）</strong>。</p>
+<p><strong>数据节点的 Docker 视角：</strong></p>
+<pre><code class="shell"># 查看 DataNode 管理的 Segment 信息
+$ docker exec milvus-standalone ls /var/lib/milvus/data/
+440000000000000001/   # ← 这是一个 Sealed Segment 的本地缓存目录
+440000000000000002/
+
+# 查看 DataNode 的日志 —— 追踪 Segment 的生命周期
+$ docker logs milvus-standalone 2&gt;&amp;1 | grep -E &quot;Segment|seal|compact&quot;
+[INFO] &quot;DataNode created growing segment 440000000000000003&quot;
+[INFO] &quot;Segment 440000000000000003 sealed, size=512MB&quot;
+[INFO] &quot;Compaction start: merging segments [440000000000000001, 440000000000000002]&quot;
+[INFO] &quot;Compaction done: new segment 440000000000000004 created&quot;
+
+# 查看 MinIO 中持久化的 Segment 文件
+$ docker exec milvus-minio ls -laR /data/default/my_collection/
+/data/default/my_collection/:
+  insert_log/           # DML 日志（原始向量数据）
+  index_files/          # 索引文件
+  binlog/               # Binlog 文件（数据快照）
+</code></pre>
+<p><strong>Segment 生命周期（DataNode 视角）：</strong></p>
+<pre><code class="mermaid">flowchart LR
+    %% 定义卡片节点内容
+    Growing[&quot;&lt;b&gt;Growing Segment（可写入）&lt;/b&gt;&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;• 新数据持续写入&lt;br/&gt;• 驻留在 DataNode 内存&lt;br/&gt;• 同时写 WAL&quot;]
+    
+    Sealed[&quot;&lt;b&gt;Sealed Segment（已封存）&lt;/b&gt;&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;• 不再接受写入&lt;br/&gt;• 等待 IndexNode 建索引&lt;br/&gt;• 已持久化到对象存储&quot;]
+    
+    Compacted[&quot;&lt;b&gt;合并后的大 Segment&lt;/b&gt;&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;• 减少文件碎片&lt;br/&gt;• 提高查询效率&quot;]
+
+    %% 定义包含换行文本的横向流转箭头
+    Growing --&gt;|&quot;满了&lt;br&gt;(seal)&quot;| Sealed
+    Sealed --&gt;|&quot;多个小 Segment 合并&lt;br&gt;(Compaction)&quot;| Compacted
+    
+    %% 让文本靠左对齐，样式更像卡片
+    classDef default fill:#f8fcff,stroke:#87bdec,stroke-width:2px,text-align:left;
+</code></pre>
+<hr>
+<h3 id="工作节点综合"><a href="#工作节点综合" class="headerlink" title="工作节点综合"></a>工作节点综合</h3><p>以下是一个完整的课堂演示流程，使用 Docker 命令配合 Python SDK，让学生直观感受各组件的协作：</p>
+<pre><code class="shell"># ==================== Shell 终端 ====================
+
+# 步骤1: 启动前记录基线
+docker stats milvus-standalone --no-stream
+
+# 步骤2: 观察插入数据时 DataNode 的日志
+docker logs -f milvus-standalone &amp;
+</code></pre>
+<pre><code class="python"># ==================== Python 终端 ====================
+from pymilvus import MilvusClient, Collection
+import numpy as np
+
+client = MilvusClient(uri=&quot;http://localhost:19530&quot;)
+
+# 步骤3: 创建集合 + 插入数据 —— 触发 DataNode
+client.create_collection(&quot;demo&quot;, dimension=128, metric_type=&quot;L2&quot;)
+client.insert(&quot;demo&quot;, [
+    &#123;&quot;id&quot;: i, &quot;vector&quot;: np.random.rand(128).tolist()&#125;
+    for i in range(10000)
+])
+client.flush(&quot;demo&quot;)
+print(&quot;数据写入完成，查看 Docker 日志应看到 Flush 记录&quot;)
+</code></pre>
+<pre><code class="shell"># ==================== Shell 终端 ====================
+
+# 步骤4: 查看 DataNode 的 Flush 日志
+docker logs milvus-standalone --tail 20 | grep -i &quot;flush\|seal&quot;
+# 预期输出: &quot;Segment sealed and persisted to MinIO&quot;
+
+# 步骤5: 查看 MinIO 中是否有文件生成
+docker exec milvus-minio ls -la /data/default/demo/
+# 预期输出: insert_log/ binlog/ 目录
+</code></pre>
+<pre><code class="python"># ==================== Python 终端 ====================
+
+# 步骤6: 创建索引 —— 触发 IndexNode，观察 CPU 飙升
+client.create_index(&quot;demo&quot;, &quot;vector&quot;, &#123;
+    &quot;index_type&quot;: &quot;HNSW&quot;,
+    &quot;metric_type&quot;: &quot;L2&quot;,
+    &quot;params&quot;: &#123;&quot;M&quot;: 16, &quot;efConstruction&quot;: 200&#125;
+&#125;)
+</code></pre>
+<pre><code class="shell"># ==================== Shell 终端 ====================
+
+# 步骤7: 索引构建时观察 CPU（应立即执行）
+docker stats milvus-standalone --no-stream
+# 预期: CPU &gt; 100%，说明 IndexNode 正在密集计算
+
+# 步骤8: 查看索引文件
+docker exec milvus-minio ls -la /data/default/demo/index_files/
+# 预期: .hnsw 索引文件
+</code></pre>
+<pre><code class="python"># ==================== Python 终端 ====================
+
+# 步骤9: Load 数据 —— 触发 QueryNode 加载索引到内存
+client.load_collection(&quot;demo&quot;)
+</code></pre>
+<pre><code class="shell"># ==================== Shell 终端 ====================
+
+# 步骤10: 立即观察内存增长（触目惊心的对比！）
+docker stats milvus-standalone --no-stream
+# 内存应从 ~400MB 增长到 ~800MB+
+
+# 步骤11: 执行搜索，观察 QueryNode 工作
+docker logs milvus-standalone --tail 5 | grep -i &quot;search\|query&quot;
+</code></pre>
+<pre><code class="python"># ==================== Python 终端 ====================
+
+# 步骤12: 最终搜索验证
+results = client.search(&quot;demo&quot;, [np.random.rand(128).tolist()], limit=5)
+print(&quot;搜索成功！&quot;, [(r[&quot;id&quot;], round(r[&quot;distance&quot;], 4)) for r in results[0]])
+</code></pre>
+<p>以上代码注意如下几点：</p>
+<ul>
+<li>**Docker 日志是”活教材”**：每个操作在日志中都有对应记录，让学生”看见”架构不再是抽象概念。</li>
+<li><strong><code>docker stats</code> 对比法</strong>：插入前后、建索引前后、Load 前后的 CPU&#x2F;内存对比，比任何文字描述都有说服力。</li>
+<li><strong>写节点写入</strong>：使用批量写入可以显著提高写入性能，日志中的 <code>rows=N</code> 能直观反映批量大小。</li>
+<li><strong>查询节点搜索</strong>：搜索参数（如 <code>nprobe</code>、<code>ef</code>）直接影响搜索性能，可通过日志观察耗时。</li>
+<li><strong>索引节点构建</strong>：索引构建是异步过程，日志中会打印 <code>Index building progress</code> 状态更新。</li>
+<li><strong>数据节点段管理</strong>：理解 Growing&#x2F;Sealed&#x2F;Compacted 三种 Segment 状态，是性能调优的基础。</li>
+</ul>
+<hr>
+<h2 id="存储层（Storage）"><a href="#存储层（Storage）" class="headerlink" title="存储层（Storage）"></a>存储层（Storage）</h2><p>存储层是 Milvus 的”地基”，所有数据最终都落在这里。它由三个核心组件构成：元存储（etcd）、对象存储（MinIO&#x2F;S3）和 WAL 存储（Pulsar&#x2F;Kafka&#x2F;RocksMQ）。</p>
+<h3 id="从-Docker-容器认识存储层"><a href="#从-Docker-容器认识存储层" class="headerlink" title="从 Docker 容器认识存储层"></a>从 Docker 容器认识存储层</h3><p>在 Milvus Standalone 部署中，存储层的每个组件都运行在<strong>独立 Docker 容器</strong>中，可以直接进入容器查看内部数据。</p>
+<p><strong>存储层 Docker 容器概览：</strong></p>
+<pre><code class="shell"># 查看存储层相关容器
+$ docker ps --format &quot;table &#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Image&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;&quot; \
+    | grep -E &quot;etcd|minio|pulsar|milvus&quot;
+
+NAMES               IMAGE                              STATUS          PORTS
+milvus-standalone   milvusdb/milvus:v2.4.0             Up 3 hours      19530, 9091
+milvus-minio        minio/minio:RELEASE.2023-03-20     Up 3 hours      9000-9001
+milvus-etcd         quay.io/coreos/etcd:v3.5.5         Up 3 hours      2379-2380
+
+# 查看各存储容器的磁盘占用
+$ docker system df -v | grep milvus
+milvus-minio        2.5GB      # ← 向量数据 + 索引文件（最大的那个！）
+milvus-etcd         45MB       # ← 元数据（很小）
+milvus-standalone   380MB      # ← 本地缓存（Segment 临时数据）
+</code></pre>
+<p><strong>存储层总览示意图（容器视角）：</strong></p>
+<pre><code class="mermaid">flowchart LR
+    %% 定义节点内部左对齐的卡片样式，并按组件给不同颜色
+    classDef standalone fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px,text-align:left;
+    classDef etcd fill:#e8f5e9,stroke:#43a047,stroke-width:2px,text-align:left;
+    classDef minio fill:#fff3e0,stroke:#fb8c00,stroke-width:2px,text-align:left;
+
+    %% 1. 核心运行容器
+    Standalone[&quot;&lt;b&gt;milvus-standalone 容器&lt;/b&gt;&lt;br/&gt;━━━━━━━━━━━━━━━━━━&lt;br/&gt;• Proxy / Coordinators&lt;br/&gt;• QueryNode / DataNode&lt;br/&gt;• IndexNode&lt;br/&gt;• (本地缓存: Segment 暂存)&quot;]:::standalone
+
+    %% 2. 元数据存储容器 (使用空格树状展现路径)
+    Etcd[&quot;&lt;b&gt;milvus-etcd 容器&lt;/b&gt;&lt;br/&gt;━━━━━━━━━━━━━━━━━━&lt;br/&gt;/milvus/&lt;br/&gt;&amp;nbsp;&amp;nbsp;├─ collections/&lt;br/&gt;&amp;nbsp;&amp;nbsp;├─ partitions/&lt;br/&gt;&amp;nbsp;&amp;nbsp;├─ segments/&lt;br/&gt;&amp;nbsp;&amp;nbsp;└─ coordinators/&quot;]:::etcd
+
+    %% 3. 对象存储容器 (使用空格树状展现路径)
+    Minio[&quot;&lt;b&gt;milvus-minio 容器&lt;/b&gt;&lt;br/&gt;━━━━━━━━━━━━━━━━━━&lt;br/&gt;/data/default/&lt;br/&gt;&amp;nbsp;&amp;nbsp;├─ collection_1/&lt;br/&gt;&amp;nbsp;&amp;nbsp;│&amp;nbsp;&amp;nbsp;├─ insert_log/&amp;nbsp;&amp;nbsp;(向量数据)&lt;br/&gt;&amp;nbsp;&amp;nbsp;│&amp;nbsp;&amp;nbsp;├─ index_files/ (索引文件)&lt;br/&gt;&amp;nbsp;&amp;nbsp;│&amp;nbsp;&amp;nbsp;└─ binlog/&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(数据快照)&lt;br/&gt;&amp;nbsp;&amp;nbsp;└─ collection_2/&quot;]:::minio
+
+    %% 定义容器间的交互关系
+    Standalone &lt;--&gt;|&quot;读写元数据&quot;| Etcd
+    Standalone --&gt;|&quot;数据落盘与加载&quot;| Minio
+</code></pre>
+<hr>
+<h3 id="元存储（Meta-Store）——-etcd"><a href="#元存储（Meta-Store）——-etcd" class="headerlink" title="元存储（Meta Store）—— etcd"></a>元存储（Meta Store）—— etcd</h3><p>etcd 是 Milvus 的”配置中心 + 注册中心 + 元数据库”。它不存向量数据，只存”描述数据的数据”（Schema、集合定义、节点状态等）。</p>
+<p><strong>从 Docker 直接查看 etcd 中的元数据：</strong></p>
+<pre><code class="shell"># 1. 进入 etcd 容器
+$ docker exec -it milvus-etcd /bin/sh
+
+# 2. 查看 Milvus 写入的元数据 key
+$ etcdctl get --prefix &quot;/milvus/&quot; --keys-only
+
+/milvus/collections/454444359156859000          # 集合元数据 ID
+/milvus/partitions/454444359156859001            # 分区元数据
+/milvus/segments/454444359156859002              # Segment 元数据
+/milvus/rootcoord/session                        # Root Coord 注册信息
+/milvus/querycoord/session                       # Query Coord 注册信息
+/milvus/datacoord/session                        # Data Coord 注册信息
+/milvus/indexcoord/session                       # Index Coord 注册信息
+
+# 3. 查看某个集合的具体 Schema（解码 Protobuf 后的人类可读格式）
+$ etcdctl get /milvus/collections/454444359156859000
+# 输出包含：collection_name, fields[], primary_key, dimension, metric_type 等
+
+# 4. 查看当前活跃的协调器节点（服务发现功能）
+$ etcdctl get /milvus/rootcoord/session
+# 输出包含：ServerID, Address=localhost:53100, LeaseID, 心跳时间
+</code></pre>
+<p><strong>etcd 中存储的关键数据：</strong></p>
+<pre><code>/milvus/
+├── collections/&#123;coll_id&#125;     # 每个集合的 Schema 定义（字段名、类型、维度）
+├── partitions/&#123;partition_id&#125;  # 分区元数据
+├── segments/&#123;segment_id&#125;      # Segment 状态：Growing / Sealed / Flushed / Dropped
+├── rootcoord/session          # Root Coord 的注册 session + 心跳
+├── querycoord/session         # Query Coord 的注册 session
+├── datacoord/session          # Data Coord 的注册 session
+├── indexcoord/session         # Index Coord 的注册 session
+├── querynodes/&#123;node_id&#125;       # 各 Query Node 的负载信息
+├── datanodes/&#123;node_id&#125;        # 各 Data Node 的 channel 分配信息
+└── credentials/               # 用户名/加密密码（RBAC）
+</code></pre>
+<p><strong>元存储核心特性：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>描述</strong></th>
+<th><strong>Docker 验证方式</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高可用</td>
+<td>Raft 协议，3 节点集群</td>
+<td><code>etcdctl endpoint health</code></td>
+</tr>
+<tr>
+<td>强一致</td>
+<td>线性一致性读</td>
+<td><code>etcdctl get</code>保证读到最新</td>
+</tr>
+<tr>
+<td>低延迟</td>
+<td>内存级访问</td>
+<td><code>etcdctl check perf</code></td>
+</tr>
+<tr>
+<td>服务发现</td>
+<td>各组件注册 session + 心跳续约</td>
+<td><code>etcdctl get /milvus/rootcoord/session</code></td>
+</tr>
+</tbody></table>
+<pre><code class="python"># 演示元存储的元数据管理功能
+from pymilvus import connections, Collection, utility
+
+connections.connect(alias=&quot;default&quot;, address=&quot;localhost:19530&quot;)
+
+print(&quot;=&quot; * 60)
+print(&quot;【Python API 视角 vs Docker 视角对比】&quot;)
+print(&quot;=&quot; * 60)
+
+# Python SDK 查看（等价于 etcdctl get /milvus/collections/）
+print(&quot;\n【集合列表】&quot;)
+collections = utility.list_collections()
+for coll in collections:
+    print(f&quot;  - &#123;coll&#125;&quot;)
+    # 查看集合详细信息
+    collection = Collection(coll)
+    schema = collection.schema
+    for field in schema.fields:
+        print(f&quot;    字段: &#123;field.name&#125; | 类型: &#123;field.dtype&#125; | 主键: &#123;field.is_primary&#125;&quot;)
+
+connections.disconnect(&quot;default&quot;)
+
+# 此时让学员在另一个终端执行：
+#   docker exec milvus-etcd etcdctl get --prefix &quot;/milvus/collections/&quot; --keys-only
+# 对比发现：Python API 看到的集合 = etcd 中存储的集合元数据
+</code></pre>
+<hr>
+<h3 id="对象存储（Object-Storage）——-MinIO-S3"><a href="#对象存储（Object-Storage）——-MinIO-S3" class="headerlink" title="对象存储（Object Storage）—— MinIO &#x2F; S3"></a>对象存储（Object Storage）—— MinIO &#x2F; S3</h3><p>对象存储是 Milvus 最大的存储消费者，存放<strong>向量原始数据</strong>和<strong>索引文件</strong>。在 Standalone 部署中默认使用 MinIO。</p>
+<p><strong>从 Docker 直接查看 MinIO 中的文件：</strong></p>
+<pre><code class="shell"># 1. 查看 MinIO 容器状态
+$ docker ps | grep minio
+milvus-minio   minio/minio:RELEASE.2023-03-20   Up 3 hours   0.0.0.0:9000-9001-&gt;9000-9001/tcp
+
+# 2. 进入 MinIO 容器，查看 Milvus 写入的数据
+$ docker exec -it milvus-minio /bin/sh
+
+# 3. 查看 MinIO 存储目录结构
+$ ls -la /data/
+drwxr-xr-x  a-bucket/          # Milvus 使用的默认 bucket
+
+# 4. 查看某个集合的存储文件（最直观的&quot;数据库文件在哪&quot;的答案）
+$ find /data/a-bucket/ -type f | head -20
+
+/data/a-bucket/default/my_collection/
+├── insert_log/
+│   ├── 454444359156860000/
+│   │   ├── 454444359156860001  # 向量数据文件（每条记录的向量值）
+│   │   ├── 454444359156860002
+│   │   └── 454444359156860003
+├── index_files/
+│   ├── 454444359156860100/
+│   │   ├── 454444359156860101  # HNSW 索引文件
+│   │   └── 454444359156860102
+├── binlog/
+│   ├── 454444359156860200/
+│   │   ├── 454444359156860201  # 数据快照文件
+│   │   └── 454444359156860202
+└── delta_log/
+    ├── 454444359156860300/
+    │   └── 454444359156860301  # 删除记录文件
+
+# 5. 查看文件大小 —— 理解&quot;向量数据库占多少磁盘&quot;
+$ du -sh /data/a-bucket/default/my_collection/
+insert_log/     1.2GB     # 原始向量数据（128维 × Float32 × 4字节 × 行数）
+index_files/    856MB     # 索引文件（HNSW 额外索引结构）
+binlog/         1.2GB     # 数据快照
+delta_log/      2.1MB     # 删除记录（几乎可以忽略）
+Total:          ~3.2GB
+
+# 6. 通过浏览器访问 MinIO 管理界面（更直观）
+# 浏览器打开: http://localhost:9001
+# 默认账号: minioadmin / minioadmin
+# 进入 milvus bucket → 看到所有文件，可直接下载查看
+</code></pre>
+<blockquote>
+<p><strong>MinIO Web 控制台</strong>是最佳的教学辅助工具。登录 <code>http://localhost:9001</code> 后，让学生亲眼看到 <code>insert_log/</code>、<code>index_files/</code>、<code>binlog/</code> 这些目录和他们刚刚写入的数据一一对应。</p>
+</blockquote>
+<p><strong>MinIO 控制台操作演示（课堂截图级内容）：</strong></p>
+<pre><code>浏览器访问 http://localhost:9001 → 登录
+  → Buckets → a-bucket → default/ → my_collection/
+      → insert_log/    ← &quot;老师，这就是我们刚 insert 的数据吗？&quot;（是的！）
+      → index_files/   ← &quot;create_index 后出现的&quot;（正确！）
+      → binlog/        ← &quot;flush 后持久化的快照&quot;
+      → delta_log/     ← &quot;delete 操作的记录&quot;
+</code></pre>
+<p><strong>对象存储后端对比：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>存储后端</strong></th>
+<th><strong>适用场景</strong></th>
+<th><strong>优点</strong></th>
+<th><strong>缺点</strong></th>
+<th><strong>Docker 部署</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MinIO</strong></td>
+<td>本地&#x2F;私有部署</td>
+<td>部署简单，与 S3 兼容</td>
+<td>需自行运维</td>
+<td><code>minio/minio</code>（Standalone 默认）</td>
+</tr>
+<tr>
+<td><strong>AWS S3</strong></td>
+<td>AWS 云</td>
+<td>全托管，无限扩展</td>
+<td>云厂商绑定</td>
+<td>云端，通过 <code>milvus.yaml</code>配置</td>
+</tr>
+<tr>
+<td><strong>GCS</strong></td>
+<td>GCP 云</td>
+<td>全托管</td>
+<td>云厂商绑定</td>
+<td>云端</td>
+</tr>
+<tr>
+<td><strong>Azure Blob</strong></td>
+<td>Azure 云</td>
+<td>企业级</td>
+<td>配置复杂</td>
+<td>云端</td>
+</tr>
+<tr>
+<td><strong>阿里云 OSS</strong></td>
+<td>国内云</td>
+<td>国内速度快</td>
+<td>云厂商绑定</td>
+<td>云端</td>
+</tr>
+<tr>
+<td><strong>腾讯 COS</strong></td>
+<td>腾讯云</td>
+<td>低成本</td>
+<td>云厂商绑定</td>
+<td>云端</td>
+</tr>
+</tbody></table>
+<pre><code class="python"># 演示向量数据在对象存储中的概念
+from pymilvus import connections, Collection
+import numpy as np
+
+connections.connect(alias=&quot;default&quot;, address=&quot;localhost:19530&quot;)
+
+collection_name = &quot;object_storage_demo&quot;
+if collection_name in utility.list_collections():
+    utility.drop_collection(collection_name)
+
+fields = [
+    FieldSchema(name=&quot;id&quot;, dtype=DataType.INT64, is_primary=True),
+    FieldSchema(name=&quot;vector&quot;, dtype=DataType.FLOAT_VECTOR, dim=128),
+    FieldSchema(name=&quot;title&quot;, dtype=DataType.VARCHAR, max_length=200)
+]
+schema = CollectionSchema(fields=fields, description=&quot;对象存储演示&quot;)
+collection = Collection(name=collection_name, schema=schema)
+
+batch_count = 500
+print(f&quot;准备存储 &#123;batch_count&#125; 条向量数据...&quot;)
+
+entities = [&#123;
+    &quot;id&quot;: i,
+    &quot;vector&quot;: np.random.rand(128).astype(np.float32).tolist(),
+    &quot;title&quot;: f&quot;文档_&#123;i&#125;&quot;
+&#125; for i in range(batch_count)]
+
+insert_result = collection.insert(entities)
+print(f&quot;写入成功！共写入 &#123;len(insert_result.primary_keys)&#125; 条数据&quot;)
+
+# Flush 后，数据从 WAL 持久化到 MinIO
+collection.flush()
+print(&quot;Flush 完成，数据已写入 MinIO&quot;)
+print(f&quot;  此时在 MinIO 控制台应能看到 insert_log/ 目录下出现新文件&quot;)
+print(f&quot;  存储大小估算: &#123;batch_count * 128 * 4&#125; 字节 ≈ &#123;batch_count * 128 * 4 / 1024 / 1024:.2f&#125; MB (未压缩)&quot;)
+
+connections.disconnect(&quot;default&quot;)
+</code></pre>
+<hr>
+<h3 id="WAL存储（Write-Ahead-Log）——-Pulsar-Kafka-RocksMQ"><a href="#WAL存储（Write-Ahead-Log）——-Pulsar-Kafka-RocksMQ" class="headerlink" title="WAL存储（Write-Ahead Log）—— Pulsar &#x2F; Kafka &#x2F; RocksMQ"></a>WAL存储（Write-Ahead Log）—— Pulsar &#x2F; Kafka &#x2F; RocksMQ</h3><p>WAL 是数据写入的”安全气囊”——写入请求先在 WAL 中记录（写日志极快），再异步批量写入对象存储（写文件较慢）。如果系统崩溃，可以从 WAL 恢复未持久化的数据。</p>
+<p><strong>WAL 存储的 Docker 视角：</strong></p>
+<pre><code class="shell"># 1. Standalone 默认使用 RocksMQ（内置在 milvus 进程中，无需独立容器）
+#    分布式部署通常使用 Pulsar 或 Kafka
+
+# 2. 查看 Standalone 模式下 RocksMQ 的存储位置
+$ docker exec milvus-standalone ls -la /var/lib/milvus/rocksmq/
+-rw-r--r-- 100MB  rocksmq_data.db     # RocksMQ 持久化文件
+-rw-r--r-- 4KB    MANIFEST
+
+# 3. 如果使用 Pulsar（分布式部署）
+$ docker ps | grep pulsar
+milvus-pulsar    apachepulsar/pulsar:2.8.2   Up 3 hours
+
+$ docker exec milvus-pulsar ls -la /pulsar/data/bookkeeper/
+# BookKeeper 的 ledger 文件 = Milvus 的 WAL 记录
+
+# 4. 观察 WAL 的写入和消费（站在消息队列角度）
+#    Producer 端：DataNode 把数据写入 WAL
+#    Consumer 端：IndexNode 从 WAL 读取数据建索引
+$ docker logs milvus-standalone 2&gt;&amp;1 | grep -i &quot;channel\|publish\|subscribe&quot;
+
+[INFO] &quot;DataNode publish to channel by-dev-rootcoord-dml_0, msg count=1000&quot;
+[INFO] &quot;IndexNode subscribe channel by-dev-rootcoord-dml_0&quot;
+[INFO] &quot;QueryNode subscribe channel by-dev-rootcoord-dml_0, consume 1000 msgs&quot;
+</code></pre>
+<p><strong>WAL 端到端工作原理：</strong></p>
+<pre><code class="mermaid">flowchart TD
+    subgraph 正常写入流程
+        A[Client 写入请求] --&gt; B[Proxy 转发]
+        B --&gt; C[DataNode 写 WAL]
+        C --&gt; D[返回 Client OK]
+        D --&gt; E[异步 Flush 到 MinIO]
+    end
+
+    subgraph 崩溃发生
+        E -.-&gt;|未完成| F[⚠️ 系统宕机]
+        F --&gt; G[数据在 WAL 中确认&lt;br/&gt;但未持久化到 MinIO]
+    end
+
+    subgraph 重启恢复流程
+        G --&gt; H[Milvus 重启]
+        H --&gt; I[DataNode 读取 WAL&lt;br/&gt;未消费消息]
+        I --&gt; J[重放 Replay 写入操作]
+        J --&gt; K[数据写入 MinIO]
+        K --&gt; L[✅ 数据完整，一致]
+    end
+</code></pre>
+<p>关键理解：</p>
+<ul>
+<li>写 WAL 是同步的（一定要等 WAL 确认）</li>
+<li>写 MinIO 是异步的（批量做，效率高）</li>
+<li>崩溃后从 WAL 恢复：回放所有”已写 WAL” 但 “未写 MinIO” 的数据</li>
+</ul>
+<p><strong>WAL 存储核心特性：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>描述</strong></th>
+<th><strong>Docker 验证方式</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据持久化保证</td>
+<td>写入 WAL 即视为已持久化</td>
+<td>查看 RocksMQ 文件大小变化：<code>ls -la /var/lib/milvus/rocksmq/</code></td>
+</tr>
+<tr>
+<td>故障恢复</td>
+<td>崩溃后从 WAL 回放未完成的操作</td>
+<td>查看启动日志中的 <code>recovery</code>&#x2F;<code>replay</code>关键字</td>
+</tr>
+<tr>
+<td>异步处理</td>
+<td>WAL 写入（同步）+ MinIO 写入（异步）</td>
+<td>对比 insert 返回速度和 MinIO 文件出现时间差</td>
+</tr>
+<tr>
+<td>多后端支持</td>
+<td>Pulsar &#x2F; Kafka &#x2F; RocksMQ</td>
+<td>Standalone 默认 RocksMQ（内置），分布式推荐 Pulsar</td>
+</tr>
+</tbody></table>
+<pre><code class="python"># 演示 WAL 的数据一致性保证
+from pymilvus import connections, Collection, utility
+
+connections.connect(alias=&quot;default&quot;, address=&quot;localhost:19530&quot;)
+
+collection_name = &quot;wal_demo&quot;
+if collection_name in utility.list_collections():
+    utility.drop_collection(collection_name)
+
+fields = [
+    FieldSchema(name=&quot;id&quot;, dtype=DataType.INT64, is_primary=True),
+    FieldSchema(name=&quot;vector&quot;, dtype=DataType.FLOAT_VECTOR, dim=128)
+]
+schema = CollectionSchema(fields=fields, description=&quot;WAL演示集合&quot;)
+collection = Collection(name=collection_name, schema=schema)
+
+print(&quot;写入数据——此时数据已写 WAL，客户端收到 OK&quot;)
+entities = [&#123;&quot;id&quot;: i, &quot;vector&quot;: np.random.rand(128).astype(np.float32).tolist()&#125;
+            for i in range(100)]
+insert_result = collection.insert(entities)
+print(f&quot;写入完成，返回 ID: &#123;insert_result.primary_keys[:5]&#125;...&quot;)
+print(f&quot;此时数据已安全记录在 WAL 中，即使系统崩溃也不会丢失&quot;)
+
+# Flush —— 将 WAL 中的数据批量写入 MinIO
+print(&quot;Flush 数据到 MinIO...&quot;)
+collection.flush()
+
+# 加载并验证
+collection.load()
+loaded = collection.query(expr=&quot;id &gt;= 0&quot;, output_fields=[&quot;id&quot;])
+print(f&quot;查询到 &#123;len(loaded)&#125; 条数据 —— 一致性验证: &#123;&#39;通过&#39; if len(loaded) == 100 else &#39;失败&#39;&#125;&quot;)
+
+connections.disconnect(&quot;default&quot;)
+</code></pre>
+<hr>
+<h3 id="存储层综合实验（Docker-实操）"><a href="#存储层综合实验（Docker-实操）" class="headerlink" title="存储层综合实验（Docker 实操）"></a>存储层综合实验（Docker 实操）</h3><p>以下实验让学生亲眼看到三层存储的数据流转：</p>
+<pre><code class="shell"># ==================== 实验：追踪一条数据的存储路径 ====================
+
+# 步骤1: 查看插入前的 MinIO 状态
+docker exec milvus-minio du -sh /data/a-bucket/default/
+
+# 步骤2: Python 插入 10000 条数据并 flush
+# （执行 Python 代码）
+
+# 步骤3: 查看 MinIO 文件增长
+docker exec milvus-minio du -sh /data/a-bucket/default/
+# 预期：明显增大（insert_log/ 和 binlog/ 目录有新文件）
+
+# 步骤4: 创建索引后再次查看
+# （执行 Python collection.create_index）
+
+docker exec milvus-minio du -sh /data/a-bucket/default/
+# 预期：再次增大（index_files/ 目录出现 .hnsw 文件）
+
+# 步骤5: 查看 etcd 中的集合注册
+docker exec milvus-etcd etcdctl get --prefix &quot;/milvus/collections/&quot; --keys-only
+# 预期：看到集合 ID key
+
+# 步骤6: 查看 RocksMQ 中的消息（Standalone 模式）
+docker exec milvus-standalone ls -lh /var/lib/milvus/rocksmq/
+# 预期：rocksmq_data.db 文件存在
+
+# 步骤7: 查看总磁盘占用
+docker system df -v | grep milvus
+# 综合报告：MinIO(最大) + etcd(小) + RocksMQ(中)
+</code></pre>
+<p><strong>实验结论：三层存储各有其责</strong></p>
+<table>
+<thead>
+<tr>
+<th>存储层</th>
+<th>容器</th>
+<th>存储内容</th>
+<th>大小特征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>元存储</strong></td>
+<td>milvus-etcd</td>
+<td>Schema、分区、Segment 状态、节点注册</td>
+<td>KB~MB 级（极小）</td>
+</tr>
+<tr>
+<td><strong>对象存储</strong></td>
+<td>milvus-minio</td>
+<td>向量数据、索引文件、Binlog 快照</td>
+<td>GB~TB 级（最大）</td>
+</tr>
+<tr>
+<td><strong>WAL 存储</strong></td>
+<td>RocksMQ（内置）或 milvus-pulsar</td>
+<td>待持久化的写入记录</td>
+<td>MB~GB 级</td>
+</tr>
+</tbody></table>
+<p>以上代码注意如下几点：</p>
+<ul>
+<li><strong>元存储高可用</strong>：etcd 的强一致性保证了元数据的可靠访问，生产环境建议部署 etcd 3 节点集群。</li>
+<li><strong>对象存储扩展性</strong>：MinIO 数据量 &gt; 其余所有组件之和，根据数据量选择合适的存储后端。</li>
+<li><strong>WAL 数据安全</strong>：这是防止数据丢失的最后一道防线，<code>insert</code> 返回成功 &#x3D; 数据已安全写入 WAL。</li>
+<li><strong>Docker exec 教学法</strong>：让学生亲手进入容器查看文件，比任何 PPT 都更能建立对”存算分离”的直观理解。</li>
+</ul>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E4%B8%8E%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">Milvus 核心参数与核心机制</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/06/AI/Milvus/Milvus%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">Milvus 快速入门</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#Milvus-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="toc-list-number">1.</span> <span class="toc-list-text">Milvus 核心概念</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E4%B8%8E%E7%AE%A1%E7%90%86"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">数据建模与管理</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C"><span class="toc-list-number">1.1.1.</span> <span class="toc-list-text">核心操作</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#Milvus%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84"><span class="toc-list-number">2.</span> <span class="toc-list-text">Milvus核心架构</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">客户端</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E8%AE%BF%E9%97%AE%E5%B1%82%EF%BC%88Access-Layer%EF%BC%89"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">访问层（Access Layer）</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BB%8E-Docker-%E5%AE%B9%E5%99%A8%E8%AE%A4%E8%AF%86%E8%AE%BF%E9%97%AE%E5%B1%82"><span class="toc-list-number">2.2.1.</span> <span class="toc-list-text">从 Docker 容器认识访问层</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E8%AE%BF%E9%97%AE%E5%B1%82%E6%A0%B8%E5%BF%83%E8%81%8C%E8%B4%A3"><span class="toc-list-number">2.2.2.</span> <span class="toc-list-text">访问层核心职责</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%8D%8F%E8%B0%83%E5%99%A8%E7%BB%84%E4%BB%B6%E8%AF%A6%E8%A7%A3"><span class="toc-list-number">2.2.3.</span> <span class="toc-list-text">协调器组件详解</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%B7%A5%E4%BD%9C%E8%8A%82%E7%82%B9%EF%BC%88Worker-Nodes%EF%BC%89"><span class="toc-list-number">2.3.</span> <span class="toc-list-text">工作节点（Worker Nodes）</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BB%8E-Docker-%E5%AE%B9%E5%99%A8%E8%AE%A4%E8%AF%86%E5%B7%A5%E4%BD%9C%E8%8A%82%E7%82%B9"><span class="toc-list-number">2.3.1.</span> <span class="toc-list-text">从 Docker 容器认识工作节点</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%86%99%E8%8A%82%E7%82%B9-%E6%B5%81%E8%8A%82%E7%82%B9%EF%BC%88Stream-Node-Write-Node%EF%BC%89"><span class="toc-list-number">2.3.2.</span> <span class="toc-list-text">写节点 &#x2F; 流节点（Stream Node &#x2F; Write Node）</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%9F%A5%E8%AF%A2%E8%8A%82%E7%82%B9%EF%BC%88Query-Node%EF%BC%89"><span class="toc-list-number">2.3.3.</span> <span class="toc-list-text">查询节点（Query Node）</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E7%B4%A2%E5%BC%95%E8%8A%82%E7%82%B9%EF%BC%88Index-Node%EF%BC%89"><span class="toc-list-number">2.3.4.</span> <span class="toc-list-text">索引节点（Index Node）</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%95%B0%E6%8D%AE%E8%8A%82%E7%82%B9%EF%BC%88Data-Node%EF%BC%89"><span class="toc-list-number">2.3.5.</span> <span class="toc-list-text">数据节点（Data Node）</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%B7%A5%E4%BD%9C%E8%8A%82%E7%82%B9%E7%BB%BC%E5%90%88"><span class="toc-list-number">2.3.6.</span> <span class="toc-list-text">工作节点综合</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%AD%98%E5%82%A8%E5%B1%82%EF%BC%88Storage%EF%BC%89"><span class="toc-list-number">2.4.</span> <span class="toc-list-text">存储层（Storage）</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BB%8E-Docker-%E5%AE%B9%E5%99%A8%E8%AE%A4%E8%AF%86%E5%AD%98%E5%82%A8%E5%B1%82"><span class="toc-list-number">2.4.1.</span> <span class="toc-list-text">从 Docker 容器认识存储层</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%85%83%E5%AD%98%E5%82%A8%EF%BC%88Meta-Store%EF%BC%89%E2%80%94%E2%80%94-etcd"><span class="toc-list-number">2.4.2.</span> <span class="toc-list-text">元存储（Meta Store）—— etcd</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%EF%BC%88Object-Storage%EF%BC%89%E2%80%94%E2%80%94-MinIO-S3"><span class="toc-list-number">2.4.3.</span> <span class="toc-list-text">对象存储（Object Storage）—— MinIO &#x2F; S3</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#WAL%E5%AD%98%E5%82%A8%EF%BC%88Write-Ahead-Log%EF%BC%89%E2%80%94%E2%80%94-Pulsar-Kafka-RocksMQ"><span class="toc-list-number">2.4.4.</span> <span class="toc-list-text">WAL存储（Write-Ahead Log）—— Pulsar &#x2F; Kafka &#x2F; RocksMQ</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%AD%98%E5%82%A8%E5%B1%82%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8C%EF%BC%88Docker-%E5%AE%9E%E6%93%8D%EF%BC%89"><span class="toc-list-number">2.4.5.</span> <span class="toc-list-text">存储层综合实验（Docker 实操）</span></a></li></ol></li></ol></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

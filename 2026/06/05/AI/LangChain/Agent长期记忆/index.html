@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Agent 长期记忆 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-05
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">Agent 长期记忆</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <p>重点介绍Agent长期记忆，短期记忆使Agent能够在单次会话中维持对话的连贯性，而长期记忆则赋予了Agent跨会话学习和积累知识的能力。这样Agent能够构建持久的用户画像，形成经验库，并持续优化自身行为，从而提供真正个性化、智能化的服务。</p>
+<h2 id="长期记忆介绍"><a href="#长期记忆介绍" class="headerlink" title="长期记忆介绍"></a>长期记忆介绍</h2><p>长期记忆是一种用于存储用户特定信息或应用级数据的系统，其核心特点是跨越会话和线程共享。与短期记忆局限于单一线程（thread_id）不同，长期记忆中的数据可以被任何时间、在任何线程中召回。其存储范围（作用域）被定义在自定义的命名空间中，而非单个线程ID内。</p>
+<img src="https://raw.githubusercontent.com/starzy1990/images/main/20260715143829814.png" alt="image-20260715143828249" style="zoom:80%;" />
+
+<p>在LangChain框架中，长期记忆通过存储（Store）组件来实现，Store允许你将记忆保存为JSON文档，并通过命名空间（namespace）和键（Key）进行组织和管理，便于后续的检索、更新与删除。</p>
+<ul>
+<li>命名空间（namespace）：类似于文件夹，用于对记忆进行逻辑分组（例如，按应用场景划分）。</li>
+<li>键（key）：命名空间内每个文档的唯一标识符。</li>
+</ul>
+<p>Store存储支持基本的put（写入）、get（读取）、delete（删除）、search（搜索）操作，如下案例中演示基于内存store存储的基本操作。</p>
+<pre><code class="python">from langgraph.store.memory import InMemoryStore
+
+# 初始化一个内存存储store
+store = InMemoryStore()
+
+# 定义命名空间：通常包含用户ID和上下文
+namespace = (&quot;user1&quot;, &quot;preferences&quot;)
+
+# 写入一个记忆
+store.put(
+    namespace,
+    &quot;fruit&quot;, # 键
+    {&quot;likes&quot;: [&quot;苹果&quot;, &quot;香蕉&quot;], &quot;dislikes&quot;: [&quot;橙子&quot;]} # 值 (JSON文档)
+)
+
+print(&quot;=== 读取 fruit 记忆 ===&quot;)
+# 读取记忆
+memory = store.get(namespace, &quot;fruit&quot;)
+print(memory)
+
+# 写入另一个记忆
+store.put(
+    namespace,
+    &quot;chat&quot;, # 键
+    {&quot;language&quot;: &quot;中文&quot;, &quot;emotion&quot;: &quot;高兴&quot;} # 值 (JSON文档)
+)
+print(&quot;=== 读取 chat 记忆 ===&quot;)
+# 读取记忆
+memory = store.get(namespace, &quot;chat&quot;)
+print(memory)
+
+print(&quot;=== 搜索所有记忆 ===&quot;)
+# 搜索所有记忆
+memories = store.search(namespace)
+print(memories)
+
+# 更新记忆
+store.put(
+    namespace,
+    &quot;fruit&quot;, # 键
+    {&quot;likes&quot;: [&quot;橘子&quot;, &quot;葡萄&quot;], &quot;dislikes&quot;: [&quot;草莓&quot;]} # 值 (JSON文档)
+)
+
+print(&quot;=== 读取更新后的 fruit 记忆 ===&quot;)
+# 读取更新后的记忆
+memory = store.get(namespace, &quot;fruit&quot;)
+print(memory)
+</code></pre>
+<p>以上代码运行结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260715143959129.png" alt="image-20260715143957854"></p>
+<p>以上代码注意点如下：</p>
+<ol>
+<li>命名空间（namespace）格式为元组格式，建议包含用户ID和上下文特征，这样的层级化命名空间可以更好隔离数据、避免命名空间冲突。</li>
+<li>键（key）：在命名空间中唯一的一个key，store中put对应key的值后，后续再put相同的key的值，会覆盖当前key的值。</li>
+<li>键（key）对应的value的值是一个字典结构，该字典中 k,v 内容由用户定义。</li>
+<li>store.put 方法可以传入命名空间（元组类型）、key（字符串类型）、value（字典类型）三个参数。</li>
+<li>store.get方法可以指定namespace和key参数获取对应的value值；<a target="_blank" rel="noopener" href="http://store.search/">store.search</a>方法可以指定namespace参数获取该命名空间中所有的value。</li>
+</ol>
+<h2 id="Agent中使用长期记忆方式"><a href="#Agent中使用长期记忆方式" class="headerlink" title="Agent中使用长期记忆方式"></a>Agent中使用长期记忆方式</h2><p>长期记忆的核心作用是实现跨会话、跨节点的数据共享。在 LangChain 中，单个 Agent 通过将  Store注入到不同会话（thread_id）中，实现跨会话状态持久化。Agent中设置长期记忆的方式和短期记忆类似，长期记忆可以存在内存或者数据库中，下面重点介绍在Agent中如何使用长期记忆。</p>
+<p>此外，长期记忆更多使用在 LangGraph 构建的工作流中，流中不同节点通过共享的 Store访问同一份长期记忆。关于LangGraph中长期记忆在后续进行介绍。</p>
+<h3 id="使用内存存储长期记忆"><a href="#使用内存存储长期记忆" class="headerlink" title="使用内存存储长期记忆"></a>使用内存存储长期记忆</h3><p>在测试环境中，通常使用内存型的 <strong>InMemoryStore</strong> 对象，这种方式简单易用但程序重启后数据会丢失。</p>
+<p>如下代码中使用内存存储长期记忆，该案例中创建好 InMemoryStore 后，首先向该对象中存储一些数据作为长期记忆，后续在工具中获取上下文Context中用户信息，根据不同用户查询不同的长期记忆信息，实现在相同&#x2F;不同的thread_id中读取相同长期记忆内容。</p>
+<pre><code class="python">from langchain.agents import create_agent
+from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.store.memory import InMemoryStore
+from langchain.tools import tool, ToolRuntime
+
+from pydantic import BaseModel
+
+from init_llm import deepseek_llm
+
+
+class UserContext(BaseModel):
+    user_id: str
+
+# 1. 初始化存储并预先存入一些长期记忆
+store = InMemoryStore()
+checkpointer = InMemorySaver()
+
+# 预先在长期记忆中存储一些用户信息
+store.put(
+    (&quot;users&quot;,),  # 命名空间：用户数据
+    &quot;user_123&quot;,  # 键：用户ID
+    {&quot;name&quot;: &quot;张三&quot;, &quot;age&quot;: 28, &quot;city&quot;: &quot;北京&quot;, &quot;hobby&quot;: &quot;编程、阅读&quot;}  # 值：用户信息
+)
+store.put(
+    (&quot;users&quot;,),
+    &quot;user_456&quot;,
+    {&quot;name&quot;: &quot;李四&quot;, &quot;age&quot;: 32, &quot;city&quot;: &quot;上海&quot;, &quot;hobby&quot;: &quot;旅游、摄影&quot;}
+)
+
+
+# 2. 定义读取长期记忆的工具
+@tool
+def get_user_info(runtime: ToolRuntime[UserContext]) -&gt; str:
+    &quot;&quot;&quot;
+    从长期记忆中获取当前用户的信息。
+
+    Returns:
+        str: 用户的详细信息
+    &quot;&quot;&quot;
+    # 从runtime中获取store和context
+    store = runtime.store
+    user_id = runtime.context.user_id
+
+    # 从长期记忆中读取用户信息
+    user_data = store.get((&quot;users&quot;,), user_id)
+
+    if user_data:
+        # 将字典格式化为字符串
+        info = user_data.value
+        return f&quot;用户信息：姓名-{info[&#39;name&#39;]}, 年龄-{info[&#39;age&#39;]}, 城市-{info[&#39;city&#39;]}, 爱好-{info[&#39;hobby&#39;]}&quot;
+    else:
+        return &quot;未找到该用户的信息。&quot;
+
+
+# 3. 创建带有长期记忆读取工具的Agent
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[get_user_info],
+    checkpointer=checkpointer,
+    store=store,
+    context_schema=UserContext
+)
+
+# 4. 演示：在不同线程中读取相同的长期记忆
+print(&quot;=== 长期记忆的跨线程读取 ===&quot;)
+
+# 线程1：用户123询问自己的信息
+print(&quot;线程1 - 用户123询问信息:&quot;)
+result1 = agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;我的个人信息是什么？&quot;}]},
+    config={&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;thread_1&quot;}},
+    context=UserContext(user_id=&quot;user_123&quot;)  # 用户ID决定访问哪个长期记忆
+)
+print(f&quot;Agent回复: {result1[&#39;messages&#39;][-1].content}\n&quot;)
+
+# 线程2：另一个线程，相同的用户
+print(&quot;线程2 - 相同的用户，不同的线程:&quot;)
+result2 = agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;再告诉我一次我的信息&quot;}]},
+    config={&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;thread_2&quot;}},  # 线程ID不同
+    context=UserContext(user_id=&quot;user_123&quot;)  # 但用户ID相同
+)
+print(f&quot;Agent回复: {result2[&#39;messages&#39;][-1].content}\n&quot;)
+
+# 线程3：另一个用户
+print(&quot;线程3 - 用户456询问信息:&quot;)
+result3 = agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;我的信息是什么？&quot;}]},
+    config={&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;thread_3&quot;}},
+    context={&quot;user_id&quot;: &quot;user_456&quot;}  # 用户ID不同，访问不同的长期记忆
+)
+print(f&quot;Agent回复: {result3[&#39;messages&#39;][-1].content}&quot;)
+</code></pre>
+<p>以上代码运行结果如下：</p>
+<img src="https://raw.githubusercontent.com/starzy1990/images/main/20260715144241766.png" alt="image-20260715144240144" style="zoom:80%;" />
+
+<p>以上代码注意：Agent创建中通过Store参数指定长期记忆对象，使用长期记忆时，可以同时使用短期记忆（checkpointer指定），也可以不使用短期记忆，但一般两者会同时使用。</p>
+<h3 id="使用数据库存储长期记忆"><a href="#使用数据库存储长期记忆" class="headerlink" title="使用数据库存储长期记忆"></a>使用数据库存储长期记忆</h3><p>在生产环境中，推荐使用数据库支持的Store，以确保数据的持久化和多实例部署的支持。</p>
+<p>如下案例中使用mysql数据库来存储长期记忆，完成此案例需要提前安装好mysql数据库（默认已经安装mysql8），并且进行数据库创建和安装必要python依赖，具体如下：</p>
+<p><strong>1) 在mysql中创建langchain_db数据库</strong></p>
+<pre><code class="sql">#进入mysql navicate客户端，创建mysql数据库langchain_db
+create database langchain_db;
+</code></pre>
+<p><strong>2) 在当前python环境中安装如下依赖</strong></p>
+<pre><code class="shell">#安装必要依赖
+conda activate langchain_v1.2
+python -m pip install langgraph-checkpoint-mysql==3.0.0 pymysql==1.1.2 cryptography==46.0.3
+python -m pip install aiomysql==0.3.2 asyncmy==0.2.11
+</code></pre>
+<p>使用mysql数据库存储长期记忆代码如下：</p>
+<pre><code class="python">from langchain.agents import create_agent
+from langgraph.checkpoint.mysql.pymysql import PyMySQLSaver
+from langchain.tools import tool, ToolRuntime
+from langgraph.store.mysql import PyMySQLStore
+from pydantic import BaseModel
+from utils.llm_util import deepseek_llm
+from urllib.parse import quote_plus
+
+class UserContext(BaseModel):
+    user_id: str
+
+# 1. 定义读取长期记忆的工具
+@tool
+def get_user_info(runtime: ToolRuntime[UserContext]) -&gt; str:
+    &quot;&quot;&quot;
+    从长期记忆中获取当前用户的信息。
+
+    Returns:
+        str: 用户的详细信息
+    &quot;&quot;&quot;
+    # 从runtime中获取store和context
+    store = runtime.store
+    user_id = runtime.context.user_id
+
+    # 从长期记忆中读取用户信息
+    user_data = store.get((&quot;users&quot;,), user_id)
+
+    if user_data:
+        # 将字典格式化为字符串
+        info = user_data.value
+        return f&quot;用户信息：姓名-{info[&#39;name&#39;]}, 年龄-{info[&#39;age&#39;]}, 城市-{info[&#39;city&#39;]}, 爱好-{info[&#39;hobby&#39;]}&quot;
+    else:
+        return &quot;未找到该用户的信息。&quot;
+password = quote_plus(&quot;Root#*123&quot;)
+# 配置 MySQL 连接
+DB_URI = (
+    f&quot;mysql+pymysql://root:{password}&quot;
+    &quot;@localhost:3306/langchain_db?charset=utf8mb4&quot;
+)
+
+with (
+    PyMySQLSaver.from_conn_string(DB_URI) as checkpointer,
+    PyMySQLStore.from_conn_string(DB_URI) as store
+):
+    # 自动创建checkpointer数据库表（首次运行）
+    checkpointer.setup()
+    # 2. 自动创建store数据库表（首次运行）
+    store.setup()
+
+    # 3. 预先在长期记忆中存储一些用户信息
+    store.put(
+        (&quot;users&quot;,),  # 命名空间：用户数据
+        &quot;user_123&quot;,  # 键：用户ID
+        {&quot;name&quot;: &quot;张三&quot;, &quot;age&quot;: 28, &quot;city&quot;: &quot;北京&quot;, &quot;hobby&quot;: &quot;编程、阅读&quot;},  # 值：用户信息
+    )
+    store.put(
+        (&quot;users&quot;,),
+        &quot;user_456&quot;,
+        {&quot;name&quot;: &quot;李四&quot;, &quot;age&quot;: 32, &quot;city&quot;: &quot;上海&quot;, &quot;hobby&quot;: &quot;旅游、摄影&quot;},
+    )
+
+    # 4. 创建带有长期记忆读取工具的Agent
+    agent = create_agent(
+        model=deepseek_llm,
+        tools=[get_user_info],
+        checkpointer=checkpointer,
+        store=store,
+        context_schema=UserContext
+    )
+
+    # 5. 演示：在不同线程中读取相同的长期记忆
+    print(&quot;=== 长期记忆的跨线程读取 ===&quot;)
+
+    # 线程1：用户123询问自己的信息
+    print(&quot;线程1 - 用户123询问信息:&quot;)
+    result1 = agent.invoke(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;我的个人信息是什么？&quot;}]},
+        config={&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;thread_1&quot;}},
+        context=UserContext(user_id=&quot;user_123&quot;)  # 用户ID决定访问哪个长期记忆
+    )
+    print(f&quot;Agent回复: {result1[&#39;messages&#39;][-1].content}\n&quot;)
+
+    # 线程2：另一个线程，相同的用户
+    print(&quot;线程2 - 相同的用户，不同的线程:&quot;)
+    result2 = agent.invoke(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;再告诉我一次我的信息&quot;}]},
+        config={&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;thread_2&quot;}},  # 线程ID不同
+        context=UserContext(user_id=&quot;user_123&quot;)  # 但用户ID相同
+    )
+    print(f&quot;Agent回复: {result2[&#39;messages&#39;][-1].content}\n&quot;)
+
+    # 线程3：另一个用户
+    print(&quot;线程3 - 用户456询问信息:&quot;)
+    result3 = agent.invoke(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;我的信息是什么？&quot;}]},
+        config={&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;thread_3&quot;}},
+        context=UserContext(user_id=&quot;user_456&quot;)  # 用户ID不同，访问不同的长期记忆
+    )
+    print(f&quot;Agent回复: {result3[&#39;messages&#39;][-1].content}&quot;)
+</code></pre>
+<p>以上代码运行结果如下：</p>
+<img src="https://raw.githubusercontent.com/starzy1990/images/main/20260715150048953.png" alt="image-20260715150047739" style="zoom:80%;" />
+
+
+
+<p>运行代码后进入到Mysql数据库中可以看到对应的数据库表和数据：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260715150508091.png" alt="image-20260715150506819"></p>
+<p>以上代码需要注意如下几点：</p>
+<ol>
+<li><p>“with PyMySQLStore.from_conn_string(DB_URI) as store:”通过连接字符串DB_URI创建与MySQL数据库的持久化连接，用于管理长期记忆的存储。</p>
+</li>
+<li><p>使用mysql存储长期记忆需要提前在数据库中创建对应的数据库，然后代码首次运行执行“store.setup()”（首次运行需要，首次运行后可以不再执行该代码）会自动在该数据库中创建对应数据库表。</p>
+</li>
+<li><p>也可以使用其他数据库进行短期记忆的持久化存储，例如使用postgresql存储，需要安装“pip install langgraph-checkpoint-postgres&#x3D;&#x3D;3.0.4”，具体代码参考：<a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/langchain/short-term-memory#in-production">https://docs.langchain.com/oss/python/langchain/short-term-memory#in-production</a></p>
+</li>
+<li><p>持久化存储支持的数据库可以通过 <a target="_blank" rel="noopener" href="https://pypi.org/search/?o=&q=langgraph-checkpoint&page=2">https://pypi.org/search/?o=&amp;q=langgraph-checkpoint&amp;page=2</a> 查看，搜索 <strong>langgraph-checkpoint-</strong>* 查看对应需要安装的依赖和使用方式。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260715150749948.png" alt="image-20260715150748757"></p>
+</li>
+</ol>
+<h2 id="工具中实现长期记忆读写"><a href="#工具中实现长期记忆读写" class="headerlink" title="工具中实现长期记忆读写"></a>工具中实现长期记忆读写</h2><p>长期记忆的核心使用场景是在工具中进行读写操作。LangChain通过ToolRuntime将store和context注入到工具函数中，使工具能够访问和修改长期记忆。如下案例中通过工具使用长期记忆记录用户偏好。</p>
+<pre><code class="python">from langchain.agents import create_agent
+from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.store.memory import InMemoryStore
+from langchain.tools import tool, ToolRuntime
+from typing import TypedDict, Literal
+
+from pydantic import BaseModel, Field
+
+from init_llm import deepseek_llm
+import uuid
+
+
+class UserContext(BaseModel):
+    user_id: str
+
+# 定义工具输入的类型
+class UserPreference(BaseModel):
+    category: Literal[&quot;color&quot;, &quot;food&quot;, &quot;music&quot;] = Field(description=&quot; 用户偏好类别，必须是 &#39;color&#39;, &#39;food&#39;, &#39;music&#39; 中的一个&quot;)
+    preference: str = Field(description=&quot;具体偏好内容，如&#39;红色&#39;、&#39;中国美食&#39;等&quot;)
+
+
+# 1. 初始化存储
+store = InMemoryStore()
+checkpointer = InMemorySaver()
+
+
+# 2. 定义写入长期记忆的工具
+@tool(args_schema=UserPreference)
+def save_user_preference(category: str, preference: str, runtime: ToolRuntime) -&gt; str:
+    &quot;&quot;&quot;
+    将用户偏好保存到长期记忆中。
+
+    Args:
+        category: 用户偏好类别，必须是 &quot;color&quot;, &quot;food&quot;, &quot;music&quot; 中的一个
+        preference: 具体偏好内容，如&#39;红色&#39;、&#39;中国美食&#39;等
+        runtime: ToolRuntime  # 包含长期记忆存储和上下文
+    Returns:
+        str: 操作结果描述
+    &quot;&quot;&quot;
+    user_id = runtime.context.user_id
+
+    # 创建命名空间：(user_id, &quot;preferences&quot;)
+    namespace = (user_id, &quot;preferences&quot;)
+
+    # 生成唯一记忆ID
+    memory_id = str(uuid.uuid4())
+
+    # 准备要保存的数据
+    memory_value = {
+        &quot;category&quot;: category,
+        &quot;preference&quot;: preference,
+    }
+
+    # 保存到长期记忆
+    runtime.store.put(namespace, memory_id, memory_value)
+
+    return f&quot;已成功保存你的{category}偏好：{preference}&quot;
+
+
+# 3. 定义读取用户偏好的工具
+@tool
+def get_user_preferences(runtime: ToolRuntime) -&gt; str:
+    &quot;&quot;&quot;
+    从长期记忆中获取用户特定类别的所有偏好。
+
+    Returns:
+        str: 用户的偏好列表
+    &quot;&quot;&quot;
+    user_id = runtime.context.user_id
+    namespace = (user_id, &quot;preferences&quot;)
+
+    # 搜索该命名空间下的所有记忆
+    memories = runtime.store.search(namespace)
+
+    if not memories:
+        return f&quot;您还没有保存过偏好&quot;
+
+    print(&quot;memories:&quot;, memories)
+
+    # 格式化所有偏好为字符串列表
+    preferences_list = []
+    for mem in memories:
+        pref = mem.value
+        preferences_list.append(f&quot;- 种类：{pref[&#39;category&#39;]}，偏好：{pref[&#39;preference&#39;]}&quot;)
+
+    return f&quot;你的偏好有：\n&quot; + &quot;\n&quot;.join(preferences_list)
+
+
+# 4. 创建带有长期记忆读写工具的Agent
+memory_agent = create_agent(
+    model=deepseek_llm,
+    tools=[save_user_preference, get_user_preferences],
+    checkpointer=checkpointer,
+    store=store,
+    context_schema=UserContext
+)
+
+# 5. 演示：完整的长时期记忆读写流程
+print(&quot;=== 完整演示：长期记忆的写入与跨线程读取 ===&quot;)
+
+# 第一轮：用户保存颜色偏好（线程1）
+print(&quot;第一轮（线程1）：用户保存颜色偏好&quot;)
+result1 = memory_agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;请记住我喜欢的颜色是蓝色&quot;}]},
+    config={&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;thread1&quot;}},
+    context=UserContext(user_id=&quot;current_user&quot;)
+)
+print(f&quot;Agent回复: {result1[&#39;messages&#39;][-1].content}&quot;)
+
+# 第二轮：用户保存食物偏好（同一线程）
+print(&quot;第二轮（同一线程）：用户保存食物偏好&quot;)
+result2 = memory_agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;我还喜欢的食物是意大利面&quot;}]},
+    config={&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;thread1&quot;}},  # 同一线程
+    context=UserContext(user_id=&quot;current_user&quot;)
+)
+print(f&quot;Agent回复: {result2[&#39;messages&#39;][-1].content}&quot;)
+
+# 第三轮：在新线程中查询所有偏好
+print(&quot;第三轮（新线程）：查询我的所有偏好&quot;)
+result3 = memory_agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;告诉我我都喜欢什么颜色和食物&quot;}]},
+    config={&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;thread2&quot;}},  # 新线程
+    context=UserContext(user_id=&quot;current_user&quot;)  # 相同用户
+)
+print(f&quot;Agent回复: {result3[&#39;messages&#39;][-1].content}&quot;)
+
+
+# 直接验证：从store中读取数据
+print(&quot;=== 直接验证：从长期记忆存储中读取数据 ===&quot;)
+# 读取颜色偏好
+color_memories = store.search((&quot;current_user&quot;, &quot;preferences&quot;))
+print(f&quot;长期记忆中存储的颜色偏好: {[m.value for m in color_memories if m.value[&#39;category&#39;] == &#39;color&#39;]}&quot;)
+
+# 读取食物偏好
+food_memories = store.search((&quot;current_user&quot;, &quot;preferences&quot;))
+print(f&quot;长期记忆中存储的食物偏好: {[m.value for m in food_memories if m.value[&#39;category&#39;] == &#39;food&#39;]}&quot;)
+</code></pre>
+<p>代码运行结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260715155603995.png" alt="image-20260715155602675"></p>
+<h2 id="短期记忆和长期记忆区别总结"><a href="#短期记忆和长期记忆区别总结" class="headerlink" title="短期记忆和长期记忆区别总结"></a>短期记忆和长期记忆区别总结</h2><p>如下是短期记忆和长期记忆区别：</p>
+<table>
+<thead>
+<tr>
+<th><strong>对比维度</strong></th>
+<th><strong>短期记忆（Short-term Memory）</strong></th>
+<th><strong>长期记忆（Long-term Memory）</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>作用域</strong></td>
+<td>线程&#x2F;会话范围记忆 (Thread-scoped)。与单个会话线程 (thread_id) 绑定。</td>
+<td>跨线程&#x2F;会话记忆。存储在自定义命名空间 (namespace) 中，可被多个线程共享。</td>
+</tr>
+<tr>
+<td><strong>核心目的</strong></td>
+<td>保证单次对话的连贯性和上下文感知。</td>
+<td>实现跨对话的个性化、知识积累和持续学习。</td>
+</tr>
+<tr>
+<td><strong>主要存储内容</strong></td>
+<td>对话的原始历史 (messages列表) 以及当前会话的状态数据。</td>
+<td>从交互中提炼的结构化知识（如用户事实、行为经验、优化规则）。</td>
+</tr>
+<tr>
+<td><strong>管理组件</strong></td>
+<td>检查点 (Checkpointer)，如 InMemorySaver、PyMySQLSaver。</td>
+<td>存储 (Store)，如 InMemoryStore、PostgresStore。</td>
+</tr>
+<tr>
+<td><strong>生命周期</strong></td>
+<td>随线程的创建而开始，随线程的销毁（或超时清理）而结束。</td>
+<td>独立于任何特定线程，除非被显式删除，否则永久或长期存在。</td>
+</tr>
+<tr>
+<td><strong>访问方式</strong></td>
+<td>自动管理。Agent的状态在每个步骤后自动持久化到检查点，并在下次恢复。</td>
+<td>手动控制。必须在工具(Tool) 或自定义逻辑中，通过代码显式地调用 store.put()或 store.get()。</td>
+</tr>
+<tr>
+<td><strong>典型应用场景</strong></td>
+<td>维持聊天上下文，让Agent记得用户在当前对话中刚说过的话。</td>
+<td>记住用户的身份、偏好、历史行为。</td>
+</tr>
+</tbody></table>
+<h2 id="记忆综合案例-电商客服助手"><a href="#记忆综合案例-电商客服助手" class="headerlink" title="记忆综合案例-电商客服助手"></a>记忆综合案例-电商客服助手</h2><p>如下案例是一个智能电商客服助手案例，该助手具备如下能力：</p>
+<ul>
+<li>记住当前会话状态（短期记忆）：用户正在查询的订单号。</li>
+<li>了解用户长期偏好（长期记忆）：用户偏好的商品类型和商品名称。</li>
+<li>处理多轮复杂对话：通过消息摘要管理长对话上下文。</li>
+<li>工具调用：查询用户信息、查询订单信息、更新用户偏好、基于用户偏好给用户推荐商品。</li>
+<li>工具调用错误捕获：当工具调用错误时，通过中间件进行错误捕获，返回友好提示。</li>
+</ul>
+<p>该案例中长期和短期记忆使用MySQL进行存储，需要在MySQL中创建对应的库：</p>
+<pre><code class="sql">#进入mysql navicate客户端，创建mysql数据库langchain_db
+drop database langchain_db;
+create database langchain_db;
+</code></pre>
+<p>在项目中安装必要依赖：</p>
+<pre><code class="shell">#安装必要依赖
+conda activate langchain_v1.2
+python -m pip install langgraph-checkpoint-mysql==3.0.0 pymysql==1.1.2 cryptography==46.0.3
+python - m pip install aiomysql==0.3.2 asyncmy==0.2.11
+</code></pre>
+<p>案例代码如下：</p>
+<pre><code class="python">&quot;&quot;&quot;
+智能电商客服助手
+功能：结合短期记忆、长期记忆、消息摘要，提供流式、个性化的客服服务。
+前置准备：
+1. 安装依赖: pip install langchain langgraph langgraph-checkpoint-mysql pymysql
+2. 创建MySQL数据库: CREATE DATABASE langchain_memory_db;
+&quot;&quot;&quot;
+import uuid
+import warnings
+from typing import List, Optional
+from pydantic import BaseModel, Field
+from langchain.agents import create_agent, AgentState
+from langchain.agents.middleware import SummarizationMiddleware, wrap_tool_call
+from langchain_core.tools import tool
+from langchain_core.messages import ToolMessage
+from langgraph.checkpoint.mysql.pymysql import PyMySQLSaver
+from langgraph.store.mysql.pymysql import PyMySQLStore
+from langgraph.prebuilt import ToolRuntime
+from langgraph.types import Command
+from init_llm import deepseek_llm
+
+# 禁用Pydantic序列化警告
+warnings.filterwarnings(&quot;ignore&quot;, category=UserWarning, module=&quot;pydantic.main&quot;)
+
+# ========== 1. 定义Context 上下文 Schema==========
+class UserContext(BaseModel):
+    &quot;&quot;&quot;定义调用Agent时传入的静态上下文信息&quot;&quot;&quot;
+    user_id: str = Field(description=&quot;用户的唯一标识符&quot;)
+    channel: str = Field(description=&quot;用户咨询渠道，如: APP, Web, 小程序&quot;)
+
+
+# ========== 2. 定义自定义短期记忆状态 (继承AgentState) ==========
+class CustomerSessionState(AgentState):
+    &quot;&quot;&quot;自定义短期记忆状态，用于管理单次会话中的动态信息&quot;&quot;&quot;
+    current_order_id: str  # 用户当前正在查询的订单号
+
+
+# ========== 3. 模拟订单数据库 数据 ==========
+MOCK_DATABASE = {
+    &quot;orders&quot;: {
+        &quot;order001&quot;: {&quot;order_id&quot;: &quot;order001&quot;, &quot;status&quot;: &quot;已发货&quot;, &quot;product&quot;: &quot;智能手机&quot;,
+                     &quot;preference_context&quot;: &quot;华为手机P70&quot;},
+        &quot;order002&quot;: {&quot;order_id&quot;: &quot;order002&quot;, &quot;status&quot;: &quot;待支付&quot;, &quot;product&quot;: &quot;智能手表&quot;,
+                     &quot;preference_context&quot;: &quot;Apple Watch Series 8&quot;},
+    }
+
+}
+
+
+# ========== 4. 定义工具 ==========
+@tool
+def get_user_info(runtime: ToolRuntime) -&gt; str:
+    &quot;&quot;&quot;
+    获取用户当前用户信息
+    Args:
+        runtime (ToolRuntime): 包含上下文信息的运行时环境
+    Returns:
+        str: 用户当前用户信息
+    &quot;&quot;&quot;
+    print(&quot;get_user_info 中 runtime:&quot;, runtime)
+    # 从上下文中获取当前用户ID
+    current_user_id = runtime.context.user_id
+
+    # 从上下文中获取用户咨询渠道
+    user_channel = runtime.context.channel
+
+    # 从状态中获取用户当前正在查询的订单号
+    state = runtime.state
+    if &quot;current_order_id&quot; in state:
+        current_order_id = state[&quot;current_order_id&quot;]
+    else:
+        current_order_id = &quot;无&quot;
+
+    # 获取当前用户信息
+    return f&quot;用户ID: {current_user_id}, 咨询渠道: {user_channel}, 当前查询订单号: {current_order_id}&quot;
+
+
+@tool
+def query_order_status(order_id: str, runtime: ToolRuntime) -&gt; Command:
+    &quot;&quot;&quot;
+    查询用户订单状态
+    Args:
+        order_id (str): 用户订单号
+        runtime (ToolRuntime): 包含上下文信息的运行时环境
+    Returns:
+        Command: 包含更新操作的命令对象：状态中更新当前订单ID，并返回订单信息（状态、商品、用户偏好）
+    &quot;&quot;&quot;
+
+    # 查询订单状态
+    order_info = MOCK_DATABASE[&quot;orders&quot;].get(order_id)
+
+    if not order_info:
+        return Command(
+            update={
+                &quot;messages&quot;: [
+                    ToolMessage(
+                        content=f&quot;错误：订单 [{order_id}] 不存在&quot;,
+                        tool_call_id=runtime.tool_call_id
+                    )
+                ]
+            }
+        )
+
+    updates = {
+        &quot;current_order_id&quot;: order_id,
+        &quot;messages&quot;: [
+            ToolMessage(
+                content=f&quot;订单 [{order_id}] 状态: {order_info[&#39;status&#39;]}, 商品: {order_info[&#39;product&#39;]}。&quot;
+                        f&quot;需要进行用户偏好更新，用户偏好: {order_info[&#39;preference_context&#39;]}&quot;,
+                tool_call_id=runtime.tool_call_id
+            )
+        ]
+    }
+
+    return Command(update=updates)
+
+
+@tool
+def update_user_preference(category: str, liked_item: str, runtime: ToolRuntime) -&gt; str:
+    &quot;&quot;&quot;
+    更新用户长期偏好
+    Args:
+        category (str): 商品类别，如: 手机、配件
+        liked_item (str): 用户喜欢的具体商品
+        runtime (ToolRuntime): 包含上下文信息的运行时环境
+    Returns:
+        str: 确认更新结果
+    &quot;&quot;&quot;
+    user_id = runtime.context.user_id
+    namespace = (f&quot;user_{user_id}&quot;, &quot;preferences&quot;)
+
+    key = str(uuid.uuid4())
+
+    value_to_store = {
+        &quot;category&quot;: category,
+        &quot;liked_item&quot;: liked_item,
+    }
+
+    # 写入到长期记忆
+    runtime.store.put(namespace, key, value_to_store)
+    return f&quot;已成功将您的偏好记录到长期记忆: 喜欢 {category} 类的 {liked_item}。&quot;
+
+
+@tool
+def get_recommendation(runtime: ToolRuntime) -&gt; str:
+    &quot;&quot;&quot;
+    获取用户推荐商品
+    Args:
+        runtime (ToolRuntime): 包含上下文信息的运行时环境
+    Returns:
+        str: 包含推荐商品信息的字符串
+    &quot;&quot;&quot;
+    user_id = runtime.context.user_id
+    current_order = runtime.state.get(&quot;current_order_id&quot;, &quot;未知订单&quot;)
+    namespace = (f&quot;user_{user_id}&quot;, &quot;preferences&quot;)
+    prefs = runtime.store.search(namespace)
+
+    pref_list = []
+    if prefs:
+        for p in prefs[-3:]:  # 仅取最近3条偏好记录，[-3:] 表示取最后3条记录
+            pref_list.append(f&quot;{p.value.get(&#39;category&#39;)}({p.value.get(&#39;liked_item&#39;)})&quot;)
+
+    return f&quot;基于用户当前的订单 [{current_order}] 和长期偏好 {pref_list if pref_list else &#39;无&#39;}，为用户推荐相关配件或类似风格商品。&quot;
+
+
+@wrap_tool_call
+def handle_tool_errors(request, handler):
+    &quot;&quot;&quot;使用自定义消息处理工具执行错误&quot;&quot;&quot;
+    try:
+        return handler(request)
+    except Exception as e:
+        # 向模型返回自定义错误消息
+        return ToolMessage(
+            content=f&quot;调用工具错误:请稍后重试，错误信息：({str(e)})&quot;,
+            tool_call_id=request.tool_call[&quot;id&quot;]
+        )
+
+
+# ========== 5. 创建Agent，控制台交互循环 ==========
+DB_URI = &quot;mysql+pymysql://root:123456@localhost:3306/langchain_db?charset=utf8mb4&quot;
+
+# 初始化MySQL存储 (短期记忆Checkpointer 和 长期记忆Store)
+with (
+    PyMySQLSaver.from_conn_string(DB_URI) as checkpointer,
+    PyMySQLStore.from_conn_string(DB_URI) as store
+):
+    # 首次运行时自动建表
+    checkpointer.setup()
+    store.setup()
+
+    # 创建Agent
+    agent = create_agent(
+        model=deepseek_llm,
+        tools=[get_user_info, query_order_status, update_user_preference, get_recommendation],
+        system_prompt=&quot;&quot;&quot;
+                        你是一个智能电商客服助手，具备回答用户咨询、获取用户信息、查询订单状态、更新用户偏好和推荐商品功能。&quot;
+                        获取用户信息请调用 get_user_info 工具。
+                        查询订单状态请调用 query_order_status 工具，查询到订单状态后，还需要调用 update_user_preference 工具更新用户偏好。
+                        更新用户偏好请调用 update_user_preference 工具。
+                        获取推荐商品请调用 get_recommendation 工具。
+                      &quot;&quot;&quot;,
+        checkpointer=checkpointer,
+        store=store,
+        state_schema=CustomerSessionState,
+        context_schema=UserContext,
+        middleware=[
+            SummarizationMiddleware(
+                model=deepseek_llm,
+                summary_prompt=&quot;请总结以下对话内容：{messages}&quot;,
+                trigger=(&quot;messages&quot;, 10),  # 每10条消息触发一次摘要
+                keep=(&quot;messages&quot;, 5),  # 保留最后5条消息
+            ),
+            handle_tool_errors
+        ],
+    )
+
+    # 控制台交互循环 (流式调用)
+    print(&quot;=&quot; * 50)
+    print(&quot;智能电商客服助手&quot;)
+    print(&quot;功能: 查询订单、更新偏好、获取推荐。&quot;)
+    print(&quot;输入 &#39;quit&#39; 或 &#39;退出&#39; 结束对话。&quot;)
+    print(&quot;=&quot; * 50)
+
+    # 初始化用户上下文
+    user_context = UserContext(user_id=&quot;customer_001&quot;, channel=&quot;Web&quot;)
+    # 会话线程ID
+    config = {&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;session_01&quot;}}
+
+    # 对话循环
+    while True:
+        try:
+            user_input = input(&quot;[你]: &quot;).strip()
+
+            if user_input.lower() in [&#39;quit&#39;, &#39;exit&#39;, &#39;退出&#39;, &#39;q&#39;]:
+                print(&quot;客服助手: 感谢你的咨询，再见！&quot;)
+                break
+
+            # 过滤空输入
+            if not user_input:
+                continue
+
+            # 准备输入消息
+            input_data = {&quot;messages&quot;: {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: user_input}}
+
+            print(&quot;[客服助手]: &quot;)
+            # 流式调用Agent
+            for chunk in agent.stream(input_data, config=config, context=user_context):
+                # print(&quot;chunk:&quot;, chunk)
+                for step, data in chunk.items():  # 遍历dict的key-value对
+                    # print(&quot;step:&quot;, step)
+                    # print(&quot;data:&quot;, data)
+
+                    # 只有当 step为model或者tools时，才打印消息
+                    if step in [&quot;model&quot;, &quot;tools&quot;]:
+                        message = data[&quot;messages&quot;][-1]
+                        message.pretty_print()
+
+        except Exception as e:
+            print(f&quot;调用过程中出现错误: {e}&quot;)
+</code></pre>
+<p>代码运行后，对于thread_id为session_01 时，进行如下对话：</p>
+<pre><code>给我查询订单 order001 信息
+给我推荐一些商品
+我喜欢 苹果电脑 尤其是 mac pro
+查询我的信息
+我还喜欢 索尼的xm5耳机
+给我推荐一些商品
+</code></pre>
+<p>停止程序后，切换thread_id为session_02后，进行如下对话：</p>
+<pre><code>查询我的信息
+给我推荐一些商品
+</code></pre>
+<p>可以看到长期记忆信息在不同的会话之间是共享的，而短期记忆只针对每个thread_id生效。</p>
+<p>此外，以上代码运行中，会出现如下警告：</p>
+<pre><code>UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected `none` - serialized value may not be as expected [field_name=&#39;context&#39;, input_value=UserContext(user_id=&#39;customer_001&#39;, channel=&#39;Web&#39;), input_type=UserContext])
+  return self.__pydantic_serializer__.to_python(
+</code></pre>
+<p>该警告是将Pydantic模型对象直接传递给了LangChain  Agent的context参数，而LangChain内部在处理这个对象时，期望的是基本的Python数据类型（如字典），而不是Pydantic模型对象，导致了序列化警告。去除该警告，可以在项目开始导入：“warnings.filterwarnings(“ignore”, category&#x3D;UserWarning, module&#x3D;”pydantic.main”)”</p>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/05/AI/LangChain/Agent%E6%99%BA%E8%83%BD%E4%BD%93/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">Agent 智能体</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/05/AI/LangChain/Agent%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">Agent 短期记忆</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86%E4%BB%8B%E7%BB%8D"><span class="toc-list-number">1.</span> <span class="toc-list-text">长期记忆介绍</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Agent%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86%E6%96%B9%E5%BC%8F"><span class="toc-list-number">2.</span> <span class="toc-list-text">Agent中使用长期记忆方式</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">使用内存存储长期记忆</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">使用数据库存储长期记忆</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%AD%E5%AE%9E%E7%8E%B0%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86%E8%AF%BB%E5%86%99"><span class="toc-list-number">3.</span> <span class="toc-list-text">工具中实现长期记忆读写</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E5%92%8C%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86%E5%8C%BA%E5%88%AB%E6%80%BB%E7%BB%93"><span class="toc-list-number">4.</span> <span class="toc-list-text">短期记忆和长期记忆区别总结</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E8%AE%B0%E5%BF%86%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B-%E7%94%B5%E5%95%86%E5%AE%A2%E6%9C%8D%E5%8A%A9%E6%89%8B"><span class="toc-list-number">5.</span> <span class="toc-list-text">记忆综合案例-电商客服助手</span></a></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

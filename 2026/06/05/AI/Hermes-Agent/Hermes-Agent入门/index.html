@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Hermes Agent入门 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-05
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">Hermes Agent入门</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h2 id="Hermes-Agent介绍"><a href="#Hermes-Agent介绍" class="headerlink" title="Hermes Agent介绍"></a>Hermes Agent介绍</h2><p>Hermes Agent 是由 Nous Research （也是 Hermes 系列大模型背后的实验室）推出的具备自我进化能力的通用AI Agent框架，它不仅能自主使用工具、编写并执行代码，还能在任务完成后自动总结经验，将工作流沉淀为可复用的“技能”，并在后续使用中持续优化这些技能。配合跨会话的持久化记忆与用户画像建模，Hermes 能够随着使用时间的增长变得越来越懂用户，真正实现了从“被动执行”到“主动进化”的跨越。</p>
+<p>Hermes Agent 特点如下：</p>
+<ul>
+<li><p>可灵活配置多种模型厂商，支持200+主流模型（从 OpenAI 到国产 Kimi、MiMo 等）</p>
+</li>
+<li><p>本地 &#x2F; Docker &#x2F; SSH &#x2F; 云函数 &#x2F; GPU 集群均可运行</p>
+</li>
+<li><p>可以通过CLI访问，通过统一的网关设计，也可以 Telegram、Discord、微信等多平台访问。</p>
+</li>
+<li><p>自我进化能力，Skill可以自动生成、自我优化并写入长期记忆，后续可直接使用</p>
+</li>
+<li><p>空闲时成本接近为零，适合长期运行</p>
+</li>
+</ul>
+<p>Hermes Agent文档地址：<a target="_blank" rel="noopener" href="https://hermes-agent.nousresearch.com/docs">https://hermes-agent.nousresearch.com/docs</a></p>
+<h2 id="Hermes-Agent安装"><a href="#Hermes-Agent安装" class="headerlink" title="Hermes Agent安装"></a>Hermes Agent安装</h2><p>Hermes Agent 的本质是一个基于 Python 和 Node.js 运行的智能体框架。可以安装在Linux&#x2F;macOS&#x2F;Windows(需要安装在WSL2环境)中，这里以 Unbuntu 系统为例来安装Hermes Agent 。</p>
+<ul>
+<li>安装Hermes Agent前需要有如下环境：</li>
+<li>Python (&gt;&#x3D;3.11): Agent 逻辑运行的基础环境。</li>
+<li>Node.js (&gt;&#x3D;22): 主要用于支撑浏览器自动化（Playwright）和 WhatsApp 桥接等高级功能。</li>
+<li>Git: 用于版本控制和一键安装脚本的拉取。</li>
+<li>系统工具：ripgrep &#x2F; ffmpeg（非硬性依赖，缺失时会提示手动安装）</li>
+</ul>
+<p>注意：对于绝大多数用户，不需要提前手动安装上述任何依赖。Hermes 的一键安装脚本内置了强大的环境检测能力，会自动检测并为你补足缺失的部分，唯一建议提前确认的底层工具是 Git，因为脚本在拉取代码时首选 git clone。</p>
+<p>执行如下命令在Ubuntu系统中安装Hermes Agent：</p>
+<pre><code class="shell">curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+</code></pre>
+<p>注意：安装过程中如果遇到一些链接不能访问可以打开或者关闭魔法多次尝试。</p>
+<p>等待一定时间后，进入如下页面说明Hermes Agent 已经安装成功。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609085829525.png" alt="image-20260609085829525"></p>
+<h2 id="Hermes-Agent-配置"><a href="#Hermes-Agent-配置" class="headerlink" title="Hermes Agent 配置"></a>Hermes Agent 配置</h2><ol>
+<li><p>进入配置向导</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609120533969.png" alt="image-20260609120533969"></p>
+</li>
+<li><p>现在配置消息渠道，选择skip跳过这一步</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609120628957.png" alt="image-20260609120628957"></p>
+</li>
+<li><p>选择模型供应商</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609121645170.png" alt="image-20260609121645170"></p>
+<p>选择DeepSeek，国内可以直接使用</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609121734539.png" alt="image-20260609121734539"></p>
+<p>配置对应得分key</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609121858396.png" alt="image-20260609121858396"></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609122011307.png" alt="image-20260609122011307"></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609122042280.png" alt="image-20260609122042280"></p>
+</li>
+<li><p>配置完成</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609120834085.png" alt="image-20260609120834085"></p>
+</li>
+</ol>
+<h2 id="Hermes-Agent-简单使用"><a href="#Hermes-Agent-简单使用" class="headerlink" title="Hermes Agent 简单使用"></a>Hermes Agent 简单使用</h2><ul>
+<li><p>对话</p>
+<pre><code>hermes
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609121350447.png" alt="image-20260609121350447"></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609122154594.png" alt="image-20260609122154594"></p>
+</li>
+<li><p>多行输入</p>
+<p>如果要多行输入，可以按 Alt+Enter或者 Ctrl+J  换行。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609131853968.png" alt="image-20260609131853968"></p>
+</li>
+<li><p>中断Agent</p>
+<p>与Hermes Agent进行对话过程中，可以按“Ctrl+C”中断Agent运行并切换到新的指令。2秒内再次按下“Ctrl+C”会退出 Hermes Agent。</p>
+</li>
+<li><p>&#x2F;model</p>
+<p>在对话中输入“&#x2F;model”可以列出已有模型并切换：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609131316122.png" alt="image-20260609131316122"></p>
+</li>
+<li><p>&#x2F;tools</p>
+<p>在对话中输入“&#x2F;tools”可以列出所有可用命令：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260609131141819.png" alt="image-20260609131141819"></p>
+</li>
+</ul>
+<h2 id="Hermes-Agent-命令"><a href="#Hermes-Agent-命令" class="headerlink" title="Hermes Agent 命令"></a>Hermes Agent 命令</h2><p>以下命令可以在安装Hermes Agent完成后执行。</p>
+<pre><code class="shell">#开始进入聊天 
+hermes 
+
+#选择大语言模型提供商和模型 
+hermes model 
+
+#配置启动哪些工具 
+hermes tools 
+
+#完整设置向导（一次性完成全部配置） 
+hermes setup 
+
+#查看当前配置 
+hermes config 
+
+#重启hermes gateway服务(如果安装后，通过此命令启动) 
+hermes gateway restart 
+
+#配置连接消息平台 
+hermes gateway setup 
+
+#恢复上次对话 
+hermes --continue 
+
+#诊断问题 
+hermes doctor
+
+#更新至最新版本
+hermes update
+</code></pre>
+<p>更多命令可以通过“hermes –help”查看。</p>
+<h2 id="Hermes-Agent-配置目录结构"><a href="#Hermes-Agent-配置目录结构" class="headerlink" title="Hermes Agent 配置目录结构"></a>Hermes Agent 配置目录结构</h2><p>安装完成Hermes Agent后，所有设置均存储在~&#x2F;.hermes&#x2F;目录中，以便访问。该目录下的结构如下：</p>
+<pre><code class="shell">~/.hermes/
+├── config.yaml     # 配置项（模型、终端、TTS、压缩等）
+├── .env            # API 密钥与敏感信息
+├── auth.json       # OAuth 提供商凭证（Nous Portal 等）
+├── SOUL.md         # 主 Agent 身份（系统提示中的第 1 槽位）
+├── memories/       # 持久记忆（MEMORY.md、USER.md）
+├── skills/         # Agent 创建的技能（由 skill_manage 工具管理）
+├── cron/           # 定时任务
+├── sessions/       # 网关会话
+└── logs/           # 日志（errors.log、gateway.log——自动脱敏）
+</code></pre>
+<p>配置优先级按照如下顺序进行解析（优先级从高到低）：</p>
+<ol>
+<li>CLI 参数 —— 例如 hermes chat –model anthropic&#x2F;claude-sonnet-4（每次调用的覆盖）</li>
+<li>~&#x2F;.hermes&#x2F;config.yaml —— 用于所有非敏感设置的主要配置文件</li>
+<li>~&#x2F;.hermes&#x2F;.env —— 环境变量的备用位置；必须用于敏感信息（API 密钥、令牌、密码）</li>
+<li>内置默认值 —— 当其他设置均未配置时使用的硬编码安全默认值</li>
+</ol>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Session%E4%BC%9A%E8%AF%9D/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">Hermes Agent Session会话</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2022/10/05/video/PR/PR/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">PR</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Hermes-Agent%E4%BB%8B%E7%BB%8D"><span class="toc-list-number">1.</span> <span class="toc-list-text">Hermes Agent介绍</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Hermes-Agent%E5%AE%89%E8%A3%85"><span class="toc-list-number">2.</span> <span class="toc-list-text">Hermes Agent安装</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Hermes-Agent-%E9%85%8D%E7%BD%AE"><span class="toc-list-number">3.</span> <span class="toc-list-text">Hermes Agent 配置</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Hermes-Agent-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-list-number">4.</span> <span class="toc-list-text">Hermes Agent 简单使用</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Hermes-Agent-%E5%91%BD%E4%BB%A4"><span class="toc-list-number">5.</span> <span class="toc-list-text">Hermes Agent 命令</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Hermes-Agent-%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-list-number">6.</span> <span class="toc-list-text">Hermes Agent 配置目录结构</span></a></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            基于SSE事件流的完整的前后端 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-05
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">基于SSE事件流的完整的前后端</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h2 id="架构概览：三文件分工"><a href="#架构概览：三文件分工" class="headerlink" title="架构概览：三文件分工"></a>架构概览：三文件分工</h2><pre><code class="Plain">api_view/api/
+├── chat.py      ★ 核心：SSE 流式对话 + 中断检测 + 中断恢复 + 展示消息持久化
+├── history.py   ← 历史会话列表 / 消息查询 / 会话删除
+└── agent_loader.py (上层) ← Agent 单例 / MongoDB 连接 / 展示消息存取
+</code></pre>
+<p><strong>整体数据流</strong></p>
+<pre><code class="Plain">前端 (浏览器)                       后端 (FastAPI)                     LangGraph Agent
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+① POST /api/chat/stream
+   {message, thread_id?, user_id?}
+        ──────────────────────────→
+                                     ② stream_chat_response()
+                                        ├─ agent_loader.get_agent_for_user(user_id)
+                                        ├─ agent_loader.create_config(thread_id, user_id)
+                                        ├─ 构建 input:
+                                        │    初始: {&quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;,...}]}
+                                        │    恢复: Command(resume=resume_data)
+                                        │
+                                     ③ agent_graph.astream(
+                                          input, config,
+                                          stream_mode=[&quot;messages&quot;,&quot;values&quot;],
+                                          subgraphs=True, version=&quot;v2&quot;
+                                        )
+                                        ↓↓↓ 开始流式推送 ↓↓↓
+  ←── SSE: token ──────────────────  ←  ④ messages 流: (token, metadata)
+  ←── SSE: tool_start ─────────────  ←     token 有 tool_call_chunks → 工具开始
+  ←── SSE: tool_args ──────────────  ←     工具参数增量
+  ←── SSE: tool_result ────────────  ←     type==&quot;tool&quot; → 工具结果
+  ←── SSE: tool_end ───────────────  ←     工具调用结束
+  ←── SSE: interrupt ──────────────  ←  ⑤ values 流: chunk[&quot;interrupts&quot;]
+  ←── SSE: done ───────────────────  ←  ⑥ 流正常结束
+</code></pre>
+<h2 id="SSE的事件流"><a href="#SSE的事件流" class="headerlink" title="SSE的事件流"></a>SSE的事件流</h2><p>chat.py 从头到尾只做一件事：<strong>把 Agent 流式输出转换成前端能消费的 SSE 事件序列</strong>。但它的实现方式体现了项目特色。</p>
+<h4 id="一、-双流模式-—-一条连接同时走两路"><a href="#一、-双流模式-—-一条连接同时走两路" class="headerlink" title="一、 双流模式 — 一条连接同时走两路"></a>一、 双流模式 — 一条连接同时走两路</h4><pre><code class="Python"># chat.py:281-287
+async for chunk in agent_loader.agent.astream(
+    input=current_input,
+    config=config,
+    stream_mode=[&quot;messages&quot;, &quot;values&quot;],  # ← 双模式
+    subgraphs=True,
+    version=&quot;v2&quot;,
+):
+</code></pre>
+<p>这是整个中断检测机制的基础。常规 SSE 只用 <code>&quot;messages&quot;</code> 模式拿 token&#x2F;tool 事件，但本项目需要检测中断，所以同时开了 <code>&quot;values&quot;</code>：</p>
+<pre><code class="Plain">stream_mode=[&quot;messages&quot;, &quot;values&quot;]
+     │              │
+     │              └─→ values 流: 检测 interrupts() 是否触发
+     │                   chunk_type == &quot;values&quot; &amp;&amp; chunk.get(&quot;interrupts&quot;)
+     │                   先于 messages 处理（代码中 if 在 messages 前面）
+     │
+     └─→ messages 流: token / tool_call / tool_result
+          chunk_type == &quot;messages&quot;
+          正常 SSE 事件 (token / tool_start / tool_args / tool_result / tool_end)
+</code></pre>
+<h5 id="流-A：messages-—-内容输出（AIMessage，ToolMessage）"><a href="#流-A：messages-—-内容输出（AIMessage，ToolMessage）" class="headerlink" title="流 A：messages — 内容输出（AIMessage，ToolMessage）"></a>流 A：<code>messages</code> — 内容输出（AIMessage，ToolMessage）</h5><pre><code class="Plain">messages 流产出的 token 类型:
+
+┌─────────────────────────────────────────────────────────┐
+│ token.tool_call_chunks 有值                             │  - AIMessage（调用工具的指令，一般没有content）
+│   → token.tool_call_chunks[i][&quot;name&quot;] = &quot;web_search&quot;   │  → tool_start 事件
+│   → token.tool_call_chunks[i][&quot;args&quot;] = &#39;{&quot;query&quot;:...}&#39; │  → tool_args 事件
+│                                                         │
+│ token.type == &quot;tool&quot;                                    │  # ToolMessage （工具调用后返回的内容）
+│   → token.name = &quot;web_search&quot;                          │  → tool_result 事件
+│   → token.content = &quot;搜索结果是...&quot;                     │  → tool_end 事件
+│                                                         │
+│ token.content 是纯文本 (不是 tool, 不是 tool_call_chunks)│
+│   → &quot;根据搜索结果，博世刹车片...&quot;                       │  → token 事件
+└─────────────────────────────────────────────────────────┘
+</code></pre>
+<h5 id="流-B：values-—-中断检测"><a href="#流-B：values-—-中断检测" class="headerlink" title="流 B：values — 中断检测"></a>流 B：<code>values</code> — 中断检测</h5><pre><code class="Python"># 中断检测必须在 messages 处理之前执行 (line 296-366)
+if chunk_type == &quot;values&quot; and chunk.get(&quot;interrupts&quot;):
+    for interrupt in chunk[&quot;interrupts&quot;]:
+        if &quot;action_requests&quot; in interrupt.value:
+            → interrupt_type = &quot;hitl_approval&quot;   # 第2层: 审批中断
+        elif interrupt.value.get(&quot;type&quot;) == &quot;order_info_request&quot;:
+            → interrupt_type = &quot;order_info_supplement&quot;  # 第1层: 数据补充
+    → 保存 display_messages 到 MongoDB
+    → 发送 done(interrupted=True)
+    → return  # 停止本次流
+</code></pre>
+<p><strong>为什么必须先检测中断？</strong> 因为中断时最后一条 messages 事件可能还来不及到达，先处理中断才能确保两端状态一致。</p>
+<h4 id="二、完整请求链路（从用户输入到-SSE-返回）"><a href="#二、完整请求链路（从用户输入到-SSE-返回）" class="headerlink" title="二、完整请求链路（从用户输入到 SSE 返回）"></a>二、完整请求链路（从用户输入到 SSE 返回）</h4><h5 id="7-种-SSE-事件"><a href="#7-种-SSE-事件" class="headerlink" title="7 种 SSE 事件"></a>7 种 SSE 事件</h5><table>
+<thead>
+<tr>
+<th>事件类型</th>
+<th>触发条件</th>
+<th>前端行为</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>token</td>
+<td>AI 文本增量</td>
+<td>追加到当前 AI 回复气泡</td>
+</tr>
+<tr>
+<td>tool_start</td>
+<td>Agent 开始调工具</td>
+<td>显示工具调用卡片（含工具名）</td>
+</tr>
+<tr>
+<td>tool_args</td>
+<td>工具参数流式输出</td>
+<td>更新工具卡片上的参数 JSON</td>
+</tr>
+<tr>
+<td>tool_result</td>
+<td>工具执行完毕</td>
+<td>填充工具执行结果</td>
+</tr>
+<tr>
+<td>tool_end</td>
+<td>工具调用结束</td>
+<td>标记工具卡片为完成状态</td>
+</tr>
+<tr>
+<td>interrupt</td>
+<td>HITL 中断触发</td>
+<td>显示审批面板&#x2F;数据补充表单</td>
+</tr>
+<tr>
+<td>done</td>
+<td>流结束</td>
+<td>停止 loading，标记对话完成</td>
+</tr>
+</tbody></table>
+<pre><code class="Plain">用户发送 &quot;帮我新增采购订单&quot;
+  │
+  ▼
+POST /api/chat/stream {message: &quot;帮我新增采购订单&quot;}
+  │
+  ▼
+chat_stream() → StreamingResponse
+  │
+  ▼
+stream_chat_response(message=&quot;帮我新增采购订单&quot;)
+  │ config = agent_loader.create_config(thread_id)
+  │ current_input = {&quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;, &quot;content&quot;:&quot;...&quot;}]}
+  │ display_messages = [user消息]
+  │
+  ▼
+agent.astream(input, config, stream_mode=[&quot;messages&quot;,&quot;values&quot;], subgraphs=True, version=&quot;v2&quot;)
+  │
+  ├─→ 主 Agent 收到消息 → 判断: 订单操作 → task(procurement-order)
+  │
+  ├─→ [SSE] token: &quot;好的，我来帮您...&quot;           (source: main)
+  ├─→ [SSE] tool_start: task                    (source: main)
+  ├─→ [SSE] tool_args: {...}                    (source: main)
+  │
+  ├─→ order 子 Agent 启动 (独立上下文)
+  │     ├─→ 第1步: 提取数据
+  │     ├─→ 第2步: Schema 校验 → partId 缺失!
+  │     ├─→ 第3步: request_order_info(...)
+  │     │     └─→ interrupt({&quot;type&quot;: &quot;order_info_request&quot;, ...})
+  │     │
+  ├─→ [stream_mode=&quot;values&quot;] 检测到 interrupts
+  │     │
+  │     ├─→ [SSE] interrupt {interrupt_type: &quot;order_info_supplement&quot;, ...}
+  │     ├─→ save_display_messages(thread_id, cleaned)  ← 保存现场
+  │     └─→ [SSE] done {interrupted: true}
+  │         return  ← 流结束
+  │
+  ▼
+前端 InterruptBanner 弹出: &quot;请输入补充信息&quot;
+用户输入: &quot;物料ID=100, 数量=50, 单价=25.5&quot;
+  │
+  ▼
+POST /api/chat/{thread_id}/resume {resume: {supplement: &quot;物料ID=100...&quot;}}
+  │
+  ▼
+stream_chat_response(thread_id, resume_data={supplement: &quot;...&quot;})
+  │ existing = get_display_messages()  ← 加载中断前的消息
+  │ current_input = Command(resume={supplement: &quot;...&quot;})  ← 恢复
+  │
+  ▼
+agent.astream(Command(resume=...), config, ...)
+  │
+  ├─→ order 子 Agent 恢复 → 解析补充数据 → 合并 → 校验通过
+  ├─→ 构造 order_create 参数 → interrupt_on 触发
+  │
+  ├─→ [stream_mode=&quot;values&quot;] 再次检测到 interrupts
+  │     ├─→ [SSE] interrupt {interrupt_type: &quot;hitl_approval&quot;, action_requests: [...]}
+  │     └─→ [SSE] done {interrupted: true}
+  │
+  ▼
+前端 InterruptBanner 切换: 审批卡片 (approve/reject)
+用户点击 &quot;approve&quot;
+  │
+  ▼
+POST /api/chat/{thread_id}/resume {resume: {decisions: [{type: &quot;approve&quot;}]}}
+  │
+  ▼
+agent.astream(Command(resume={decisions:...}), config, ...)
+  │
+  ├─→ order_create 执行 → 成功
+  ├─→ [SSE] tool_result {text: &quot;订单创建成功...&quot;}
+  ├─→ [SSE] token &quot;订单已创建，编号 PO20260513...&quot;  (source: order)
+  │
+  ├─→ 主 Agent 收到子Agent 完成 → compact_conversation
+  ├─→ [SSE] token &quot;已为您完成订单创建...&quot;           (source: main)
+  │
+  └─→ save_display_messages(thread_id, all_messages)
+      [SSE] done {thread_id: &quot;...&quot;, content: &quot;...&quot;}
+</code></pre>
+<h3 id="亮点总结"><a href="#亮点总结" class="headerlink" title="亮点总结"></a>亮点总结</h3><table>
+<thead>
+<tr>
+<th>特色</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>双流模式</td>
+<td>[“messages”,”values”] 同时走两路，values 优先检测中断</td>
+</tr>
+<tr>
+<td>display_messages</td>
+<td>独立于 checkpoint 的完整展示层，包含子 Agent 消息，逐条存 MongoDB 避免 16MB 限制</td>
+</tr>
+<tr>
+<td>中断状态保存</td>
+<td>中断时立即 save_display_messages，恢复时 get_display_messages 加载，前后端无缝衔接</td>
+</tr>
+<tr>
+<td>两层中断统一处理</td>
+<td>request_order_info 和 interrupt_on 共用同一个中断检测→保存→恢复流程</td>
+</tr>
+<tr>
+<td>嵌套工具调用栈</td>
+<td>显式 push&#x2F;pop 管理，支持主Agent调子Agent调图表工具</td>
+</tr>
+<tr>
+<td>content 提取管道</td>
+<td>UUID 过滤 + 多类型兼容 + 图片提取</td>
+</tr>
+<tr>
+<td>调试日志</td>
+<td>每个 stream 一个独立日志文件，chunk 级别全量记录</td>
+</tr>
+<tr>
+<td>逐条 MongoDB 存储</td>
+<td>单条消息一个文档 + 500KB 截断兜底，彻底解决长对话存储问题</td>
+</tr>
+</tbody></table>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/05/AI/OpenClaw/Nginx%E5%AE%89%E8%A3%85%E8%A1%A5%E5%85%85/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">Nginx安装补充</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/05/AI/OpenClaw/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%85%B7%E4%BD%93Harness%E6%9E%B6%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">项目中具体Harness架构的实现</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88%EF%BC%9A%E4%B8%89%E6%96%87%E4%BB%B6%E5%88%86%E5%B7%A5"><span class="toc-list-number">1.</span> <span class="toc-list-text">架构概览：三文件分工</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#SSE%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%B5%81"><span class="toc-list-number">2.</span> <span class="toc-list-text">SSE的事件流</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%B8%80%E3%80%81-%E5%8F%8C%E6%B5%81%E6%A8%A1%E5%BC%8F-%E2%80%94-%E4%B8%80%E6%9D%A1%E8%BF%9E%E6%8E%A5%E5%90%8C%E6%97%B6%E8%B5%B0%E4%B8%A4%E8%B7%AF"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">一、 双流模式 — 一条连接同时走两路</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#%E6%B5%81-A%EF%BC%9Amessages-%E2%80%94-%E5%86%85%E5%AE%B9%E8%BE%93%E5%87%BA%EF%BC%88AIMessage%EF%BC%8CToolMessage%EF%BC%89"><span class="toc-list-number">2.1.1.</span> <span class="toc-list-text">流 A：messages — 内容输出（AIMessage，ToolMessage）</span></a></li><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#%E6%B5%81-B%EF%BC%9Avalues-%E2%80%94-%E4%B8%AD%E6%96%AD%E6%A3%80%E6%B5%8B"><span class="toc-list-number">2.1.2.</span> <span class="toc-list-text">流 B：values — 中断检测</span></a></li></ol></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BA%8C%E3%80%81%E5%AE%8C%E6%95%B4%E8%AF%B7%E6%B1%82%E9%93%BE%E8%B7%AF%EF%BC%88%E4%BB%8E%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E5%88%B0-SSE-%E8%BF%94%E5%9B%9E%EF%BC%89"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">二、完整请求链路（从用户输入到 SSE 返回）</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-5"><a class="toc-list-link" href="#7-%E7%A7%8D-SSE-%E4%BA%8B%E4%BB%B6"><span class="toc-list-number">2.2.1.</span> <span class="toc-list-text">7 种 SSE 事件</span></a></li></ol></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BA%AE%E7%82%B9%E6%80%BB%E7%BB%93"><span class="toc-list-number">2.3.</span> <span class="toc-list-text">亮点总结</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>

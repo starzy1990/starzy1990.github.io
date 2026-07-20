@@ -1,0 +1,2822 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Agent 智能体 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-06-05
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">Agent 智能体</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h2 id="Agent介绍"><a href="#Agent介绍" class="headerlink" title="Agent介绍"></a>Agent介绍</h2><h3 id="什么是Agent"><a href="#什么是Agent" class="headerlink" title="什么是Agent"></a>什么是Agent</h3><p>在LangChain框架中，Agent（智能体）是一个高级组件，它通过将大型语言模型（LLM）与一系列外部工具（Tools）相结合，构建了一个能够自主推理并执行复杂任务的智能系统。其核心思想是利用LLM作为推理引擎（Reasoning  Engine），让模型能够动态地决定为解决用户问题所需采取的行动序列，包括选择何种工具、以何种顺序调用，并迭代地处理工具返回的结果，直至任务完成。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714164732725.png" alt="image-20260714164730849"></p>
+<p>简单来说，一个Agent不再仅仅是生成文本的模型，而是一个具备“思考-行动-观察”循环的自主工作者。当用户提出一个复杂需求时，Agent会像人类一样，先理解任务、规划步骤、使用合适的工具（如搜索网络、查询数据库、执行计算）获取信息，最后综合所有信息给出最终答案。</p>
+<h3 id="Agent原理与执行流程"><a href="#Agent原理与执行流程" class="headerlink" title="Agent原理与执行流程"></a>Agent原理与执行流程</h3><p>Agent的核心工作原理遵循ReAct（Reasoning + Acting，推理+行动）框架，即在一个循环中交替进行推理和行动，这个过程会涉及到模型、工具、记忆、中间件等核心组件。</p>
+<p>以下是一个具体的ReAct循环示例，演示Agent如何解决“找出当前最流行的无线耳机并检查库存”的任务。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714170050938.png" alt="image-20260714170049105"></p>
+<p><strong>1) 输入解析与初始推理</strong></p>
+<p><strong>输入</strong>：用户查询：“找出当前最流行的无线耳机并检查库存”。</p>
+<p><strong>推理</strong>：LLM分析任务后认为：“要找出‘最流行’的产品，需要最新的市场信息，我应该先使用搜索工具。”</p>
+<p><strong>2) 第一次行动与观察</strong></p>
+<p><strong>行动</strong>：Agent调用search_products工具，参数为“wireless headphones”。</p>
+<p><strong>观察</strong>：工具返回结果：“找到5款匹配产品。Top结果：WH-1000XM5, …”</p>
+<p><strong>3) 迭代推理</strong></p>
+<p><strong>推理</strong>：LLM根据搜索结果分析：“WH-1000XM5是排名第一的型号。现在需要确认其库存状态才能回答用户问题。”</p>
+<p><strong>4) 第二次行动与观察</strong></p>
+<p><strong>行动</strong>：Agent调用check_inventory工具，参数为“WH-1000XM5”。</p>
+<p><strong>观察</strong>：工具返回：“产品WH-1000XM5：库存10件。”</p>
+<p><strong>5) 最终输出</strong></p>
+<p><strong>推理</strong>：LLM综合所有信息后认为：“已获得所需信息，可以生成最终答案。”</p>
+<p><strong>行动</strong>：模型生成最终答案，不再调用工具。</p>
+<h3 id="LLM、LLM工具调用与Agent区别"><a href="#LLM、LLM工具调用与Agent区别" class="headerlink" title="LLM、LLM工具调用与Agent区别"></a>LLM、LLM工具调用与Agent区别</h3><p>如下对比LLM、LLM工具调用和Agent工具调用三者的区别：</p>
+<table>
+<thead>
+<tr>
+<th><strong>对比角度</strong></th>
+<th><strong>LLM</strong></th>
+<th><strong>LLM+工具调用</strong></th>
+<th><strong>Agent工具调用</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>本质定位</strong></td>
+<td>文本生成器，基于训练数据生成连贯文本</td>
+<td>增强型LLM，通过函数调用扩展能力边界</td>
+<td>一个具备规划和执行能力的智能系统，以任务闭环为目标</td>
+</tr>
+<tr>
+<td><strong>核心功能</strong></td>
+<td>语言理解、文本生成、知识问答</td>
+<td>基础工具调用、实时数据获取、简单操作执行</td>
+<td>多步规划、工具编排、状态管理、错误恢复</td>
+</tr>
+<tr>
+<td><strong>工作模式</strong></td>
+<td>单次交互，静态响应</td>
+<td>单轮“请求-调用-响应”</td>
+<td>多轮“感知-规划-执行-反馈”循环（ReAct框架）</td>
+</tr>
+<tr>
+<td><strong>系统架构</strong></td>
+<td>单一模型接口</td>
+<td>模型+工具绑定+手动执行循环</td>
+<td>LLM+规划+记忆+工具使用+防护措施</td>
+</tr>
+<tr>
+<td><strong>状态管理</strong></td>
+<td>需外部维护状态</td>
+<td>需外部维护状态</td>
+<td>内置记忆系统，支持短期&#x2F;长期状态管理</td>
+</tr>
+<tr>
+<td><strong>错误处理</strong></td>
+<td>失败即终止，无自动恢复</td>
+<td>失败即终止，无自动恢复</td>
+<td>支持重试、回滚等恢复机制</td>
+</tr>
+</tbody></table>
+<h2 id="Agent创建与调用"><a href="#Agent创建与调用" class="headerlink" title="Agent创建与调用"></a>Agent创建与调用</h2><h3 id="Agent创建方式"><a href="#Agent创建方式" class="headerlink" title="Agent创建方式"></a>Agent创建方式</h3><p>在 LangChain 1.2 中，create_agent API 是构建智能体的核心方式。它通过将语言模型与工具相结合，创建能够自主决策并执行复杂任务的系统。</p>
+<p>模型是 Agent 的“大脑”，负责决策和推理。LangChain 在模型配置上提供了极大的灵活性，支持<strong>静态模型</strong>和<strong>动态模型</strong>两种方式，以适应不同的应用场景和成本考量。</p>
+<h4 id="静态模型"><a href="#静态模型" class="headerlink" title="静态模型"></a>静态模型</h4><p>静态模型在 Agent 创建时一次性配置，在整个执行过程中保持不变。这是最简单、最常用的方法。</p>
+<p>代码示例：使用创建好的模型构建Agent。</p>
+<pre><code class="python">import json
+from langchain.agents import create_agent
+from langchain.chat_models import init_chat_model
+from langchain.tools import tool
+from langgraph.graph.state import CompiledStateGraph
+from utils.env_util import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL
+
+
+@tool
+def get_weather(city: str) -&gt; str:
+    &quot;&quot;&quot;获取指定城市的天气信息。&quot;&quot;&quot;
+    return f&quot;{city}的天气为晴朗，25°C。&quot;
+
+# 通过模型实例创建，可精细控制参数
+deepseek_llm = init_chat_model(
+    model=&quot;deepseek-chat&quot;,
+    model_provider=&quot;deepseek&quot;,
+    api_key=DEEPSEEK_API_KEY,
+    base_url=DEEPSEEK_BASE_URL,
+)
+
+agent:CompiledStateGraph = create_agent(deepseek_llm, tools=[get_weather])
+
+print(type(agent)) # CompiledStateGraph
+
+resp : dict = agent.invoke( {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;查询北京的天气&quot;}]})
+print(type(resp)) # dict
+print(resp)
+</code></pre>
+<p>运行结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714170559135.png" alt="image-20260714170557676"></p>
+<p>注意：</p>
+<ol>
+<li>新版langchain中（1.0+）创建智能体API做了统一，由 <strong>create_agent</strong> 创建 agent，create_agent函数返回的本身就是一个具备执行能力的实体，这个实体内部基于 LangGraph 构建了一个执行图（Graph）。</li>
+<li>create_agent方法传递的参数为model（Agent使用的模型）和tools（Agent使用的工具），更多参数参考：<a target="_blank" rel="noopener" href="https://reference.langchain.com/python/langchain/agents/">https://reference.langchain.com/python/langchain/agents/</a></li>
+<li>agent.invoke是调用Agent，传入的参数为固定格式：” {“messages”: [{“role”: “…”, “content”: “…”}]}”</li>
+</ol>
+<h4 id="动态模型"><a href="#动态模型" class="headerlink" title="动态模型"></a>动态模型</h4><p>动态模型允许在运行时根据当前对话的状态或上下文智能地选择不同的模型，这对于优化成本和处理不同复杂度的任务非常有用，这是通过中间件机制实现的，关于中间件介绍参考“中间件”相关章节。</p>
+<p>代码示例：当对话消息数大于等于3条后，使用复杂模型，否则使用简单模型。</p>
+<pre><code class="python">from langchain.tools import tool
+
+from langchain.agents import create_agent
+from langchain.agents.middleware import wrap_model_call, ModelRequest, ModelResponse
+from langchain.chat_models import init_chat_model
+
+from utils.env_util import DEEPSEEK_API_KEY, DEEPSEEK_BASE_URL, DASHSCOPE_API_KEY, DASHSCOPE_BASE_URL
+
+# 定义两个模型：基础版和高级版
+basic_model = init_chat_model(
+    model=&quot;deepseek-chat&quot;,
+    model_provider=&quot;deepseek&quot;,
+    api_key=DEEPSEEK_API_KEY,
+    base_url=DEEPSEEK_BASE_URL,
+)
+
+advanced_model = init_chat_model(
+    model=&quot;qwen-plus&quot;,
+    model_provider=&quot;openai&quot;,
+    api_key=DASHSCOPE_API_KEY,
+    base_url=DASHSCOPE_BASE_URL,
+)
+
+# 1. 定义动态模型选择中间件
+@wrap_model_call
+def dynamic_model_selection(request: ModelRequest, handler) -&gt; ModelResponse:
+    &quot;&quot;&quot;根据对话消息数动态选择模型&quot;&quot;&quot;
+    #获取当前对话内容
+    # current_messages = request.state[&quot;messages&quot;]
+    # print(f&quot;当前对话内容: {current_messages}&quot;)
+
+    # 获取当前对话消息数
+    message_count = len(request.state[&quot;messages&quot;])
+
+    print(f&quot;当前对话消息数: {message_count}&quot;)
+
+    if message_count &gt;=3:
+        # 对话消息数超过2条，切换至更强大的模型处理复杂对话
+        model = advanced_model
+    else:
+        model = basic_model
+
+    return handler(request.override(model=model))
+
+
+# 2.定义工具
+@tool
+def get_current_location() -&gt; str:
+    &quot;&quot;&quot;获取当前位置。&quot;&quot;&quot;
+    return &quot;当前位置为北京市。&quot;
+
+@tool
+def get_weather(city: str) -&gt; str:
+    &quot;&quot;&quot;获取指定城市的天气信息。&quot;&quot;&quot;
+    return f&quot;{city}的天气为晴朗，25°C。&quot;
+
+# 2. 创建Agent，并传入动态模型选择中间件
+agent = create_agent(
+    model=basic_model,  # 此处设置一个默认模型
+    tools=[get_current_location,get_weather],  # 集成工具
+    system_prompt=&quot;你是一个助手，可以帮助用户回答各种问题。&quot;,
+    middleware=[dynamic_model_selection]  # 挂载中间件
+)
+
+# 模拟一个对话的调用，包含获取当前位置和天气信息
+print(agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;获取当前位置，并告诉我天气情况&quot;}]}))
+</code></pre>
+<p>以上代码运行结果如下,可以看到每次调用模型前都会执行“dynamic_model_selection”方法，根据对话消息条数进行模型选择。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714171557974.png" alt="image-20260714171556588"></p>
+<p>注意：</p>
+<ol>
+<li><p>@wrap_model_call：标记的方法是模型选择中间件方法，create_agent时通过middleware参数指定该方法。</p>
+</li>
+<li><p>@wrap_model_call方法中的两个参数含义：</p>
+<ul>
+<li><p>request：ModelRequest,封装了当前模型调用的所有请求信息。</p>
+</li>
+<li><p>handler：回调函数,代表后续处理链，调用它会继续执行模型调用流程,通过 handler(request.override(…))传递修改后的请求。</p>
+</li>
+</ul>
+</li>
+<li><p>agent.invoke()：启动了一个复杂的、可能包含多次LLM调用和工具调用的推理循环。wrap_model_call在这个循环的每个推理步骤（LLM调用）前都会被触发。</p>
+</li>
+</ol>
+<h3 id="Agent调用"><a href="#Agent调用" class="headerlink" title="Agent调用"></a>Agent调用</h3><p>invoke 是 Agent 最基本的同步调用方法，它会阻塞程序执行直到返回最终结果。</p>
+<p>示意代码如下：</p>
+<pre><code class="python">...
+agent :CompiledStateGraph = create_agent(deepseek_llm, tools=[get_weather])
+
+print(type(agent)) # CompiledStateGraph
+
+resp = agent.invoke( {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;查询北京的天气&quot;}]})
+...
+</code></pre>
+<p>以上代码中，invoke中传入的 {“messages”: [{“role”: “user”,  “content”: “查询北京的天气”}]}对应的是 invoke方法中的  input参数，这种写法在基于消息（Message）的LangChain  Agent中是一种标准且常见的输入格式，其核心输入就是一系列消息（messages），每条消息通常包含 role（如 “user”,  “assistant”, “system”, “tool”）和 “content”。</p>
+<p>我们也可以在message列表的开头加入”system”角色的消息来定义Agent的行为,代码如下：</p>
+<pre><code class="python">from langchain.agents import create_agent
+from langchain.tools import tool
+from langgraph.graph.state import CompiledStateGraph
+
+from init_llm import deepseek_llm
+
+
+@tool
+def get_weather(city: str) -&gt; str:
+    &quot;&quot;&quot;获取指定城市的天气信息。&quot;&quot;&quot;
+    return f&quot;{city}的天气为晴朗，25°C。&quot;
+
+
+agent :CompiledStateGraph = create_agent(deepseek_llm, tools=[get_weather])
+
+resp = agent.invoke( {
+    &quot;messages&quot;: [
+        {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是一个天气查询助手，只回答天气相关的问题，其他问题请直接回答：我不清楚这问题答案。&quot;},
+        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;100加上50等于多少？&quot;}
+
+    ]
+})
+
+print(resp)
+print(resp[&quot;messages&quot;][-1].content)
+</code></pre>
+<p>以上代码运行结果如下：</p>
+<pre><code>{&#39;messages&#39;: [SystemMessage(content=&#39;你是一个天气查询助手，只回答天气相关的问题，其他问题请直接回答：我不清楚这问题答案。&#39;, additional_kwargs={}, response_metadata={}, id=&#39;676d6607-deb8-4f43-9fbf-4f85ec49e85d&#39;), HumanMessage(content=&#39;100加上50等于多少？&#39;, additional_kwargs={}, response_metadata={}, id=&#39;27ccbb48-4a46-4a84-a650-c93458ba5584&#39;), AIMessage(content=&#39;我不清楚这问题答案。&#39;, additional_kwargs={&#39;refusal&#39;: None}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 6, &#39;prompt_tokens&#39;: 303, &#39;total_tokens&#39;: 309, &#39;completion_tokens_details&#39;: None, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: None, &#39;cache_write_tokens&#39;: None, &#39;cached_tokens&#39;: 0}, &#39;prompt_cache_hit_tokens&#39;: 0, &#39;prompt_cache_miss_tokens&#39;: 303}, &#39;model_provider&#39;: &#39;deepseek&#39;, &#39;model_name&#39;: &#39;deepseek-v4-flash&#39;, &#39;system_fingerprint&#39;: &#39;fp_8b330d02d0_prod0820_fp8_kvcache_20260402&#39;, &#39;id&#39;: &#39;524ec804-8b2e-4916-87b6-c481267a789d&#39;, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;lc_run--019f5fed-2d41-7601-b620-c93c51096f76-0&#39;, tool_calls=[], invalid_tool_calls=[], usage_metadata={&#39;input_tokens&#39;: 303, &#39;output_tokens&#39;: 6, &#39;total_tokens&#39;: 309, &#39;input_token_details&#39;: {&#39;cache_read&#39;: 0}, &#39;output_token_details&#39;: {}})]}
+我不清楚这问题答案。
+</code></pre>
+<p>我们也可以通过如下方式格式化输出工具调用结果：</p>
+<pre><code class="python"># 格式化输出所有消息
+for msg in resp[&quot;messages&quot;]:
+    msg.pretty_print()
+</code></pre>
+<p>pretty_print()是LangChain框架中消息对象（例如 HumanMessage, AIMessage, SystemMessage等）自带的一个方法，主要用于在控制台或 Notebook 环境中美化并打印消息的内容和元数据，使其更易于阅读。</p>
+<p>以上代码执行后，格式化结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714172226346.png" alt="image-20260714172225040"></p>
+<h2 id="提示词（Prompt）"><a href="#提示词（Prompt）" class="headerlink" title="提示词（Prompt）"></a>提示词（Prompt）</h2><p>在LangChain中，提示词为Agent提供了任务背景、行为准则和操作指南。通过 system_prompt参数设置，它本质上定义了Agent的“角色”和“使命”。</p>
+<p>提示词设置有两种方式：基础设置和动态设置。</p>
+<h3 id="基础提示词设置"><a href="#基础提示词设置" class="headerlink" title="基础提示词设置"></a>基础提示词设置</h3><p>提示词基础设置是在“create_agent”的时候传入一个参数system_prompt，这个参数可以是str或者SystemMessage类型。</p>
+<p><strong>案例：使用字符串和SystemMessage设置系统提示词。</strong></p>
+<pre><code class="python">from langchain.agents import create_agent
+from langchain.agents.middleware import dynamic_prompt, ModelRequest
+from langchain_core.messages import SystemMessage
+from langchain_core.tools import BaseTool, tool
+from typing import TypedDict
+import json
+
+from init_llm import deepseek_llm
+
+
+# 工具：实现两数相加
+@tool
+def add_numbers(a: int, b: int) -&gt; str:
+    &quot;&quot;&quot;计算并返回两个数的和。&quot;&quot;&quot;
+    return f&quot;和为：{a + b}&quot;
+
+if __name__ == &#39;__main__&#39;:
+    &quot;&quot;&quot;创建客服助手Agent&quot;&quot;&quot;
+    # 创建带有动态提示词中间件的Agent
+    agent = create_agent(
+        model=deepseek_llm,
+        tools=[add_numbers],# 工具列表
+        # system_prompt=&quot;你是一个数学助手，可以实现两数相加。&quot;
+        system_prompt = SystemMessage(content=&quot;你是一个数学助手，可以实现两数相加。&quot;)
+    )
+
+    resp = agent.invoke(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;10加上20再加上30是多少？&quot;}]},
+    )
+
+    print(&quot;resp:&quot;,resp)
+    result = resp[&quot;messages&quot;][-1].content
+    print(result)
+</code></pre>
+<p>以上代码运行结果如下：</p>
+<pre><code>10加上20再加上30的和是60。
+</code></pre>
+<h3 id="动态提示词设置"><a href="#动态提示词设置" class="headerlink" title="动态提示词设置"></a>动态提示词设置</h3><p>对于需要根据运行时上下文或Agent状态调整提示词的高级场景，可以使用中间件（Middleware）实现动态提示词。例如，通过 @dynamic_prompt装饰器创建中间件，根据用户角色生成不同的系统提示。</p>
+<p><strong>案例：构建客户问题处理的Agent，对于普通用户和VIP用户采用不同的提示词。</strong></p>
+<pre><code class="python">from langchain.agents import create_agent
+from langchain.agents.middleware import dynamic_prompt, ModelRequest
+from langchain_core.tools import BaseTool, tool
+from typing import TypedDict
+import json
+
+from init_llm import deepseek_llm
+
+
+# 工具1：模拟查询订单信息
+@tool
+def query_order_info(order_id: str) -&gt; str:
+    &quot;&quot;&quot;根据订单ID查询订单的详细信息，包括状态、商品列表和创建时间。&quot;&quot;&quot;
+    # 模拟数据库查询结果
+    order_database = {
+        &quot;ORD123456&quot;: {&quot;status&quot;: &quot;已发货&quot;, &quot;items&quot;: [&quot;手机X1&quot;], &quot;create_time&quot;: &quot;2025-01-15&quot;},
+        &quot;ORD654321&quot;: {&quot;status&quot;: &quot;待付款&quot;, &quot;items&quot;: [&quot;耳机Y1&quot;], &quot;create_time&quot;: &quot;2025-01-18&quot;}
+    }
+    order_data = order_database.get(order_id)
+    if order_data:
+        return json.dumps(order_data, ensure_ascii=False)
+    else:
+        return f&quot;错误：未找到订单 {order_id}。&quot;
+
+# 工具2：模拟检索常见问题解答
+@tool
+def search_faq(keyword: str) -&gt; str:
+    &quot;&quot;&quot;根据关键词从知识库中检索相关的政策条款或解决方案。&quot;&quot;&quot;
+    # 模拟FAQ知识库
+    faq_knowledge_base = {
+        &quot;退货&quot;: &quot;支持7天无理由退货，商品需完好且包装齐全。&quot;,
+        &quot;保修&quot;: &quot;电子产品享受1年免费保修服务。&quot;,
+        &quot;发货&quot;: &quot;下单后48小时内发货，偏远地区可能延迟。&quot;
+    }
+    # 简单关键词匹配
+    for topic, answer in faq_knowledge_base.items():
+        if topic in keyword:
+            return answer
+    return f&quot;未找到与&#39;{keyword}&#39;直接相关的政策，请尝试其他关键词或联系人工客服。&quot;
+
+# 定义运行时上下文的数据结构
+class AgentContext(TypedDict):
+    query_type: str  # 用于动态判断问题类型，例如 &#39;normal&#39;（普通用户） 或 &#39;vip&#39;（vip用户）
+
+# 动态提示词中间件：根据问题类型调整Agent的“角色”和回答策略
+@dynamic_prompt
+def dynamic_support_prompt(request: ModelRequest) -&gt; str:
+    &quot;&quot;&quot;
+    根据 query_type 生成不同的系统提示词。
+    &quot;&quot;&quot;
+    # print(&quot;request:&quot;, request)
+    query_type = request.runtime.context.get(&quot;query_type&quot;, &quot;normal&quot;)
+    base_instruction = &quot;你是一名专业的电商客服助手。请根据工具查询结果，准确、清晰地回答用户问题。&quot;
+
+    if query_type == &quot;vip&quot;:
+        # 针对复杂或需要升级处理的问题
+        return f&quot;&quot;&quot;{base_instruction}
+                当前角色：高级支持专员
+                工作要求：
+                1.深度分析：仔细分析用户描述，识别潜在的根本问题。
+                2.精准分类：将问题明确归类（如“物流问题”、“产品质量”、“售后申请”）。
+                3.方案规划：若工具能解决，提供具体步骤；若需人工，明确告知后续流程。
+                请使用更专业、严谨的语言。
+                &quot;&quot;&quot;
+    else:
+        # 针对常规客服问题
+        return f&quot;&quot;&quot;{base_instruction}
+                当前角色：一线客服助手
+                工作要求：
+                1.快速响应：优先使用工具获取订单/政策信息。
+                2.直接解答：对于明确问题（如退货、物流），直接给出基于知识的答案。
+                3.简洁友好：回复要简单明了，避免复杂术语。
+                保持友好和高效的沟通风格。
+                &quot;&quot;&quot;
+
+if __name__ == &quot;__main__&quot;:
+    &quot;&quot;&quot;创建客服助手Agent&quot;&quot;&quot;
+    # 创建带有动态提示词中间件的Agent
+    agent = create_agent(
+        model=deepseek_llm,
+        tools=[query_order_info, search_faq], # 工具列表
+        middleware=[dynamic_support_prompt],  # 挂载动态提示词中间件
+        context_schema=AgentContext  # 关联上下文schema
+    )
+
+    &quot;&quot;&quot;演示动态提示词效果&quot;&quot;&quot;
+    # user_query = &quot;我的订单ORD123456还没收到，包装破损了怎么办？&quot;
+    user_query = &quot;我的订单ORD654321已签收，但是物品坏了怎么办？&quot;
+    print(f&quot;用户问题：{user_query}\n&quot;)
+
+    print(&quot;场景一：普通客服模式 (query_type: &#39;normal&#39;)&quot;)
+    result_normal = agent.invoke(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: user_query}]},
+        context={&quot;query_type&quot;: &quot;normal&quot;}  # 标准模式
+    )
+
+    # print(&quot;result_normal:&quot;, result_normal)
+    # 提取Agent的最后一条回复
+    final_response_normal = result_normal[&quot;messages&quot;][-1].content
+    print(final_response_normal)
+
+    print(&quot;\n&quot; + &quot;=&quot;*50)
+
+    print(&quot;场景二：VIP模式 (query_type: &#39;vip&#39;)&quot;)
+    result_vip = agent.invoke(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: user_query}]},
+        context={&quot;query_type&quot;: &quot;vip&quot;}
+    )
+    # print(&quot;result_vip:&quot;, result_vip)
+    # 提取Agent的最后一条回复
+    final_response_vip = result_vip[&quot;messages&quot;][-1].content
+    print(final_response_vip)
+</code></pre>
+<p>以上代码运行结果如下：</p>
+<pre><code>用户问题：我的订单ORD654321已签收，但是物品坏了怎么办？
+
+场景一：普通客服模式 (query_type: &#39;normal&#39;)
+根据查询到的信息，我为您提供以下建议：
+
+**关于您的情况：**
+1. 订单状态显示&quot;待付款&quot;，但您已签收商品且发现损坏
+2. 这可能是系统状态更新延迟，或者存在其他特殊情况
+
+**建议解决方案：**
+
+1. **立即拍照取证**：请拍摄清晰的商品损坏照片，包括外包装、商品本身和损坏部位
+
+2. **联系人工客服**：由于您的订单状态异常（显示待付款但已签收），建议您：
+   - 通过在线客服或客服热线联系人工客服
+   - 提供订单号ORD654321和损坏照片
+   - 说明具体情况：已签收但商品损坏
+
+3. **售后处理**：根据我们的退货政策，商品需完好才能享受7天无理由退货。但**商品损坏属于质量问题**，通常会有专门的售后处理流程。
+
+**温馨提示：**
+- 请尽快联系客服，避免超过售后处理时限
+- 保留好所有相关证据（照片、物流签收记录等）
+- 不要自行处理损坏商品，等待客服指导
+
+由于订单状态异常，建议您优先联系人工客服处理，他们会为您核实具体情况并提供专业的解决方案。
+
+==================================================
+场景二：VIP模式 (query_type: &#39;vip&#39;)
+基于目前的信息，我为您提供以下专业分析和建议：
+
+## 问题分类：产品质量问题
+
+### 当前情况分析：
+1. **订单状态异常**：系统显示&quot;待付款&quot;状态与您描述的&quot;已签收&quot;不符
+2. **商品损坏**：您明确表示收到的物品已损坏
+
+### 建议处理方案：
+
+**第一步：核实订单信息**
+请确认订单号ORD654321是否正确。如果可能，请提供：
+- 准确的订单号
+- 签收时间
+- 损坏物品的具体情况描述和照片
+
+**第二步：标准售后流程**
+根据我们的退货政策：
+- 支持7天无理由退货，商品需完好且包装齐全
+- 对于质量问题，我们有专门的售后处理流程
+
+**第三步：立即行动建议**
+由于订单状态显示异常，我建议您：
+1. **联系人工客服**：通过官方客服渠道说明情况
+2. **提供证据**：准备商品损坏的清晰照片或视频
+3. **保留包装**：保持商品原包装完整
+
+### 后续处理路径：
+1. **如果订单确实已签收**：我们将为您启动质量问题售后流程
+2. **如果订单状态有误**：需要技术部门核实系统状态
+3. **紧急处理**：建议立即通过官方客服渠道联系，获取优先处理
+
+**重要提醒**：请尽快联系客服，以便在签收后的有效时间内启动售后流程。质量问题通常有特殊的处理标准和时效要求。
+
+您是否需要我协助您查找官方客服联系方式，或者有其他相关信息需要补充？
+</code></pre>
+<p>以上代码中，注意如下几点：</p>
+<ol>
+<li><p>首先定义2个工具，两个工具模拟客服系统中操作</p>
+<ul>
+<li><p>query_order_info：根据订单ID查询订单基本信息（如状态、商品、创建时间）。</p>
+</li>
+<li><p>search_faq:从知识库中检索与用户问题相关的政策或解决方案（如退货流程、保修期限）。</p>
+</li>
+</ul>
+</li>
+<li><p>针对普通用户和vip用户使用agent时采用不同的提示词，这里使用动态提示词，动态提示词能根据运行时上下文（如用户身份、问题类型）实时生成最合适的系统提示词，实现精准化、个性化回复。动态提示词通过“create_agent”时传入指定自己定义中间件函数。</p>
+</li>
+<li><p>create_agent中context_schema参数作用是定义运行时上下文有哪些数据，是一个TypedDict类型，这样可以指定执行单次任务时可能需要的动态数据（如用户ID，用户等级）等。定义上下文可使用哪些数据步骤如下：</p>
+<p>首先使用TypedDict定义上下文的数据结构,如：</p>
+<pre><code class="python">class AgentContext(TypedDict):
+    query_type: str  # 定义一个名为 query_type，类型为字符串的字段
+    # user_id: int    # 可以继续扩展其他字段，例如用户ID
+</code></pre>
+<p>然后，在 create_agent 时通过 context_schema参数告知Agent你所定义的上下文结构，最后在调用 agent.invoke 时，通过 context参数传入符合该结构的实际数据：</p>
+<pre><code class="python">result = agent.invoke(
+    {&quot;messages&quot;: [...]},
+    context={&quot;query_type&quot;: &quot;vip&quot;}  # 这里传入的数据必须符合 AgentContext 的定义
+)
+</code></pre>
+</li>
+</ol>
+<h2 id="Tools工具"><a href="#Tools工具" class="headerlink" title="Tools工具"></a>Tools工具</h2><p>在LangChain中，工具（Tools）是赋予大语言模型与外部世界交互能力的关键组件。它们实际上是具有明确定义输入和输出的可调用函数，模型能根据对话上下文决定何时调用工具以及传递哪些参数。工具让智能体能够获取实时数据、执行代码、查询外部数据库等，从而突破模型自身知识局限，构建功能强大的AI应用。</p>
+<h3 id="工具创建方式"><a href="#工具创建方式" class="headerlink" title="工具创建方式"></a>工具创建方式</h3><p>创建工具有三种核心方式:使用@tool装饰器创建工具、使用Pydantic模型定义工具、使用Json Schema定义工具。下面进行介绍。</p>
+<h4 id="使用-tool装饰器定义工具（推荐）"><a href="#使用-tool装饰器定义工具（推荐）" class="headerlink" title="使用@tool装饰器定义工具（推荐）"></a>使用@tool装饰器定义工具（推荐）</h4><p>使用@tool装饰器定义工具是最直接的工具创建方法，能自动将普通 Python 函数转化为智能体可调用的工具。</p>
+<p><strong>使用@tool装饰器创建工具示例：</strong></p>
+<pre><code class="python">&quot;&quot;&quot;
+@tool 装饰器创建工具
+&quot;&quot;&quot;
+from langchain.agents import create_agent
+from langchain_core.tools import tool
+from init_llm import deepseek_llm
+
+
+@tool(&quot;get_employee_info&quot;)
+def get_employee_info(employee_id: str) -&gt; str:
+    &quot;&quot;&quot;
+    根据员工ID查询员工的详细信息，包括姓名、部门和职位。
+
+    Args:
+        employee_id (str): 员工的唯一标识ID，例如 &#39;E001&#39;
+
+    Returns:
+        str: 包含员工详细信息的JSON字符串
+    &quot;&quot;&quot;
+    # 模拟一个简单的数据库
+    mock_employee_database = {
+        &quot;E001&quot;: {&quot;name&quot;: &quot;张三&quot;, &quot;department&quot;: &quot;技术部&quot;, &quot;position&quot;: &quot;高级软件工程师&quot;, &quot;email&quot;: &quot;zhangsan@company.com&quot;},
+        &quot;E002&quot;: {&quot;name&quot;: &quot;李四&quot;, &quot;department&quot;: &quot;市场部&quot;, &quot;position&quot;: &quot;市场经理&quot;, &quot;email&quot;: &quot;lisi@company.com&quot;},
+        &quot;E003&quot;: {&quot;name&quot;: &quot;王五&quot;, &quot;department&quot;: &quot;人力资源部&quot;, &quot;position&quot;: &quot;招聘专员&quot;, &quot;email&quot;: &quot;wangwu@company.com&quot;}
+    }
+
+    print(f&quot;正在查询数据库，员工ID: {employee_id}&quot;)
+
+    # 查询数据库
+    employee_record = mock_employee_database.get(employee_id)
+
+    if employee_record:
+        # 返回格式化的员工信息
+        return employee_record
+    else:
+        return f&quot;未找到ID为 {employee_id} 的员工信息&quot;
+
+
+# 创建Agent
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[get_employee_info],
+    system_prompt=&quot;你是一个助手，你可以查询员工的详细信息。&quot;,
+)
+
+resp = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;请帮我查一下员工E001的详细信息&quot;}]})
+
+print(&quot;resp&quot;, resp)
+
+print(resp[&quot;messages&quot;][-1].content)
+</code></pre>
+<p>以上代码运行结果如下：</p>
+<pre><code>正在查询数据库，员工ID: E001
+resp {&#39;messages&#39;: [HumanMessage(content=&#39;请帮我查一下员工E001的详细信息&#39;, additional_kwargs={}, response_metadata={}, id=&#39;9256e1fc-4872-466b-9d64-5a7476cc5e98&#39;), AIMessage(content=&#39;我来帮您查询员工E001的详细信息。&#39;, additional_kwargs={&#39;refusal&#39;: None}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 56, &#39;prompt_tokens&#39;: 357, &#39;total_tokens&#39;: 413, &#39;completion_tokens_details&#39;: None, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: None, &#39;cached_tokens&#39;: 320}, &#39;prompt_cache_hit_tokens&#39;: 320, &#39;prompt_cache_miss_tokens&#39;: 37}, &#39;model_provider&#39;: &#39;deepseek&#39;, &#39;model_name&#39;: &#39;deepseek-chat&#39;, &#39;system_fingerprint&#39;: &#39;fp_eaab8d114b_prod0820_fp8_kvcache&#39;, &#39;id&#39;: &#39;47aaf9c8-d2f5-4d93-8a25-3eab5b99df92&#39;, &#39;finish_reason&#39;: &#39;tool_calls&#39;, &#39;logprobs&#39;: None}, id=&#39;lc_run--019bda1a-902e-79b3-98b5-336e900f2e97-0&#39;, tool_calls=[{&#39;name&#39;: &#39;get_employee_info&#39;, &#39;args&#39;: {&#39;employee_id&#39;: &#39;E001&#39;}, &#39;id&#39;: &#39;call_00_8jUxo4LYp8VXqTHAVlBHyGFa&#39;, &#39;type&#39;: &#39;tool_call&#39;}], invalid_tool_calls=[], usage_metadata={&#39;input_tokens&#39;: 357, &#39;output_tokens&#39;: 56, &#39;total_tokens&#39;: 413, &#39;input_token_details&#39;: {&#39;cache_read&#39;: 320}, &#39;output_token_details&#39;: {}}), ToolMessage(content=&#39;{&quot;name&quot;: &quot;张三&quot;, &quot;department&quot;: &quot;技术部&quot;, &quot;position&quot;: &quot;高级软件工程师&quot;, &quot;email&quot;: &quot;zhangsan@company.com&quot;}&#39;, name=&#39;get_employee_info&#39;, id=&#39;14fbd48a-3261-4a13-8e9c-22032830969e&#39;, tool_call_id=&#39;call_00_8jUxo4LYp8VXqTHAVlBHyGFa&#39;), AIMessage(content=&#39;根据查询结果，员工E001的详细信息如下：\n\n- **姓名**：张三\n- **部门**：技术部\n- **职位**：高级软件工程师\n- **邮箱**：zhangsan@company.com\n\n这位员工是技术部的高级软件工程师。&#39;, additional_kwargs={&#39;refusal&#39;: None}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 56, &#39;prompt_tokens&#39;: 462, &#39;total_tokens&#39;: 518, &#39;completion_tokens_details&#39;: None, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: None, &#39;cached_tokens&#39;: 448}, &#39;prompt_cache_hit_tokens&#39;: 448, &#39;prompt_cache_miss_tokens&#39;: 14}, &#39;model_provider&#39;: &#39;deepseek&#39;, &#39;model_name&#39;: &#39;deepseek-chat&#39;, &#39;system_fingerprint&#39;: &#39;fp_eaab8d114b_prod0820_fp8_kvcache&#39;, &#39;id&#39;: &#39;80c2bfc5-463b-4978-998f-c3ebd2d96e51&#39;, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;lc_run--019bda1a-9b48-7b21-aa51-2b10b2dd9753-0&#39;, tool_calls=[], invalid_tool_calls=[], usage_metadata={&#39;input_tokens&#39;: 462, &#39;output_tokens&#39;: 56, &#39;total_tokens&#39;: 518, &#39;input_token_details&#39;: {&#39;cache_read&#39;: 448}, &#39;output_token_details&#39;: {}})]}
+根据查询结果，员工E001的详细信息如下：
+
+- **姓名**：张三
+- **部门**：技术部
+- **职位**：高级软件工程师
+- **邮箱**：zhangsan@company.com
+
+这位员工是技术部的高级软件工程师。
+</code></pre>
+<p>注意：</p>
+<ol>
+<li><p>@tool装饰器创建工具默认的名称与函数名相同，也可以通过“@tool(“get_employee_info”)”指定新名称。</p>
+</li>
+<li><p>@tool定义工具时，可以在函数内进行注释，可以使用python注释（无需参数和返回值说明），也可以使用“Google风格”对工具进行注解，即使用  Args:、Returns:、Raises:等关键字，这种方式可读性强。Agent通过工具的这些注释来理解工具的用途和调用时机，因此清晰、准确的文档字符串是工具能被正确调用的前提。</p>
+</li>
+<li><p>也可以在@tool定义工具时传入description参数，传入description参数后，它会完全替代函数的文档字符串成为工具的唯一描述。</p>
+<pre><code class="python">@tool(&quot;calculator&quot;, description=&quot;Performs arithmetic calculations. Use this for any math problems.&quot;)
+def calc(expression: str) -&gt; str:
+    &quot;&quot;&quot;Evaluate mathematical expressions.&quot;&quot;&quot;
+    return str(eval(expression))
+</code></pre>
+</li>
+<li><p>不要使用config或runtime作为参数名，这些是LangChain内部保留的特殊参数字段</p>
+</li>
+</ol>
+<h4 id="使用Pydantic模型定义工具（推荐）"><a href="#使用Pydantic模型定义工具（推荐）" class="headerlink" title="使用Pydantic模型定义工具（推荐）"></a>使用Pydantic模型定义工具（推荐）</h4><p>Pydantic 模型模式的主要优势在于能够精确控制工具参数的格式和验证规则，让大模型更准确地理解如何调用工具。这种方式特别适合参数复杂、有特定约束条件的业务场景。</p>
+<p><strong>使用Pydantic模型定义工具示例：</strong></p>
+<pre><code class="python">from langchain.agents import create_agent
+from pydantic import BaseModel, Field, field_validator
+from typing import Literal, Optional
+from langchain_core.tools import tool
+import json
+from init_llm import deepseek_llm
+
+
+# 1.定义复杂的工单查询参数模型
+class TicketQueryInput(BaseModel):
+    &quot;&quot;&quot;工单查询输入参数 - 支持多种筛选条件&quot;&quot;&quot;
+    ticket_id: Optional[str] = Field(
+        default=None,
+        description=&quot;工单ID&quot;
+    )
+    assigner: Optional[str] = Field(
+        default=None,
+        description=&quot;负责人姓名&quot;
+    )
+    status: Optional[Literal[&quot;open&quot;, &quot;in_progress&quot;, &quot;resolved&quot;, &quot;closed&quot;]] = Field(
+        default=None,
+        description=&quot;工单状态: open(待处理), in_progress(处理中), resolved(已解决), closed(已关闭)&quot;
+    )
+    priority: Optional[Literal[&quot;low&quot;, &quot;medium&quot;, &quot;high&quot;, &quot;urgent&quot;]] = Field(
+        default=None,
+        description=&quot;优先级: low(低), medium(中), high(高), urgent(紧急)&quot;
+    )
+
+    @field_validator(&quot;ticket_id&quot;)
+    def convert_ticket_id_to_upper(cls, v: Optional[str]) -&gt; Optional[str]:
+        &quot;&quot;&quot;将工单ID转换为大写&quot;&quot;&quot;
+        return v.upper() if v else None
+
+
+# 2. 使用@tool装饰器定义工具，并通过args_schema指定参数模型
+@tool(args_schema=TicketQueryInput)
+def query_tickets(
+        ticket_id: Optional[str] = None,
+        assigner: Optional[str] = None,
+        status: Optional[str] = None,
+        priority: Optional[str] = None,
+) -&gt; str:
+    &quot;&quot;&quot;
+    查询工单系统，支持多条件筛选。
+
+    此工具用于从工单管理系统中检索符合特定条件的工单信息。
+    至少需要提供一个筛选条件，否则返回最近创建的工单。
+    &quot;&quot;&quot;
+    try:
+        # 模拟一个简单的工单数据库
+        mock_tickets_db = [
+            {&quot;ticket_id&quot;: &quot;TK2025012001&quot;, &quot;assigner&quot;: &quot;张三&quot;, &quot;title&quot;: &quot;登录页面加载缓慢&quot;, &quot;status&quot;: &quot;open&quot;, &quot;priority&quot;: &quot;low&quot;},
+            {&quot;ticket_id&quot;: &quot;TK2025012002&quot;, &quot;assigner&quot;: &quot;李四&quot;, &quot;title&quot;: &quot;用户头像上传失败&quot;, &quot;status&quot;: &quot;open&quot;, &quot;priority&quot;: &quot;medium&quot;},
+            {&quot;ticket_id&quot;: &quot;TK2025011901&quot;, &quot;assigner&quot;: &quot;张三&quot;, &quot;title&quot;: &quot;支付成功通知未发送&quot;, &quot;status&quot;: &quot;resolved&quot;, &quot;priority&quot;: &quot;high&quot;},
+            {&quot;ticket_id&quot;: &quot;TK2025011902&quot;, &quot;assigner&quot;: &quot;马六&quot;, &quot;title&quot;: &quot;订单查询接口返回空值&quot;, &quot;status&quot;: &quot;closed&quot;, &quot;priority&quot;: &quot;high&quot;},
+        ]
+
+        filtered_tickets = mock_tickets_db
+
+        if ticket_id:
+            filtered_tickets = [t for t in filtered_tickets if t[&quot;ticket_id&quot;] == ticket_id]
+
+        if assigner:
+            filtered_tickets = [t for t in filtered_tickets if t[&quot;assigner&quot;] == assigner]
+
+        if status:
+            filtered_tickets = [t for t in filtered_tickets if t[&quot;status&quot;] == status]
+
+        if priority:
+            filtered_tickets = [t for t in filtered_tickets if t[&quot;priority&quot;] == priority]
+
+        if not filtered_tickets:
+            return &quot;未找到符合条件的工单&quot;
+
+        # 格式化返回结果
+        result = {
+            &quot;total_count&quot;: len(filtered_tickets),
+            &quot;tickets&quot;: filtered_tickets
+        }
+
+        return json.dumps(result, ensure_ascii=False, indent=2)
+
+    except Exception as e:
+        return f&quot;查询工单时发生错误: {str(e)}&quot;
+
+
+# 3.创建智能体
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[query_tickets],
+    system_prompt=&quot;你是一个助手，你可以查询工单系统的工单信息。&quot;,
+)
+
+# 4. 测试智能体
+# 4.1 测试基本功能
+# response1 = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;请帮我查一下TK2025012001工单的详细信息&quot;}]})
+# print(&quot;response1 content&quot;, response1[&quot;messages&quot;][-1].content)
+#
+# response2 = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;请帮我查一下张三负责的工单&quot;}]})
+# print(&quot;response2 content&quot;, response2[&quot;messages&quot;][-1].content)
+#
+# response3 = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;请帮我查一下所有高优先级的工单&quot;}]})
+# print(&quot;response3 content&quot;, response3[&quot;messages&quot;][-1].content)
+#
+# response4 = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;请帮我查一下所有关闭工单&quot;}]})
+# print(&quot;response4 content&quot;, response4[&quot;messages&quot;][-1].content)
+
+
+# 4.2 测试 Pydantic 参数验证
+response5 = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;请帮我查一下tk2025012001工单的详细信息&quot;}]})
+print(response5)
+print(&quot;response5 content&quot;, response5[&quot;messages&quot;][-1].content)
+</code></pre>
+<p>以上代码注意如下问题：</p>
+<ol>
+<li>这种方式定义工具，通过 @tool(args_schema&#x3D;PydanticModelCls)将这个 Pydantic 模型与工具函数关联。</li>
+<li>PydanticModelCls 需要继承自 BaseModel的类，使用类型提示（如 str, int）和 Field函数来声明每个字段的名称、类型、默认值和描述。每个字段的 description参数至关重要，它直接影响大模型理解参数含义的能力。</li>
+<li>可以利用 Pydantic 的类型系统进行参数验证，当大模型需要调用工具前，Pydantic 会自动验证参数的类型和有效性。</li>
+<li>在 convert_ticket_id_to_upper方法中的 cls，代表的是 这个  Pydantic 模型类本身，在这里也就是  TicketQueryInput这个类。@field_validator装饰器将对应方法标记为类方法，类方法的第一个参数约定俗成地命名为  cls，它指向类而不是类的实例。这样，在验证逻辑中如果需要访问类的其他属性或方法，就可以通过 cls来操作。</li>
+<li>json.dumps()是 Python 标准库 json模块中的函数，用于将 Python 对象（如字典、列表）序列化成一个 JSON 格式的字符串。<br>(1).  ensure_ascii&#x3D;False: 这个参数默认值为 True，表示所有非 ASCII 字符（如中文）会被转换成 \uXXXX形式的转义序列。设置为 False后，中文、表情符号等字符就能在 JSON 字符串中正常显示，而不是一堆乱码。<br>(2).  indent&#x3D;2: 这个参数用于美化输出，使生成的 JSON 字符串具有可读性。数字 2表示使用两个空格作为缩进层级，让结构清晰可见。如果不需要格式化，可设为 None。</li>
+</ol>
+<h4 id="使用Json-Schema定义工具"><a href="#使用Json-Schema定义工具" class="headerlink" title="使用Json Schema定义工具"></a>使用Json Schema定义工具</h4><p>在 LangChain 中，还可以直接使用 JSON Schema 字典来定义工具的参数模式。这种方式提供了极大的灵活性，特别适合参数结构需要动态生成的场景。</p>
+<p><strong>使用JsonSchema定义工具示例（查询书籍Agent）：</strong></p>
+<pre><code class="python">from langchain.agents import create_agent
+from langchain_core.tools import tool
+import json
+from init_llm import deepseek_llm
+
+# 1. 直接使用JSON Schema字典定义复杂的查询参数
+book_query_schema = {
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;title_keyword&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;图书标题关键词，支持模糊匹配&quot;
+        },
+        &quot;author&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;图书作者姓名&quot;
+        },
+        &quot;category&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [&quot;技术&quot;, &quot;文学&quot;, &quot;历史&quot;, &quot;科学&quot;, &quot;经济学&quot;, &quot;传记&quot;],
+            &quot;description&quot;: &quot;图书分类&quot;
+        }
+    },
+    &quot;required&quot;: [], # 至少需要提供标题关键词、作者或分类中的一个条件，所以这里为空
+}
+
+# 2. 使用@tool装饰器定义工具，并通过args_schema指定JSON Schema
+@tool(args_schema=book_query_schema)
+def query_books(title_keyword: str = None,
+                author: str = None,
+                category: str = None) -&gt; str:
+    &quot;&quot;&quot;
+    根据多种条件查询企业图书库中的图书信息。
+
+    此工具用于从企业图书管理系统中检索图书。
+    至少需要提供标题关键词、作者或分类中的一个条件。
+    &quot;&quot;&quot;
+    try:
+        # 模拟一个简单的图书数据库
+        mock_books_db = [
+            {&quot;book_id&quot;: &quot;BK1001&quot;, &quot;title&quot;: &quot;人工智能导论&quot;, &quot;author&quot;: &quot;张明&quot;, &quot;category&quot;: &quot;技术&quot;},
+            {&quot;book_id&quot;: &quot;BK1002&quot;, &quot;title&quot;: &quot;机器学习实战&quot;, &quot;author&quot;: &quot;李华&quot;, &quot;category&quot;: &quot;技术&quot;},
+            {&quot;book_id&quot;: &quot;BK1003&quot;, &quot;title&quot;: &quot;中国近代史&quot;, &quot;author&quot;: &quot;王伟&quot;, &quot;category&quot;: &quot;历史&quot;},
+            {&quot;book_id&quot;: &quot;BK1004&quot;, &quot;title&quot;: &quot;红楼梦&quot;, &quot;author&quot;: &quot;曹雪芹&quot;, &quot;category&quot;: &quot;文学&quot;},
+            {&quot;book_id&quot;: &quot;BK1005&quot;, &quot;title&quot;: &quot;经济学原理&quot;, &quot;author&quot;: &quot;刘强&quot;, &quot;category&quot;: &quot;经济学&quot;},
+            {&quot;book_id&quot;: &quot;BK1006&quot;, &quot;title&quot;: &quot;文学导论&quot;, &quot;author&quot;: &quot;张明&quot;, &quot;category&quot;: &quot;文学&quot;},
+            {&quot;book_id&quot;: &quot;BK1007&quot;, &quot;title&quot;: &quot;Python编程基础&quot;, &quot;author&quot;: &quot;王丽&quot;, &quot;category&quot;: &quot;技术&quot;}
+        ]
+
+        filtered_books = mock_books_db
+
+        # 根据条件过滤图书
+        if title_keyword:
+            filtered_books = [book for book in filtered_books if title_keyword.lower() in book[&quot;title&quot;].lower()]
+        if author:
+            filtered_books = [book for book in filtered_books if book[&quot;author&quot;] == author]
+        if category:
+            filtered_books = [book for book in filtered_books if book[&quot;category&quot;] == category]
+
+        if not filtered_books:
+            return &quot;未找到符合条件的图书。&quot;
+
+        # 格式化返回结果
+        result = {
+            &quot;total_count&quot;: len(filtered_books),
+            &quot;books&quot;: filtered_books
+        }
+
+        return json.dumps(result, ensure_ascii=False, indent=2)
+
+    except Exception as e:
+        return f&quot;查询图书时发生错误: {str(e)}&quot;
+
+
+# 3. 创建智能体
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[query_books],
+    system_prompt=&quot;你是一个企业图书管理员，可以帮助员工查询图书信息。&quot;,
+)
+
+# 4. 测试智能体
+# 测试1：按图书种类精确查询
+response1 = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;请帮我查一下历史类图书&quot;}]})
+print(&quot;=== 测试1：按图书种类精确查询 ===&quot;)
+print(response1[&quot;messages&quot;][-1].content)
+
+# 测试2：多条件组合查询
+response2 = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;我想找张明写的技术类图书&quot;}]})
+print(response2)
+print(&quot;\n=== 测试2：多条件组合查询 ===&quot;)
+print(response2[&quot;messages&quot;][-1].content)
+
+# 测试3：关键词模糊查询
+response3 = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;搜索包含&#39;Python&#39;关键词的图书&quot;}]})
+print(&quot;\n=== 测试3：关键词模糊查询 ===&quot;)
+print(response3[&quot;messages&quot;][-1].content)
+</code></pre>
+<p>代码运行结果如下：</p>
+<pre><code>=== 测试1：按图书种类精确查询 ===
+根据查询结果，企业图书库中目前有1本历史类图书：
+
+**《中国近代史》**
+- 作者：王伟
+- 图书ID：BK1003
+- 分类：历史
+
+如果您想查找特定主题的历史书籍，或者需要更详细的图书信息，请告诉我，我可以进一步帮您查询。
+
+=== 测试2：多条件组合查询 ===
+根据查询结果，我找到了张明写的一本技术类图书：
+
+**图书信息：**
+- **书名：** 《人工智能导论》
+- **作者：** 张明
+- **分类：** 技术
+- **图书编号：** BK1001
+
+目前图书库中只找到了这一本张明写的技术类图书。如果您想查找其他作者的技术类图书，或者有其他查询需求，请告诉我。
+
+=== 测试3：关键词模糊查询 ===
+根据搜索结果，企业图书库中有1本包含&#39;Python&#39;关键词的图书：
+
+**《Python编程基础》**
+- 图书编号：BK1007
+- 作者：王丽
+- 分类：技术
+
+这是目前图书库中唯一一本标题包含&#39;Python&#39;的图书。如果您想查找其他编程相关的技术书籍，或者需要更具体的搜索条件，请告诉我。
+</code></pre>
+<p>以上代码注意如下问题：</p>
+<ol>
+<li><p>Json Schema定义工具方式通过 @tool(args_schema&#x3D;json_schema_dict)将一个符合 JSON Schema 标准的字典与工具函数关联。</p>
+</li>
+<li><p>JSON Schema 是行业标准，用于描述 JSON 数据结构和验证规则。</p>
+<p> (1) type：定义当前数据节点必须是什么数据类型。常见类型有 string, number, integer, boolean, object, array, null。object即是json对象。</p>
+<p> (2) properties：用于定义JSON 对象（Object）中可以包含哪些属性（键），以及每个属性对应的值类型和说明。</p>
+<p> (3) required：当 type为 “object”时使用，是一个数组，列出了对象中必须存在的属性名。本案例中指定为空表示json对象中的属性都是非必须。</p>
+</li>
+</ol>
+<h4 id="工具创建总结"><a href="#工具创建总结" class="headerlink" title="工具创建总结"></a>工具创建总结</h4><p>LangChain提供的三种核心的工具创建方式对比特点如下：</p>
+<ul>
+<li><p><strong>@tool装饰器</strong></p>
+<p>最直接的方法，通过在函数上方添加一个装饰器，就能将其变成智能体可以调用的工具。优势是代码量极少，非常适合快速验证想法或创建参数简单的工具。</p>
+</li>
+<li><p><strong>Pydantic 模型</strong></p>
+<p>当工具的参数变得复杂，需要枚举值、范围限制或更复杂的业务逻辑验证时，Pydantic  模型是理想选择。提供强大的类型检查和数据验证。可以使用 Literal类型限定参数为固定选项，或用 Field设置默认值、描述，甚至用  @field_validator实现自定义校验规则（如将工单ID转为大写）。非常适合参数结构稳定的企业内部工具，如工单查询、客户信息管理等。</p>
+</li>
+<li><p><strong>JSON Schema</strong></p>
+<p>工具参数模式可以基于数据库配置或用户输入在运行时动态生成，可以选择这种方式，适用于需要高度动态行为的工具，或与已有 JSON Schema 定义的外部系统打通的场景。</p>
+</li>
+</ul>
+<h3 id="调用工具错误处理"><a href="#调用工具错误处理" class="headerlink" title="调用工具错误处理"></a>调用工具错误处理</h3><p>调用工具错误处理是指当智能体调用外部工具（如API、数据库查询等）遇到异常时，系统能够优雅地捕获、处理这些错误，并向大模型返回有意义的错误信息，而不是让未处理的异常直接中断整个流程。</p>
+<p>当Agent调用工具异常时，我们可以使用@wrap_tool_call中间件来灵活处理调用工具发生的异常错误，如下：</p>
+<pre><code class="python">from langchain.agents import create_agent
+from langchain.agents.middleware import wrap_tool_call
+from langchain.messages import ToolMessage
+
+
+@wrap_tool_call
+def handle_tool_errors(request, handler):
+    &quot;&quot;&quot;使用自定义消息处理工具执行错误&quot;&quot;&quot;
+    try:
+        return handler(request)
+    except Exception as e:
+        # 向模型返回自定义错误消息
+        return ToolMessage(
+            content=f&quot;调用工具错误:请检查输入参数并重试. ({str(e)})&quot;,
+            tool_call_id=request.tool_call[&quot;id&quot;]
+        )
+
+agent = create_agent(
+    model=&quot;gpt-4o&quot;,
+    tools=[search, get_weather],
+    middleware=[handle_tool_errors]
+)
+</code></pre>
+<p>当工具调用失败时，Agent将返回带有自定义错误消息的ToolMessage，ToolMessage必须传递content（工具执行的结果或错误信息）和tool_call_id（所调工具唯一标识符，将此消息与引发此次调用的特定 AIMessage中的工具调用关联起来）两个核心参数。</p>
+<pre><code>[
+    ...
+    ToolMessage(
+        content=&quot;调用工具错误:请检查输入参数并重试。({str(e)})&quot;,
+        tool_call_id=&quot;...&quot;
+    ),
+    ...
+]
+</code></pre>
+<p>以上中间件的执行时机如下：用户提问 → LLM分析并决定调用工具 → LangChain准备工具调用参数 → 错误处理中间件介入 → 实际工具执行 → 结果&#x2F;错误返回。所以@wrap_tool_call中间件执行流程如下：</p>
+<ol>
+<li>当Agent需要调用工具时，执行流程会先经过所有注册的 wrap_tool_call中间件。</li>
+<li>每个中间件都可以选择直接处理请求，或者将请求通过“handler(request)”传递给下一个处理程序,下一个处理程序就是执行工具。</li>
+<li>最终到达实际的工具执行层，然后结果再逆序返回。</li>
+</ol>
+<p><strong>案例一：模拟调用股票工具发生访问错误，使用@wrap_tool_call进行错误处理。</strong></p>
+<pre><code class="python">from langchain.agents import create_agent
+from langchain.agents.middleware import wrap_tool_call
+from langchain.messages import ToolMessage
+from langchain_core.tools import tool
+import requests
+
+from utils.llm_util import deepseek_llm
+
+
+# 定义可能失败的工具：股票查询工具
+@tool
+def get_stock_price(symbol: str) -&gt; str:
+    &quot;&quot;&quot;
+    获取指定股票代码的当前价格
+    Arg:
+        symbol: 股票代码（例如：TCEHY）
+    Returns:
+        股票当前价格（例如：&quot;股票 TCEHY 当前价格为 123.45&quot;）
+    &quot;&quot;&quot;
+    print(f&quot;=====调用股票查询工具: {symbol}&quot;)
+    try:
+        # 模拟可能失败的API调用
+        response = requests.get(f&quot;https://api.example.com/stocks/{symbol}&quot;, timeout=1)
+        return f&quot;股票 {symbol} 当前价格为 {response[&#39;price&#39;]}&quot;
+    except requests.exceptions.RequestException as e:
+        print(f&quot;=====查询股票数据失败: {str(e)}&quot;)
+        raise Exception(f&quot;查询股票数据失败: {str(e)}&quot;)
+
+# 自定义错误处理中间件
+@wrap_tool_call
+def handle_tool_errors(request, handler):
+    &quot;&quot;&quot;处理工具执行错误的自定义中间件&quot;&quot;&quot;
+    print(f&quot;=====调用处理错误handle: {request}&quot;)
+    try:
+        return handler(request)
+    except Exception as e:
+        print(f&quot;=====工具执行错误: {str(e)}&quot;)
+        # 返回结构化的错误信息给模型
+        return ToolMessage(
+            content=f&quot;工具执行错误：{str(e)}。请检查股票代码是否正确或稍后重试。&quot;, # 错误信息
+            tool_call_id=request.tool_call[&quot;id&quot;] # 从请求中获取工具调用ID
+        )
+
+# 创建智能体并注册错误处理中间件
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[get_stock_price],
+    middleware=[handle_tool_errors],
+    system_prompt=&quot;你是一个股票查询助手，可以帮助用户查询股票价格信息。&quot;
+)
+
+# 调用智能体
+response = agent.invoke({&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;查询股票 TCEHY 的当前价格&quot;}]})
+print(f&quot;=====调用智能体响应: {response}&quot;)
+print(response[&quot;messages&quot;][-1].content)
+</code></pre>
+<p>代码运行结果：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714193338329.png" alt="image-20260714193337116"></p>
+<p><strong>案例二：通过大模型查询&#x2F;更新工单操作，使用@wrap_tool_call处理错误。</strong></p>
+<pre><code class="python">from langchain.agents import create_agent
+from langchain.agents.middleware import wrap_tool_call
+from langchain.messages import ToolMessage
+from langchain_core.tools import tool, ToolException
+import json
+import random
+
+from init_llm import deepseek_llm
+
+# 模拟工单数据库
+TICKET_DATABASE = {
+    &quot;T001&quot;: {&quot;title&quot;: &quot;登录问题&quot;, &quot;status&quot;: &quot;处理中&quot;, &quot;assignee&quot;: &quot;张三&quot;},
+    &quot;T002&quot;: {&quot;title&quot;: &quot;支付失败&quot;, &quot;status&quot;: &quot;已解决&quot;, &quot;assignee&quot;: &quot;李四&quot;},
+    &quot;T003&quot;: {&quot;title&quot;: &quot;页面加载慢&quot;, &quot;status&quot;: &quot;待处理&quot;, &quot;assignee&quot;: &quot;王五&quot;}
+}
+
+
+@tool
+def query_ticket(ticket_id: str) -&gt; str:
+    &quot;&quot;&quot;
+    根据工单ID查询工单详情
+    Args:
+        ticket_id (str): 工单ID
+    Returns:
+        str: 工单详情的JSON字符串
+    &quot;&quot;&quot;
+    # 模拟网络不稳定：50%概率失败
+    if random.random() &lt; 0.5:
+        raise ConnectionError(&quot;数据库连接超时，请稍后重试&quot;)
+
+    if ticket_id not in TICKET_DATABASE:
+        raise ToolException(f&quot;工单ID {ticket_id} 不存在&quot;)
+
+    ticket = TICKET_DATABASE[ticket_id]
+    return json.dumps(ticket, ensure_ascii=False, indent=2)
+
+
+@tool
+def update_ticket_status(ticket_id: str, new_status: str) -&gt; str:
+    &quot;&quot;&quot;
+    更新工单状态
+    Args:
+        ticket_id (str): 工单ID
+        new_status (str): 工单新状态
+    Returns:
+        str: 更新成功的消息
+    &quot;&quot;&quot;
+    valid_statuses = [&quot;待处理&quot;, &quot;处理中&quot;, &quot;已解决&quot;, &quot;已关闭&quot;]
+
+    if ticket_id not in TICKET_DATABASE:
+        raise ToolException(f&quot;工单ID {ticket_id} 不存在&quot;)
+
+    if new_status not in valid_statuses:
+        raise ToolException(f&quot;状态必须是: {&#39;, &#39;.join(valid_statuses)}&quot;)
+
+    # 模拟权限检查失败
+    if random.random() &lt; 0.2:
+        raise PermissionError(&quot;权限不足：只有管理员可以关闭工单&quot;)
+
+    TICKET_DATABASE[ticket_id][&quot;status&quot;] = new_status
+    return f&quot;工单 {ticket_id} 状态已更新为: {new_status}&quot;
+
+
+# 分层错误处理中间件
+@wrap_tool_call
+def intelligent_error_handler(request, handler):
+    &quot;&quot;&quot;智能错误处理：根据错误类型返回不同的指导信息&quot;&quot;&quot;
+    try:
+        return handler(request)
+    except ConnectionError as e:
+        return ToolMessage(
+            content=f&quot;系统暂时繁忙：{str(e)}。建议您稍后重试此操作。&quot;,
+            tool_call_id=request.tool_call[&quot;id&quot;]
+        )
+    except PermissionError as e:
+        return ToolMessage(
+            content=f&quot;权限限制：{str(e)}。如需执行此操作，请联系管理员。&quot;,
+            tool_call_id=request.tool_call[&quot;id&quot;]
+        )
+    except ToolException as e:
+        return ToolMessage(
+            content=f&quot;输入验证失败：{str(e)}。请检查输入参数是否正确。&quot;,
+            tool_call_id=request.tool_call[&quot;id&quot;]
+        )
+    except Exception as e:
+        return ToolMessage(
+            content=f&quot;意外错误：{str(e)}。技术团队已收到通知，请稍后重试。&quot;,
+            tool_call_id=request.tool_call[&quot;id&quot;]
+        )
+
+
+# 创建智能体
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[query_ticket, update_ticket_status],
+    middleware=[intelligent_error_handler],
+    system_prompt=&quot;&quot;&quot;你是企业客服工单系统助手，可以帮助用户查询和更新工单状态。
+    当工具调用失败时，你会收到明确的错误提示，请根据错误类型给予用户相应的指导。&quot;&quot;&quot;
+)
+
+
+# 测试用例
+def test_error():
+    &quot;&quot;&quot;测试各种错误场景&quot;&quot;&quot;
+    test_cases = [
+        &quot;查询工单T999的详情&quot;,  # 不存在的工单ID
+        &quot;把工单T001状态更新为完结状态&quot;,  # 无效状态
+        &quot;查询工单T001的详情&quot;,  # 正常查询（可能触发随机错误）
+        &quot;关闭工单T002&quot;  # 权限相关操作
+    ]
+
+    for query in test_cases:
+        try:
+            print(&quot;=&quot; * 50)
+            response = agent.invoke({
+                &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: query}]
+            })
+
+            print(f&quot;用户查询: {query}&quot;)
+            # 提取最后一条消息内容
+            result = response[&quot;messages&quot;][-1]
+            print(f&quot;助手回复: {result.content}&quot;)
+
+
+        except Exception as e:
+            print(f&quot;系统异常: {e}&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    test_error()
+</code></pre>
+<p>代码运行结果如下：</p>
+<pre><code>==================================================
+用户查询: 查询工单T999的详情
+助手回复: 抱歉，查询工单T999时遇到了系统繁忙的问题，数据库连接超时了。这可能是由于：
+
+1. 数据库服务器暂时过载
+2. 网络连接问题
+3. 系统维护中
+
+建议您：
+- 稍等几分钟后重试查询
+- 如果问题持续存在，可能需要联系系统管理员检查数据库状态
+
+您希望我稍后再帮您查询，还是有其他工单需要处理？
+==================================================
+用户查询: 把工单T001状态更新为完结状态
+助手回复: 现在我看到工单T001的当前状态是&quot;处理中&quot;。根据错误提示，可用的状态选项是：待处理、处理中、已解决、已关闭。您说的&quot;完结状态&quot;应该对应&quot;已解决&quot;或&quot;已关闭&quot;状态。
+
+请问您希望将工单T001更新为哪个状态？
+1. **已解决** - 表示问题已经解决，但可能还需要用户确认
+2. **已关闭** - 表示工单已经完全结束
+
+请告诉我您希望使用哪个状态，我将为您更新。
+==================================================
+用户查询: 查询工单T001的详情
+助手回复: 根据查询结果，工单T001的详情如下：
+
+**工单ID:** T001
+**标题:** 登录问题
+**状态:** 处理中
+**负责人:** 张三
+
+这是一个关于登录问题的工单，目前状态为&quot;处理中&quot;，由张三负责处理。
+==================================================
+用户查询: 关闭工单T002
+助手回复: 目前系统暂时繁忙，数据库连接超时了。建议您稍等一会儿再尝试关闭工单T002。
+
+您可以：
+1. 等待几分钟后再次尝试
+2. 或者联系系统管理员确认数据库连接状态
+
+如果您知道工单T002的当前状态，我可以直接尝试帮您更新状态为&quot;已关闭&quot;。您知道这个工单目前的状态吗？
+</code></pre>
+<h2 id="Agent结构化输出"><a href="#Agent结构化输出" class="headerlink" title="Agent结构化输出"></a>Agent结构化输出</h2><p>结构化输出是LangChain  Agent的核心功能之一，它允许Agent以特定、可预测的格式返回数据，而不是传统的自然语言响应。通过结构化输出，开发者可以直接获得JSON对象、Pydantic模型或数据类等结构化数据，这些数据能够被应用程序直接使用，无需复杂的解析过程。</p>
+<h3 id="结构化输出支持的策略"><a href="#结构化输出支持的策略" class="headerlink" title="结构化输出支持的策略"></a>结构化输出支持的策略</h3><p>LangChain的create_agent函数自动处理结构化输出的全过程。用户只需通过“response_format”参数设置期望的输出模式（Schema），当模型生成结构化数据时，系统会自动捕获、验证并将结果存储在Agent状态的structured_response键中。</p>
+<pre><code class="python">create_agent(
+    ...
+    response_format: Union[
+        ProviderStrategy[StructuredResponseT],
+        ToolStrategy[StructuredResponseT],
+        type[StructuredResponseT],
+        None,
+    ]
+</code></pre>
+<p>create_agent函数中的response_format参数是控制结构化输出的核心配置项，支持四种不同的策略设置方式：</p>
+<ol>
+<li><strong>ProviderStrategy[StructuredResponseT]</strong></li>
+</ol>
+<p>   这种设置方式是使用模型提供商的原生结构化输出功能实现结构化输出,适用于支持原生结构化输出的模型。这里所说的“原生结构化输出”指的是大语言模型（LLM）提供商通过其API直接提供的、在模型响应阶段就强制保证输出格式符合预定规范的能力，这种能力能够在模型生成内容的源头确保结构化准确性。支持原生结构化输出的模型有OpenAI、Anthropic Claude或xAI Grok（中转key不支持）。这些模型构建的Agent结构化输出时，可以使用ProviderStrategy策略。</p>
+<p>   ProviderStrategy使用示例：</p>
+<pre><code class="python">from pydantic import BaseModel
+from langchain.agents import create_agent
+from langchain.agents.structured_output import ProviderStrategy
+
+class ContactInfo(BaseModel):
+    name: str
+    email: str
+    phone: str
+
+agent = create_agent(
+    model=&quot;gpt-4o&quot;,
+    response_format=ProviderStrategy(ContactInfo)
+)
+</code></pre>
+<ol start="2">
+<li><p><strong>ToolStrategy[StructuredResponseT]</strong></p>
+<p>对于不支持原生结构化输出的模型，LangChain采用“ToolStrategy”工具调用的方式实现结构化输出。此策略兼容绝大多数支持工具调用的现代模型，其核心原理是动态创建一个”虚拟工具”，该工具的输入参数对应着期望的数据结构。</p>
+<p>当模型需要生成最终答案时，系统会引导模型”调用”这个虚拟工具，从而间接产生符合要求的结构化数据。</p>
+<p>ToolStrategy使用示例：</p>
+<pre><code class="python">from pydantic import BaseModel
+from langchain.agents import create_agent
+from langchain.agents.structured_output import ToolStrategy
+
+
+class ContactInfo(BaseModel):
+    name: str
+    email: str
+    phone: str
+
+agent = create_agent(
+    model=&quot;gpt-4o-mini&quot;,
+    tools=[search_tool],
+    response_format=ToolStrategy(ContactInfo)
+)
+
+result = agent.invoke({
+    &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Extract contact info from: John Doe, john@example.com, (555) 123-4567&quot;}]
+})
+
+result[&quot;structured_response&quot;]
+# ContactInfo(name=&#39;John Doe&#39;, email=&#39;john@example.com&#39;, phone=&#39;(555) 123-4567&#39;)
+</code></pre>
+</li>
+<li><p><strong>type[StructuredResponseT]</strong></p>
+<p>当直接传入一个定义类型时，LangChain会根据模型能力自动选择策略：如果模型支持原生结构化输出（如OpenAI、Anthropic Claude或xAI Grok），则优先使用ProviderStrategy；否则使用ToolStrategy。</p>
+<p><strong>特别注意</strong>：在LangChain 1.0及以上版本中，直接传递模式（如response_format&#x3D;ContactInfo）不再支持，必须显式使用ToolStrategy或ProviderStrategy。（经过测试，目前langchain1.2版本还可使用）。</p>
+<p>type使用示例：</p>
+<pre><code class="python">from pydantic import BaseModel, Field
+from langchain.agents import create_agent
+
+
+class ContactInfo(BaseModel):
+    &quot;&quot;&quot;Contact information for a person.&quot;&quot;&quot;
+    name: str = Field(description=&quot;The name of the person&quot;)
+    email: str = Field(description=&quot;The email address of the person&quot;)
+    phone: str = Field(description=&quot;The phone number of the person&quot;)
+
+agent = create_agent(
+    model=&quot;gpt-5&quot;,
+    response_format=ContactInfo  # Auto-selects ProviderStrategy
+)
+
+result = agent.invoke({
+    &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Extract contact info from: John Doe, john@example.com, (555) 123-4567&quot;}]
+})
+
+print(result[&quot;structured_response&quot;])
+# ContactInfo(name=&#39;John Doe&#39;, email=&#39;john@example.com&#39;, phone=&#39;(555) 123-4567&#39;)
+</code></pre>
+</li>
+<li><p><strong>None</strong></p>
+<p><strong>默认配置</strong>，表示不以结构化输出，以自然语言响应用户问题。</p>
+</li>
+</ol>
+<p>综上所述，在实际大模型Agent开发场景中，如果使用到了结构化输出，<strong>推荐使用 ToolStrategy 策略</strong>，所以后续重点介绍这种策略方式结构化输出。</p>
+<h3 id="ToolStrategy"><a href="#ToolStrategy" class="headerlink" title="ToolStrategy"></a>ToolStrategy</h3><p>ToolStrategy 通过工具调用（Tool Calling）实现结构化输出，适用于任何支持工具调用的现代模型。</p>
+<p>ToolStrategy 的配置包含三个主要参数：</p>
+<pre><code>class ToolStrategy(Generic[SchemaT]):
+    schema: type[SchemaT]
+    tool_message_content: str | None
+    handle_errors: Union[bool, str, type[Exception], tuple[type[Exception], ...], Callable[[Exception], str]]
+</code></pre>
+<ul>
+<li>schema（必需参数）：与提供商策略的schema参数功能一致，支持Pydantic模型、数据类、TypedDict、JSON Schema，同时还支持联合类型（允许模型根据输入内容选择最匹配的数据结构）。</li>
+<li>tool_message_content（可选参数）：用于自定义生成结构化输出时，会话历史中记录的提示信息。默认使用展示输出数据的标准响应语句。</li>
+<li>handle_errors（可选参数）：用于指定数据校验失败时的重试策略，默认值为True。</li>
+</ul>
+<h4 id="四种结构化输出Schema"><a href="#四种结构化输出Schema" class="headerlink" title="四种结构化输出Schema"></a>四种结构化输出Schema</h4><p>下面以构建客户关系管理Agent案例来演示四种Schema进行结构化输出代码实现。</p>
+<ol>
+<li><p><strong>Pydantic类型Schema（推荐）</strong></p>
+<p>Pydantic类型的Scheam支持数据验证，<strong>是优先推荐使用的方式</strong>。</p>
+<p>Agent使用Pydantic类型Schema结构化输出代码实现：</p>
+<pre><code class="python">from langchain_core.messages import SystemMessage
+from pydantic import BaseModel, Field, field_validator
+from typing import Literal
+from langchain.agents import create_agent
+from langchain.agents.structured_output import ToolStrategy
+from langchain.tools import tool
+
+from init_llm import deepseek_llm
+
+
+# 定义工具
+@tool
+def search_customer_database(query: str) -&gt; str:
+    &quot;&quot;&quot;
+    在客户数据库中搜索信息
+    Args:
+        query (str): 客户查询字符串，例如 &quot;张三&quot; 或 &quot;李四&quot;
+    Returns:
+        str: 客户记录字符串，包含客户姓名、等级、最近购买日期和累计消费
+    &quot;&quot;&quot;
+    # 模拟数据库查询结果
+    if &quot;张三&quot; in query.lower():
+        return &quot;客户记录：张三，VIP客户，最近购买日期：2024-01-15，累计消费：$15,000&quot;
+    elif &quot;李四&quot; in query.lower():
+        return &quot;客户记录：李四，普通客户，最近购买日期：2023-12-20，累计消费：$3,200&quot;
+    else:
+        return f&quot;关于客户{query}，无记录&quot;
+
+@tool
+def send_email(customer: str) -&gt; str:
+    &quot;&quot;&quot;
+    发送感谢邮件
+    Args:
+        customer (str): 客户名称，例如 &quot;张三&quot; 或 &quot;李四&quot;
+    Returns:
+        str: 确认消息，包含已发送的客户名称
+    &quot;&quot;&quot;
+    return f&quot;已向 {customer} 发送感谢邮件&quot;
+
+
+# 定义Pydantic Schema
+class CustomerAnalysis(BaseModel):
+    &quot;&quot;&quot;客户分析报告&quot;&quot;&quot;
+    customer_name: str = Field(None, description=&quot;客户姓名&quot;)
+    customer_tier: Literal[&quot;潜在客户&quot;, &quot;普通客户&quot;, &quot;VIP客户&quot;, &quot;流失风险&quot;] = Field(&quot;潜在客户&quot;, description=&quot;客户等级,只能是潜在客户、普通客户、VIP客户或流失风险&quot;)
+    recent_activity: str = Field(None, description=&quot;最近活动&quot;)
+    spending_level: Literal[&quot;低&quot;, &quot;中&quot;, &quot;高&quot;] = Field(None, description=&quot;消费水平&quot;)
+    send_email: bool = Field(False, description=&quot;是否已发送感谢邮件&quot;)
+
+    @field_validator(&#39;spending_level&#39;)
+    def validate_spending(cls, v):
+        if v not in [&quot;低&quot;, &quot;中&quot;, &quot;高&quot;]:
+            raise ValueError(&#39;消费水平必须是&quot;低&quot;、&quot;中&quot;或&quot;高&quot;&#39;)
+        return v
+
+
+# 创建智能体
+agent = create_agent(
+    model=deepseek_llm,
+    system_prompt=SystemMessage(content=&quot;&quot;
+                                        &quot;请分析指定客户的情况：&quot;
+                                        &quot;1. 先搜索客户数据库了解最新情况 &quot;
+                                        &quot;2. 如果是VIP客户，则发送感谢邮件 &quot;
+                                        &quot;3. 基于搜索结果生成结构化分析报告 &quot;
+                                        &quot;4. 如果用户提问与客户记录无关或找不到客户信息，则返回空对象，不发送感谢邮件&quot;
+                                        ),
+    tools=[search_customer_database, send_email],
+    response_format=ToolStrategy(CustomerAnalysis)
+)
+
+# 执行分析
+result = agent.invoke({
+    &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;请分析客户张三&quot;}]
+    # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;请分析客户李四&quot;}]
+    # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;请分析客户王五&quot;}]
+    # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;今天天气如何&quot;}]
+})
+
+
+# 处理结果
+print(&quot;result:&quot;, result)
+if &quot;structured_response&quot; in result:
+    analysis = result[&quot;structured_response&quot;]
+    print(analysis)
+</code></pre>
+<p>以上代码运行结果：</p>
+<p>注意：</p>
+<ol>
+<li>如果是结构化输出，在系统提示词中最后提示结构化输出结果，如果提示词中先结构化输出结果（Agent已经执行完成），可能会导致一些工具不会再被调用。</li>
+<li>系统提示词中最后加入“未找到用户”时的处理提示，避免程序一直调用工具尝试查找对应用户信息。</li>
+</ol>
+</li>
+<li><p><strong>Dataclass类型Schema</strong></p>
+<p>Dataclass是 Python 3.7 引入的一个装饰器，用于简化数据存储类的定义。</p>
+<p>Agent使用Dataclass类型Schema结构化输出代码实现：</p>
+<pre><code class="python">from langchain_core.messages import SystemMessage
+from dataclasses import dataclass, field
+from typing import Literal, Optional
+from langchain.agents import create_agent
+from langchain.agents.structured_output import ToolStrategy
+from langchain.tools import tool
+
+from init_llm import deepseek_llm
+
+
+# 定义工具
+@tool
+def search_customer_database(query: str) -&gt; str:
+    &quot;&quot;&quot;
+    在客户数据库中搜索信息
+    Args:
+        query (str): 客户查询字符串，例如 &quot;张三&quot; 或 &quot;李四&quot;
+    Returns:
+        str: 客户记录字符串，包含客户姓名、等级、最近购买日期和累计消费
+    &quot;&quot;&quot;
+    # 模拟数据库查询结果
+    if &quot;张三&quot; in query.lower():
+        return &quot;客户记录：张三，VIP客户，最近购买日期：2024-01-15，累计消费：$15,000&quot;
+    elif &quot;李四&quot; in query.lower():
+        return &quot;客户记录：李四，普通客户，最近购买日期：2023-12-20，累计消费：$3,200&quot;
+    else:
+        return f&quot;关于客户{query}，无记录&quot;
+
+
+@tool
+def send_email(customer: str) -&gt; str:
+    &quot;&quot;&quot;
+    发送感谢邮件
+    Args:
+        customer (str): 客户名称，例如 &quot;张三&quot; 或 &quot;李四&quot;
+    Returns:
+        str: 确认消息，包含已发送的客户名称
+    &quot;&quot;&quot;
+    return f&quot;已向 {customer} 发送感谢邮件&quot;
+
+
+# 使用Dataclass定义Schema
+@dataclass
+class CustomerAnalysis:
+    &quot;&quot;&quot;客户分析报告&quot;&quot;&quot;
+    customer_name: Optional[str] = field(default=None, metadata={&quot;description&quot;: &quot;客户姓名&quot;})
+    customer_tier: Literal[&quot;潜在客户&quot;, &quot;普通客户&quot;, &quot;VIP客户&quot;, &quot;流失风险&quot;] = field(
+        default=&quot;潜在客户&quot;,
+        metadata={&quot;description&quot;: &quot;客户等级,只能是潜在客户、普通客户、VIP客户或流失风险&quot;}
+    )
+    recent_activity: Optional[str] = field(default=None, metadata={&quot;description&quot;: &quot;最近活动&quot;})
+    spending_level: Optional[Literal[&quot;低&quot;, &quot;中&quot;, &quot;高&quot;]] = field(default=None, metadata={&quot;description&quot;: &quot;消费水平&quot;})
+    send_email: bool = field(default=False, metadata={&quot;description&quot;: &quot;是否已发送感谢邮件&quot;})
+
+
+# 创建智能体
+agent = create_agent(
+    model=deepseek_llm,
+    system_prompt=SystemMessage(content=&quot;&quot;
+                                        &quot;请分析指定客户的情况：&quot;
+                                        &quot;1. 先搜索客户数据库了解最新情况 &quot;
+                                        &quot;2. 如果是VIP客户，则发送感谢邮件 &quot;
+                                        &quot;3. 基于搜索结果生成结构化分析报告 &quot;
+                                        &quot;4. 如果用户提问与客户记录无关或找不到客户信息，则返回空对象，不发送感谢邮件&quot;
+                                ),
+    tools=[search_customer_database, send_email],
+    response_format=ToolStrategy(CustomerAnalysis)
+)
+
+# 执行分析
+result = agent.invoke({
+    # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;请分析客户张三&quot;}]
+    &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;请分析客户李四&quot;}]
+    # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;请分析客户王五&quot;}]
+    # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;今天天气如何&quot;}]
+})
+
+
+# 处理结果
+print(&quot;result:&quot;, result)
+if &quot;structured_response&quot; in result:
+    analysis = result[&quot;structured_response&quot;]
+    print(analysis)
+</code></pre>
+<p>以上代码运行结果：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714194400218.png" alt="image-20260714194359069"></p>
+<p>注意：</p>
+<ol>
+<li>Dataclass的field()函数提供了丰富的控制选项,default指定默认值，metadata指定存储字段的元数据信息。</li>
+<li>Datclass 不支持运行时验证。</li>
+</ol>
+</li>
+<li><p><strong>TypedDict类型Schema</strong></p>
+<p>TypedDict 是 Python 3.8+  引入的一种类型提示工具，它允许为字典对象定义固定的键名和对应的值类型,TypeDict是使用 Python 的  TypedDict来定义带有类型提示的字典结构，无需额外依赖，适合需要快速定义字典结构且无需 Pydantic 重量级功能的场景。</p>
+<p>Agent使用TypedDict类型Schema结构化输出代码实现：</p>
+<pre><code class="python">from langchain_core.messages import SystemMessage
+from typing import Literal, Optional
+from typing_extensions import TypedDict, Annotated
+from langchain.agents import create_agent
+from langchain.agents.structured_output import ToolStrategy
+from langchain.tools import tool
+
+from init_llm import deepseek_llm
+
+
+# 定义工具
+@tool
+def search_customer_database(query: str) -&gt; str:
+    &quot;&quot;&quot;
+    在客户数据库中搜索信息
+    Args:
+        query (str): 客户查询字符串，例如 &quot;张三&quot; 或 &quot;李四&quot;
+    Returns:
+        str: 客户记录字符串，包含客户姓名、等级、最近购买日期和累计消费
+    &quot;&quot;&quot;
+    # 模拟数据库查询结果
+    if &quot;张三&quot; in query.lower():
+        return &quot;客户记录：张三，VIP客户，最近购买日期：2024-01-15，累计消费：$15,000&quot;
+    elif &quot;李四&quot; in query.lower():
+        return &quot;客户记录：李四，普通客户，最近购买日期：2023-12-20，累计消费：$3,200&quot;
+    else:
+        return f&quot;关于客户{query}，无记录&quot;
+
+
+@tool
+def send_email(customer: str) -&gt; str:
+    &quot;&quot;&quot;
+    发送感谢邮件
+    Args:
+        customer (str): 客户名称，例如 &quot;张三&quot; 或 &quot;李四&quot;
+    Returns:
+        str: 确认消息，包含已发送的客户名称
+    &quot;&quot;&quot;
+    return f&quot;已向 {customer} 发送感谢邮件&quot;
+
+
+# 使用 TypedDict 定义客户分析报告 Schema
+class CustomerAnalysis(TypedDict):
+    &quot;&quot;&quot;客户分析报告&quot;&quot;&quot;
+    customer_name: Annotated[Optional[str], None, &quot;客户姓名&quot;]
+    customer_tier: Annotated[Literal[&quot;潜在客户&quot;, &quot;普通客户&quot;, &quot;VIP客户&quot;, &quot;流失风险&quot;], &quot;潜在客户&quot;, &quot;客户等级&quot;]
+    recent_activity: Annotated[Optional[str], None, &quot;最近活动&quot;]
+    spending_level: Annotated[Optional[Literal[&quot;低&quot;, &quot;中&quot;, &quot;高&quot;]], None, &quot;消费水平&quot;]
+    send_email: Annotated[bool, False, &quot;是否已发送感谢邮件&quot;]
+
+
+# 创建智能体
+agent = create_agent(
+    model=deepseek_llm,
+    system_prompt=SystemMessage(content=&quot;&quot;
+                                        &quot;请分析指定客户的情况：&quot;
+                                        &quot;1. 先搜索客户数据库了解最新情况 &quot;
+                                        &quot;2. 如果是VIP客户，则发送感谢邮件 &quot;
+                                        &quot;3. 基于搜索结果生成结构化分析报告 &quot;
+                                        &quot;4. 如果用户提问与客户记录无关或找不到客户信息，则返回空对象，不发送感谢邮件&quot;
+                                ),
+    tools=[search_customer_database, send_email],
+    response_format=ToolStrategy(CustomerAnalysis)
+)
+
+# 执行分析
+result = agent.invoke({
+    # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;请分析客户张三&quot;}]
+    # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;请分析客户李四&quot;}]
+    &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;请分析客户王五&quot;}]
+    # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;今天天气如何&quot;}]
+})
+
+
+# 处理结果
+print(&quot;result:&quot;, result)
+if &quot;structured_response&quot; in result:
+    analysis = result[&quot;structured_response&quot;]
+    print(analysis)
+</code></pre>
+<p>代码运行结果：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714194514645.png" alt="image-20260714194513587"></p>
+<p>注意：</p>
+<ol>
+<li>TypedDict字段定义采用 Annotated[类型, 默认值, “描述”]格式</li>
+<li>可选字段使用 Optional包装，默认值在 Annotated 中指定</li>
+<li>TypedDict 不支持运行时验证。</li>
+</ol>
+</li>
+<li><p><strong>JsonSchema类型Schema</strong></p>
+<p>JSON Schema是提供一个标准的 JSON Schema 字典来定义结构。适合需要与多种编程语言交互或进行复杂数据约束定义的场景。</p>
+<p>Agent使用JsonSchema类型Schema结构化输出代码实现：</p>
+<pre><code class="python">from langchain_core.messages import SystemMessage
+from typing import Literal
+from langchain.agents import create_agent
+from langchain.agents.structured_output import ToolStrategy
+from langchain.tools import tool
+
+from init_llm import deepseek_llm
+
+
+# 定义工具
+@tool
+def search_customer_database(query: str) -&gt; str:
+    &quot;&quot;&quot;
+    在客户数据库中搜索信息
+    Args:
+        query (str): 客户查询字符串，例如 &quot;张三&quot; 或 &quot;李四&quot;
+    Returns:
+        str: 客户记录字符串，包含客户姓名、等级、最近购买日期和累计消费
+    &quot;&quot;&quot;
+    # 模拟数据库查询结果
+    if &quot;张三&quot; in query.lower():
+        return &quot;客户记录：张三，VIP客户，最近购买日期：2024-01-15，累计消费：$15,000&quot;
+    elif &quot;李四&quot; in query.lower():
+        return &quot;客户记录：李四，普通客户，最近购买日期：2023-12-20，累计消费：$3,200&quot;
+    else:
+        return f&quot;关于客户{query}，无记录&quot;
+
+
+@tool
+def send_email(customer: str) -&gt; str:
+    &quot;&quot;&quot;
+    发送感谢邮件
+    Args:
+        customer (str): 客户名称，例如 &quot;张三&quot; 或 &quot;李四&quot;
+    Returns:
+        str: 确认消息，包含已发送的客户名称
+    &quot;&quot;&quot;
+    return f&quot;已向 {customer} 发送感谢邮件&quot;
+
+
+# 定义 JSON Schema 替代 Pydantic 模型
+customer_analysis_schema = {
+    &quot;title&quot;: &quot;CustomerAnalysis&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;description&quot;: &quot;客户分析报告&quot;,
+    &quot;properties&quot;: {
+        &quot;customer_name&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;default&quot;: &quot;&quot;,
+            &quot;description&quot;: &quot;客户姓名&quot;
+        },
+        &quot;customer_tier&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [&quot;潜在客户&quot;, &quot;普通客户&quot;, &quot;VIP客户&quot;, &quot;流失风险&quot;],
+            &quot;default&quot;: &quot;潜在客户&quot;,
+            &quot;description&quot;: &quot;客户等级&quot;
+        },
+        &quot;recent_activity&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;default&quot;: &quot;&quot;,
+            &quot;description&quot;: &quot;最近活动&quot;
+        },
+        &quot;spending_level&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [&quot;低&quot;, &quot;中&quot;, &quot;高&quot;],
+            &quot;default&quot;: &quot;低&quot;,
+            &quot;description&quot;: &quot;消费水平&quot;
+        },
+        &quot;send_email&quot;: {
+            &quot;type&quot;: &quot;boolean&quot;,
+            &quot;default&quot;: False,
+            &quot;description&quot;: &quot;是否已发送感谢邮件&quot;
+        }
+    },
+    # 所有字段都是必须输出的
+    &quot;required&quot;: [&quot;customer_name&quot;, &quot;customer_tier&quot;, &quot;recent_activity&quot;, &quot;spending_level&quot;]
+}
+
+# 创建智能体（使用 JSON Schema结构化输出）
+agent = create_agent(
+    model=deepseek_llm,
+    system_prompt=SystemMessage(content=&quot;&quot;
+                                        &quot;请分析指定客户的情况：&quot;
+                                        &quot;1. 先搜索客户数据库了解最新情况 &quot;
+                                        &quot;2. 如果是VIP客户，则发送感谢邮件 &quot;
+                                        &quot;3. 基于搜索结果生成结构化分析报告 &quot;
+                                        &quot;4. 如果用户提问与客户记录无关或找不到客户信息，则返回空对象，不发送感谢邮件&quot;
+                                ),
+    tools=[search_customer_database, send_email],
+    response_format=ToolStrategy(customer_analysis_schema)  # 直接传入 JSON Schema
+)
+
+# 执行分析
+result = agent.invoke({
+    # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;请分析客户张三&quot;}]
+    # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;请分析客户李四&quot;}]
+    # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;请分析客户王五&quot;}]
+    &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;今天天气如何&quot;}]
+})
+
+
+# 处理结果
+print(&quot;result:&quot;, result)
+if &quot;structured_response&quot; in result:
+    analysis = result[&quot;structured_response&quot;]
+    print(analysis)
+</code></pre>
+<p>代码运行输出结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714194708533.png" alt="image-20260714194707345"></p>
+<p>注意以上代码中定义json_schema的时候指定的title, description, type, properties, required是是遵循 JSON Schema 规范的标准关键字，是固定写法。几个关键字的解释如下：</p>
+<ul>
+<li>title：为整个 Schema 或特定属性提供一个人类可读的标题，不能是中文，用于提高可读性。</li>
+<li>description：提供更详细的文字描述，说明 Schema 或属性的用途等，和 title一样，旨在帮助理解。</li>
+<li>type：定义当前数据节点必须是什么数据类型。常见类型有 string, number, integer, boolean, object, array, null。object即是json对象。</li>
+<li>properties：用于定义JSON 对象（Object）中可以包含哪些属性（键），以及每个属性对应的值类型和说明。</li>
+<li>required：当 type为 “object”时使用，是一个数组，列出了对象中必须存在的属性名。</li>
+</ul>
+</li>
+</ol>
+<h4 id="自定义工具消息"><a href="#自定义工具消息" class="headerlink" title="自定义工具消息"></a>自定义工具消息</h4><p>在LangChain中，ToolStrategy的 tool_message_content参数允许你自定义工具调用成功后，将指定的内容写入对话历史的提示信息，这样做的好处如下：</p>
+<ol>
+<li>在最终用户可见的对话流中，使用更自然的消息替代原始数据。</li>
+<li>用简短的确认信息替代可能很长的数据块，减少token消耗。</li>
+</ol>
+<p>当不设置 tool_message_content时，模型收到的 ToolMessage里就包含了像 {‘name’: ‘张三’, ‘email’: ‘<a href="mailto:zhangsan@email.com">zhangsan@email.com</a>‘… …}这样的具体数据，当设置 tool_message_content时,模型收到的 ToolMessage只是一个预定义的确认信息，如“格式化输出成功！”。这种方式节省了上下文窗口的令牌消耗，并且让对话流对最终用户更友好。</p>
+<p><strong>特别提示</strong> ：无论 tool_message_content如何设置，成功提取的结构化数据最终都会正确存入 result[“structured_response”]返回，自定义消息仅影响对话历史中的一条记录。</p>
+<p><strong>案例：自定义工具消息提取用户信息。</strong></p>
+<pre><code class="python">from langchain.agents.structured_output import ToolStrategy
+from langchain_core.messages import SystemMessage
+from pydantic import BaseModel, Field
+from langchain.agents import create_agent
+
+from init_llm import deepseek_llm
+
+
+class ContactInfo(BaseModel):
+    &quot;&quot;&quot;个人联系信息&quot;&quot;&quot;
+    name: str = Field(description=&quot;姓名&quot;)
+    email: str = Field(description=&quot;电子邮箱&quot;)
+    phone: str = Field(description=&quot;电话号码&quot;)
+
+
+agent = create_agent(
+    model= deepseek_llm,
+    system_prompt=SystemMessage(content=&quot;你是一个专业的联系信息提取器，负责从文本中提取个人的姓名、电子邮箱和电话号码。&quot;),
+    response_format=ToolStrategy(
+        ContactInfo,
+        # tool_message_content=&quot;联系信息提取完成！&quot;,
+    )
+)
+
+result = agent.invoke({
+    &quot;messages&quot;: [{
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;content&quot;: &quot;从以下内容提取联系信息：张三，zhangsan@example.com，18812345678&quot;
+    }]
+})
+
+print(&quot;result&quot;, result)
+
+for msg in result[&quot;messages&quot;]:
+    msg.pretty_print()
+
+print(result[&quot;structured_response&quot;])
+</code></pre>
+<p>使用自定义工具消息和不使用自定义工具消息结果区别如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714195440396.png" alt="image-20260714195438999"></p>
+<h4 id="ToolStrategy错误处理"><a href="#ToolStrategy错误处理" class="headerlink" title="ToolStrategy错误处理"></a>ToolStrategy错误处理</h4><p>LangChain 中 ToolStrategy的错误处理机制可以提升Agent生成结构化输出时的可靠性,通过智能重试自动处理模型输出中的常见错误，确保最终能得到符合预定格式的有效数据。</p>
+<p>ToolStrategy通过其 handle_errors参数提供了结构化过程错误处理策略，以下是主要的几种方式及其用途：</p>
+<table>
+<thead>
+<tr>
+<th><strong>策略</strong></th>
+<th><strong>适用场景</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>handle_errors&#x3D;True</td>
+<td>默认方式，捕获所有异常，并使用LangChain 内置的、信息明确的错误消息模板提示模型重试。适用于大多数希望自动处理错误的通用场景。</td>
+</tr>
+<tr>
+<td>handle_errors&#x3D;False</td>
+<td>关闭自动重试机制，任何异常都会直接抛出，会中断程序运行。</td>
+</tr>
+<tr>
+<td>handle_errors&#x3D;”自定义字符串”</td>
+<td>捕获所有异常，但使用开发者预设的固定字符串作为错误消息。适用于需要统一、友好的用户提示，或进行特定业务引导的场景。</td>
+</tr>
+<tr>
+<td>handle_errors&#x3D;ExceptionType</td>
+<td>仅捕获指定类型（如ValueError）或元组中的异常类型并进行重试，其他异常直接抛出。适用于需要精准控制，只对特定错误进行重试的场景。</td>
+</tr>
+<tr>
+<td>handle_errors&#x3D;callable</td>
+<td>灵活性最高的方式。使用开发者自定义的函数来处理异常，可根据不同的异常类型返回差异化的提示信息。适用于需要复杂、精细化错误处理的场景。</td>
+</tr>
+</tbody></table>
+<p><strong>案例一：当指定多个输出类型时，handle_errors设置为True&#x2F;False&#x2F;固定字符串效果。</strong></p>
+<pre><code class="python">from init_llm import deepseek_llm
+from pydantic import BaseModel, Field
+from typing import Union
+from langchain.agents import create_agent
+from langchain.agents.structured_output import ToolStrategy
+
+class ContactInfo(BaseModel):
+    &quot;&quot;&quot;个人联系信息&quot;&quot;&quot;
+    name: str = Field(description=&quot;姓名&quot;)
+    email: str = Field(description=&quot;电子邮箱&quot;)
+
+class EventDetails(BaseModel):
+    &quot;&quot;&quot;活动详情&quot;&quot;&quot;
+    event_name: str = Field(description=&quot;活动名称&quot;)
+    date: str = Field(description=&quot;活动日期&quot;)
+
+agent = create_agent(
+    model= deepseek_llm,
+    tools=[],
+    response_format=ToolStrategy(
+        Union[ContactInfo, EventDetails],
+        tool_message_content=&quot;提取完成！&quot;,
+        handle_errors=True
+        #handle_errors=&quot;请检查输入数据&quot;
+    )
+)
+
+result = agent.invoke({
+    &quot;messages&quot;: [{
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;content&quot;: f&quot;请提取以下文本中内容：姓名：张三，电子邮箱：zhangsan@example.com，活动名称：公司年会，活动日期：2024-08-15&quot;
+    }]
+})
+
+print(result)
+
+for msg in result[&quot;messages&quot;]:
+    msg.pretty_print()
+
+report_data = result[&quot;structured_response&quot;]
+print(report_data)
+</code></pre>
+<p>以上代码handle_errors设置为Ture运行后结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714195810530.png" alt="image-20260714195808984"></p>
+<p>以上代码handle_errors设置为“请检查输入数据”运行后结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714195944144.png" alt="image-20260714195942865"></p>
+<p>以上代码中注意如下几点：</p>
+<ol>
+<li>ToolStrategy允许指定多个类型 Union[ContactInfo,  EventDetails] 这种写法，LLM 能够根据输入文本的内容，智能地选择最合适的一个数据模型（Schema）来生成结构化输出，但是最终会只有一种类型输出，适用于根据不同输入内容，生成不同的结构化输出的场景,但是底层工具转换结构化输出只会转换成一种结构化类型输出。</li>
+<li>当ToolStrategy通过 Union[ContactInfo,  EventDetails] 指定多个类型时，在内部调用生成结构化类型工具可能会报错，此时，handle_errors&#x3D;True（默认值）开始发挥作用,系统会生成一个ToolMessage，明确告诉LLM“Error: Model incorrectly returned multiple structured responses (ContactInfo,  EventDetails) when only one is  expected.”，大模型收到这个精准的反馈后，会重新进行推理，最终选择并输出一个最符合要求的Schema。如果handle_errors  设置为False，执行代码过程直接报错。</li>
+</ol>
+<p><strong>案例二：自定义错误处理函数，处理结构化输出错误。</strong></p>
+<pre><code class="python">from pydantic import BaseModel, Field
+from typing import Literal
+from langchain.agents import create_agent
+from langchain.agents.structured_output import ToolStrategy, StructuredOutputValidationError, \
+    MultipleStructuredOutputsError
+from langchain_core.messages import SystemMessage
+
+from init_llm import deepseek_llm
+
+
+# 自定义错误处理函数
+def custom_error_handler(error: Exception) -&gt; str:
+    &quot;&quot;&quot;自定义错误处理器&quot;&quot;&quot;
+    error_str = str(error)
+
+    print(f&quot;捕获到错误类型: {type(error).__name__}&quot;)
+    print(f&quot;错误详情: {error_str}&quot;)
+
+    if isinstance(error, StructuredOutputValidationError):
+        return &quot;评价数据格式有误，请检查字段是否符合要求。请重新分析评价内容。&quot;
+    elif isinstance(error, MultipleStructuredOutputsError):
+        return &quot;检测到多个响应，请选择最相关的一个进行返回。&quot;
+    else:
+        return f&quot;Error: error_str&quot;
+
+# 定义产品评价Schema
+class ProductEvaluation(BaseModel):
+    &quot;&quot;&quot;产品评价分析&quot;&quot;&quot;
+    product_name: str = Field(default=&quot;&quot;, description=&quot;产品名称&quot;)
+    rating: int = Field(default=1, description=&quot;评分1-5&quot;, ge=1, le=5)
+    sentiment: Literal[&quot;正面&quot;, &quot;负面&quot;, &quot;中性&quot;] = Field(default=&quot;&quot;, description=&quot;情感倾向&quot;)
+
+
+# 创建agent
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[],
+    # 创建会诱导错误的系统提示
+    system_prompt=SystemMessage(content=&quot;&quot;&quot;
+                    你是一个产品评价分析助手。请分析用户提供的产品评价,并结构化输出产品评价分析结果。
+                    如果评价中提到&quot;10分&quot;或&quot;满分&quot;，请将rating设置为10
+                    如果评价情感复杂，请尝试使用&quot;复杂&quot;作为sentiment值
+                    &quot;&quot;&quot;),
+    response_format=ToolStrategy(
+        ProductEvaluation,
+        tool_message_content=&quot;产品评价分析完成!&quot;,
+        # handle_errors=custom_error_handler  # 启用自定义错误处理
+    )
+)
+
+# 调用agent
+response = agent.invoke({
+            # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;这个产品太棒了，我给5分满分！超级喜欢！&quot;}]
+            &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;这个产品太棒了，我给10分！超级喜欢！&quot;}]
+            # &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;这个产品用起来感觉复杂，既好又不好&quot;}]
+        })
+
+
+print(&quot;response:&quot;, response)
+
+for msg in response[&quot;messages&quot;]:
+    msg.pretty_print()
+
+if &quot;structured_response&quot; in response:
+    result = response[&quot;structured_response&quot;]
+    print(result)
+</code></pre>
+<p>以上代码handle_errors不指定自定义错误处理，运行后结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714200202412.png" alt="image-20260714200201268"></p>
+<p>以上代码handle_errors指定自定义错误处理，运行后结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714200251559.png" alt="image-20260714200250284"></p>
+<p>以上代码中注意如下几点：</p>
+<ol>
+<li>当格式化输出有错误时，Agent内部会进行工具调用重试，直到符合要求格式化输出前，可能会进行多次重试。</li>
+<li>对于用户符合提示词的错误评价，Agent可能会输出正确结果，这时需要尝试进一步调整提示词进行限制。</li>
+</ol>
+<h2 id="Agent异步调用"><a href="#Agent异步调用" class="headerlink" title="Agent异步调用"></a>Agent异步调用</h2><p>LangChain Agent 通过 agent.ainvoke(…)方法支持异步调用，其底层基于 Python 的 asyncio库。该机制的核心优势在于，当 Agent  执行过程中需要调用外部工具（如查询网络或访问数据库）时，异步版本不会阻塞以等待结果返回，而是会暂停当前任务，将 CPU  控制权交还给事件循环，以执行其他就绪的任务。待相应的 I&#x2F;O 操作完成后，事件循环再调度该 Agent 继续执行。</p>
+<p>这种基于事件循环的异步调度机制，能显著提升需要集成多个外部服务或API 的 Agent  的执行效率。例如，当一个旅行规划Agent需要同时查询航班、酒店和天气时，异步机制允许在等待这些外部API返回结果的期间，事件循环能够去执行程序中的其他就绪任务，从而避免CPU空闲等待，大幅提升整体效率。</p>
+<p><strong>案例：智能旅行规划助手Agent，可以查询多个城市的天气、交通和景点信息。</strong></p>
+<pre><code class="python">import asyncio
+from typing import Dict, Any
+from langchain.agents import create_agent
+from langchain.tools import tool
+from langgraph.graph.state import CompiledStateGraph
+
+from init_llm import deepseek_llm
+
+
+# 1. 定义工具
+@tool
+def get_weather(city: str) -&gt; str:
+    &quot;&quot;&quot;
+    获取指定城市的天气信息。
+    Args：
+        city (str): 要查询天气的城市名称。
+    Returns：
+        str: 包含城市天气信息的字符串。
+    &quot;&quot;&quot;
+    weather_data = {
+        &quot;北京&quot;: &quot;晴朗，15°C&quot;,
+        &quot;上海&quot;: &quot;多云，18°C&quot;,
+        &quot;广州&quot;: &quot;小雨，22°C&quot;,
+        &quot;深圳&quot;: &quot;晴间多云，25°C&quot;
+    }
+    return f&quot;{city}的天气：{weather_data.get(city, &#39;信息暂缺&#39;)}&quot;
+
+
+@tool
+def get_transport_info(from_city: str, to_city: str) -&gt; str:
+    &quot;&quot;&quot;
+    查询两个城市之间的交通信息。
+    Args：
+        from_city (str): 出发城市名称。
+        to_city (str): 到达城市名称。
+    Returns：
+        str: 包含交通信息的字符串。
+    &quot;&quot;&quot;
+    transport_data = {
+        &quot;北京-上海&quot;: &quot;高铁约4.5小时，航班约2小时&quot;,
+        &quot;上海-广州&quot;: &quot;高铁约7小时，航班约2.5小时&quot;,
+        &quot;广州-深圳&quot;: &quot;高铁约0.5小时，驾车约1.5小时&quot;
+    }
+    key = f&quot;{from_city}-{to_city}&quot;
+    return f&quot;{from_city}到{to_city}：{transport_data.get(key, &#39;请查询具体班次&#39;)}&quot;
+
+
+@tool
+def get_scenic_spots(city: str, interest_type: str = &quot;通用&quot;) -&gt; str:
+    &quot;&quot;&quot;
+    根据兴趣类型推荐城市景点。
+    Args：
+        city (str): 要查询景点的城市名称。
+        interest_type (str, optional): 兴趣类型，默认值为&quot;通用&quot;。
+    Returns：
+        str: 包含景点推荐的字符串。
+    &quot;&quot;&quot;
+    scenic_spots_data = {
+        &quot;北京&quot;: {
+            &quot;历史&quot;: &quot;推荐：故宫、天坛、长城&quot;,
+            &quot;美食&quot;: &quot;推荐：全聚德烤鸭、王府井小吃街&quot;,
+            &quot;通用&quot;: &quot;推荐：故宫、长城、颐和园、天坛&quot;
+        },
+        &quot;上海&quot;: {
+            &quot;现代&quot;: &quot;推荐：外滩、东方明珠、陆家嘴&quot;,
+            &quot;文化&quot;: &quot;推荐：博物馆、艺术馆、田子坊&quot;,
+            &quot;通用&quot;: &quot;推荐：外滩、迪士尼、南京路&quot;
+        }
+    }
+    city_scenic_spots = scenic_spots_data.get(city, {})
+    recommendation = city_scenic_spots.get(interest_type, city_scenic_spots.get(&quot;通用&quot;, &quot;暂无推荐&quot;))
+    return f&quot;{city}{interest_type}景点：{recommendation}&quot;
+
+
+# 2. 创建智能体
+def create_travel_agent() -&gt; CompiledStateGraph:
+    &quot;&quot;&quot;创建旅行规划智能体&quot;&quot;&quot;
+    # 创建智能体
+    agent = create_agent(
+        model=deepseek_llm,
+        tools=[get_weather, get_transport_info, get_scenic_spots],
+        system_prompt=&quot;你是一个专业的旅行规划助手，能够帮助用户查询天气、交通和景点信息。拒绝回答与旅行规划无关的问题。&quot;,
+    )
+    return agent
+
+
+# 3. 顺序异步查询函数
+async def async_sequential_query() -&gt; Dict[str, Any]:
+    # 创建智能体实例
+    agent = create_travel_agent()
+
+    # 异步调用智能体
+    response = await agent.ainvoke({&quot;messages&quot;: [
+        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;请帮我查询北京的天气信息，并推荐一些历史类型的景点&quot;},
+        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;我要从北京出发到上海，请帮我查询上海的天气信息，并推荐一些现代类型的景点&quot;},
+        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;天空为什么是蓝色的&quot;},
+    ]})
+
+    return response
+
+
+# 4. 运行程序
+if __name__ == &quot;__main__&quot;:
+   response = asyncio.run(async_sequential_query())
+   print(response)
+   print(response[&#39;messages&#39;][-1].content)
+</code></pre>
+<p>代码运行结果如下：</p>
+<pre><code>根据您的需求，我为您整理了以下旅行信息：
+
+## 北京信息
+**天气**：晴朗，15°C
+**历史景点推荐**：
+1. 故宫
+2. 天坛
+3. 长城
+
+## 上海信息
+**天气**：多云，18°C
+**现代景点推荐**：
+1. 外滩
+2. 东方明珠
+3. 陆家嘴
+
+## 北京到上海交通信息
+- **高铁**：约4.5小时
+- **航班**：约2小时
+
+关于&quot;天空为什么是蓝色的&quot;这个问题，这是一个科学问题，与旅行规划无关，我无法回答。如果您有其他旅行相关的问题，我很乐意为您提供帮助！
+</code></pre>
+<h2 id="Agent流式输出及模式"><a href="#Agent流式输出及模式" class="headerlink" title="Agent流式输出及模式"></a>Agent流式输出及模式</h2><h3 id="Agent流式输出"><a href="#Agent流式输出" class="headerlink" title="Agent流式输出"></a>Agent流式输出</h3><p>LangChain 实现了一套强大的流式传输系统，用于实时显示 Agent 运行过程中的更新。流式传输通过渐进式显示输出（即使在完整响应准备好之前）来显著改善用户体验，特别是在处理 LLM 延迟时尤其有效。</p>
+<p>流式输出好处：</p>
+<ul>
+<li>大型语言模型生成完整响应通常需要几秒钟时间，对于长输出可能达到10-20 秒,用户期望即时反馈，流式传输让等待过程更加可控。</li>
+<li>相比非流式传输需要用户长时间等待完整响应，流式传输可以立即显示文字逐渐出现的效果，大幅降低用户的等待焦虑。</li>
+</ul>
+<p>Agent中可以通过调用“stream”来启用流式输出结果。如下案例是一个查询客户信息的Agent，该Agent可以调用“query_customer_data”（查询客户基本信息）、“check_order_history”（检查历史订单）、“get_current_promotions”（获取当前促销活动）三个工具进行用户信息查询。具体代码如下：</p>
+<pre><code class="python">from langchain.agents import create_agent
+from langchain.tools import tool
+from typing import Dict, Any
+
+from init_llm import deepseek_llm
+
+
+@tool
+def query_customer_data(customer_id: str) -&gt; Dict[str, Any]:
+    &quot;&quot;&quot;
+    查询客户基本信息
+    Args:
+        customer_id: 客户ID，用于唯一标识客户
+    Returns:
+        包含客户基本信息的字典，如姓名、等级、加入日期等
+    &quot;&quot;&quot;
+    # 模拟数据库查询
+    return {&quot;name&quot;: &quot;张三&quot;,&quot;level&quot;: &quot;VIP&quot;,&quot;join_date&quot;: &quot;2023-01-15&quot;}
+
+
+@tool
+def check_order_history(customer_id: str) -&gt; Dict[str, Any]:
+    &quot;&quot;&quot;
+    查询客户订单历史
+    Args:
+        customer_id: 客户ID，用于唯一标识客户
+    Returns:
+        包含客户订单历史的字典，如总订单数、总花费等
+    &quot;&quot;&quot;
+    return {&quot;total_orders&quot;: 15,&quot;total_spent&quot;: 25800.00}
+
+
+@tool
+def get_current_promotions() -&gt; Dict[str, Any]:
+    &quot;&quot;&quot;
+    获取当前可用促销活动
+    Returns:
+        包含当前可用促销活动的字典，如活动名称、有效日期等
+    &quot;&quot;&quot;
+    return {
+        &quot;promotions&quot;: [&quot;老用户优惠&quot;, &quot;会员专属折扣&quot;],
+        &quot;valid_until&quot;: &quot;2027-01-31&quot;
+    }
+
+
+# 创建客户服务Agent
+customer_service_agent = create_agent(
+    model=deepseek_llm,
+    system_prompt=&quot;你是一个专业的客户服务智能体，负责回答客户关于账户信息、订单历史和促销活动的问题。&quot;,
+    tools=[query_customer_data, check_order_history, get_current_promotions]
+)
+
+
+for chunk in customer_service_agent.stream(
+        {&quot;messages&quot;: [{
+            &quot;role&quot;: &quot;user&quot;,
+            &quot;content&quot;: &quot;查询客户ID为 CUST123456 的完整信息和可用优惠&quot;
+        }]}
+):
+    print(chunk)
+    print(&quot;-&quot; * 50)
+</code></pre>
+<p>代码运行结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714200511390.png" alt="image-20260714200510050"></p>
+<p>以上代码中“agent.stream(…)”返回一个“Iterator[dict[str, Any] |  Any]”对象，该对象中的dict会有“model”（模型调用）和“tools”（工具调用）两个key，分别对应模型&#x2F;工具调用输出的结果，这些结果以流式交叉输出。</p>
+<p>如果想要获取模型&#x2F;工具输出的结果，也可以按照如下方式获取：</p>
+<pre><code class="python">for chunk in customer_service_agent.stream(
+        {&quot;messages&quot;: [{
+            &quot;role&quot;: &quot;user&quot;,
+            &quot;content&quot;: &quot;查询客户ID为 CUST123456 的完整信息和可用优惠&quot;
+        }]}
+):
+    for step, data in chunk.items(): # 遍历dict的key-value对
+        if step == &quot;model&quot;:
+            last_message = data[&quot;messages&quot;][-1]
+            if last_message.content:
+                print(f&quot;AI回复: {last_message.content}&quot;)
+
+            if last_message.tool_calls:
+                print(f&quot;AI决定调用工具: {[tc[&#39;name&#39;] for tc in last_message.tool_calls]}&quot;)
+
+        elif step == &quot;tools&quot;:
+            tool_result = data[&quot;messages&quot;][-1]
+            print(f&quot;执行工具:{tool_result.name}, 工具返回结果：{tool_result.content}&quot;)
+        print(&quot;-&quot; * 50)
+</code></pre>
+<p>以上代码输出结果：</p>
+<pre><code>AI回复: 我来帮您查询客户CUST123456的完整信息和当前可用优惠。让我先查询客户基本信息，然后查看订单历史，最后获取当前促销活动。
+AI决定调用工具: [&#39;query_customer_data&#39;]
+--------------------------------------------------
+执行工具:query_customer_data, 工具返回结果：{&quot;name&quot;: &quot;张三&quot;, &quot;level&quot;: &quot;VIP&quot;, &quot;join_date&quot;: &quot;2023-01-15&quot;}
+--------------------------------------------------
+AI决定调用工具: [&#39;check_order_history&#39;]
+--------------------------------------------------
+执行工具:check_order_history, 工具返回结果：{&quot;total_orders&quot;: 15, &quot;total_spent&quot;: 25800.0}
+--------------------------------------------------
+AI决定调用工具: [&#39;get_current_promotions&#39;]
+--------------------------------------------------
+执行工具:get_current_promotions, 工具返回结果：{&quot;promotions&quot;: [&quot;老用户优惠&quot;, &quot;会员专属折扣&quot;], &quot;valid_until&quot;: &quot;2027-01-31&quot;}
+--------------------------------------------------
+AI回复: 根据查询结果，客户CUST123456的完整信息和可用优惠如下：
+
+## 客户基本信息：
+- **客户姓名**：张三
+- **客户等级**：VIP会员
+- **加入日期**：2023年1月15日
+
+## 订单历史统计：
+- **总订单数**：15笔
+- **总消费金额**：25,800.00元
+
+## 当前可用优惠活动：
+- **促销活动**：
+  1. 老用户优惠
+  2. 会员专属折扣
+- **活动有效期**：至2027年1月31日
+
+**总结**：客户张三是一位VIP会员，自2023年1月加入以来已完成了15笔订单，总消费25,800元。作为VIP会员，他可以享受&quot;老用户优惠&quot;和&quot;会员专属折扣&quot;两项促销活动，这些优惠有效期至2027年1月31日。
+--------------------------------------------------
+</code></pre>
+<h3 id="Agent-流式输出模式"><a href="#Agent-流式输出模式" class="headerlink" title="Agent 流式输出模式"></a>Agent 流式输出模式</h3><p>Agent默认输出模式是“模型思考-工具调用”ReAct循环调用，最终输出大模型结果，除了这种输出模式外，Agent还支持如下输出模式：values、updates（默认）、messages、custom、checkpoints、tasks、debug，这些模式都是通过“Agent.stream(…,stream_mode&#x3D;指定模式，默认为None,…)”来指定。</p>
+<h4 id="values-输出模式"><a href="#values-输出模式" class="headerlink" title="values 输出模式"></a>values 输出模式</h4><p>当stream_mode设置为values模式时，每个步骤执行后，都会输出完整的状态信息，适用于每一步都要获取完整状态、状态持久化场景。</p>
+<p>代码案例如下：</p>
+<pre><code class="python">from langchain.agents import create_agent
+from langchain.tools import tool
+from typing import Dict, Any
+
+from init_llm import deepseek_llm
+
+
+@tool
+def query_customer_data(customer_id: str) -&gt; Dict[str, Any]:
+    &quot;&quot;&quot;
+    查询客户基本信息
+    Args:
+        customer_id: 客户ID，用于唯一标识客户
+    Returns:
+        包含客户基本信息的字典，如姓名、等级、加入日期等
+    &quot;&quot;&quot;
+    # 模拟数据库查询
+    return {&quot;name&quot;: &quot;张三&quot;,&quot;level&quot;: &quot;VIP&quot;,&quot;join_date&quot;: &quot;2023-01-15&quot;}
+
+
+@tool
+def check_order_history(customer_id: str) -&gt; Dict[str, Any]:
+    &quot;&quot;&quot;
+    查询客户订单历史
+    Args:
+        customer_id: 客户ID，用于唯一标识客户
+    Returns:
+        包含客户订单历史的字典，如总订单数、总花费等
+    &quot;&quot;&quot;
+    return {&quot;total_orders&quot;: 15,&quot;total_spent&quot;: 25800.00}
+
+
+@tool
+def get_current_promotions() -&gt; Dict[str, Any]:
+    &quot;&quot;&quot;
+    获取当前可用促销活动
+    Returns:
+        包含当前可用促销活动的字典，如活动名称、有效日期等
+    &quot;&quot;&quot;
+    return {
+        &quot;promotions&quot;: [&quot;老用户优惠&quot;, &quot;会员专属折扣&quot;],
+        &quot;valid_until&quot;: &quot;2027-01-31&quot;
+    }
+
+
+# 创建客户服务Agent
+customer_service_agent = create_agent(
+    model=deepseek_llm,
+    tools=[query_customer_data, check_order_history, get_current_promotions]
+)
+
+
+for chunk in customer_service_agent.stream(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;查询客户ID为 CUST123456 的完整信息和可用优惠&quot;}]},
+        stream_mode=&quot;values&quot;
+):
+    print(chunk)
+    print(&quot;-&quot; * 50)
+</code></pre>
+<p>代码运行后示意结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714200711818.png" alt="image-20260714200710493"></p>
+<h4 id="updates输出模式"><a href="#updates输出模式" class="headerlink" title="updates输出模式"></a>updates输出模式</h4><p>这种模式就是默认模式。该模式中，每个步骤执行后，只增量更新状态中发生变化的内容，用于监控Agent 执行进度，例如观察Agent决定调用工具、工具执行结果等步骤。</p>
+<p>代码案例如下：</p>
+<pre><code class="python"># 其他工具代码同上，保持不变
+... ...
+for chunk in customer_service_agent.stream(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;查询客户ID为 CUST123456 的完整信息和可用优惠&quot;}]},
+        stream_mode=&quot;updates&quot;
+):
+    print(chunk)
+    print(&quot;-&quot; * 50)
+</code></pre>
+<p>代码运行后结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714200754047.png" alt="image-20260714200752579"></p>
+<h4 id="messages输出模式"><a href="#messages输出模式" class="headerlink" title="messages输出模式"></a>messages输出模式</h4><p>该模式中会输出流式返回的Token以及相关的元数据（如：来自哪个节点），可以用在实现类似 ChatGPT 的打字机效果场景，为聊天机器人等交互式应用提供最佳的实时体验。</p>
+<p>代码案例如下：</p>
+<pre><code># 其他工具代码同上，保持不变
+... ...
+# 创建客户服务Agent
+customer_service_agent = create_agent(
+    model=deepseek_llm,
+    tools=[query_customer_data, check_order_history, get_current_promotions]
+)
+
+
+for chunk in customer_service_agent.stream(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;查询客户ID为 CUST123456 的完整信息和可用优惠&quot;}]},
+        stream_mode=&quot;messages&quot;
+):
+    print(chunk)
+    print(&quot;-&quot; * 50)
+</code></pre>
+<p>代码运行后的结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714200944199.png" alt="image-20260714200942778"></p>
+<h4 id="tasks输出模式"><a href="#tasks输出模式" class="headerlink" title="tasks输出模式"></a>tasks输出模式</h4><p>该模式会输出当前task任务信息，包含任务的id和错误信息，该模式用于监控任务的生命周期</p>
+<p>代码案例如下：</p>
+<pre><code class="python"># 其他工具代码同上，保持不变
+... ...
+# 创建客户服务Agent
+customer_service_agent = create_agent(
+    model=deepseek_llm,
+    tools=[query_customer_data, check_order_history, get_current_promotions]
+)
+
+
+for chunk in customer_service_agent.stream(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;查询客户ID为 CUST123456 的完整信息和可用优惠&quot;}]},
+        stream_mode=&quot;tasks&quot;
+):
+    print(chunk)
+    print(&quot;-&quot; * 50)
+</code></pre>
+<p>代码运行后的结果如下:</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714201038692.png" alt="image-20260714201037447"></p>
+<h4 id="debug输出模式"><a href="#debug输出模式" class="headerlink" title="debug输出模式"></a>debug输出模式</h4><p>该模式与tasks模式类似，比task模式多输出任务步骤、时间戳、task类型（task&#x2F;task_result），该模式用于调试、监控task任务的生命周期。</p>
+<p>代码案例如下：</p>
+<pre><code># 其他工具代码同上，保持不变
+... ...
+# 创建客户服务Agent
+customer_service_agent = create_agent(
+    model=deepseek_llm,
+    tools=[query_customer_data, check_order_history, get_current_promotions]
+)
+
+
+for chunk in customer_service_agent.stream(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;查询客户ID为 CUST123456 的完整信息和可用优惠&quot;}]},
+        stream_mode=&quot;debug&quot;
+):
+    print(chunk)
+    print(&quot;-&quot; * 50)
+</code></pre>
+<p>代码运行后的结果如下:</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714201141769.png" alt="image-20260714201140536"></p>
+<h4 id="checkpoints输出模式"><a href="#checkpoints输出模式" class="headerlink" title="checkpoints输出模式"></a>checkpoints输出模式</h4><p>该模式中，每当检查点（checkpoint）被创建时会触发输出，输出包含检查点中的状态，用于需要状态持久化、工作流恢复或分布式执行跟踪的高级场景。</p>
+<p>代码案例如下：</p>
+<pre><code class="python"># 其他工具代码同上，保持不变
+... ...
+# 1. 创建内存检查点存储
+checkpointer = InMemorySaver()
+
+# 2. 创建Agent
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[query_customer_data, check_order_history, get_current_promotions],
+    checkpointer=checkpointer  # 启用检查点
+)
+
+# 3. 创建唯一的会话ID
+config = {&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;session01&quot;}}
+
+# 4. 调用Agent
+checkpoint_count = 0
+
+# 使用checkpoints模式进行流式监控
+for chunk in agent.stream(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;查询客户ID为 CUST123456 的完整信息和可用优惠&quot;}]},
+        config=config,
+        stream_mode=&quot;checkpoints&quot;
+):
+    checkpoint_count += 1
+    print(f&quot;检查点 #{checkpoint_count}&quot;)
+    print(chunk)
+    print(&quot;-&quot; * 50)
+</code></pre>
+<p>代码运行后示例结果如下，每次输出都会将相关MESSAGE追加到values.messages中。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714201315862.png" alt="image-20260714201314480"></p>
+<h4 id="custom输出模式"><a href="#custom输出模式" class="headerlink" title="custom输出模式"></a>custom输出模式</h4><p>开发者通过get_stream_writer在工具或节点内部自定义发送的数据，用于输出业务逻辑相关的进度信息（如“已处理10&#x2F;100条记录”）、自定义日志或指标。</p>
+<p>案例:生成销售报告和库存报告Agent，代码如下：</p>
+<pre><code class="python">from langchain.agents import create_agent
+from langgraph.config import get_stream_writer
+from langchain.tools import tool
+import time
+
+from init_llm import deepseek_llm
+
+
+@tool
+def generate_sales_report() -&gt; str:
+    &quot;&quot;&quot;生成销售报告&quot;&quot;&quot;
+    writer = get_stream_writer()
+
+    writer({&quot;type&quot;: &quot;生成销售报告&quot;, &quot;message&quot;: &quot;开始生成销售报告&quot;})
+
+    # 模拟数据处理
+    for i in range(1, 4):
+        time.sleep(0.5)
+        writer({&quot;type&quot;: &quot;生成销售报告&quot;,&quot;message&quot;: f&quot;生成销售报告进度百分比：{i * 25}%&quot;})
+
+    writer({&quot;type&quot;: &quot;生成销售报告&quot;, &quot;message&quot;: &quot;报告生成完成&quot;})
+
+    return f&quot;销售报告：总收入150万元，同比增长12%&quot;
+
+
+@tool
+def generate_inventory_report() -&gt; str:
+    &quot;&quot;&quot;生成库存报告&quot;&quot;&quot;
+    writer = get_stream_writer()
+    writer(&quot;开始库存分析...&quot;)
+    time.sleep(0.5)
+    writer(&quot;检查当前库存量...&quot;)
+    time.sleep(0.5)
+    writer(&quot;生成库存报告...&quot;)
+
+    return &quot;当前库存量为10000件，库存充足，无异常&quot;
+
+
+# 创建报告生成代理
+reporting_agent = create_agent(
+    model=deepseek_llm,
+    tools=[generate_sales_report, generate_inventory_report]
+)
+
+for chunk in reporting_agent.stream(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;生成销售报告和库存报告&quot;}]},
+        stream_mode=&quot;custom&quot;
+):
+    print(chunk)
+    print(&quot;-&quot; * 50)
+</code></pre>
+<p>代码运行结果如下：</p>
+<pre><code>{&#39;type&#39;: &#39;生成销售报告&#39;, &#39;message&#39;: &#39;开始生成销售报告&#39;}
+--------------------------------------------------
+开始库存分析...
+--------------------------------------------------
+{&#39;type&#39;: &#39;生成销售报告&#39;, &#39;message&#39;: &#39;生成销售报告进度百分比：25%&#39;}
+--------------------------------------------------
+检查当前库存量...
+--------------------------------------------------
+{&#39;type&#39;: &#39;生成销售报告&#39;, &#39;message&#39;: &#39;生成销售报告进度百分比：50%&#39;}
+--------------------------------------------------
+生成库存报告...
+--------------------------------------------------
+{&#39;type&#39;: &#39;生成销售报告&#39;, &#39;message&#39;: &#39;生成销售报告进度百分比：75%&#39;}
+--------------------------------------------------
+{&#39;type&#39;: &#39;生成销售报告&#39;, &#39;message&#39;: &#39;报告生成完成&#39;}
+--------------------------------------------------
+</code></pre>
+<h3 id="流式输出模式总结"><a href="#流式输出模式总结" class="headerlink" title="流式输出模式总结"></a>流式输出模式总结</h3><p>如下是LangChain Agent输出模式对比：</p>
+<table>
+<thead>
+<tr>
+<th><strong>模式</strong></th>
+<th><strong>输出内容</strong></th>
+<th><strong>使用场景</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>values</td>
+<td>每个步骤执行后，都会输出完整的状态信息</td>
+<td>适用于每一步都要获取完整状态、状态持久化场景</td>
+</tr>
+<tr>
+<td><strong>updates（默认）</strong></td>
+<td>每个步骤执行后，只增量更新状态中发生变化的内容</td>
+<td>用于监控Agent 执行进度，例如观察Agent决定调用工具、工具执行结果等步骤</td>
+</tr>
+<tr>
+<td><strong>messages</strong></td>
+<td>输出流式返回的Token以及相关的元数据（如：来自哪个节点model&#x2F;tool）</td>
+<td>实现类似ChatGPT 的打字机效果，为聊天机器人等交互式应用提供最佳的实时体验</td>
+</tr>
+<tr>
+<td>tasks</td>
+<td>输出当前task任务信息，包含任务的结果和错误信息</td>
+<td>该模式用于监控任务的生命周期</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>与tasks模式类似，比task模式多输出任务步骤、时间戳、task类型（task&#x2F;task_result）</td>
+<td>该模式用于调试、监控task任务的生命周期</td>
+</tr>
+<tr>
+<td>checkpoints</td>
+<td>当检查点（checkpoint）被创建时会触发输出，输出包含检查点中的状态</td>
+<td>用于需要状态持久化、工作流恢复或分布式执行跟踪的高级场景</td>
+</tr>
+<tr>
+<td><strong>custom</strong></td>
+<td>通过get_stream_writer在工具或节点内部自定义发送的数据</td>
+<td>用于输出业务逻辑相关的进度信息（如“已处理10&#x2F;100条记录”）、自定义日志或指标</td>
+</tr>
+</tbody></table>
+<p>我们可以根据不同的目标来选择不同的输出模式，例如：实现实时对话交互，优先选择message模式；观察Agent的思考与执行步骤，优先选择update模式；需要查看每一步状态优先选择values&#x2F;tasks&#x2F;debug模式；在工具执行时输出自定义业务日志优先选择custom模式。</p>
+<p>此外，以上这些模式还可以组合使用，例如，可以同时指定stream_mode&#x3D;[“tasks”，“updates”],这样在同一个循环里既能查看Agent task任务执行内容，又能显示Agent每步的更新。</p>
+<p>代码示例：</p>
+<pre><code class="python"># 其他工具代码同上，保持不变
+... ...
+# 创建客户服务Agent
+customer_service_agent = create_agent(
+    model=deepseek_llm,
+    tools=[query_customer_data, check_order_history, get_current_promotions]
+)
+
+
+for stream_mode, chunk in customer_service_agent.stream(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;,&quot;content&quot;: &quot;查询客户ID为 CUST123456 的完整信息和可用优惠&quot;}]},
+        stream_mode=[&quot;tasks&quot;, &quot;updates&quot;]
+):
+    print(f&quot;当前流模式: {stream_mode}, 当前数据: {chunk}&quot;)
+    print(&quot;-&quot; * 50)
+</code></pre>
+<p>当指定多模式后，可以通过“for stream_mode, chunk in  customer_service_agent.stream…”来遍历dict，dict的key(stream_mode)是执行模式，value(chunk)是该模式输出的结果。代码运行输出结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20260714201534119.png" alt="image-20260714201532729"></p>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/06/05/AI/OpenClaw/Agent%E5%92%8COpenClaw%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">Agent和OpenClaw的相关概念</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/06/05/AI/LangChain/Agent%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">Agent 长期记忆</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Agent%E4%BB%8B%E7%BB%8D"><span class="toc-list-number">1.</span> <span class="toc-list-text">Agent介绍</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFAgent"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">什么是Agent</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Agent%E5%8E%9F%E7%90%86%E4%B8%8E%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">Agent原理与执行流程</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#LLM%E3%80%81LLM%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8%E4%B8%8EAgent%E5%8C%BA%E5%88%AB"><span class="toc-list-number">1.3.</span> <span class="toc-list-text">LLM、LLM工具调用与Agent区别</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Agent%E5%88%9B%E5%BB%BA%E4%B8%8E%E8%B0%83%E7%94%A8"><span class="toc-list-number">2.</span> <span class="toc-list-text">Agent创建与调用</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Agent%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">Agent创建方式</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E9%9D%99%E6%80%81%E6%A8%A1%E5%9E%8B"><span class="toc-list-number">2.1.1.</span> <span class="toc-list-text">静态模型</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%8A%A8%E6%80%81%E6%A8%A1%E5%9E%8B"><span class="toc-list-number">2.1.2.</span> <span class="toc-list-text">动态模型</span></a></li></ol></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Agent%E8%B0%83%E7%94%A8"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">Agent调用</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%8F%90%E7%A4%BA%E8%AF%8D%EF%BC%88Prompt%EF%BC%89"><span class="toc-list-number">3.</span> <span class="toc-list-text">提示词（Prompt）</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%9F%BA%E7%A1%80%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%AE%BE%E7%BD%AE"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">基础提示词设置</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%8A%A8%E6%80%81%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%AE%BE%E7%BD%AE"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">动态提示词设置</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Tools%E5%B7%A5%E5%85%B7"><span class="toc-list-number">4.</span> <span class="toc-list-text">Tools工具</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%B7%A5%E5%85%B7%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="toc-list-number">4.1.</span> <span class="toc-list-text">工具创建方式</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BD%BF%E7%94%A8-tool%E8%A3%85%E9%A5%B0%E5%99%A8%E5%AE%9A%E4%B9%89%E5%B7%A5%E5%85%B7%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-list-number">4.1.1.</span> <span class="toc-list-text">使用@tool装饰器定义工具（推荐）</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BD%BF%E7%94%A8Pydantic%E6%A8%A1%E5%9E%8B%E5%AE%9A%E4%B9%89%E5%B7%A5%E5%85%B7%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-list-number">4.1.2.</span> <span class="toc-list-text">使用Pydantic模型定义工具（推荐）</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E4%BD%BF%E7%94%A8Json-Schema%E5%AE%9A%E4%B9%89%E5%B7%A5%E5%85%B7"><span class="toc-list-number">4.1.3.</span> <span class="toc-list-text">使用Json Schema定义工具</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%B7%A5%E5%85%B7%E5%88%9B%E5%BB%BA%E6%80%BB%E7%BB%93"><span class="toc-list-number">4.1.4.</span> <span class="toc-list-text">工具创建总结</span></a></li></ol></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E8%B0%83%E7%94%A8%E5%B7%A5%E5%85%B7%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-list-number">4.2.</span> <span class="toc-list-text">调用工具错误处理</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Agent%E7%BB%93%E6%9E%84%E5%8C%96%E8%BE%93%E5%87%BA"><span class="toc-list-number">5.</span> <span class="toc-list-text">Agent结构化输出</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E7%BB%93%E6%9E%84%E5%8C%96%E8%BE%93%E5%87%BA%E6%94%AF%E6%8C%81%E7%9A%84%E7%AD%96%E7%95%A5"><span class="toc-list-number">5.1.</span> <span class="toc-list-text">结构化输出支持的策略</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#ToolStrategy"><span class="toc-list-number">5.2.</span> <span class="toc-list-text">ToolStrategy</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E5%9B%9B%E7%A7%8D%E7%BB%93%E6%9E%84%E5%8C%96%E8%BE%93%E5%87%BASchema"><span class="toc-list-number">5.2.1.</span> <span class="toc-list-text">四种结构化输出Schema</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B7%A5%E5%85%B7%E6%B6%88%E6%81%AF"><span class="toc-list-number">5.2.2.</span> <span class="toc-list-text">自定义工具消息</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#ToolStrategy%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-list-number">5.2.3.</span> <span class="toc-list-text">ToolStrategy错误处理</span></a></li></ol></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Agent%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8"><span class="toc-list-number">6.</span> <span class="toc-list-text">Agent异步调用</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Agent%E6%B5%81%E5%BC%8F%E8%BE%93%E5%87%BA%E5%8F%8A%E6%A8%A1%E5%BC%8F"><span class="toc-list-number">7.</span> <span class="toc-list-text">Agent流式输出及模式</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Agent%E6%B5%81%E5%BC%8F%E8%BE%93%E5%87%BA"><span class="toc-list-number">7.1.</span> <span class="toc-list-text">Agent流式输出</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Agent-%E6%B5%81%E5%BC%8F%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-list-number">7.2.</span> <span class="toc-list-text">Agent 流式输出模式</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#values-%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-list-number">7.2.1.</span> <span class="toc-list-text">values 输出模式</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#updates%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-list-number">7.2.2.</span> <span class="toc-list-text">updates输出模式</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#messages%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-list-number">7.2.3.</span> <span class="toc-list-text">messages输出模式</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#tasks%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-list-number">7.2.4.</span> <span class="toc-list-text">tasks输出模式</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#debug%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-list-number">7.2.5.</span> <span class="toc-list-text">debug输出模式</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#checkpoints%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-list-number">7.2.6.</span> <span class="toc-list-text">checkpoints输出模式</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#custom%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="toc-list-number">7.2.7.</span> <span class="toc-list-text">custom输出模式</span></a></li></ol></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%B5%81%E5%BC%8F%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="toc-list-number">7.3.</span> <span class="toc-list-text">流式输出模式总结</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>
