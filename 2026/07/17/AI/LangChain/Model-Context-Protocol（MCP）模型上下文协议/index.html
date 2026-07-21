@@ -62,7 +62,7 @@
     
     <title>
         
-            post | starzy
+            Model-Context-Protocol（MCP）模型上下文协议 | starzy
         
     </title>
     
@@ -218,7 +218,7 @@
       <div class="post-meta">
         <span class="post-category">
           <i class="iconfont icon-folder"></i>
-          
+          <a class="category-link" href="/categories/AI/">AI</a>
         </span>
         <span class="post-date">
           <i class="iconfont icon-calendar"></i>
@@ -232,9 +232,23 @@
         
       </div>
       
-      <h1 class="article-title">post</h1>
+      <h1 class="article-title">Model-Context-Protocol（MCP）模型上下文协议</h1>
       
       
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
     </div>
   </header>
   
@@ -416,7 +430,7 @@ if __name__ == &quot;__main__&quot;:
 <li>函数的 docstring 会被用作工具的描述信息。LLM 根据这段描述理解工具的用途并决定何时调用。所以工具描述要写得清晰、准确——这是影响 Agent 行为质量的关键因素。</li>
 <li>FastMCP 不需要额外的手动配置即可将类型注解映射为 JSON Schema。int 映射为 number ， str 映射为 string ，复杂的 Pydantic 模型也能自动识别。</li>
 <li>这里使用了 async def get_weather ——FastMCP 同时支持同步和异步函数。</li>
-<li><a target="_blank" rel="noopener" href="http://mcp.run/">mcp.run</a>中除了transport参数外，还支持如下常见参数</li>
+<li><strong>mcp.run</strong> 中除了transport参数外，还支持如下常见参数</li>
 </ul>
 <table>
 <thead>
@@ -2290,7 +2304,7 @@ client = MultiServerMCPClient({...}, callbacks=Callbacks(on_elicitation=on_elici
 <tr>
 <td><strong>BaseModel 多字段表单</strong></td>
 <td>{“字段1”: 值1, “字段2”: 值2}</td>
-<td>{“email”: “<a href="mailto:&#x61;&#64;&#x62;&#46;&#99;&#111;&#109;">&#x61;&#64;&#x62;&#46;&#99;&#111;&#109;</a>“, “age”: 25}</td>
+<td>{“email”: “<a href="mailto:&#x61;&#x40;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#x61;&#x40;&#98;&#x2e;&#99;&#x6f;&#x6d;</a>“, “age”: 25}</td>
 </tr>
 <tr>
 <td><strong>str 单值</strong></td>
@@ -2552,71 +2566,71 @@ if __name__ == &quot;__main__&quot;:
 <li>Agent 输出回复及审计日志，等待下一轮输入，输入 quit&#x2F;exit&#x2F;退出 结束。</li>
 </ol>
 <pre><code class="mermaid">graph TD
-    %% --- 样式定制 ---
-    classDef intent fill:#3498db,color:white,stroke:#2980b9,rx:5,ry:5;
-    classDef decision fill:#f1c40f,stroke:#f39c12,stroke-width:2px;
-    classDef tool fill:#e67e22,color:white,stroke:#d35400;
-    classDef audit fill:#2ecc71,color:white,stroke:#27ae60;
-    classDef process fill:#9b59b6,color:white,stroke:#8e44ad;
-    classDef endNode fill:#e74c3c,color:white,stroke:#c0392b;
+%% --- 样式定制 ---
+classDef intent fill:#3498db,color:white,stroke:#2980b9,rx:5,ry:5;
+classDef decision fill:#f1c40f,stroke:#f39c12,stroke-width:2px;
+classDef tool fill:#e67e22,color:white,stroke:#d35400;
+classDef audit fill:#2ecc71,color:white,stroke:#27ae60;
+classDef process fill:#9b59b6,color:white,stroke:#8e44ad;
+classDef endNode fill:#e74c3c,color:white,stroke:#c0392b;
 
-    %% --- 主流程 ---
-    Start([用户输入]) --&gt; AgentIntent{Agent 理解意图}:::intent
+%% --- 主流程 ---
+Start([用户输入]) --&gt; AgentIntent{Agent 理解意图}:::intent
 
-    %% --- 路径 1: 查订单 ---
-    subgraph QueryOrder [订单查询路径]
-        AgentIntent --&gt;|“查订单”| Q_Tool[query_order MC]:::tool
-        Q_Tool --&gt; Q_Audit[auth_inject + audit_log]:::audit
-        Q_Audit --&gt; Q_Server[&quot;Server: 查询订单&quot;]:::process
-        Q_Server --&gt; Q_Check{订单存在?}:::decision
-        Q_Check --&gt;|是| ReturnDetails[&quot;返回订单详情&quot;]:::process
-        Q_Check --&gt;|否| ReturnErr[&quot;ValueError: status=error&quot;]:::process
-    end
+%% --- 路径 1: 查订单 ---
+subgraph QueryOrder [订单查询路径]
+    AgentIntent --&gt;|&quot;查订单&quot;| Q_Tool[query_order MC]:::tool
+    Q_Tool --&gt; Q_Audit[auth_inject + audit_log]:::audit
+    Q_Audit --&gt; Q_Server[&quot;Server: 查询订单&quot;]:::process
+    Q_Server --&gt; Q_Check{订单存在?}:::decision
+    Q_Check --&gt;|&quot;是&quot;| ReturnDetails[&quot;返回订单详情&quot;]:::process
+    Q_Check --&gt;|&quot;否&quot;| ReturnErr[&quot;ValueError: status=error&quot;]:::process
+end
 
-    %% --- 路径 2: 单笔退款 ---
-    subgraph SingleRefund [单笔退款路径]
-        AgentIntent --&gt;|“单笔退款”| S_Q[query_order MC]:::tool
-        S_Q --&gt; S_Check{订单可退?}:::decision
-        S_Check --&gt;|否| End_NoRefund[&quot;告用户无法退款&quot;]:::process
-        S_Check --&gt;|是| S_Process[process_refund MC]:::tool
-        S_Process --&gt; S_HITL[&quot;HITL 中间件 (Client, before_model)&quot;]:::process
-        S_HITL --&gt; S_Approve{HITL 审核}:::decision 
-        S_Approve --&gt;|reject| End_Reject[&quot;拒绝退款 (附原因)&quot;]:::process
-        S_Approve --&gt;|approve| S_Auth[auth_inject + audit_log]:::audit
-        S_Auth --&gt; S_Amount{金额 &gt;= 500?}:::decision
-        
-        S_Amount --&gt;|否| S_Exec[直接执行退款]:::process
-        S_Amount --&gt;|是| S_Elicit[&quot;Elicitation (弹窗确认)&quot;]:::process
-        S_Elicit --&gt; S_UserChoice{用户选择?}:::decision
-        S_UserChoice --&gt;|确认退款| S_Exec
-        S_UserChoice --&gt;|取消退款| End_Cancel[&quot;退款取消&quot;]:::process
-        
-        S_Exec --&gt; S_Notif{需要短信通知?}:::decision
-        S_Notif --&gt;|是| S_Valid[&quot;validate_phone (本地工具)&quot;]:::process
-        S_Valid --&gt; S_SendSms[send_sms MC]:::tool
-        S_Notif --&gt;|否| OutputNode
-    end
-
-    %% --- 路径 3: 批量退款 ---
-    subgraph BulkRefund [批量退款路径]
-        AgentIntent --&gt;|“批量退款”| B_Tool[batch_refund MC]:::tool
-        B_Tool --&gt; B_Audit[auth_inject + audit_log]:::audit
-        B_Audit --&gt; B_Server[&quot;Server: 逐条处理 (金额&lt;=500 已签收)&quot;]:::process
-        B_Server --&gt; B_Log[ctx.report_progress / ctx.info]:::audit
-    end
-
-    %% --- 流程汇流与循环 ---
-    ReturnDetails --&gt; OutputNode
-    ReturnErr --&gt; OutputNode
-    End_NoRefund --&gt; OutputNode
-    End_Reject --&gt; OutputNode
-    End_Cancel --&gt; OutputNode
-    S_SendSms --&gt; OutputNode
-    B_Log --&gt; OutputNode
+%% --- 路径 2: 单笔退款 ---
+subgraph SingleRefund [单笔退款路径]
+    AgentIntent --&gt;|&quot;单笔退款&quot;| S_Q[query_order MC]:::tool
+    S_Q --&gt; S_Check{订单可退?}:::decision
+    S_Check --&gt;|&quot;否&quot;| End_NoRefund[&quot;告用户无法退款&quot;]:::process
+    S_Check --&gt;|&quot;是&quot;| S_Process[process_refund MC]:::tool
+    S_Process --&gt; S_HITL[&quot;HITL 中间件 (Client, before_model)&quot;]:::process
+    S_HITL --&gt; S_Approve{HITL 审核}:::decision 
+    S_Approve --&gt;|&quot;reject&quot;| End_Reject[&quot;拒绝退款 (附原因)&quot;]:::process
+    S_Approve --&gt;|&quot;approve&quot;| S_Auth[auth_inject + audit_log]:::audit
+    S_Auth --&gt; S_Amount{金额 &gt;= 500?}:::decision
     
-    OutputNode[输出回复]:::intent --&gt; Continue{继续对话?}:::decision
-    Continue --&gt;|是| AgentIntent
-    Continue --&gt;|退出| End_Final[&quot;结束&quot;]:::endNode
+    S_Amount --&gt;|&quot;否&quot;| S_Exec[直接执行退款]:::process
+    S_Amount --&gt;|&quot;是&quot;| S_Elicit[&quot;Elicitation (弹窗确认)&quot;]:::process
+    S_Elicit --&gt; S_UserChoice{用户选择?}:::decision
+    S_UserChoice --&gt;|&quot;确认退款&quot;| S_Exec
+    S_UserChoice --&gt;|&quot;取消退款&quot;| End_Cancel[&quot;退款取消&quot;]:::process
+    
+    S_Exec --&gt; S_Notif{需要短信通知?}:::decision
+    S_Notif --&gt;|&quot;是&quot;| S_Valid[&quot;validate_phone (本地工具)&quot;]:::process
+    S_Valid --&gt; S_SendSms[send_sms MC]:::tool
+    S_Notif --&gt;|&quot;否&quot;| OutputNode
+end
+
+%% --- 路径 3: 批量退款 ---
+subgraph BulkRefund [批量退款路径]
+    AgentIntent --&gt;|&quot;批量退款&quot;| B_Tool[batch_refund MC]:::tool
+    B_Tool --&gt; B_Audit[auth_inject + audit_log]:::audit
+    B_Audit --&gt; B_Server[&quot;Server: 逐条处理&quot;]:::process
+    B_Server --&gt; B_Log[ctx.report_progress / ctx.info]:::audit
+end
+
+%% --- 流程汇流与循环 ---
+ReturnDetails --&gt; OutputNode
+ReturnErr --&gt; OutputNode
+End_NoRefund --&gt; OutputNode
+End_Reject --&gt; OutputNode
+End_Cancel --&gt; OutputNode
+S_SendSms --&gt; OutputNode
+B_Log --&gt; OutputNode
+
+OutputNode[输出回复]:::intent --&gt; Continue{继续对话?}:::decision
+Continue --&gt;|&quot;是&quot;| AgentIntent
+Continue --&gt;|&quot;退出&quot;| End_Final[&quot;结束&quot;]:::endNode
 </code></pre>
 <p><strong>order_server.py 代码：</strong></p>
 <pre><code class="python">&quot;&quot;&quot;
@@ -3187,7 +3201,7 @@ ORD-002、ORD-004 由于产品质量问题，请退款
       
         <a href="/2026/07/17/AI/LangChain/Runtime%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8EAgent%E4%B8%8A%E4%B8%8B%E6%96%87/" class="nav-link">
           <span class="nav-label">post.next</span>
-          <span class="nav-title">post</span>
+          <span class="nav-title">Runtime运行时与Agent上下文</span>
           <i class="iconfont icon-angle-right"></i>
         </a>
       

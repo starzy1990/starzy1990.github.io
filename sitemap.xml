@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2026/07/17/AI/LangChain/Runtime%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8EAgent%E4%B8%8A%E4%B8%8B%E6%96%87/</loc>
+    
+    <lastmod>2026-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2026/07/17/AI/LangChain/Guardrails%E5%AE%89%E5%85%A8%E6%8A%A4%E6%A0%8F/</loc>
+    
+    <lastmod>2026-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2026/07/17/AI/LangChain/Model-Context-Protocol%EF%BC%88MCP%EF%BC%89%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE/</loc>
+    
+    <lastmod>2026-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2026/07/17/AI/LangChain/%E4%BA%BA%E6%9C%BA%E5%8D%8F%E5%90%8C-Human-in-the-loop/</loc>
+    
+    <lastmod>2026-07-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/2026/07/16/AI/Agent-Loop/Agent-Loop%E4%BA%94%E5%A4%A7%E6%9E%84%E5%BB%BA%E5%9D%97%E5%92%8C%E8%AE%B0%E5%BF%86%E5%B1%82/</loc>
     
     <lastmod>2026-07-20</lastmod>
@@ -47,7 +83,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/05/video/AE/AE/</loc>
+    <loc>http://example.com/2022/10/05/video/PR/PR/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -56,7 +92,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/05/video/PR/PR/</loc>
+    <loc>http://example.com/2022/10/05/video/AE/AE/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -146,7 +182,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2026/06/30/interview/Flink/Table%E5%92%8CSQL%E4%BC%98%E5%8C%96/</loc>
+    <loc>http://example.com/2026/06/30/interview/Flink/Flink%E5%8F%8D%E5%8E%8B%E4%BC%98%E5%8C%96/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -155,7 +191,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2026/06/30/interview/Flink/Flink%E5%8F%8D%E5%8E%8B%E4%BC%98%E5%8C%96/</loc>
+    <loc>http://example.com/2026/06/30/interview/Flink/Table%E5%92%8CSQL%E4%BC%98%E5%8C%96/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -209,7 +245,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/</loc>
+    <loc>http://example.com/2022/10/03/docker/Docker%E7%89%88%E6%9C%AC%E4%B8%8E%E5%AE%89%E8%A3%85%E4%BB%8B%E7%BB%8D/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -218,7 +254,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/03/docker/Docker%E7%89%88%E6%9C%AC%E4%B8%8E%E5%AE%89%E8%A3%85%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>http://example.com/2022/10/03/dolphinScheduler/V3%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -308,7 +344,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/04/Hadoop/HDFS/hdfs-api/</loc>
+    <loc>http://example.com/2022/10/04/Hadoop/HDFS/HDFS/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -317,7 +353,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/04/Hadoop/HDFS/HDFS/</loc>
+    <loc>http://example.com/2022/10/04/Hadoop/HDFS/hdfs-api/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -398,15 +434,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8ESSE%E4%BA%8B%E4%BB%B6%E6%B5%81%E7%9A%84%E5%AE%8C%E6%95%B4%E7%9A%84%E5%89%8D%E5%90%8E%E7%AB%AF/</loc>
-    
-    <lastmod>2026-07-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8EOpenSandbox%E7%9A%84%E6%B2%99%E7%AE%B1%E5%90%8E%E7%AB%AF/</loc>
     
     <lastmod>2026-07-20</lastmod>
@@ -417,6 +444,15 @@
   
   <url>
     <loc>http://example.com/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8EHarness%E6%9E%B6%E6%9E%84%E7%9A%84ERP%E6%99%BA%E8%83%BD%E9%87%87%E8%B4%AD%E5%8A%A9%E6%89%8B%E9%A1%B9%E7%9B%AE/</loc>
+    
+    <lastmod>2026-07-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8ESSE%E4%BA%8B%E4%BB%B6%E6%B5%81%E7%9A%84%E5%AE%8C%E6%95%B4%E7%9A%84%E5%89%8D%E5%90%8E%E7%AB%AF/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -470,7 +506,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2026/06/15/AI/OpenClaw/OpenClaw%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>http://example.com/2026/06/15/AI/OpenClaw/OpenClaw-Skills%E6%8A%80%E8%83%BD/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -479,7 +515,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2026/06/15/AI/OpenClaw/OpenClaw-Skills%E6%8A%80%E8%83%BD/</loc>
+    <loc>http://example.com/2026/06/15/AI/OpenClaw/OpenClaw%E4%BB%8B%E7%BB%8D/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -515,7 +551,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%9E%B6%E6%9E%84/</loc>
+    <loc>http://example.com/2026/06/05/AI/OpenClaw/Agent%E5%92%8COpenClaw%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -524,7 +560,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2026/06/05/AI/OpenClaw/Agent%E5%92%8COpenClaw%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/</loc>
+    <loc>http://example.com/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%9E%B6%E6%9E%84/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -542,34 +578,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2026/07/17/AI/LangChain/Runtime%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8EAgent%E4%B8%8A%E4%B8%8B%E6%96%87/</loc>
-    
-    <lastmod>2026-07-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/2026/07/17/AI/LangChain/%E4%BA%BA%E6%9C%BA%E5%8D%8F%E5%90%8C-Human-in-the-loop/</loc>
-    
-    <lastmod>2026-07-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/2026/06/05/AI/LangChain/Models%E6%A8%A1%E5%9E%8B/</loc>
-    
-    <lastmod>2026-07-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/2026/07/17/AI/LangChain/Model-Context-Protocol%EF%BC%88MCP%EF%BC%89%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -588,15 +597,6 @@
   
   <url>
     <loc>http://example.com/2026/06/05/AI/LangChain/Agent%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86/</loc>
-    
-    <lastmod>2026-07-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/2026/07/17/AI/LangChain/Guardrails%E5%AE%89%E5%85%A8%E6%8A%A4%E6%A0%8F/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -659,7 +659,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Skill/</loc>
+    <loc>http://example.com/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%85%A5%E9%97%A8/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -668,7 +668,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%85%A5%E9%97%A8/</loc>
+    <loc>http://example.com/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Skill/</loc>
     
     <lastmod>2026-07-20</lastmod>
     
@@ -715,218 +715,218 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>http://example.com/tags/Hive/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/tags/azkaban/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Hadoop/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/superset/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/Hive/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/AI/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/DW/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/superset/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Go/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/Flink/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <loc>http://example.com/tags/AI/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/HBase/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/Hudi/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Linux/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Flink/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Hudi/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Kafka/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/dolphinScheduler/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/tez/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/Python/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Java/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/spark/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/scala/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <loc>http://example.com/tags/tez/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Python/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/docker/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/dolphinScheduler/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/zookeeper/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/scala/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Agent-Loop/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/LangChain/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Agent/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/Milvus/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/BI-superset/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Hermes-Agent/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Milvus/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/OpenClaw/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Hadoop-HDFS/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Tool-Git/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/BI-superset/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/video/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -934,155 +934,155 @@
 
   
   <url>
-    <loc>http://example.com/categories/AI/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/categories/DW/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Go/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/Flink/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <loc>http://example.com/categories/AI/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/HBase/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/categories/Hudi/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Linux/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/Flink/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/Hudi/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Kafka/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/categories/dolphinScheduler/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/categories/Tez/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/categories/python/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Java/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/interview/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/azkaban/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/scala/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <loc>http://example.com/categories/Tez/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/python/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/docker/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/categories/zookeeper/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/spark/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/BI/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <loc>http://example.com/categories/dolphinScheduler/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/zookeeper/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/scala/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Hadoop/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Tool/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/BI/</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/video/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

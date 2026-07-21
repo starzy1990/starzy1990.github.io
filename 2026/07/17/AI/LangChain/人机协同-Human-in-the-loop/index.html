@@ -62,7 +62,7 @@
     
     <title>
         
-            post | starzy
+            人机协同-Human-in-the-loop | starzy
         
     </title>
     
@@ -218,7 +218,7 @@
       <div class="post-meta">
         <span class="post-category">
           <i class="iconfont icon-folder"></i>
-          
+          <a class="category-link" href="/categories/AI/">AI</a>
         </span>
         <span class="post-date">
           <i class="iconfont icon-calendar"></i>
@@ -232,15 +232,28 @@
         
       </div>
       
-      <h1 class="article-title">post</h1>
+      <h1 class="article-title">人机协同-Human-in-the-loop</h1>
       
       
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
     </div>
   </header>
   
   <div class="article-content">
-    <p><a target="_blank" rel="noopener" href="https://cloud.fynote.com/share/d/HzIbcRwz">https://cloud.fynote.com/share/d/HzIbcRwz</a></p>
-<h1 id="Human-in-the-loop-介绍"><a href="#Human-in-the-loop-介绍" class="headerlink" title="Human-in-the-loop 介绍"></a>Human-in-the-loop 介绍</h1><p>Human-in-the-loop（HITL，人工参与循环&#x2F;人机协同&#x2F;人工审批&#x2F;人工介入&#x2F;人工审查）是一种在 AI Agent 执行关键操作时引入人工监督的机制。其核心理念很简单：有些操作不应该由 AI 独立完成。当模型提议执行涉及敏感数据的操作时——比如删除数据库记录、发送对外通知、执行资金交易——HITL 中间件可以暂停 Agent 的执行，等待真人做出决策后再继续。</p>
+    <h1 id="Human-in-the-loop-介绍"><a href="#Human-in-the-loop-介绍" class="headerlink" title="Human-in-the-loop 介绍"></a>Human-in-the-loop 介绍</h1><p>Human-in-the-loop（HITL，人工参与循环&#x2F;人机协同&#x2F;人工审批&#x2F;人工介入&#x2F;人工审查）是一种在 AI Agent 执行关键操作时引入人工监督的机制。其核心理念很简单：有些操作不应该由 AI 独立完成。当模型提议执行涉及敏感数据的操作时——比如删除数据库记录、发送对外通知、执行资金交易——HITL 中间件可以暂停 Agent 的执行，等待真人做出决策后再继续。</p>
 <p>HITL在LangChain中是通过Middleware（中间件）和LangGraph的 Persistence（持久化） 两层机制配合实现的。中间件负责在工具调用前拦截并发出中断信号（interrupt），持久化层则负责保存 Agent 在中断点的完整状态，使得执行可以在等待数小时甚至数天后无缝恢复。这两者缺一不可：没有中间件就无法主动中断，没有持久化就无法安全恢复。</p>
 <p>HITL 的典型适用场景包括：</p>
 <table>
@@ -430,7 +443,7 @@ middleware=[
 </tr>
 </tbody></table>
 <p>以上决策类型的设置，需要在创建 Agent 时引入 HumanInTheLoopMiddleware，并通过 interrupt_on 参数为每个工具配置中断策略。示例代码如下：</p>
-<pre><code>agent = create_agent(
+<pre><code class="python">agent = create_agent(
     model=&quot;gpt-5.4&quot;,
     tools=[write_file, execute_sql, read_data],
     middleware=[
@@ -580,7 +593,7 @@ else:
 
 <h2 id="响应中断信息"><a href="#响应中断信息" class="headerlink" title="响应中断信息"></a>响应中断信息</h2><p>当 Agent 执行被中断后，需要获取中断详情并做出决策，然后通过 Command(resume&#x3D;…) 恢复执行。如下介绍针对每种决策类型如何进行响应。</p>
 <h3 id="批准执行（apporve）"><a href="#批准执行（apporve）" class="headerlink" title="批准执行（apporve）"></a>批准执行（apporve）</h3><p>当人工审核确认工具调用无误时，使用 approve 决策原样执行，回复的Command格式如下：</p>
-<pre><code>from langgraph.types import Command
+<pre><code class="python">from langgraph.types import Command
 agent.invoke(
     Command(
         resume={
@@ -593,7 +606,7 @@ agent.invoke(
 </code></pre>
 <p>关于批准执行的案例参考“拒绝并反馈（reject）”部分。</p>
 <h3 id="拒绝并反馈（reject）"><a href="#拒绝并反馈（reject）" class="headerlink" title="拒绝并反馈（reject）"></a>拒绝并反馈（reject）</h3><p>当工具调用不当时，使用 reject 决策拒绝执行，并通过 message 提供反馈，回复的Command格式如下：</p>
-<pre><code>agent.invoke(
+<pre><code class="python">agent.invoke(
     Command(
         resume={
             &quot;decisions&quot;: [
@@ -610,7 +623,7 @@ agent.invoke(
 </code></pre>
 <p>拒绝消息（message）会被添加到对话历史中，帮助 Agent 理解为什么操作被拒绝以及应该如何调整。</p>
 <p>如下案例模拟工单管理系统，对于删除用户操作进行人工介入处理,用户可以接受也可以拒绝删除用户操作。</p>
-<pre><code>&quot;&quot;&quot;
+<pre><code class="python">&quot;&quot;&quot;
 案例：模拟工单管理系统，对于删除用户操作进行人工介入处理
 &quot;&quot;&quot;
 
@@ -718,10 +731,13 @@ else:
 </code></pre>
 <p>以上代码中涉及到中断进行人工介入时，首先输出中断的信息，然后获取到工具对应允许的决策类型，让用户输入这些决策类型中的一种，最后根据用户输入的决策类型生成恢复执行的命令并执行，得到最终大模型回复的结果。</p>
 <p>如果用户选择“approve”，输出结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720161626821.png" alt="image-20260720161626821"></p>
 <p>如果用户选择“reject”，需要输入拒绝原因，输出结果如下：</p>
-<p>注意：当用户选择“reject”后，在对话上下文中也返回了ToolMessage，但ToolMessage中会多一个“status&#x3D;error”的信息，说明工具根本没有执行，并且返回的该Message中会显示拒绝工具执行的消息，这也是“reject”与“respond”的主要区别。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720161718153.png" alt="image-20260720161718153"></p>
+<p>注意：当用户选择<code>reject</code>后，在对话上下文中也返回了ToolMessage，但ToolMessage中会多一个“status&#x3D;error”的信息，说明工具根本没有执行，并且返回的该Message中会显示拒绝工具执行的消息，这也是“reject”与“respond”的主要区别。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720163506067.png" alt="image-20260720163506067"></p>
 <h3 id="修改后执行（edit）"><a href="#修改后执行（edit）" class="headerlink" title="修改后执行（edit）"></a>修改后执行（edit）</h3><p>当工具参数需要微调时，使用 edit 决策提供修改后的参数：</p>
-<pre><code>agent.invoke(
+<pre><code class="python">agent.invoke(
     Command(
         resume={
             &quot;decisions&quot;: [
@@ -740,7 +756,7 @@ else:
 )
 </code></pre>
 <p>如下案例模拟电商运营后台，Agent执行过程中对一些商品按要求打 5 折，人工介入时修改商品参数和折扣参数再执行工具。</p>
-<pre><code>&quot;&quot;&quot;
+<pre><code class="python">&quot;&quot;&quot;
 案例：商品打折工具调用时人工介入修改参数
 &quot;&quot;&quot;
 
@@ -895,14 +911,16 @@ else:
     print(&quot;未触发中断，result:&quot;, result)
     print(f&quot;[Agent回复]: {result.value[&#39;messages&#39;][-1].content}&quot;)
 </code></pre>
-<p>以上代码在调用“batch_update_discount”工具时进行人工介入，当用户选择“edit”时，可以输入调用该工具的新的参数，进而调用工具时使用新的参数，最终得到结果：</p>
+<p>以上代码在调用 <strong>batch_update_discount</strong> 工具时进行人工介入，当用户选择 <strong>edit</strong> 时，可以输入调用该工具的新的参数，进而调用工具时使用新的参数，最终得到结果：</p>
+<img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720163701119.png" alt="image-20260720163701119" style="zoom:80%;" />
+
 <p>特别注意：</p>
 <ul>
-<li>对工具配置“edit”决策类型时，由于涉及到调用工具参数修改，所以需要在提示词中明确提示工具参数可能和模型预期参数不一致，否则模型不知道人为修改参数，导致模型产生”自我纠正”行为，一直重复调用工具。</li>
-<li>修改工具参数时应尽量保守，大幅改变原始参数可能导致模型重新评估自己的策略，进而多次执行工具或产生不可预期的行为（推理链路会出错），所以 edit 更适合做参数微调（如改折扣率、改时间范围、改分页数量等），而不是功能替换。</li>
+<li>对工具配置 <strong>edit</strong> 决策类型时，由于涉及到调用工具参数修改，所以需要在提示词中明确提示工具参数可能和模型预期参数不一致，否则模型不知道人为修改参数，导致模型产生”自我纠正”行为，一直重复调用工具。</li>
+<li>修改工具参数时应尽量保守，大幅改变原始参数可能导致模型重新评估自己的策略，进而多次执行工具或产生不可预期的行为（推理链路会出错），所以 <strong>edit</strong> 更适合做参数微调（如改折扣率、改时间范围、改分页数量等），而不是功能替换。</li>
 </ul>
 <h3 id="直接回复（respond）"><a href="#直接回复（respond）" class="headerlink" title="直接回复（respond）"></a>直接回复（respond）</h3><p>当工具本身就是一个”询问用户”的占位工具时，使用 respond 决策直接返回人工回复，工具本身不会被调用：</p>
-<pre><code>agent.invoke(
+<pre><code class="python">agent.invoke(
     Command(
         resume={
             &quot;decisions&quot;: [
@@ -918,7 +936,7 @@ else:
 )
 </code></pre>
 <p>如下案例模拟客服场景，Agent中有一个ask_customer工具本身不做任何事，专门等真人来回复确认的消息，用户使用 respond 直接提供回复答案，ask_customer工具中逻辑不会被调用。</p>
-<pre><code>&quot;&quot;&quot;
+<pre><code class="python">&quot;&quot;&quot;
 案例：respond 决策 —— 直接返回人工回复内容
 &quot;&quot;&quot;
 
@@ -928,7 +946,7 @@ from langchain.tools import tool
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.types import Command
 
-from init_llm import deepseek_llm
+from utils.llm_util import deepseek_llm
 
 
 # ===== 1. 定义工具 =====
@@ -1047,7 +1065,8 @@ while result.interrupts:
 
 print(f&quot;[Agent回复]: {result.value[&#39;messages&#39;][-1].content}&quot;)
 </code></pre>
-<p>以上代码运行后，Agent会与用户进行一次&#x2F;多次信息确认，这个过程调用ask_customer工具，代码中调用该工具时进行人工介入，要求用户只能“respond”进行信息确认，从而达到人工直接回复模型信息的效果。由于可能存在多次信息确认所以代码中使用“while result.interrupts”。</p>
+<p>以上代码运行后，Agent会与用户进行一次&#x2F;多次信息确认，这个过程调用ask_customer工具，代码中调用该工具时进行人工介入，要求用户只能 <strong>respond</strong> 进行信息确认，从而达到人工直接回复模型信息的效果。由于可能存在多次信息确认所以代码中使用 <strong>while result.interrupts</strong>。</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720164458476.png" alt="image-20260720164458476"></p>
 <p>注意：</p>
 <ul>
 <li>代码运行中，如果提示没有 respond这种决策类型从而报错，要升级langchain，执行命令：pip install –upgrade langchain</li>
@@ -1055,10 +1074,12 @@ print(f&quot;[Agent回复]: {result.value[&#39;messages&#39;][-1].content}&quot;
 <li>Agent中LLM本身就具备反问用户，让用户输入内容确认的能力，那为什么还需要respond决策类型？实际上respond适合结构化工作流中固定的”需要外部输入”节点，而非让Agent自由发挥反问的场景（例如退款审批流程中确认退款金额，如让Agent自由发挥反问，可能根本不会反问确认而直接执行）。此外，Agent本身反问是“对话层面”的：Agent 输出一段文本→等待新用户消息→重新推理。respond 是把人工输入作为工具执行链中的一个环节注入，人工回复会以 ToolMessage 的形式返回给 Agent，Agent在同一条推理链上继续，而不是跳出工具执行流程重新开始一轮对话。</li>
 </ul>
 <h3 id="批量响应决策"><a href="#批量响应决策" class="headerlink" title="批量响应决策"></a>批量响应决策</h3><p>在Agent中如果对多个工具设置了中断，且某些情况如果多个设置中断的工具被同时调用且被中断时，可以看到输出的中断信息如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720164817418.png" alt="image-20260720164817418"></p>
 <p>响应中断时Command(resume&#x3D;…) 形式如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720165127132.png" alt="image-20260720165127132"></p>
 <p>即：每个工具中断都需要一个独立的决策，且决策的顺序必须与中断请求中的操作顺序一致。</p>
 <p>如下案例中模拟用户报告订单服务故障，Agent调用多个工具进行重启订单服务、发送通知到运维群、更新重试配置操作。该案例中Agent在一次响应中调用多个工具，全部触发 HITL 中断，人工逐个审批后，通过一一对应的决策列表恢复执行。</p>
-<pre><code>&quot;&quot;&quot;
+<pre><code class="python">&quot;&quot;&quot;
 案例：多工具同时中断 —— 批量操作审批
 
 &quot;&quot;&quot;
@@ -1239,8 +1260,11 @@ else:
     print(f&quot;\n[Agent 回复]: {result.value[&#39;messages&#39;][-1].content}&quot;)
 </code></pre>
 <p>该案例运行后同时触发三个工具中断：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720175811286.png" alt="image-20260720175811286"></p>
 <p>人工分别进行确认后，统一组织中断响应的Command对象如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720180347920.png" alt="image-20260720180347920"></p>
 <p>最终调用结果：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720180154658.png" alt="image-20260720180154658"></p>
 <h2 id="综合案例-文件管理助手"><a href="#综合案例-文件管理助手" class="headerlink" title="综合案例-文件管理助手"></a>综合案例-文件管理助手</h2><p>本案例构建了一个智能文件管理助手，涵盖 HumanInTheLoopMiddleware 的全部四种决策类型（approve &#x2F; edit &#x2F; reject &#x2F; respond），以及多工具同时中断场景。</p>
 <p>涉及工具：</p>
 <ul>
@@ -1260,7 +1284,7 @@ else:
 <li>输入’exit’&#x2F;‘quit’&#x2F;‘q’退出</li>
 </ol>
 <p>完整代码如下：</p>
-<pre><code>&quot;&quot;&quot;
+<pre><code class="python">&quot;&quot;&quot;
 HITL 综合案例：文件管理助手 —— 四种决策类型全覆盖
 &quot;&quot;&quot;
 
@@ -1579,18 +1603,11 @@ if __name__ == &quot;__main__&quot;:
     main()
 </code></pre>
 <p>以上代码运行后，输入，可以验证HITL：</p>
-<pre><code>ls
-查询所有文件有哪些？
-查看readme.txt文件中是什么内容？
-创建hello.py文件，写入&quot;hello zs&quot;
-删除文件data.csv
-给我覆盖文件内容
-把readme.txt 备份为readme_backup.txt ,同时删除config.json文件
-</code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720181530052.png" alt="image-20260720181530052"></p>
 <h1 id="流式处理中的人机协同"><a href="#流式处理中的人机协同" class="headerlink" title="流式处理中的人机协同"></a>流式处理中的人机协同</h1><p>HITL 可以与流式处理（streaming）结合，实时获取 Agent 的执行进度和中断信息。使用 stream_mode&#x3D;[‘updates’, ‘messages’] 配合 version&#x3D;”v2” 可以同时获取 Agent 状态更新和 LLM 的 token 输出。</p>
 <p>如下案例中演示Agent流式输出与HITL结合。该案例中有对应的工具需要进行中断，在流式回复中进行中断及恢复任务。</p>
 <p>代码如下：</p>
-<pre><code>&quot;&quot;&quot;
+<pre><code class="python">&quot;&quot;&quot;
 案例：流式处理与 HITL 结合
 &quot;&quot;&quot;
 
@@ -1750,6 +1767,7 @@ while True:
 发送通知：全员放假
 给我发送通知：全员不放假，同时发送邮件，内容为：带伞
 </code></pre>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720194715098.png" alt="image-20260720194715098"></p>
 <p>以上代码需要注意：</p>
 <ul>
 <li><p>代码中设置流式输出模式为“updates”和“messages”，中断消息会出现在“updates”类型的消息中，字段为“__interrupt__”，如下：</p>
@@ -1783,7 +1801,7 @@ while True:
 <li>编写动态审批条件。当获取到AIMessage中要调用需要人工介入的工具时，根据业务规则来判断是否需要中断。</li>
 <li>调用interrupt()发出中断并处理返回值。interrupt() 是LangGraph 的原语，调用后图执行暂停，外部通过 Command(resume&#x3D;…) 恢复。传入的参数格式决定恢复后拿到什么。例如：</li>
 </ol>
-<pre><code>review_result = interrupt({
+<pre><code class="python">review_result = interrupt({
     &quot;action_requests&quot;: [{
         &quot;name&quot;: 工具名称,
         &quot;args&quot;: 工具参数,
@@ -1834,7 +1852,7 @@ decision = review_result[&quot;decisions&quot;][0]
 </tbody></table>
 <p>案例：当退款金额大于500时触发人工介入确认，否则自动进行退款。</p>
 <p>如下代码中对“process_refund”工具在after_model中自定义HITL，当退款金额大于500时触发人工介入确认，否则直接执行工具。</p>
-<pre><code>&quot;&quot;&quot;
+<pre><code class="python">&quot;&quot;&quot;
 案例：自定义 HITL 逻辑 —— 按金额阈值动态人工介入
 功能：退款金额 &gt; 500 才触发人工介入确认；≤ 500 自动放行。
 &quot;&quot;&quot;
@@ -2074,13 +2092,14 @@ while True:
             # 继续内层循环，用 Command(resume=...) 调用 agent.stream
 </code></pre>
 <p>以上代码运行后，进行如下对话，可以看到工具动态进行人工介入：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720195053199.png" alt="image-20260720195053199"></p>
 <p>以上代码注意如下几点：</p>
 <ol>
 <li>@after_model 在 LLM 生成工具调用之后、工具实际执行之前运行。</li>
 <li>interrupt() 是 LangGraph 原语，在这里调用会暂停整个图的执行，返回值的格式与 HumanInTheLoopMiddleware 完全一致，这样 Command(resume&#x3D;{…}) 可以无缝兼容。</li>
 <li>组织的interrupt中的形式要符合HumanInTheLoopMiddleware中间件中断信息，形式如下：</li>
 </ol>
-<pre><code>interrupt({
+<pre><code class="python">interrupt({
     &quot;action_requests&quot;: [{
         &quot;name&quot;: 工具名字,
         &quot;args&quot;: 工具参数,
@@ -2110,7 +2129,7 @@ while True:
         <a href="/2026/07/17/AI/LangChain/Guardrails%E5%AE%89%E5%85%A8%E6%8A%A4%E6%A0%8F/" class="nav-link">
           <i class="iconfont icon-angle-left"></i>
           <span class="nav-label">post.previous</span>
-          <span class="nav-title">post</span>
+          <span class="nav-title">Guardrails 安全护栏</span>
         </a>
       
     </div>

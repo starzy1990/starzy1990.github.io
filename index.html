@@ -316,7 +316,7 @@ Create...
         <div class="post-meta">
           <span class="post-category">
             <i class="iconfont icon-folder"></i>
-            
+            <a class="category-link" href="/categories/AI/">AI</a>
           </span>
           <span class="post-date">
             <i class="iconfont icon-calendar"></i>
@@ -325,7 +325,7 @@ Create...
         </div>
         
         <h2 class="post-title">
-          <a href="/2026/07/17/AI/LangChain/Model-Context-Protocol%EF%BC%88MCP%EF%BC%89%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE/">post</a>
+          <a href="/2026/07/17/AI/LangChain/Model-Context-Protocol%EF%BC%88MCP%EF%BC%89%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE/">Model-Context-Protocol（MCP）模型上下文协议</a>
         </h2>
         
         <div class="post-excerpt">
@@ -339,6 +339,20 @@ MCP...
         
         <div class="post-footer">
           
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
           <a href="/2026/07/17/AI/LangChain/Model-Context-Protocol%EF%BC%88MCP%EF%BC%89%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE/" class="read-more">
             阅读更多
             <i class="iconfont icon-arrowright"></i>
@@ -354,7 +368,7 @@ MCP...
         <div class="post-meta">
           <span class="post-category">
             <i class="iconfont icon-folder"></i>
-            
+            <a class="category-link" href="/categories/AI/">AI</a>
           </span>
           <span class="post-date">
             <i class="iconfont icon-calendar"></i>
@@ -363,18 +377,54 @@ MCP...
         </div>
         
         <h2 class="post-title">
-          <a href="/2026/07/17/AI/LangChain/Runtime%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8EAgent%E4%B8%8A%E4%B8%8B%E6%96%87/">post</a>
+          <a href="/2026/07/17/AI/LangChain/Runtime%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8EAgent%E4%B8%8A%E4%B8%8B%E6%96%87/">Runtime运行时与Agent上下文</a>
         </h2>
         
         <div class="post-excerpt">
           
-            https://cloud.fynote.com/share/d/HzIHUzVPE
+            Runtime 运行时LangChain的create_agent底层运行在LangGraph的Runtime之上。当你创建一个Agent并调用它时，LangGraph会为这次调用创建一个Runtime对象，它将贯穿整个 Agent 生命周期的各个环节。
+Runtime 对象承载了以下几类信息：
 
+
+
+组件
+类型
+说明
+
+
+
+Context
+静态配置
+用户ID、数据库连接、API密钥等每次调用传入的依赖项
+
+
+Store
+长期记忆
+BaseStore 实例，用于跨会话持久化用户偏好、历史数据
+
+
+Stream Writer
+流式输出
+用于通过”custom” 流模式向客户端推送自定义信息...
           
         </div>
         
         <div class="post-footer">
           
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
           <a href="/2026/07/17/AI/LangChain/Runtime%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8EAgent%E4%B8%8A%E4%B8%8B%E6%96%87/" class="read-more">
             阅读更多
             <i class="iconfont icon-arrowright"></i>
@@ -390,7 +440,7 @@ MCP...
         <div class="post-meta">
           <span class="post-category">
             <i class="iconfont icon-folder"></i>
-            
+            <a class="category-link" href="/categories/AI/">AI</a>
           </span>
           <span class="post-date">
             <i class="iconfont icon-calendar"></i>
@@ -399,18 +449,40 @@ MCP...
         </div>
         
         <h2 class="post-title">
-          <a href="/2026/07/17/AI/LangChain/Guardrails%E5%AE%89%E5%85%A8%E6%8A%A4%E6%A0%8F/">post</a>
+          <a href="/2026/07/17/AI/LangChain/Guardrails%E5%AE%89%E5%85%A8%E6%8A%A4%E6%A0%8F/">Guardrails 安全护栏</a>
         </h2>
         
         <div class="post-excerpt">
           
-            https://cloud.fynote.com/share/d/AzIccRxAB
+            Guardrails概述Guardrails字面意义是“护栏”，表示规则、限制、保护措施。LangChain中Guardrails（安全护栏）是构建生产级 AI Agent 时不可或缺的一层防御机制，它的核心职责是在 Agent 执行的关键节点上对内容进行验证和过滤，确保 Agent 的行为始终处于可控范围内。
+在实际业务中，Guardrails 最常见的应用场景包括：
 
+防止敏感信息（PII）泄露
+检测并阻断提示注入攻击
+拦截不当或有害内容
+强制执行业务规则与合规要求
+验证输出质量与准确性
+
+LangChain 的 Guardrails 并非一个独立的模块，而是通过 Middlewar...
           
         </div>
         
         <div class="post-footer">
           
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
           <a href="/2026/07/17/AI/LangChain/Guardrails%E5%AE%89%E5%85%A8%E6%8A%A4%E6%A0%8F/" class="read-more">
             阅读更多
             <i class="iconfont icon-arrowright"></i>
@@ -426,7 +498,7 @@ MCP...
         <div class="post-meta">
           <span class="post-category">
             <i class="iconfont icon-folder"></i>
-            
+            <a class="category-link" href="/categories/AI/">AI</a>
           </span>
           <span class="post-date">
             <i class="iconfont icon-calendar"></i>
@@ -435,19 +507,32 @@ MCP...
         </div>
         
         <h2 class="post-title">
-          <a href="/2026/07/17/AI/LangChain/%E4%BA%BA%E6%9C%BA%E5%8D%8F%E5%90%8C-Human-in-the-loop/">post</a>
+          <a href="/2026/07/17/AI/LangChain/%E4%BA%BA%E6%9C%BA%E5%8D%8F%E5%90%8C-Human-in-the-loop/">人机协同-Human-in-the-loop</a>
         </h2>
         
         <div class="post-excerpt">
           
-            https://cloud.fynote.com/share/d/HzIbcRwz
-Human-in-the-loop 介绍Human-in-the-loop（HITL，人工参与循环&#x2F;人机协同&#x2F;人工审批&#x2F;人工介入&#x2F;人工审查）是一种在 AI Agent 执行关键操作时引入人工监督的机制。其核心理念很简单：有些操作不应该由 AI 独立完成。当模型提议执行涉及敏感数据的操作时——比如删除数据库记录、发送对外通知、执行资金交易——HITL 中间件可以暂停 Agent 的执行，等待真人做出决策后再继续。
-HITL在LangChain中是通过Middlewar...
+            Human-in-the-loop 介绍Human-in-the-loop（HITL，人工参与循环&#x2F;人机协同&#x2F;人工审批&#x2F;人工介入&#x2F;人工审查）是一种在 AI Agent 执行关键操作时引入人工监督的机制。其核心理念很简单：有些操作不应该由 AI 独立完成。当模型提议执行涉及敏感数据的操作时——比如删除数据库记录、发送对外通知、执行资金交易——HITL 中间件可以暂停 Agent 的执行，等待真人做出决策后再继续。
+HITL在LangChain中是通过Middleware（中间件）和LangGraph的 Persistence（持久化） 两层机制配合实...
           
         </div>
         
         <div class="post-footer">
           
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
           <a href="/2026/07/17/AI/LangChain/%E4%BA%BA%E6%9C%BA%E5%8D%8F%E5%90%8C-Human-in-the-loop/" class="read-more">
             阅读更多
             <i class="iconfont icon-arrowright"></i>

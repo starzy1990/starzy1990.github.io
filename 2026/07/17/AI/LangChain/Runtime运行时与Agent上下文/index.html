@@ -62,7 +62,7 @@
     
     <title>
         
-            post | starzy
+            Runtime运行时与Agent上下文 | starzy
         
     </title>
     
@@ -218,7 +218,7 @@
       <div class="post-meta">
         <span class="post-category">
           <i class="iconfont icon-folder"></i>
-          
+          <a class="category-link" href="/categories/AI/">AI</a>
         </span>
         <span class="post-date">
           <i class="iconfont icon-calendar"></i>
@@ -232,14 +232,861 @@
         
       </div>
       
-      <h1 class="article-title">post</h1>
+      <h1 class="article-title">Runtime运行时与Agent上下文</h1>
       
       
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent/">Agent</a>
+      </span>
+    
+  </div>
+
     </div>
   </header>
   
   <div class="article-content">
-    <p><a target="_blank" rel="noopener" href="https://cloud.fynote.com/share/d/HzIHUzVPE">https://cloud.fynote.com/share/d/HzIHUzVPE</a></p>
+    <h2 id="Runtime-运行时"><a href="#Runtime-运行时" class="headerlink" title="Runtime 运行时"></a>Runtime 运行时</h2><p>LangChain的create_agent底层运行在LangGraph的Runtime之上。当你创建一个Agent并调用它时，LangGraph会为这次调用创建一个Runtime对象，它将贯穿整个 Agent 生命周期的各个环节。</p>
+<p>Runtime 对象承载了以下几类信息：</p>
+<table>
+<thead>
+<tr>
+<th><strong>组件</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Context</strong></td>
+<td>静态配置</td>
+<td>用户ID、数据库连接、API密钥等每次调用传入的依赖项</td>
+</tr>
+<tr>
+<td><strong>Store</strong></td>
+<td>长期记忆</td>
+<td>BaseStore 实例，用于跨会话持久化用户偏好、历史数据</td>
+</tr>
+<tr>
+<td><strong>Stream Writer</strong></td>
+<td>流式输出</td>
+<td>用于通过”custom” 流模式向客户端推送自定义信息</td>
+</tr>
+<tr>
+<td><strong>Execution Info</strong></td>
+<td>执行身份</td>
+<td>当前执行的线程ID、运行 ID、重试次数等信息</td>
+</tr>
+<tr>
+<td><strong>Server Info</strong></td>
+<td>服务端元数据</td>
+<td>在LangGraph Server上运行时携带 Assistant ID、认证用户等</td>
+</tr>
+</tbody></table>
+<p>在 LangGraph Server 上运行时携带 Assistant ID、认证用户等</p>
+<p>Runtime本质上是一种依赖注入（Dependency Injection）机制,会在调用时将这些依赖注入到工具和中间件中，使代码更可测试、更可复用。</p>
+<h2 id="定义和传递Context"><a href="#定义和传递Context" class="headerlink" title="定义和传递Context"></a>定义和传递Context</h2><p>在创建Agent时，通过context_schema参数定义上下文的类型结构。调用Agent时，通过context参数传入具体的上下文实例。</p>
+<p>如下案例演示调用Agent时通过context参数传入上下文内容：</p>
+<pre><code>from dataclasses import dataclass
+
+from langchain.agents import create_agent
+from langchain.tools import tool, ToolRuntime
+
+from init_llm import deepseek_llm
+
+
+# 第一步：定义上下文的类型结构
+@dataclass
+class Context:
+    &quot;&quot;&quot;每次 Agent 调用时传入的静态配置信息&quot;&quot;&quot;
+    user_name: str
+    user_role: str          # 用户角色，如 &quot;admin&quot; / &quot;viewer&quot;
+
+
+# 第二步：定义工具（模拟订单查询和用户信息获取）
+@tool
+def query_my_orders(runtime: ToolRuntime[Context]) -&gt; str:
+    &quot;&quot;&quot;查询当前用户的订单列表。当用户想了解自己的订单状态时使用此工具。&quot;&quot;&quot;
+    user_name = runtime.context.user_name
+    print(f&quot;[工具内部] 查询用户 {user_name} 的订单...&quot;)
+    # 模拟数据库查询
+    return f&quot;用户 {user_name} 的订单：ORD-1001（已发货）、ORD-1002（待付款）&quot;
+
+
+@tool
+def get_user_profile(runtime: ToolRuntime[Context]) -&gt; str:
+    &quot;&quot;&quot;获取当前用户的个人档案信息，包括会员等级和积分。&quot;&quot;&quot;
+    user_name = runtime.context.user_name
+    user_role = runtime.context.user_role
+    return f&quot;用户名：{user_name}，角色：{user_role}，会员等级：VIP，积分：1280&quot;
+
+
+# 第三步：创建 Agent 时声明 context_schema
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[query_my_orders, get_user_profile],
+    context_schema=Context,  # 声明该 Agent 期望接收的上下文类型
+    system_prompt=&quot;你是一个电商客服助手，帮助用户查询订单和个人信息。&quot;,
+)
+
+
+# 第四步：调用 Agent 时传入实际的上下文数据
+result = agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;帮我查一下我的订单状态&quot;}]},
+    context=Context(
+        user_name=&quot;张三&quot;,
+        user_role=&quot;customer&quot;,
+    ),
+)
+print(result[&quot;messages&quot;][-1].content)
+
+print(&quot;=&quot; * 50)
+result2 = agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;查看我的个人档案&quot;}]},
+    context=Context(
+        user_name=&quot;李四&quot;,
+        user_role=&quot;admin&quot;,
+    ),
+)
+print(result2[&quot;messages&quot;][-1].content)
+</code></pre>
+<p>以上代码注意：</p>
+<ol>
+<li>代码中是通过Python的dataclass进行定义上下文对象，Dataclass是Python 3.7引入的一个装饰器，用于简化数据存储类的定义。也可以使用Pydantic 模型来定义，Pydantic使用 Python 的 Pydantic 库定义强类型数据模型,支持复杂嵌套结构。还可以直接传入dict这种K,V格式的数据作为context。</li>
+<li>在create_agent中使用context_schema参数来指定Context定义的类型，如果context是dict类型可以省略该参数。</li>
+<li>同一个Agent实例可以在不同调用中传入不同的 Context，这在多租户场景中（每个用户有不同的参数、权限等）十分关键。</li>
+<li>Context 的内容在一次调用内是稳定的，不应被 Agent 在执行过程中修改——它是只读的静态配置。</li>
+</ol>
+<h2 id="在工具内部访问Runtime"><a href="#在工具内部访问Runtime" class="headerlink" title="在工具内部访问Runtime"></a>在工具内部访问Runtime</h2><p>在工具中访问Runtime，通过在函数签名中声明ToolRuntime类型参数实现。</p>
+<p>如下案例模拟电商客服系统中根据客服偏好编写邮件并发送。</p>
+<pre><code>from dataclasses import dataclass
+
+from langchain.agents import create_agent
+from langchain.tools import tool, ToolRuntime
+from langgraph.store.memory import InMemoryStore
+
+from init_llm import deepseek_llm
+
+
+# 定义上下文类型
+@dataclass
+class Context:
+    &quot;&quot;&quot;每次 Agent 调用时传入的用户相关信息&quot;&quot;&quot;
+    user_id: str
+    user_name: str
+
+
+# 定义工具：在签名中使用 ToolRuntime[Context] 来注入 Runtime
+@tool
+def fetch_user_preferences(runtime: ToolRuntime[Context]) -&gt; str:
+    &quot;&quot;&quot;获取当前用户的邮件偏好设置（来自长期记忆 Store）。
+
+    当需要了解用户希望在邮件中使用什么语气、什么格式时调用此工具。
+    &quot;&quot;&quot;
+    user_id = runtime.context.user_id
+
+    # 尝试从 Store（长期记忆）中读取已有偏好
+    if runtime.store is not None:
+        memory = runtime.store.get((&quot;email_preferences&quot;,), user_id)
+        if memory is not None:
+            prefs = memory.value
+            return (
+                f&quot;用户 {runtime.context.user_name} 的邮件偏好：&quot;
+                f&quot;语气={prefs.get(&#39;tone&#39;, &#39;专业&#39;)}，&quot;
+                f&quot;签名格式={prefs.get(&#39;signature&#39;, &#39;标准&#39;)}&quot;
+            )
+
+    # 如果 Store 中没有记录，返回默认偏好
+    return f&quot;用户 {runtime.context.user_name} 暂无特殊偏好，使用默认设置（专业语气，标准签名）&quot;
+
+
+@tool
+def send_email(
+    email_content: str,
+    runtime: ToolRuntime[Context],
+) -&gt; str:
+    &quot;&quot;&quot;向全部用户发送邮件
+
+    Args:
+        email_content: 邮件的正文内容
+    &quot;&quot;&quot;
+    user = runtime.context.user_name
+    print(f&quot;邮件内容：{email_content}&quot;)
+    # 在真实场景中，这里会调用邮件服务的 API
+    return f&quot;客服 {user} 已向全部用户发送邮件，内容：{email_content}&quot;
+
+
+# 初始化 Store，预置一些用户偏好数据
+store = InMemoryStore()
+store.put((&quot;email_preferences&quot;,), &quot;user_001&quot;, {
+    &quot;tone&quot;: &quot;亲切&quot;,
+    &quot;signature&quot;: &quot;此致敬礼，客服小张&quot;,
+})
+
+# 创建 Agent
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[fetch_user_preferences, send_email],
+    context_schema=Context,
+    store=store,
+    system_prompt=&quot;你是一个电商客服助手，可以调用fetch_user_preferences工具获取用户邮件偏好设置，&quot;
+                  &quot;并使用send_email工具向全部用户发送邮件。&quot;,
+)
+
+# 调用 Agent：传入具体的上下文
+result = agent.invoke(
+    {&quot;messages&quot;: [{
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;content&quot;: &quot;查看我的邮件偏好设置，然后给所有用户发送感谢邮件。&quot;,
+    }]},
+    context=Context(user_id=&quot;user_001&quot;, user_name=&quot;客服张三&quot;),
+)
+
+print(result)
+print(result[&quot;messages&quot;][-1].content)
+</code></pre>
+<p>以上代码注意：</p>
+<ol>
+<li>代码中在工具中“runtime.context”获取Context配置，通过“<a target="_blank" rel="noopener" href="http://runtime.store/">runtime.store</a>”获取长期记忆。</li>
+<li>ToolRuntime[Context]的泛型参数Context对应了create_agent中 context_schema声明的类型，这使得类型检查器（如 mypy&#x2F;pyright）能够在开发阶段就捕获潜在的类型错误。</li>
+</ol>
+<h2 id="在中间件内部访问Runtime"><a href="#在中间件内部访问Runtime" class="headerlink" title="在中间件内部访问Runtime"></a>在中间件内部访问Runtime</h2><p>除了在工具中，Runtime同样可以在中间件（Middleware）中访问。如下示例中通过“dynamic_prompt”中间件根据传入的不同Context来使用不同提示词，同时在“before_model”&#x2F;“after_model”中间件中获取runtime。</p>
+<pre><code>from dataclasses import dataclass
+
+from langchain.agents import create_agent, AgentState
+from langchain.agents.middleware import (
+    dynamic_prompt,
+    before_model,
+    after_model,
+    ModelRequest,
+)
+from langgraph.runtime import Runtime
+from langchain.tools import tool
+
+from init_llm import deepseek_llm
+
+
+@dataclass
+class Context:
+    &quot;&quot;&quot;每次调用的上下文信息&quot;&quot;&quot;
+    user_name: str
+    user_role: str  # &quot;admin&quot; | &quot;customer&quot;
+
+
+# 简单工具：根据关键词查询常见问题解答
+@tool
+def query_faq(keyword: str) -&gt; str:
+    &quot;&quot;&quot;根据关键词查询常见问题解答。&quot;&quot;&quot;
+    faq = {
+        &quot;退货&quot;: &quot;支持7天无理由退货，商品需完好且包装齐全。&quot;,
+        &quot;发货&quot;: &quot;下单后48小时内发货。&quot;,
+    }
+
+    # 遍历 faq 每个key，判断每个key 是否 contain 包含 keyword
+    for key in faq.keys():
+        if keyword in key:
+            return faq.get(key)
+
+    return f&quot;未找到关于&#39;{keyword}&#39;的FAQ条目&quot;
+
+
+# 动态系统提示词：根据用户角色和姓名定制提示
+@dynamic_prompt
+def dynamic_system_prompt(request: ModelRequest) -&gt; str:
+    &quot;&quot;&quot;每次模型调用前，根据 Runtime Context 动态生成系统提示词&quot;&quot;&quot;
+    ctx = request.runtime.context
+    base_prompt = f&quot;你是一个乐于助人的客服助手。当前在为用户 {ctx.user_name} 服务。&quot;
+
+    if ctx.user_role == &quot;admin&quot;:
+        base_prompt += &quot; 你拥有管理员权限，可以查看和修改所有数据。&quot;
+    elif ctx.user_role == &quot;customer&quot;:
+        base_prompt += &quot; 你可以帮用户查询订单、申请退款、修改收货地址。&quot;
+    else:
+        base_prompt += &quot; 你仅有只读权限，不能执行修改操作。&quot;
+
+    return base_prompt
+
+
+# 模型调用前钩子：记录请求日志
+@before_model
+def log_before_model(state: AgentState, runtime: Runtime[Context]) -&gt; dict | None:
+    &quot;&quot;&quot;每次调用模型前记录日志，包含用户信息和线程标识&quot;&quot;&quot;
+    user_name = runtime.context.user_name
+    print(f&quot;[Agent日志] 用户={user_name}，开始调用模型...&quot;)
+    return None  # 返回 None 表示不修改 State
+
+
+# 模型调用后钩子：记录完成日志
+@after_model
+def log_after_model(state: AgentState, runtime: Runtime[Context]) -&gt; dict | None:
+    &quot;&quot;&quot;每次模型调用完成后记录日志&quot;&quot;&quot;
+    user_name = runtime.context.user_name
+    print(f&quot;[Agent日志] 用户={user_name}的模型调用已完成&quot;)
+    return None
+
+
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[query_faq],
+    middleware=[dynamic_system_prompt, log_before_model, log_after_model],
+    context_schema=Context,
+    system_prompt=&quot;&quot;,
+)
+
+
+result = agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;你好！我想了解一下退货政策&quot;}]},
+    context=Context(user_name=&quot;张三&quot;, user_role=&quot;customer&quot;),
+)
+print(&quot;result&quot;,result)
+print(result[&quot;messages&quot;][-1].content)
+
+print(&quot;=&quot; * 50)
+
+result2 = agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;你好！我想了解一下退货政策&quot;}]},
+    context=Context(user_name=&quot;李四&quot;, user_role=&quot;admin&quot;),
+)
+print(&quot;result2&quot;,result2)
+print(result2[&quot;messages&quot;][-1].content)
+</code></pre>
+<p>以上代码注意：</p>
+<ol>
+<li>@dynamic_prompt是最常用的中间件之一，允许根据每次调用的Runtime上下文动态构造系统提示词，实现”千人千面”的Agent行为。</li>
+<li>@before_model和@after_model中间件可以直接接收Runtime作为参数，它们常用于日志、审计、权限校验等横切关注点。两个中间件的参数第一个是State，第二个是Runtime。</li>
+<li>@before_model和@after_model中间件返回None表示不修改 State，返回dict则会合并到当前 State 中。</li>
+</ol>
+<h2 id="执行信息与服务端信息"><a href="#执行信息与服务端信息" class="headerlink" title="执行信息与服务端信息"></a>执行信息与服务端信息</h2><p>Runtime中还包含两个高级组件：</p>
+<ul>
+<li>Execution Info（执行信息）：包含当前执行的task_id（任务ID）、thread_id（session会话ID）、run_id（运行 ID）等信息，这些信息在日志追踪、错误排查和多轮对话管理中非常实用。</li>
+<li>Server Info（服务端信息）：仅在Agent部署到LangGraph Server后可用，包含assistant_id（Assistant ID）、graph_id（图 ID）、以及user（认证用户信息，如 user.identity），在本地开发环境中，runtime.server_info的值为None。</li>
+</ul>
+<pre><code>from dataclasses import dataclass
+
+from langchain.agents import create_agent, AgentState
+from langchain.agents.middleware import before_model
+from langgraph.runtime import Runtime
+from langchain.tools import tool
+
+from init_llm import deepseek_llm
+
+
+@dataclass
+class Context:
+    user_name: str
+
+
+# 获取当前系统时间工具
+@tool
+def get_current_time() -&gt; str:
+    &quot;&quot;&quot;获取当前系统时间。当用户询问时间时使用。&quot;&quot;&quot;
+    from datetime import datetime
+    return f&quot;当前时间：{datetime.now().strftime(&#39;%Y-%m-%d %H:%M:%S&#39;)}&quot;
+
+
+@before_model
+def auth_gate(state: AgentState, runtime: Runtime ) -&gt; dict | None:
+    server_info = runtime.server_info
+    exec_info = runtime.execution_info
+
+    print(&quot;server_info&quot;,server_info)
+    print(&quot;exec_info&quot;,exec_info)
+
+    return None
+
+
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[get_current_time],
+    middleware=[auth_gate],
+    context_schema=Context,
+    system_prompt=&quot;你是一个助手，可以帮助用户查询时间。&quot;,
+)
+
+print(&quot;=&quot; * 50)
+config = {&quot;configurable&quot;: {&quot;thread_id&quot;: &quot;123&quot;}}
+result = agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;现在几点了？&quot;}]},
+    context=Context(user_name=&quot;张三&quot;),
+    config=config,
+)
+print(result[&quot;messages&quot;][-1].content)
+</code></pre>
+<p>以上代码运行的exec_info结果如下：</p>
+<pre><code>server_info None
+
+exec_info ExecutionInfo(
+    checkpoint_id=&#39;1f1738c2-d5d7-61a5-8000-0ff58c76514f&#39;, 
+    checkpoint_ns=&#39;auth_gate.before_model:9ef78a83-1a41-de4e-294b-5a5e0c9e9821&#39;, 
+    task_id=&#39;9ef78a83-1a41-de4e-294b-5a5e0c9e9821&#39;, 
+    thread_id=&#39;123&#39;, 
+    run_id=None, 
+    node_attempt=1, 
+    node_first_attempt_time=1782718131.8912737
+)
+</code></pre>
+<p>注意：版本要求：runtime.execution_info和runtime.server_info需要deepagents&gt;&#x3D;0.5.0或langgraph&gt;&#x3D;1.1.5。</p>
+<h1 id="上下文工程（Context-Engineering）"><a href="#上下文工程（Context-Engineering）" class="headerlink" title="上下文工程（Context Engineering）"></a>上下文工程（Context Engineering）</h1><p>LangChain将Agent的上下文分为三个层面，每个层面控制Agent循环中的不同环节：</p>
+<table>
+<thead>
+<tr>
+<th><strong>上下文类型</strong></th>
+<th><strong>控制的内容</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模型上下文（Model Context）</td>
+<td>每次模型调用中，LLM看到什么样的提示词、消息历史、工具列表和输出格式</td>
+</tr>
+<tr>
+<td>工具上下文（Tool Context）</td>
+<td>工具能访问哪些数据（读取），工具又会产出什么结果（写入）</td>
+</tr>
+<tr>
+<td>生命周期上下文（Life-cycle Context）</td>
+<td>在模型调用和工具执行之间，做什么额外的处理（摘要、安全护栏、日志记录等），主要涉及中间件调用。</td>
+</tr>
+</tbody></table>
+<p>三种上下文注意点：模型上下文的所有变更（如临时裁剪消息列表、动态替换提示词、动态替换工具集）只影响当次模型调用，不会写入 State。而工具上下文和生命周期上下文所做的修改（如工具写入状态、摘要中间件替换历史消息）是会涉及到state保存的，后续所有的Agent步骤都能看到这些变更。</p>
+<p>这些上下文的数据来源有三种：</p>
+<table>
+<thead>
+<tr>
+<th><strong>数据源</strong></th>
+<th><strong>别名</strong></th>
+<th><strong>作用域</strong></th>
+<th><strong>典型用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Runtime Context</td>
+<td>静态配置</td>
+<td>会话级</td>
+<td>用户ID、API 密钥、数据库连接、权限、环境变量</td>
+</tr>
+<tr>
+<td>State</td>
+<td>短期记忆</td>
+<td>会话级</td>
+<td>当前消息列表、工具执行结果等</td>
+</tr>
+<tr>
+<td>Store</td>
+<td>长期记忆</td>
+<td>跨会话</td>
+<td>用户偏好、历史洞察、长期学习的信息</td>
+</tr>
+</tbody></table>
+<p>总结：上下文工程核心任务就是<strong>在Agent循环的每个环节，决定从哪个数据源读取什么信息，以什么格式提供给模型或工具，并在何时将结果回写到哪个数据源。</strong></p>
+<h2 id="模型上下文（Model-Context）"><a href="#模型上下文（Model-Context）" class="headerlink" title="模型上下文（Model Context）"></a>模型上下文（Model Context）</h2><p>模型上下文是上下文工程中最直接、也最常用的一类。它控制 LLM”看到”什么。共有五个维度可以调控：系统提示词、消息列表、工具选择、模型选择、输出格式。</p>
+<h3 id="系统提示词（System-Prompt）"><a href="#系统提示词（System-Prompt）" class="headerlink" title="系统提示词（System Prompt）"></a>系统提示词（System Prompt）</h3><p>系统提示词决定了Agent的行为基调。不同用户、不同权限、不同业务场景需要不同的指令。</p>
+<p>以下代码示例展示了如何根据State中的对话长度、Store中的用户偏好、以及Runtime Context中的角色信息，动态生成系统提示词。</p>
+<pre><code class="python">from dataclasses import dataclass
+
+from langchain.agents import create_agent
+from langchain.agents.middleware import dynamic_prompt, ModelRequest
+from langgraph.store.memory import InMemoryStore
+from langchain.tools import tool
+
+from init_llm import deepseek_llm
+
+
+@dataclass
+class Context:
+    &quot;&quot;&quot;用户上下文&quot;&quot;&quot;
+    user_id: str
+    user_role: str          # admin(管理员） / customer（客户）
+    deployment_env: str     # production（生产环境） / staging（测试环境） / development（开发环境）
+
+
+# 订单查询工具
+@tool
+def query_order(order_id: str) -&gt; str:
+    &quot;&quot;&quot;根据订单ID查询订单详情。&quot;&quot;&quot;
+    orders = {
+        &quot;ORD-1001&quot;: &quot;蓝牙耳机（¥299），状态：已发货&quot;,
+        &quot;ORD-1002&quot;: &quot;手机壳（¥39），状态：已签收&quot;,
+    }
+    return orders.get(order_id, f&quot;未找到订单 {order_id}&quot;)
+
+
+@dynamic_prompt
+def context_dynamic_prompt(request: ModelRequest) -&gt; str:
+    &quot;&quot;&quot;结合 State、Store、Runtime Context 三个数据源动态生成提示词&quot;&quot;&quot;
+
+    # 从 State 中读取：当前消息数量
+    message_count = len(request.messages)
+
+    # 从 Store 中读取：用户偏好
+    store = request.runtime.store
+    user_prefs = None
+    if store is not None:
+        user_prefs = store.get((&quot;preferences&quot;,), request.runtime.context.user_id)
+
+    # 从 Runtime Context 中读取：用户角色和环境
+    user_role = request.runtime.context.user_role
+    env = request.runtime.context.deployment_env
+
+    # 构造基础提示词
+    base = &quot;你是一个电商客服助手，帮助用户解决订单、退货、支付相关问题。&quot;
+
+    # 根据用户角色添加权限提示
+    if user_role == &quot;admin&quot;:
+        base += &quot;\n你拥有管理员权限，可以查看和修改所有用户的订单数据。&quot;
+    elif user_role == &quot;customer&quot;:
+        base += &quot;\n你只能查看和操作当前用户自己的订单，不可访问其他用户的数据。&quot;
+    else:
+        base += &quot;\n你只有只读权限，不能修改任何数据。如果用户要求修改，请告知需要管理员权限。&quot;
+
+    # 根据对话长度调整回复风格
+    if message_count &gt; 20:
+        base += &quot;\n当前对话较长，请保持回复简洁，直接给出结论。&quot;
+
+    # 根据用户偏好调整语气
+    if user_prefs and user_prefs.value.get(&quot;communication_style&quot;) == &quot;温和&quot;:
+        base += &quot;\n用户偏好温和的沟通方式，请使用礼貌、体贴的语气。&quot;
+
+    # 根据部署环境添加注意事项
+    if env == &quot;production&quot;:
+        base += &quot;\n当前是生产环境，进行数据修改操作时务必先确认用户身份。&quot;
+
+    print(&quot;提示词：&quot;, base)
+    return base
+
+
+# 初始化 Store 并预置偏好
+store = InMemoryStore()
+store.put((&quot;preferences&quot;,), &quot;user_001&quot;, {&quot;communication_style&quot;: &quot;温和&quot;})
+
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[query_order],
+    middleware=[context_dynamic_prompt],
+    context_schema=Context,
+    store=store,
+)
+
+# 场景：温和偏好用户（user_001）在生产环境下查订单
+result = agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;你好，我想查一下订单 ORD-1001&quot;}]},
+    context=Context(user_id=&quot;user_001&quot;, user_role=&quot;customer&quot;, deployment_env=&quot;production&quot;),
+)
+print(result[&quot;messages&quot;][-1].content)
+
+
+print(&quot;=&quot; * 50)
+# 场景：管理员在开发环境下查订单（无特殊语气偏好）
+result2 = agent.invoke(
+    {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;你好，我想查一下订单 ORD-1001&quot;}]},
+    context=Context(user_id=&quot;admin_001&quot;, user_role=&quot;admin&quot;, deployment_env=&quot;development&quot;),
+)
+print(result2[&quot;messages&quot;][-1].content)
+</code></pre>
+<p>以上代码不同的用户提示词不同：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720195321659.png" alt="image-20260720195321659"></p>
+<h3 id="消息列表（Messages）"><a href="#消息列表（Messages）" class="headerlink" title="消息列表（Messages）"></a>消息列表（Messages）</h3><p>消息列表是LLM每次调用时接收的完整对话历史。如何管理消息内容——尤其在长对话中——直接影响模型的理解质量和响应能力。</p>
+<p>如下代码中演示在正常对话过程中如何在消息列表中插入额外一些信息作为对话上下文，同样，我们也可以通过中间件进行消息裁剪、压缩摘要操作。</p>
+<pre><code class="python">import os
+from dataclasses import dataclass
+from typing import Callable
+
+from langchain.agents import create_agent
+from langchain.agents.middleware import wrap_model_call, ModelRequest, ModelResponse
+
+from init_llm import deepseek_llm
+
+@dataclass
+class Context:
+    &quot;&quot;&quot;每次调用时传入的静态配置&quot;&quot;&quot;
+    user_name: str
+    file_path: str = &quot;&quot;  # 要加载的文件路径，为空表示不加载任何文件
+
+
+@wrap_model_call
+def inject_file_to_messages(
+    request: ModelRequest,
+    handler: Callable[[ModelRequest], ModelResponse],
+) -&gt; ModelResponse:
+    &quot;&quot;&quot;在模型调用前，根据 Context 中的 file_path 读取文件，注入到消息列表。
+    注意点：
+    - 文件路径来自 Runtime Context（静态配置，每次调用可不同）。
+    - 文件内容在模型调用前被动态读取，拼装为自然语言后注入消息列表。
+    - 下次模型调用时，如果 Context 中仍有 file_path，中间件会重新读取并注入。
+    &quot;&quot;&quot;
+    print(&quot;request:&quot;, request)
+    file_path = request.runtime.context.file_path
+
+    if not file_path:
+        # 没有传入文件路径，原样放行
+        print(&quot;[消息注入] 未传入 file_path，消息列表保持不变&quot;)
+        return handler(request)
+
+    # 读取文件内容
+    if not os.path.exists(file_path):
+        error_msg = f&quot;警告：文件不存在 —— {file_path}&quot;
+        messages = list(request.messages) + [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: error_msg}]
+        request = request.override(messages=messages)
+        return handler(request)
+
+    try:
+        with open(file_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+            content = f.read()
+    except UnicodeDecodeError:
+        try:
+            with open(file_path, &quot;r&quot;, encoding=&quot;gbk&quot;) as f:
+                content = f.read()
+        except Exception:
+            error_msg = f&quot;警告：无法解码文件 {file_path}&quot;
+            messages = list(request.messages) + [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: error_msg}]
+            request = request.override(messages=messages)
+            return handler(request)
+
+    file_name = os.path.basename(file_path)
+
+    # 构造注入文本
+    injected = (
+        f&quot;以下是从文件 &#39;{file_name}&#39; 中读取的内容：\n&quot;
+        f&quot;========== 文件开始 ==========\n&quot;
+        f&quot;{content}\n&quot;
+        f&quot;========== 文件结束 ==========\n\n&quot;
+        f&quot;请严格基于以上文件内容回答用户的问题。&quot;
+        f&quot;如果文件中有明确信息，请直接引用；如果没有，请如实告知。&quot;
+    )
+
+    # 注入消息：将文件内容通过“用户消息”追加到消息列表末尾
+    messages = list(request.messages) + [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: injected}]
+    request = request.override(messages=messages)
+
+    print(f&quot;[消息注入] 文件 &#39;{file_name}&#39; 已注入消息列表&quot;)
+
+    return handler(request)
+
+agent = create_agent(
+    model=deepseek_llm,
+    tools=[],
+    middleware=[inject_file_to_messages],
+    context_schema=Context,
+    system_prompt=&quot;你是一个助手，可以回答用户问题。&quot;,
+)
+
+doc_path = os.path.join(
+    # 获取当前脚本所在目录
+    os.path.dirname(os.path.abspath(__file__)),
+    &quot;会议纪要.txt&quot;,
+)
+
+print(&quot;=&quot; * 60)
+
+
+result1 = agent.invoke(
+    {&quot;messages&quot;: [{
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;content&quot;: &quot;项目总预算是多少？&quot;
+    }]},
+    context=Context(
+        user_name=&quot;张三&quot;,
+        file_path=doc_path,
+    ),
+)
+print(f&quot;Agent 回复:{result1[&#39;messages&#39;][-1].content}&quot;)
+
+
+print(&quot;=&quot; * 60)
+
+
+result2 = agent.invoke(
+    {&quot;messages&quot;: [{
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;content&quot;: &quot;项目总预算是多少？&quot;
+    }]},
+    context=Context(
+        user_name=&quot;李四&quot;,
+    ),
+)
+print(f&quot;Agent 回复:{result2[&#39;messages&#39;][-1].content}&quot;)
+</code></pre>
+<p>以上代码所需要的“会议纪要.txt”内容如下，将该文件放在代码所在的目录即可：</p>
+<p>关于”星云计划”项目的内部会议纪要</p>
+<pre><code>关于&quot;星云计划&quot;项目的内部会议纪要
+
+会议时间：周一下午 14:00-15:30
+会议地点：创新大厦 12 楼会议室 A
+参会人员：张总（项目发起人）、李工（技术负责人）、王经理（市场部）、赵会计（财务部）
+记录人：小明
+
+一、项目背景
+星云计划是一个面向中小企业的 SaaS 化库存管理系统，目标是帮助中小型零售企业在 3 个月内实现库存周转率提升 30%。项目预算总额为 350 万元，其中研发投入 200 万，市场推广 100 万，运营维护 50 万。
+
+二、当前进展
+1. 技术层面：李工汇报核心模块开发已完成 80%，但&quot;智能补货算法&quot;模块仍有 bug，预计还需 2 周修复。该模块的准确率目前只有 72%，目标是达到 90% 以上。
+2. 市场层面：王经理反馈已有 23 家意向客户签署了试用协议，分布在食品零售（12家）、服装零售（7家）、数码配件（4家）三个细分赛道。
+3. 财务层面：赵会计提醒当前已支出 185 万元，其中研发支出 120 万（超出预算 20 万，李工解释是因为临时加购了两台 GPU 服务器用于算法训练），市场支出 45 万，行政支出 20 万。
+
+三、争议焦点
+赵会计与李工就研发超支问题产生了较大分歧。赵会计认为 GPU 服务器的采购没有提前报批，属于违规支出。李工则认为补货算法的训练确实需要额外算力，没有 GPU 服务器项目无法按期交付。张总暂未做最终裁决，要求双方会后各自提交书面说明。
+
+四、下一步计划
+1. 李工需提交 GPU 服务器采购的详细说明和算法进展报告。
+2. 王经理需完成第二批客户邀约（目标 50 家）。
+3. 全员定于下月召开第二次项目评审会，届时决定是否继续追加预算。
+4. 赵会计负责整理目前已签约客户的回款计划表。
+</code></pre>
+<p>代码运行结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720195444554.png" alt="image-20260720195444554"></p>
+<h3 id="工具选择（Tools）"><a href="#工具选择（Tools）" class="headerlink" title="工具选择（Tools）"></a>工具选择（Tools）</h3><p>工具太多会压垮模型（上下文过载导致错误增加），工具太少则功能不足。动态工具选择让Agent根据当前用户状态、权限、对话阶段等条件，灵活调整可选工具集。</p>
+<p>如下案例是一个电商场景中根据用户角色和认证状态过滤工具。</p>
+<pre><code class="python">from dataclasses import dataclass
+from typing import Callable
+
+from langchain.agents import create_agent
+from langchain.agents.middleware import wrap_model_call, ModelRequest, ModelResponse
+from langchain.tools import tool, ToolRuntime
+
+from init_llm import deepseek_llm
+
+
+@dataclass
+class Context:
+    user_role: str  # admin / customer
+
+
+# ========== 全量工具定义 ==========
+
+@tool
+def query_order_status(order_id: str, runtime: ToolRuntime[Context]) -&gt; str:
+    &quot;&quot;&quot;查询指定订单的当前状态。&quot;&quot;&quot;
+    return f&quot;订单 {order_id} 的状态：已发货，查询人角色：{runtime.context.user_role}&quot;
+
+
+@tool
+def cancel_order(order_id: str, runtime: ToolRuntime[Context]) -&gt; str:
+    &quot;&quot;&quot;取消指定订单并退款。仅管理员可操作。&quot;&quot;&quot;
+    return f&quot;订单 {order_id} 已取消，退款已处理。操作人角色：{runtime.context.user_role}&quot;
+
+
+@tool
+def view_all_orders(runtime: ToolRuntime[Context]) -&gt; str:
+    &quot;&quot;&quot;查看系统中所有订单。仅管理员可操作。&quot;&quot;&quot;
+    return f&quot;系统订单总数：1250 笔，查询人角色：{runtime.context.user_role}&quot;
+
+
+# ========== 动态工具过滤中间件 ==========
+
+@wrap_model_call
+def role_based_tool_filter(
+    request: ModelRequest,
+    handler: Callable[[ModelRequest], ModelResponse],
+) -&gt; ModelResponse:
+    &quot;&quot;&quot;根据用户角色动态过滤工具列表。
+
+    注意：
+    - 所有工具在 create_agent 中全量注册（Agent 知道每个工具怎么执行）。
+    - 中间件根据角色裁剪 request.tools，控制模型实际&quot;看到&quot;哪些工具。
+    - 管理员看到 3 个工具，普通用户只看到 1 个 → 减少上下文 Token 占用。
+    &quot;&quot;&quot;
+    user_role = request.runtime.context.user_role
+
+    if user_role == &quot;admin&quot;:
+        # 管理员：保留全部工具，不做过滤
+        pass
+    else:
+        # 普通用户：只保留 query_order_status，过滤掉管理员专用工具
+        allowed = {&quot;query_order_status&quot;}
+        filtered = [t for t in request.tools if t.name in allowed]
+        request = request.override(tools=filtered)
+
+    return handler(request)
+
+
+if __name__ == &quot;__main__&quot;:
+    # 全量注册所有工具，中间件负责运行时裁剪
+    agent = create_agent(
+        model=deepseek_llm,
+        tools=[query_order_status, cancel_order, view_all_orders],  # 全量注册
+        middleware=[role_based_tool_filter],                        # 运行时过滤
+        context_schema=Context,
+        system_prompt=&quot;你是一个电商客服助手，帮助用户处理商品查询和订单管理。&quot;,
+    )
+
+    print(&quot;=&quot; * 50)
+    result = agent.invoke(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;你可以调用的工具有哪些？&quot;}]},
+        context=Context(user_role=&quot;customer&quot;),
+    )
+    print(result[&quot;messages&quot;][-1].content)
+
+
+    print(&quot;=&quot; * 50)
+    result2 = agent.invoke(
+        {&quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;你可以调用的工具有哪些？&quot;}]},
+        context=Context(user_role=&quot;admin&quot;),
+    )
+    print(result2[&quot;messages&quot;][-1].content)
+</code></pre>
+<p>以上代码运行结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/image-20260720200434854.png" alt="image-20260720200434854"></p>
+<p>以上代码中需要特别注意：create_agent中需要传入全部工具，这里传入工具只是注册工具，即使用到对应工具的时候知道调用什么函数，并不会将工具加载到模型上下文中，当真正执行到“handler(request)”会将工具加入到模型上下文中。但是不能不注册工具直接在“@wrap_model_call”中间件中设置对应工具，这样不注册的工具会导致Agent不知道如何调用这些工具从而报错。</p>
+<h3 id="模型选择（Model）"><a href="#模型选择（Model）" class="headerlink" title="模型选择（Model）"></a>模型选择（Model）</h3><p>不同的模型有不同的能力、成本和上下文窗口。在长对话中切换到更大上下文的模型、为高级用户使用更高能力的模型——这些都可以通过中间件动态决策。具体可以通过“@wrap_model_call”中间件根据会话长度或者传入的不同特征进行模型替换。</p>
+<h2 id="工具上下文（Tool-Context）"><a href="#工具上下文（Tool-Context）" class="headerlink" title="工具上下文（Tool Context）"></a>工具上下文（Tool Context）</h2><p>工具可以从 State、Store 和 Runtime Context 中读取信息，还能通过 Command 对象将执行结果写入 State（短期记忆）或 Store（长期记忆）。</p>
+<p>工具中读取context、读写state&amp;store示例伪代码如下：</p>
+<pre><code>... ...
+# 一个工具，展示三种数据源的读写
+@tool
+def my_tool(
+    runtime: ToolRuntime[Context],
+) -&gt; Command:
+    &quot;&quot;&quot;演示：在单个工具中同时访问 Runtime Context、State 和 Store。&quot;&quot;&quot;
+
+    # ① 读取 Runtime Context —— 静态配置，调用时注入
+    user_id = runtime.context.user_id            # 读
+    db = runtime.context.db_connection           # 读
+    # context 是只读的，不能写
+
+    # ② 读取/写入 State —— 短期记忆，会话内有效
+    previous_action = runtime.state.get(&quot;last_action&quot;, &quot;无&quot;)  # 读
+    # 通过 Command 写入 State
+    return Command(update={
+        &quot;last_action&quot;: f&quot;用户 {user_id} 在 {db} 上执行了操作&quot;,  # 写
+        &quot;notification_flag&quot;: True,                              # 写
+    })
+
+    # ③ 读取/写入 Store —— 长期记忆，跨会话持久化
+    if runtime.store:
+        old = runtime.store.get((&quot;user_prefs&quot;,), user_id)       # 读
+        runtime.store.put((&quot;user_prefs&quot;,), user_id, {&quot;lang&quot;: &quot;zh&quot;})  # 写
+... ...
+</code></pre>
+<p>以上伪代码注意如下几点：</p>
+<ol>
+<li>Command(update&#x3D;{…})是LangGraph中更新State的标准方式。工具返回Command而非纯文本时，LangGraph会将update字典合并到当前State中。</li>
+<li>Store的put操作是跨会话持久化的——即使对话结束、下次用户再发起新的对话，之前保存的偏好数据仍然可以通过store.get取出。</li>
+</ol>
+<p>具体案例参考“短期记忆和长期记忆”章节。</p>
+<h2 id="生命周期上下文（Life-cycle-Context）"><a href="#生命周期上下文（Life-cycle-Context）" class="headerlink" title="生命周期上下文（Life-cycle Context）"></a>生命周期上下文（Life-cycle Context）</h2><p>生命周期上下文控制的是Agent循环中”步骤之间的行为”——在模型调用前做什么、工具执行后做什么、以及何时触发额外的处理逻辑。中间件是实现生命周期上下文的核心机制。</p>
+<p>对话摘要（Summarization）是最经典的生命周期上下文场景。当对话历史过长时，自动将早期消息压缩为摘要，既能节省Token成本，又能让模型保持对全局对话的理解。</p>
+<p>使用示例伪代码如下：</p>
+<pre><code class="python">... ...
+# 内置的 SummarizationMiddleware 自动处理对话摘要
+agent = create_agent(
+    model=&quot;gpt-4o&quot;,
+    tools=[],
+    middleware=[
+        SummarizationMiddleware(
+            model=&quot;gpt-4o-mini&quot;,           # 使用更便宜的模型做摘要
+            trigger={&quot;tokens&quot;: 4000},       # 对话总 token 超过 4000 时触发
+            keep={&quot;messages&quot;: 20},          # 保留最近 20 条消息不变
+        ),
+    ],
+    system_prompt=&quot;你是一个客服助手。&quot;,
+)
+... ...
+</code></pre>
 
   </div>
   
@@ -255,7 +1102,7 @@
         <a href="/2026/07/17/AI/LangChain/Model-Context-Protocol%EF%BC%88MCP%EF%BC%89%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE/" class="nav-link">
           <i class="iconfont icon-angle-left"></i>
           <span class="nav-label">post.previous</span>
-          <span class="nav-title">post</span>
+          <span class="nav-title">Model-Context-Protocol（MCP）模型上下文协议</span>
         </a>
       
     </div>
@@ -263,7 +1110,7 @@
       
         <a href="/2026/07/17/AI/LangChain/Guardrails%E5%AE%89%E5%85%A8%E6%8A%A4%E6%A0%8F/" class="nav-link">
           <span class="nav-label">post.next</span>
-          <span class="nav-title">post</span>
+          <span class="nav-title">Guardrails 安全护栏</span>
           <i class="iconfont icon-angle-right"></i>
         </a>
       
@@ -277,7 +1124,7 @@
       <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
     </div>
     <nav class="toc-content" id="toc-content">
-      
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Runtime-%E8%BF%90%E8%A1%8C%E6%97%B6"><span class="toc-list-number">1.</span> <span class="toc-list-text">Runtime 运行时</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BC%A0%E9%80%92Context"><span class="toc-list-number">2.</span> <span class="toc-list-text">定义和传递Context</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%9C%A8%E5%B7%A5%E5%85%B7%E5%86%85%E9%83%A8%E8%AE%BF%E9%97%AERuntime"><span class="toc-list-number">3.</span> <span class="toc-list-text">在工具内部访问Runtime</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%9C%A8%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%86%85%E9%83%A8%E8%AE%BF%E9%97%AERuntime"><span class="toc-list-number">4.</span> <span class="toc-list-text">在中间件内部访问Runtime</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%89%A7%E8%A1%8C%E4%BF%A1%E6%81%AF%E4%B8%8E%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%BF%A1%E6%81%AF"><span class="toc-list-number">5.</span> <span class="toc-list-text">执行信息与服务端信息</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%88Context-Engineering%EF%BC%89"><span class="toc-list-number">6.</span> <span class="toc-list-text">上下文工程（Context Engineering）</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%88Model-Context%EF%BC%89"><span class="toc-list-number">6.1.</span> <span class="toc-list-text">模型上下文（Model Context）</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%EF%BC%88System-Prompt%EF%BC%89"><span class="toc-list-number">6.1.1.</span> <span class="toc-list-text">系统提示词（System Prompt）</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%B6%88%E6%81%AF%E5%88%97%E8%A1%A8%EF%BC%88Messages%EF%BC%89"><span class="toc-list-number">6.1.2.</span> <span class="toc-list-text">消息列表（Messages）</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E5%B7%A5%E5%85%B7%E9%80%89%E6%8B%A9%EF%BC%88Tools%EF%BC%89"><span class="toc-list-number">6.1.3.</span> <span class="toc-list-text">工具选择（Tools）</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%EF%BC%88Model%EF%BC%89"><span class="toc-list-number">6.1.4.</span> <span class="toc-list-text">模型选择（Model）</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%88Tool-Context%EF%BC%89"><span class="toc-list-number">6.2.</span> <span class="toc-list-text">工具上下文（Tool Context）</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%88Life-cycle-Context%EF%BC%89"><span class="toc-list-number">6.3.</span> <span class="toc-list-text">生命周期上下文（Life-cycle Context）</span></a></li></ol></li></ol>
     </nav>
   </div>
 </article>
