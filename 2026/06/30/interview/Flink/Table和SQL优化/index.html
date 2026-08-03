@@ -134,6 +134,13 @@
       <i class="iconfont icon-x"></i>
     </button>
     
+    <div class="sidebar-section sidebar-qrcode">
+      <div class="qrcode-wrapper">
+        <img src="/icons/qrcode_wchat.jpg" alt="微信公众号" class="qrcode-image">
+        <p class="qrcode-text">扫码关注公众号</p>
+      </div>
+    </div>
+    
     <div class="sidebar-section sidebar-about">
       <div class="author-avatar">
         
@@ -248,7 +255,595 @@
   </header>
   
   <div class="article-content">
-    
+    <p>在Flink中除了DataStream API之外，还有Table和SQL API ，Table API 和 SQL 是高效优化过的，它集成了许多查询优化和算子优化，但并不是所有的优化都是默认开启的，因此对于某些工作负载，可以通过打开某些选项来提高性能。在实际工作场景中我们使用FlinkSQL居多，本小节根据Flink SQL使用来介绍Table和SQL中的一些优化内容。</p>
+<h3 id="12-7-1-对状态设置TTL"><a href="#12-7-1-对状态设置TTL" class="headerlink" title="12.7.1 对状态设置TTL"></a><strong>12.7.1 对状态设置TTL</strong></h3><p>在Flink编程中如果涉及到的状态较大并且业务允许清空状态，可以设置ttl参数，指定状态超过一定时间后自动清空，来达到减少状态效果。</p>
+<p>Flink Table和SQL中可以通过TableEnvironment来指定table.exec.state.ttl参数，决定状态保存的时长。</p>
+<p>下面通过代码方式来演示Flink Table API和SQL编程中状态的使用，该案例读Socket中基站日志数据，按照基站进行分组统计基站的通话时长。</p>
+<pre><code>//获取DataStream的运行环境
+StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+//获取Table API的运行环境
+StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
+
+//设置状态保存时间，默认为0，表示不清理状态，这里设置5s
+tableEnv.getConfig().set(&quot;table.exec.state.ttl&quot;,&quot;5000&quot;);
+
+SingleOutputStreamOperator&lt;StationLog&gt; ds = env.socketTextStream(&quot;node5&quot;, 9999)
+        .map(new MapFunction&lt;String, StationLog&gt;() {
+            @Override
+            public StationLog map(String s) throws Exception {
+                String[] split = s.split(&quot;,&quot;);
+                return new StationLog(split[0], split[1], split[2], split[3], Long.valueOf(split[4]), Long.valueOf(split[5]));
+            }
+        });
+
+//将DataStream转换成Table
+tableEnv.createTemporaryView(&quot;station_tbl&quot;,ds);
+
+//通过SQL统计通话时长信息
+Table result = tableEnv.sqlQuery(&quot;select sid,sum(duration) as total_duration from station_tbl group by sid&quot;);
+
+//打印输出
+result.execute().print();
+</code></pre>
+<p>以上代码运行后，向socket-9999端口中输入基站日志数据，对于连续5秒内输入的相同基站日志数据，Flink 会对基站统计的通话时长数据进行状态保存，当相同基站日志数据隔5秒后再次输入，可以看到该基站统计数据会重新统计。</p>
+<pre><code>#socket-9999中输入数据
+001,181,182,success,1000,40
+002,182,183,result,3000,20
+001,183,184,success,2000,30
+
+#隔5s后输入，可以看到基站001的统计重新开始
+001,184,185,success,6000,50
+</code></pre>
+<h3 id="12-7-2-使用累积窗口"><a href="#12-7-2-使用累积窗口" class="headerlink" title="12.7.2 使用累积窗口"></a><strong>12.7.2 使用累积窗口</strong></h3><p>累积窗口是Flink SQL中特有的窗口函数。滚动窗口和滑动窗口适合固定周期统计指标，除了这种固定周期统计指标场景外，还有一种特殊场景：当统计周期较长时，需要在统计周期内间隔输出某指标的统计值，并且这些输出的值是逐步累积的，这种情况下滚动窗口和滑动窗口就不能满足需求，这种场景中就可以使用累积窗口来解决。</p>
+<p>例如：我们按天来实时统计网站的PV，每小时输出今天到此刻PV总量。如果我们设置1天一个滑动窗口，那么需要等到24点才会计算一次，这样输出频率太低，满足不了我们的需求；如果每隔一段时间统计过去1天的PV值，这样虽然计算频率增高，但是计算的结果并不是我们想要的今天到此刻的PV值。这种特殊的窗口统计就是“累积窗口”，我们可以通过Flink SQL提供的累计窗口表值函数来解决。</p>
+<p>Flink SQL中通过CUMULATE 表值函数来设置累积窗口，如下：</p>
+<pre><code>CUMULATE(TABLE data, DESCRIPTOR(timecol), step, size)
+</code></pre>
+<p>CUMULATE 参数解释如下:</p>
+<ul>
+<li>data：指定Table 表。</li>
+<li>timecol：指定表中的时间列，必须是TIMESTAMP或者TIMESTAMP_LTZ类型。</li>
+<li>step：指定窗口累积步长，即多久输出一次累积结果。</li>
+<li>size：指定窗口长度，即多久生成一个窗口。</li>
+</ul>
+<p>CUMULATE 表值函数在流处理模式下，时间属性字段必须是事件时间或处理时间属性，在批处理模式下，窗口表函数的时间属性字段必须是TIMESTAMP或TIMESTAMP_LTZ类型的属性。与TUMBLE表值函数一样，CUMULATE 的返回值包括原始关系的所有列，以及额外的三列，分别命名为“window_start”（窗口起始时间）、“window_end”（窗口结束时间）和“window_time”（窗口时间），这里的window_time窗口时间表示该窗口中包含的事件时间最大值，该值为window_end-1ms。原始时间属性“timecol”将在窗口表值函数之后成为常规的时间戳列。下面通过一个案例来演示Flink SQL 中累积窗口使用。</p>
+<p><strong>案例：读取Kafka中基站日志数据，按日统计，每5s输出每个基站所有主叫通话时长。</strong></p>
+<pre><code>//创建TableEnvironment
+EnvironmentSettings settings = EnvironmentSettings.newInstance()
+        .inStreamingMode()
+        .build();
+TableEnvironment tableEnv = TableEnvironment.create(settings);
+
+//当某个并行度5秒没有数据输入时，自动推进watermark
+tableEnv.getConfig().set(&quot;table.exec.source.idle-timeout&quot;,&quot;5000&quot;);
+
+
+//读取Kafka基站日志数据，通过SQL DDL方式定义表结构
+tableEnv.executeSql(&quot;&quot; +
+        &quot;create table stationlog_tbl (&quot; +
+        &quot;   sid string,&quot; +
+        &quot;   call_out string,&quot; +
+        &quot;   call_in string,&quot; +
+        &quot;   call_type string,&quot; +
+        &quot;   call_time bigint,&quot; +
+        &quot;   duration bigint,&quot; +
+        &quot;   time_ltz AS TO_TIMESTAMP_LTZ(call_time,3),&quot; +
+        &quot;   WATERMARK FOR time_ltz AS time_ltz - INTERVAL &#39;2&#39; SECOND&quot; +
+        &quot;) with (&quot; +
+        &quot;   &#39;connector&#39; = &#39;kafka&#39;,&quot; +
+        &quot;   &#39;topic&#39; = &#39;stationlog-topic&#39;,&quot; +
+        &quot;   &#39;properties.bootstrap.servers&#39; = &#39;node1:9092,node2:9092,node3:9092&#39;,&quot; +
+        &quot;   &#39;properties.group.id&#39; = &#39;testGroup&#39;,&quot; +
+        &quot;   &#39;scan.startup.mode&#39; = &#39;latest-offset&#39;,&quot; +
+        &quot;   &#39;format&#39; = &#39;csv&#39;&quot; +
+        &quot;)&quot;);
+
+//SQL TumblingWindow
+Table result = tableEnv.sqlQuery(&quot;select &quot; +
+        &quot;sid,window_start,window_end,sum(duration) as sum_dur &quot; +
+        &quot;from TABLE(&quot; +
+        &quot;   CUMULATE(TABLE stationlog_tbl,DESCRIPTOR(time_ltz), INTERVAL &#39;5&#39; SECOND , INTERVAL &#39;1&#39; DAY)&quot; +
+        &quot;) &quot; +
+        &quot;group by sid,window_start,window_end&quot;);
+
+//打印结果
+result.execute().print();
+</code></pre>
+<p>代码编写完成后，可以向Kafka stationlog-topic中输入如下数据，可以看到随着数据的输入，每隔5秒会展示一次当日统计结果。</p>
+<pre><code>#向kafka stationlog-topic中输入如下数据
+001,181,182,busy,1000,10
+002,182,183,fail,3000,20
+001,183,184,busy,2000,30
+002,184,185,busy,6000,40
+003,181,183,busy,5000,50
+#[0~5000)窗口触发
+001,181,182,busy,7000,10
+002,182,183,fail,9000,20
+001,183,184,busy,11000,30
+002,184,185,busy,6000,40
+#[0~10000)窗口触发
+003,181,183,busy,12000,50
+#[5000~15000)窗口触发
+003,181,183,busy,17000,50
+</code></pre>
+<p>控制台输出结果如下：</p>
+<pre><code>+----+-----+-------------------------+-------------------------+--------+
+| op | sid |            window_start |              window_end |sum_dur |
++----+-----+-------------------------+-------------------------+--------+
+| +I | 001 | 1970-01-01 00:00:00.000 | 1970-01-01 08:00:05.000 |     40 |
+| +I | 002 | 1970-01-01 00:00:00.000 | 1970-01-01 08:00:05.000 |     20 |
+| +I | 001 | 1970-01-01 00:00:00.000 | 1970-01-01 08:00:10.000 |     50 |
+| +I | 003 | 1970-01-01 00:00:00.000 | 1970-01-01 08:00:10.000 |     50 |
+| +I | 002 | 1970-01-01 00:00:00.000 | 1970-01-01 08:00:10.000 |    120 |
+| +I | 001 | 1970-01-01 00:00:00.000 | 1970-01-01 08:00:15.000 |     80 |
+| +I | 003 | 1970-01-01 00:00:00.000 | 1970-01-01 08:00:15.000 |    100 |
+| +I | 002 | 1970-01-01 00:00:00.000 | 1970-01-01 08:00:15.000 |    120 |
+</code></pre>
+<h3 id="12-7-3-MiniBatch聚合"><a href="#12-7-3-MiniBatch聚合" class="headerlink" title="12.7.3 MiniBatch聚合"></a><strong>12.7.3 MiniBatch聚合</strong></h3><p>Flink Table和SQL聚合场景中默认来一条数据聚合一条，聚合过程往往涉及状态操作所以每来一条数据聚合处理过程为：从状态中获取数据——&gt;状态累加——&gt;状态更新写出，这种来一条聚合一条数据处理模式可能会增加StateBackend开销（尤其是对于RocksDB StateBackend）,如果遇到数据倾斜，会加剧这个开销并容易导致job反压。</p>
+<p>这种聚合场景下，为了进一步减少StateBackend开销，在Flink Table和SQL 中我们可以设置开启MiniBatch聚合（默认关闭），其核心思想是将一组输入的数据缓存在聚合算子内部的缓冲区中，经过一定时间后再做触发处理，触发前会进行本地局部聚合，这样在触发处理时，每个key只需要一次访问状态，可以大大减少状态开销并获得更好的吞吐量。主要注意，开启MiniBatch聚合后，由于不是立即处理实时数据可能会增加Flink一些延迟，所以开启或者不开启MiniBatch聚合是吞吐量和延迟之间的权衡。</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/1b331d0d18414a1f9623b2b2969623b1.jpg" alt="image.png"></p>
+<p>Flink Table和SQL中T默认MiniBatch优化是关闭的，Table和SQL 操作中可以通过设置如下选项进行开启。</p>
+<pre><code>// 初始化 table environment
+TableEnvironment tEnv = ...;
+//通过flink configuration进行参数设置
+TableConfig configuration = tEnv.getConfig();
+//开启MiniBatch 优化，默认false
+configuration.set(&quot;table.exec.mini-batch.enabled&quot;, &quot;true&quot;); 
+//设置5秒时间处理缓冲数据,默认0s
+configuration.set(&quot;table.exec.mini-batch.allow-latency&quot;, &quot;5 s&quot;);
+//设置每个聚合操作可以缓冲的最大记录数,默认-1，开启MiniBatch后必须设置为正值
+configuration.set(&quot;table.exec.mini-batch.size&quot;, &quot;5000&quot;);
+</code></pre>
+<p>代码案例：</p>
+<pre><code>//1.使用本地模式
+Configuration conf = new Configuration();
+//设置WebUI绑定的本地端口
+conf.setString(RestOptions.BIND_PORT,&quot;8081&quot;);
+//使用配置
+StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
+
+//创建流处理执行环境
+//StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+//2.创建TableEnv
+StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
+
+//3.开启minibatch
+//通过flink configuration进行参数设置
+TableConfig configuration = tableEnv.getConfig();
+//开启MiniBatch 优化，默认false
+configuration.set(&quot;table.exec.mini-batch.enabled&quot;, &quot;true&quot;);
+//设置5秒时间处理缓冲数据,默认0s
+configuration.set(&quot;table.exec.mini-batch.allow-latency&quot;, &quot;5 s&quot;);
+//设置每个聚合操作可以缓冲的最大记录数,默认-1，开启MiniBatch后必须设置为正值
+configuration.set(&quot;table.exec.mini-batch.size&quot;, &quot;5000&quot;);
+
+DataStreamSource&lt;StationLog&gt; ds1 = env.addSource(new RichParallelSourceFunction&lt;StationLog&gt;() {
+    Boolean flag = true;
+
+    @Override
+    public void run(SourceContext&lt;StationLog&gt; ctx) throws Exception {
+        Random random = new Random();
+        String[] callTypes = {&quot;fail&quot;, &quot;success&quot;, &quot;busy&quot;, &quot;barring&quot;};
+        while (flag) {
+            String sid = &quot;sid_&quot; + random.nextInt(10);
+            generateData(ctx, random, sid, callTypes);
+            Thread.sleep(50);
+
+        }
+
+    }
+
+    private void generateData(SourceContext&lt;StationLog&gt; ctx, Random random, String sid, String[] callTypes) {
+        String callOut = &quot;1811234&quot; + (random.nextInt(9000) + 1000);
+        String callIn = &quot;1915678&quot; + (random.nextInt(9000) + 1000);
+        String callType = callTypes[random.nextInt(4)];
+        Long callTime = System.currentTimeMillis();
+        Long durations = Long.valueOf(random.nextInt(50) + &quot;&quot;);
+        ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+    }
+
+    //当取消对应的Flink任务时被调用
+    @Override
+    public void cancel() {
+        flag = false;
+    }
+});
+
+//将DataStream 转换成 Table
+tableEnv.createTemporaryView(&quot;stationlog_tbl&quot;, ds1);
+
+//打印表结构
+Table table = tableEnv.from(&quot;stationlog_tbl&quot;);
+table.printSchema();
+
+TableResult result = tableEnv.executeSql(&quot;select sid,sum(duration) as totalDuration from stationlog_tbl group by sid&quot;);
+result.print();
+</code></pre>
+<p>以上代码中不开启minibatch和设置minibatch可以通过WebUI页面看到变化：</p>
+<p><img src="https://:0/" alt="img"><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/17c43ffb6fc44dcbacd77dcb21a184c4.jpg" alt="image.png"></p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/a7f256b016e844a3a511ac093c1e3d10.jpg" alt="image.png"></p>
+<h3 id="12-7-4-Local-Global聚合"><a href="#12-7-4-Local-Global聚合" class="headerlink" title="12.7.4 Local-Global聚合"></a><strong>12.7.4 Local-Global聚合</strong></h3><p>Local-Global聚合主要解决Table 和 SQL操作中的数据倾斜问题，其思想是通过将一组聚合分为两个阶段，先在上游进行本地聚合，然后再下游进行全局聚合，类似MapReduce中的Combine+Reduce模式。如下SQL:</p>
+<pre><code>SELECT color, sum(id)
+FROM T
+GROUP BY color
+</code></pre>
+<p>以上SQL当按照Color进行分组聚合处理时，可能由于各Color存在数据不均衡出现一些并行实例处理相比其他实例处理更多的记录。开启Local-Global聚合后，可以将具有相同key的输入数据在本地预先聚合，然后全局聚合将预聚合结果进行最后累加，这样大大减少了网络shuffle和状态访问的成本，每次本地聚合累积的输入数据量基于 mini-batch 间隔，这意味着 local-global 聚合依赖于启用了 mini-batch 优化。</p>
+<p>下图展示了local-global聚合实现原理：</p>
+<p><img src="https://:0/" alt="img"><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/482037380d98477abf3aa17b4bee4229.jpg" alt="image.png"></p>
+<p>可以在Flink Table和SQL编程中通过如下参数开启local-global:</p>
+<pre><code>// 初始化 table environment
+TableEnvironment tEnv = ...;
+//通过flink configuration进行参数设置
+TableConfig configuration = tEnv.getConfig();
+//开启MiniBatch 优化，默认false
+configuration.set(&quot;table.exec.mini-batch.enabled&quot;, &quot;true&quot;); 
+//设置5秒时间处理缓冲数据,默认0s
+configuration.set(&quot;table.exec.mini-batch.allow-latency&quot;, &quot;5 s&quot;);
+//设置每个聚合操作可以缓冲的最大记录数,默认-1，开启MiniBatch后必须设置为正值
+configuration.set(&quot;table.exec.mini-batch.size&quot;, &quot;5000&quot;); 
+//设置Local-Global 聚合
+configuration.set(&quot;table.optimizer.agg-phase-strategy&quot;, &quot;TWO_PHASE&quot;);
+</code></pre>
+<p>如下代码中在产生基站数据时将sid_0多生产很多，这样导致后续按照基站进行分组统计时出现数据倾斜问题：</p>
+<pre><code>//1.使用本地模式
+Configuration conf = new Configuration();
+//设置WebUI绑定的本地端口
+conf.setString(RestOptions.BIND_PORT,&quot;8081&quot;);
+//使用配置
+StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
+
+//创建流处理执行环境
+//StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+//2.创建TableEnv
+StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
+
+DataStreamSource&lt;StationLog&gt; ds1 = env.addSource(new RichParallelSourceFunction&lt;StationLog&gt;() {
+    Boolean flag = true;
+
+    /**
+     * 主要方法:启动一个Source，大部分情况下都需要在run方法中实现一个循环产生数据
+     * 这里计划1s 产生1条基站数据，由于是并行，当前节点有几个core就会有几条数据
+     */
+    @Override
+    public void run(SourceContext&lt;StationLog&gt; ctx) throws Exception {
+        Random random = new Random();
+        String[] callTypes = {&quot;fail&quot;, &quot;success&quot;, &quot;busy&quot;, &quot;barring&quot;};
+
+        // 获取当前子任务的索引
+        int subtaskIndex = getRuntimeContext().getIndexOfThisSubtask();
+
+        while (flag) {
+            String sid = &quot;sid_&quot; + random.nextInt(10);
+
+            // 如果是0号子任务，生成更多数据
+            if (subtaskIndex == 0) {
+                for (int i = 0; i &lt; 100; i++) {
+                    // 数据生成逻辑
+                    generateData(ctx, random, sid, callTypes);
+                }
+            } else {
+                // 数据生成逻辑
+                generateData(ctx, random, sid, callTypes);
+            }
+            Thread.sleep(50);
+
+        }
+
+    }
+
+    private void generateData(SourceContext&lt;StationLog&gt; ctx, Random random, String sid, String[] callTypes) {
+        String callOut = &quot;1811234&quot; + (random.nextInt(9000) + 1000);
+        String callIn = &quot;1915678&quot; + (random.nextInt(9000) + 1000);
+        String callType = callTypes[random.nextInt(4)];
+        Long callTime = System.currentTimeMillis();
+        Long durations = Long.valueOf(random.nextInt(50) + &quot;&quot;);
+        if (sid.equals(&quot;sid_0&quot;)) {
+            for (int i = 0; i &lt; 100; i++) {
+                ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+
+            }
+        }
+        ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+    }
+
+    //当取消对应的Flink任务时被调用
+    @Override
+    public void cancel() {
+        flag = false;
+    }
+});
+
+//将DataStream 转换成 Table
+tableEnv.createTemporaryView(&quot;stationlog_tbl&quot;, ds1);
+
+//打印表结构
+Table table = tableEnv.from(&quot;stationlog_tbl&quot;);
+table.printSchema();
+
+TableResult result = tableEnv.executeSql(&quot;select sid,sum(duration) as totalDuration from stationlog_tbl group by sid&quot;);
+result.print();
+</code></pre>
+<p>查看Flink WebUI可以观察到存在数据倾斜问题：</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/4deb3f580ef24f538ddcb83a37be034f.jpg" alt="image.png"></p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/26092f5a009f4c7db434f97d10c3edf2.jpg" alt="image.png"></p>
+<p>代码中设置Local-Global聚合后，数据倾斜问题被很大程度解决。在以上代码中增加Local-Global聚合设置。</p>
+<pre><code>... ...
+//2.创建TableEnv
+StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
+
+//3.开启Local-Global 聚合
+//通过flink configuration进行参数设置
+TableConfig configuration = tableEnv.getConfig();
+//开启MiniBatch 优化，默认false
+configuration.set(&quot;table.exec.mini-batch.enabled&quot;, &quot;true&quot;);
+//设置5秒时间处理缓冲数据,默认0s
+configuration.set(&quot;table.exec.mini-batch.allow-latency&quot;, &quot;5 s&quot;);
+//设置每个聚合操作可以缓冲的最大记录数,默认-1，开启MiniBatch后必须设置为正值
+configuration.set(&quot;table.exec.mini-batch.size&quot;, &quot;5000&quot;);
+//设置Local-Global 聚合
+configuration.set(&quot;table.optimizer.agg-phase-strategy&quot;, &quot;TWO_PHASE&quot;);
+
+
+DataStreamSource&lt;StationLog&gt; ds1 = env.addSource...
+... ...
+</code></pre>
+<p>通过WebUI可以看到开启Local-Global聚合后，数据处理中没有出现数据倾斜。</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/c056d0de0eb74ace91d3dbe95e311c44.jpg" alt="image.png"></p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/ef171534c2a846488e64b457271410f8.jpg" alt="image.png"></p>
+<h3 id="12-7-5-拆分distinct聚合"><a href="#12-7-5-拆分distinct聚合" class="headerlink" title="12.7.5 拆分distinct聚合"></a><strong>12.7.5 拆分distinct聚合</strong></h3><p>Local-Global 优化可有效消除常规聚合的数据倾斜，例如 SUM、COUNT、MAX、MIN、AVG。但是在处理 distinct 聚合时，其性能并不令人满意。例如，如果我们要分析今天有多少唯一用户登录。我们可能有以下查询：</p>
+<pre><code>SELECT day, COUNT(DISTINCT user_id)
+FROM T
+GROUP BY day
+</code></pre>
+<p>如果 distinct key （即 user_id）的值分布稀疏且出现数据倾斜，则 COUNT DISTINCT 不适合减少数据，即使启用了 local-global 优化也没有太大帮助，因为每个并行可能仍然包含几乎所有原始记录，并且全局聚合将成为瓶颈（大多数繁重的累计操作由一个并行实例处理）。</p>
+<p>以上这种优化就可以使用拆分distinct聚合方式来解决。其优化原理是将不同的聚合（例如 COUNT(DISTINCT col)）分为两个级别。第一次聚合由 group key 和额外的 bucket key 进行 shuffle。bucket key 是使用 HASH_CODE(distinct_key) % BUCKET_NUM 计算的。BUCKET_NUM 默认为1024，可以通过 table.optimizer.distinct-agg.split.bucket-num 选项进行配置。第二次聚合是由原始 group key 进行 shuffle，并使用 SUM 聚合来自不同 buckets 的 COUNT DISTINCT 值。由于相同的 distinct key 将仅在同一 bucket 中计算，因此转换是等效的。bucket key 充当附加 group key 的角色，以分担 group key 中热点的负担。bucket key 使 job 具有可伸缩性来解决不同聚合中的数据倾斜&#x2F;热点。</p>
+<p>拆分distinct聚合后，以上查询将自动改写为如下查询：</p>
+<pre><code>SELECT day, SUM(cnt)
+FROM (
+SELECT day, COUNT(DISTINCT user_id) as cnt
+FROM T
+GROUP BY day, MOD(HASH_CODE(user_id), 1024)
+)GROUP BY day
+</code></pre>
+<p>下图显示了拆分 distinct 聚合如何提高性能（假设颜色表示 days，字母表示 user_id）。</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/7e8f240c3e3947328b320d0307ea83f0.jpg" alt="image.png"></p>
+<p>拆分distinct聚合时有如下两个注意点：</p>
+<ol>
+<li>上面是可以从这个优化中受益的最简单的示例。除此之外，Flink 还支持拆分更复杂的聚合查询，例如，多个具有不同 distinct key （例如 COUNT(DISTINCT a), SUM(DISTINCT b) ）的 distinct 聚合，可以与其他非 distinct 聚合（例如 SUM、MAX、MIN、COUNT ）一起使用。</li>
+<li>当前拆分优化不支持包含用户定义的 AggregateFunction 聚合。</li>
+</ol>
+<p>在Flink Table和SQL编程中设置拆分distinct聚合优化方式如下：</p>
+<pre><code>//初始化 table environment
+TableEnvironment tEnv = ...;
+//通过flink configuration进行参数设置
+TableConfig configuration = tEnv.getConfig();
+//开启拆分distinct 聚合
+configuration.set(&quot;table.optimizer.distinct-agg.split.enabled&quot;, &quot;true&quot;);
+</code></pre>
+<p>如下案例中，按照基站分组对通话类型去重统计，即使设置了Local-Global聚合操作，在不开启拆分distinct 聚合时，最终处理数据还是存在各个Task处理数据不均衡问题。</p>
+<pre><code>//1.使用本地模式
+Configuration conf = new Configuration();
+//设置WebUI绑定的本地端口
+conf.setString(RestOptions.BIND_PORT,&quot;8081&quot;);
+//使用配置
+StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
+
+//创建流处理执行环境
+//StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+//2.创建TableEnv
+StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
+
+
+//通过flink configuration进行参数设置
+TableConfig configuration = tableEnv.getConfig();
+//开启MiniBatch 优化，默认false
+configuration.set(&quot;table.exec.mini-batch.enabled&quot;, &quot;true&quot;);
+//设置5秒时间处理缓冲数据,默认0s
+configuration.set(&quot;table.exec.mini-batch.allow-latency&quot;, &quot;5 s&quot;);
+//设置每个聚合操作可以缓冲的最大记录数,默认-1，开启MiniBatch后必须设置为正值
+configuration.set(&quot;table.exec.mini-batch.size&quot;, &quot;5000&quot;);
+//设置Local-Global 聚合
+configuration.set(&quot;table.optimizer.agg-phase-strategy&quot;, &quot;TWO_PHASE&quot;);
+
+
+DataStreamSource&lt;StationLog&gt; ds1 = env.addSource(new RichParallelSourceFunction&lt;StationLog&gt;() {
+    Boolean flag = true;
+
+    /**
+     * 主要方法:启动一个Source，大部分情况下都需要在run方法中实现一个循环产生数据
+     * 这里计划1s 产生1条基站数据，由于是并行，当前节点有几个core就会有几条数据
+     */
+    @Override
+    public void run(SourceContext&lt;StationLog&gt; ctx) throws Exception {
+        Random random = new Random();
+        String[] callTypes = {&quot;fail&quot;, &quot;success&quot;, &quot;busy&quot;, &quot;barring&quot;};
+
+        // 获取当前子任务的索引
+        int subtaskIndex = getRuntimeContext().getIndexOfThisSubtask();
+
+        while (flag) {
+            String sid = &quot;sid_&quot; + random.nextInt(10);
+
+            // 如果是0号子任务，生成更多数据
+            if (subtaskIndex == 0) {
+                for (int i = 0; i &lt; 100; i++) {
+                    // 数据生成逻辑
+                    generateData(ctx, random, sid, callTypes);
+                }
+            } else {
+                // 数据生成逻辑
+                generateData(ctx, random, sid, callTypes);
+            }
+            Thread.sleep(50);
+
+        }
+
+    }
+
+    private void generateData(SourceContext&lt;StationLog&gt; ctx, Random random, String sid, String[] callTypes) {
+        String callOut = &quot;1811234&quot; + (random.nextInt(9000) + 1000);
+        String callIn = &quot;1915678&quot; + (random.nextInt(9000) + 1000);
+        String callType = callTypes[random.nextInt(4)];
+        Long callTime = System.currentTimeMillis();
+        Long durations = Long.valueOf(random.nextInt(50) + &quot;&quot;);
+        if (sid.equals(&quot;sid_0&quot;)) {
+            for (int i = 0; i &lt; 100; i++) {
+                ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+
+            }
+        }
+        ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+    }
+
+    //当取消对应的Flink任务时被调用
+    @Override
+    public void cancel() {
+        flag = false;
+    }
+});
+
+//将DataStream 转换成 Table
+tableEnv.createTemporaryView(&quot;stationlog_tbl&quot;, ds1);
+
+//打印表结构
+Table table = tableEnv.from(&quot;stationlog_tbl&quot;);
+table.printSchema();
+
+TableResult result = tableEnv.executeSql(&quot;&quot; +
+        &quot;select &quot; +
+        &quot;   sid,count(distinct callType) as total_callType &quot; +
+        &quot;from stationlog_tbl &quot; +
+        &quot;group by sid&quot;);
+
+result.print();
+</code></pre>
+<p>以上代码运行后，可以通过WebUI观察执行情况如下：</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/d468fa30d12d4ddebb39eba64b732d2e.jpg" alt="image.png"></p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/8e2515c0da0f434d8031077c97d318ec.jpg" alt="image.png"></p>
+<p>当设置拆分distinct聚合参数后，可以看到执行图中多了xxx阶段，并且后续聚合阶段各个task处理数据量相对均衡。只需要在代码中加入如下配置：</p>
+<pre><code>... ...
+//3.设置拆分distinct聚合
+configuration.set(&quot;table.optimizer.distinct-agg.split.enabled&quot;, &quot;true&quot;);
+... ...
+</code></pre>
+<p>代码执行后WbeUI信息：</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/8cf20831fcc640f4b400391b894b756b.jpg" alt="image.png"></p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/6c017c05b5584aebb8ee3bc1e6841df5.jpg" alt="image.png"></p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/8df44853bed64e988db4e269282e48d9.jpg" alt="image.png"></p>
+<h3 id="12-7-6-使用Filter修饰符"><a href="#12-7-6-使用Filter修饰符" class="headerlink" title="12.7.6 使用Filter修饰符"></a><strong>12.7.6 使用Filter修饰符</strong></h3><p>在某些情况下，用户可能需要从不同维度计算 UV（独立访客）的数量，例如来自 Android 的 UV、iPhone 的 UV、Web 的 UV 和总 UV。很多人会选择 CASE WHEN，例如：</p>
+<pre><code>SELECT
+ day,
+ COUNT(DISTINCT user_id) AS total_uv,
+ COUNT(DISTINCT CASE WHEN flag IN (&#39;android&#39;, &#39;iphone&#39;) THEN user_id ELSE NULL END) AS app_uv,
+ COUNT(DISTINCT CASE WHEN flag IN (&#39;wap&#39;, &#39;other&#39;) THEN user_id ELSE NULL END) AS web_uv
+FROM T
+GROUP BY day
+</code></pre>
+<p>以上SQL中三个查询指标都是针对user_id进行去重统计，每个查询的指标都会维护一个状态实例，导致Flink维护状态过大。在这种情况下，建议使用 FILTER 语法替换 CASE WHEN语法，因为 FILTER 更符合 SQL 标准且能获得更多的性能提升。将上面的示例替换为 FILTER 修饰符，如下所示：</p>
+<pre><code>SELECT
+ day,
+ COUNT(DISTINCT user_id) AS total_uv,
+ COUNT(DISTINCT user_id) FILTER (WHERE flag IN (&#39;android&#39;, &#39;iphone&#39;)) AS app_uv,
+ COUNT(DISTINCT user_id) FILTER (WHERE flag IN (&#39;wap&#39;, &#39;other&#39;)) AS web_uv
+FROM T
+GROUP BY day
+</code></pre>
+<p>Flink SQL 优化器可以识别相同的 distinct key 上的不同过滤器参数。例如，在上面的示例中，三个 COUNT DISTINCT 都在 user_id 一列上，Flink 可以只使用一个共享状态实例，而不是三个状态实例，以减少状态访问和状态大小，在某些工作负载下，可以获得显著的性能提升。</p>
+<p>如下代码示例中，使用case when 来统计每个基站中通话时间处于某个时间长度的个数。</p>
+<pre><code>//1.使用本地模式
+Configuration conf = new Configuration();
+//设置WebUI绑定的本地端口
+conf.setString(RestOptions.BIND_PORT,&quot;8081&quot;);
+//使用配置
+StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
+//开启checkpoint
+env.enableCheckpointing(5000);
+
+//创建流处理执行环境
+//StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+//2.创建TableEnv
+StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
+
+//3.开启minibatch
+//通过flink configuration进行参数设置
+TableConfig configuration = tableEnv.getConfig();
+//开启MiniBatch 优化，默认false
+configuration.set(&quot;table.exec.mini-batch.enabled&quot;, &quot;true&quot;);
+//设置5秒时间处理缓冲数据,默认0s
+configuration.set(&quot;table.exec.mini-batch.allow-latency&quot;, &quot;5 s&quot;);
+//设置每个聚合操作可以缓冲的最大记录数,默认-1，开启MiniBatch后必须设置为正值
+configuration.set(&quot;table.exec.mini-batch.size&quot;, &quot;5000&quot;);
+
+DataStreamSource&lt;StationLog&gt; ds1 = env.addSource(new RichParallelSourceFunction&lt;StationLog&gt;() {
+    Boolean flag = true;
+
+    @Override
+    public void run(SourceContext&lt;StationLog&gt; ctx) throws Exception {
+        Random random = new Random();
+        String[] callTypes = {&quot;fail&quot;, &quot;success&quot;, &quot;busy&quot;, &quot;barring&quot;};
+        while (flag) {
+            String sid = &quot;sid_&quot; + random.nextInt(10);
+            generateData(ctx, random, sid, callTypes);
+            Thread.sleep(50);
+
+        }
+
+    }
+
+    private void generateData(SourceContext&lt;StationLog&gt; ctx, Random random, String sid, String[] callTypes) {
+        String callOut = &quot;1811234&quot; + (random.nextInt(9000) + 1000);
+        String callIn = &quot;1915678&quot; + (random.nextInt(9000) + 1000);
+        String callType = callTypes[random.nextInt(4)];
+        Long callTime = System.currentTimeMillis();
+        Long durations = Long.valueOf(random.nextInt(50) + &quot;&quot;);
+        ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+    }
+
+    //当取消对应的Flink任务时被调用
+    @Override
+    public void cancel() {
+        flag = false;
+    }
+});
+
+//将DataStream 转换成 Table
+tableEnv.createTemporaryView(&quot;stationlog_tbl&quot;, ds1);
+
+//打印表结构
+Table table = tableEnv.from(&quot;stationlog_tbl&quot;);
+table.printSchema();
+
+//使用CaseWhen实现
+TableResult result = tableEnv.executeSql(&quot;&quot; +
+        &quot;SELECT&quot; +
+        &quot; sid, &quot; +
+        &quot; COUNT(DISTINCT callOut) AS total_sid_cnt, &quot; +
+        &quot; COUNT(DISTINCT CASE WHEN duration &gt;= 20 AND duration &lt;40 THEN callOut ELSE NULL END) AS middle_sid_cnt, &quot; +
+        &quot; COUNT(DISTINCT CASE WHEN duration &gt;= 40 AND duration &lt;50 THEN callOut ELSE NULL END) AS long_sid_cnt &quot; +
+        &quot;FROM stationlog_tbl &quot; +
+        &quot;GROUP BY sid &quot;);
+result.print();
+</code></pre>
+<p>以上代码执行后可以观察FlinkWebUI 每次checkpoint大小如下：</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/2ab85ef308a74d9ba16b4a64cb209ba1.jpg" alt="image.png"></p>
+<p>将代码中的SQL替换成Filter实现方式，如下：</p>
+<pre><code>TableResult result2 = tableEnv.executeSql(&quot;&quot; +
+        &quot;SELECT&quot; +
+        &quot; sid, &quot; +
+        &quot; COUNT(DISTINCT callOut) AS total_sid_cnt, &quot; +
+        &quot; COUNT(DISTINCT callOut) FILTER (WHERE duration&gt;=20 and duration &lt;40) AS middle_sid_cnt, &quot; +
+        &quot; COUNT(DISTINCT callOut) FILTER (WHERE duration&gt;=40 and duration &lt;50) AS long_sid_cnt &quot; +
+        &quot;FROM stationlog_tbl &quot; +
+        &quot;GROUP BY sid &quot;);
+</code></pre>
+<p>可以观察WebUI对应的Checkpoint状态大小，明显较Case When 实现方式管理状态少。</p>
+<p><img src="https://:0/" alt="img"><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/d066348ac7404b27920e4a51f2d46d4d.jpg" alt="image.png"></p>
+
   </div>
   
   
@@ -285,7 +880,7 @@
       <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
     </div>
     <nav class="toc-content" id="toc-content">
-      
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#12-7-1-%E5%AF%B9%E7%8A%B6%E6%80%81%E8%AE%BE%E7%BD%AETTL"><span class="toc-list-number">1.</span> <span class="toc-list-text">12.7.1 对状态设置TTL</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#12-7-2-%E4%BD%BF%E7%94%A8%E7%B4%AF%E7%A7%AF%E7%AA%97%E5%8F%A3"><span class="toc-list-number">2.</span> <span class="toc-list-text">12.7.2 使用累积窗口</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#12-7-3-MiniBatch%E8%81%9A%E5%90%88"><span class="toc-list-number">3.</span> <span class="toc-list-text">12.7.3 MiniBatch聚合</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#12-7-4-Local-Global%E8%81%9A%E5%90%88"><span class="toc-list-number">4.</span> <span class="toc-list-text">12.7.4 Local-Global聚合</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#12-7-5-%E6%8B%86%E5%88%86distinct%E8%81%9A%E5%90%88"><span class="toc-list-number">5.</span> <span class="toc-list-text">12.7.5 拆分distinct聚合</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#12-7-6-%E4%BD%BF%E7%94%A8Filter%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-list-number">6.</span> <span class="toc-list-text">12.7.6 使用Filter修饰符</span></a></li></ol>
     </nav>
   </div>
 </article>

@@ -134,6 +134,13 @@
       <i class="iconfont icon-x"></i>
     </button>
     
+    <div class="sidebar-section sidebar-qrcode">
+      <div class="qrcode-wrapper">
+        <img src="/icons/qrcode_wchat.jpg" alt="微信公众号" class="qrcode-image">
+        <p class="qrcode-text">扫码关注公众号</p>
+      </div>
+    </div>
+    
     <div class="sidebar-section sidebar-about">
       <div class="author-avatar">
         
@@ -248,7 +255,620 @@
   </header>
   
   <div class="article-content">
-    
+    <p>在 Apache Flink 中，数据倾斜是指在分布式数据处理过程中发生的数据分布不均衡现象。数据倾斜表现为某些节点或分区处理的数据量远多于其他节点，导致数据反压、频繁GC甚至OOM一系列问题，从而影响整个系统的性能和效率。本小节主要讲解如何对Flink中的数据倾斜进行优化。</p>
+<h3 id="12-6-1-数据倾斜的影响"><a href="#12-6-1-数据倾斜的影响" class="headerlink" title="12.6.1 数据倾斜的影响"></a><strong>12.6.1 数据倾斜的影响</strong></h3><p>在Flink中出现数据倾斜时会带来如下影响：</p>
+<ol>
+<li>数据反压严重：往往产生数据倾斜时，导致某个subtask处理数据量非常大，从而会产生反压问题。</li>
+<li>GC频繁问题：某个subtask处理数据量特别大，可能会使JVM的内存资源短缺，导致频繁的GC，甚至出现TaskManager OOM问题，最终导致任务失败。</li>
+<li>watermark延迟严重：数据倾斜导致某个subtask处理数据量大，数据流动缓慢，watermark延迟大，不更新推进问题。</li>
+</ol>
+<h3 id="12-6-2-定位数据倾斜"><a href="#12-6-2-定位数据倾斜" class="headerlink" title="12.6.2 定位数据倾斜"></a><strong>12.6.2 定位数据倾斜</strong></h3><p>Flink中出现数据倾斜时往往会产生反压，我们可以通过Flink WebUI观察反压信息来进一步确定是否有数据倾斜问题。同时可以进入出现反压算子的下个算子subtask执行详情页面，观察每个subtask处理数据量和接收数据条数来判断是否出现倾斜，一般某个subtask处理数据量多且相比其他subtask处理数据量相差10倍以上，极有可能出现数据倾斜问题。</p>
+<p>如下案例中，首先通过自定义source在源头对数据模拟倾斜，并当遇到基站id为sid_0多生产100倍数据模拟sid_0基站数据相比其他基站数据多，后续又经过filter、flatMap、map、keyBy、sum等操作对数据进行处理。为了能通过WebUI清晰的看到数据倾斜效果，代码关闭了算子链、设置并行度为4并以本地模式运行。</p>
+<pre><code>//1.使用本地模式
+Configuration conf = new Configuration();
+//设置WebUI绑定的本地端口
+conf.setString(RestOptions.BIND_PORT,&quot;8081&quot;);
+//使用配置
+StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
+
+//StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+//2.关闭算子链
+env.disableOperatorChaining();
+
+//3.设置并行度为4
+env.setParallelism(4);
+
+//4.自定义源，模拟数据源头存在数据倾斜
+DataStreamSource&lt;StationLog&gt; ds1 = env.addSource(new RichParallelSourceFunction&lt;StationLog&gt;() {
+    Boolean flag = true;
+
+    /**
+     * 主要方法:启动一个Source，大部分情况下都需要在run方法中实现一个循环产生数据
+     * 这里计划1s 产生1条基站数据，由于是并行，当前节点有几个core就会有几条数据
+     */
+    @Override
+    public void run(SourceContext&lt;StationLog&gt; ctx) throws Exception {
+        Random random = new Random();
+        String[] callTypes = {&quot;fail&quot;, &quot;success&quot;, &quot;busy&quot;, &quot;barring&quot;};
+
+        // 获取当前子任务的索引
+        int subtaskIndex = getRuntimeContext().getIndexOfThisSubtask();
+
+        while (flag) {
+            String sid = &quot;sid_&quot; + random.nextInt(10);
+
+            // 如果是0号子任务，生成更多数据
+            if (subtaskIndex == 0) {
+                for (int i = 0; i &lt; 100; i++) {
+                    // 数据生成逻辑
+                    generateData(ctx, random, sid, callTypes);
+                }
+            } else {
+                // 数据生成逻辑
+                generateData(ctx, random, sid, callTypes);
+            }
+            Thread.sleep(50);
+
+        }
+
+    }
+
+    private void generateData(SourceContext&lt;StationLog&gt; ctx, Random random, String sid, String[] callTypes) {
+        String callOut = &quot;1811234&quot; + (random.nextInt(9000) + 1000);
+        String callIn = &quot;1915678&quot; + (random.nextInt(9000) + 1000);
+        String callType = callTypes[random.nextInt(4)];
+        Long callTime = System.currentTimeMillis();
+        Long durations = Long.valueOf(random.nextInt(50) + &quot;&quot;);
+        if (sid.equals(&quot;sid_0&quot;)) {
+            for (int i = 0; i &lt; 100; i++) {
+                ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+
+            }
+        }
+        ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+    }
+
+    //当取消对应的Flink任务时被调用
+    @Override
+    public void cancel() {
+        flag = false;
+    }
+});
+
+//5.过滤通话状态不为fail的数据
+SingleOutputStreamOperator&lt;StationLog&gt; ds2 = ds1.filter(new FilterFunction&lt;StationLog&gt;() {
+    @Override
+    public boolean filter(StationLog value) throws Exception {
+        return !&quot;fail&quot;.equals(value.callType);
+    }
+});
+
+//6.使用flatMap对数据处理，这里仅仅是返回当前数据
+SingleOutputStreamOperator&lt;StationLog&gt; ds3 = ds2.flatMap(new FlatMapFunction&lt;StationLog, StationLog&gt;() {
+    @Override
+    public void flatMap(StationLog value, Collector&lt;StationLog&gt; out) throws Exception {
+        out.collect(value);
+    }
+});
+
+//7.对数据使用map 处理，转换成key,value格式数据，key:基站，value:计数
+SingleOutputStreamOperator&lt;Tuple2&lt;String, Long&gt;&gt; ds4 = ds3.map(new RichMapFunction&lt;StationLog, Tuple2&lt;String, Long&gt;&gt;() {
+
+
+    @Override
+    public Tuple2&lt;String, Long&gt; map(StationLog value) throws Exception {
+        return new Tuple2&lt;String, Long&gt;(value.sid , 1L);
+    }
+});
+
+//8.使用keyby按sid进行分组
+KeyedStream&lt;Tuple2&lt;String, Long&gt;, String&gt; ds5 = ds4.keyBy(new KeySelector&lt;Tuple2&lt;String, Long&gt;, String&gt;() {
+    @Override
+    public String getKey(Tuple2&lt;String, Long&gt; value) throws Exception {
+        return value.f0;
+    }
+});
+
+//9.统计每个基站对应的数据量
+SingleOutputStreamOperator&lt;Tuple2&lt;String, Long&gt;&gt; result = ds5.sum(1);
+
+result.print();
+env.execute();
+</code></pre>
+<p>以上代码运行后，可以通过Flink WebUI观察到数据处理存在数据倾斜问题。</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/131ec3f064fa48209d135ddfb921f1b2.jpg" alt="image.png"></p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/16595dd79ccc4e2781abd6b86498bdbf.jpg" alt="image.png"></p>
+<p><img src="https://:0/" alt="img"></p>
+<p><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/b1c7a3cce27d44c888e47e738c1453c5.jpg" alt="image.png"></p>
+<h3 id="12-6-3-数据倾斜原因及解决方式"><a href="#12-6-3-数据倾斜原因及解决方式" class="headerlink" title="12.6.3 数据倾斜原因及解决方式"></a><strong>12.6.3 数据倾斜原因及解决方式</strong></h3><p>Flink中产生数据倾斜的原因主要就是两个方面，一个是业务数据本身存在数据倾斜，例如：一线城市外卖单量明显比三、四线小城市外卖订单量要大 ；另一个是Flink业务处理中按照某个key进行聚合操作，例如：使用keyby算子对数据分组造成了数据倾斜。下面分别对这两种情况进行分析并提出解决数据倾斜思路。</p>
+<h4 id="12-6-3-1-数据源本身数据倾斜"><a href="#12-6-3-1-数据源本身数据倾斜" class="headerlink" title="12.6.3.1 数据源本身数据倾斜"></a>12.6.3.1 <strong>数据源本身数据倾斜</strong></h4><p>当Flink读取的数据源本身出现数据倾斜时，Flink读取过来数据极大概率也是倾斜的，这种情况下我们可以对读取过来的数据使用shuffle或者rebalance进行分区操作，这样就可以将读取过来不均匀的数据均匀的发送给Flink各个subtask进行处理。也可以改变上下游算子的并行度来解决这种倾斜问题，当上下游算子并行度不一致时，Flink默认就会使用rebalance partitioner分区策略，解决数据倾斜问题。</p>
+<p>例如Flink读取Kafka数据时，Source并行度一般建议与读取Kafka的topic分区数保持一致，但如果某个分区出现数据倾斜，可以设置source后续操作的并行度为topic的整数倍或者更多，这样Flink后续处理并行度与Source并行度数不一致，自动采用rebalance分区策略解决数据倾斜问题。</p>
+<p>如上案例中，ds1出现数据倾斜，可以在对ds1进行转换前调用shuffle或者rebalance方法设置分区策略，这样后续SubTask处理数据时就会均匀。如下代码：</p>
+<pre><code>... ...
+ //过滤通话状态不为fail的数据
+//        SingleOutputStreamOperator&lt;StationLog&gt; ds2 = ds1.shuffle().filter(new FilterFunction&lt;StationLog&gt;() {
+        SingleOutputStreamOperator&lt;StationLog&gt; ds2 = ds1.rebalance().filter(new FilterFunction&lt;StationLog&gt;() {
+            @Override
+            public boolean filter(StationLog value) throws Exception {
+                return !&quot;fail&quot;.equals(value.callType);
+            }
+        });
+        SingleOutputStreamOperator&lt;StationLog&gt; ds3 = ds2.flatMap(new FlatMapFunction&lt;StationLog, StationLog&gt;() {
+            @Override
+            public void flatMap(StationLog value, Collector&lt;StationLog&gt; out) throws Exception {
+                out.collect(value);
+            }
+        });
+... ...
+</code></pre>
+<p>以上代码修改后，执行，可以看到源头数据虽有倾斜，但在后续阶段算子处理时，各个subtask处理的数据已经很均匀。</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/482fe37bbc7344e78c3fc5e02800f381.jpg" alt="image.png"></p>
+<p><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/c094b7c0af3d4a349cdd5d878d84db85.jpg" alt="image.png"></p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/af95551cae1d4c609f25dba44f155a5c.jpg" alt="image.png"></p>
+<p><img src="https://:0/" alt="img"></p>
+<h4 id="12-6-3-2-KeyBy导致数据倾斜"><a href="#12-6-3-2-KeyBy导致数据倾斜" class="headerlink" title="12.6.3.2 KeyBy导致数据倾斜"></a>12.6.3.2 <strong>KeyBy导致数据倾斜</strong></h4><p>针对以上案例虽然使用shuffle或者rebalance方法设置分区策略解决了源头数据倾斜问题，但在代码业务逻辑中通过了keyby按照基站id进行分组，数据中本身基站sid_0的数据较其他基站id数据量大，所以keyby后的数据还是存在数据倾斜。下面介绍Flink中KeyBy分组导致数据倾斜的情况处理。</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/87cc9d27b5834cc4ba8e4ae4ae6d3da7.jpg" alt="image.png"></p>
+<p>计算框架中处理由于分组导致的数据的场景往往采用双重聚合方式，即：首先对分组的key进行随机加前缀聚合，然后再对聚合结果去掉前缀再次聚合。在Flink实时数据处理场景中，针对KeyBy导致的数据倾斜不能统一简单的使用双重聚合方式操作，因为在Flink中对DataStream使用KeyBy后可以进行简单的聚合操作（例如：sum&#x2F;count），也可以进行窗口设置（例如：timewindow）。如果keyby导致数据倾斜的场景是简单的聚合操作，由于数据流是实时向下游传递，再使用双重聚合方式反而无效甚至导致数据统计结果不准确，这时需要保证第一阶段聚合后的结果不能实时完后传递，可以通过手动方式进行攒批处理后统一向下游传递来保证最终结果的正确性。如果keyby导致数据倾斜的场景是窗口操作那么可以使用双重聚合方式。</p>
+<ul>
+<li><strong>KeyBy简单聚合操作解决数据倾斜方式</strong></li>
+</ul>
+<p>以上案例业务是对基站id进行keyby分组后进行简单聚合，基站id sid_0出现严重数据倾斜。解决这种数据倾斜方式首先对分组key进行随机加前缀，然后分组进行第一次聚合，对聚合的结果攒批向下游传递。然后对第一次聚合后的结果进行去前缀，再次聚合即可。</p>
+<p>以下代码对ds3进行随机加1000前缀，分组后在flatMap中进行第一次聚合结果累加，当累计10000条数据后，统一将聚合结果向下游传递，然后再进行keyby分组和第二次聚合操作。</p>
+<pre><code>//1.使用本地模式
+Configuration conf = new Configuration();
+//设置WebUI绑定的本地端口
+conf.setString(RestOptions.BIND_PORT,&quot;8081&quot;);
+//使用配置
+StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
+
+//StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+//关闭算子链
+env.disableOperatorChaining();
+//设置并行度为4
+env.setParallelism(4);
+
+DataStreamSource&lt;StationLog&gt; ds1 = env.addSource(new RichParallelSourceFunction&lt;StationLog&gt;() {
+    Boolean flag = true;
+
+    /**
+     * 主要方法:启动一个Source，大部分情况下都需要在run方法中实现一个循环产生数据
+     * 这里计划1s 产生1条基站数据，由于是并行，当前节点有几个core就会有几条数据
+     */
+    @Override
+    public void run(SourceContext&lt;StationLog&gt; ctx) throws Exception {
+        Random random = new Random();
+        String[] callTypes = {&quot;fail&quot;, &quot;success&quot;, &quot;busy&quot;, &quot;barring&quot;};
+
+        // 获取当前子任务的索引
+        int subtaskIndex = getRuntimeContext().getIndexOfThisSubtask();
+
+        while (flag) {
+            String sid = &quot;sid_&quot; + random.nextInt(10);
+
+            // 如果是0号子任务，生成更多数据
+            if (subtaskIndex == 0) {
+                for (int i = 0; i &lt; 100; i++) {
+                    // 数据生成逻辑
+                    generateData(ctx, random, sid, callTypes);
+                }
+            } else {
+                // 数据生成逻辑
+                generateData(ctx, random, sid, callTypes);
+            }
+            Thread.sleep(50);
+
+        }
+
+    }
+
+    private void generateData(SourceContext&lt;StationLog&gt; ctx, Random random, String sid, String[] callTypes) {
+        String callOut = &quot;1811234&quot; + (random.nextInt(9000) + 1000);
+        String callIn = &quot;1915678&quot; + (random.nextInt(9000) + 1000);
+        String callType = callTypes[random.nextInt(4)];
+        Long callTime = System.currentTimeMillis();
+        Long durations = Long.valueOf(random.nextInt(50) + &quot;&quot;);
+        if (sid.equals(&quot;sid_0&quot;)) {
+            for (int i = 0; i &lt; 100; i++) {
+                ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+
+            }
+        }
+        ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+    }
+
+    //当取消对应的Flink任务时被调用
+    @Override
+    public void cancel() {
+        flag = false;
+    }
+});
+
+//过滤通话状态不为fail的数据
+SingleOutputStreamOperator&lt;StationLog&gt; ds2 = ds1.shuffle().filter(new FilterFunction&lt;StationLog&gt;() {
+    @Override
+    public boolean filter(StationLog value) throws Exception {
+        return !&quot;fail&quot;.equals(value.callType);
+    }
+});
+SingleOutputStreamOperator&lt;StationLog&gt; ds3 = ds2.flatMap(new FlatMapFunction&lt;StationLog, StationLog&gt;() {
+    @Override
+    public void flatMap(StationLog value, Collector&lt;StationLog&gt; out) throws Exception {
+        out.collect(value);
+    }
+});
+
+//对数据随机加前缀
+SingleOutputStreamOperator&lt;Tuple2&lt;String, Long&gt;&gt; ds4 = ds3.map(new RichMapFunction&lt;StationLog, Tuple2&lt;String, Long&gt;&gt;() {
+
+    @Override
+    public Tuple2&lt;String, Long&gt; map(StationLog value) throws Exception {
+        Random random = new Random();
+        return new Tuple2&lt;String, Long&gt;(random.nextInt(1000)+&quot;-&quot;+value.sid , 1L);
+    }
+});
+
+//分组
+KeyedStream&lt;Tuple2&lt;String, Long&gt;, String&gt; ds5 = ds4.keyBy(new KeySelector&lt;Tuple2&lt;String, Long&gt;, String&gt;() {
+    @Override
+    public String getKey(Tuple2&lt;String, Long&gt; value) throws Exception {
+        return value.f0;
+    }
+});
+
+//聚集100条数据进行统计一次，并将结果输出
+SingleOutputStreamOperator&lt;Tuple2&lt;String, Long&gt;&gt; ds6 = ds5.flatMap(new FlatMapFunction&lt;Tuple2&lt;String, Long&gt;, Tuple2&lt;String, Long&gt;&gt;() {
+    //用于计数，满100条就输出数据
+    private int count=0;
+
+    //创建map存储数据统计结果
+    private Map&lt;String, Long&gt; dataMap = new HashMap&lt;String, Long&gt;();
+
+    @Override
+    public void flatMap(Tuple2&lt;String, Long&gt; value, Collector&lt;Tuple2&lt;String, Long&gt;&gt; out) throws Exception {
+        //每条数据对count计数
+        count++;
+        //当前数据key
+        String key = value.f0;
+
+        if (dataMap.containsKey(key)) {
+            dataMap.put(key, dataMap.get(key) + 1L);
+        } else {
+            dataMap.put(key, 1L);
+        }
+
+        if (count == 10000) {
+            //count达到10000就输出结果
+            for (Map.Entry&lt;String, Long&gt; one : dataMap.entrySet()) {
+                out.collect(new Tuple2&lt;&gt;(one.getKey(), one.getValue()));
+            }
+
+            //清空count，清空map
+            count = 0;
+            dataMap.clear();
+        }
+
+    }
+});
+
+//去掉前缀
+SingleOutputStreamOperator&lt;Tuple2&lt;String, Long&gt;&gt; ds7 = ds6.map(new MapFunction&lt;Tuple2&lt;String, Long&gt;, Tuple2&lt;String, Long&gt;&gt;() {
+    @Override
+    public Tuple2&lt;String, Long&gt; map(Tuple2&lt;String, Long&gt; value) throws Exception {
+        String realKey = value.f0.split(&quot;-&quot;)[1];
+        return new Tuple2&lt;&gt;(realKey, value.f1);
+    }
+});
+
+//第二次keyby 并 sum聚合
+KeyedStream&lt;Tuple2&lt;String, Long&gt;, String&gt; ds8 = ds7.keyBy(new KeySelector&lt;Tuple2&lt;String, Long&gt;, String&gt;() {
+    @Override
+    public String getKey(Tuple2&lt;String, Long&gt; value) throws Exception {
+        return value.f0;
+    }
+});
+
+SingleOutputStreamOperator&lt;Tuple2&lt;String, Long&gt;&gt; result = ds8.sum(1);
+
+result.print();
+
+env.execute();
+</code></pre>
+<p>以上代码运行后，可以看到keyby数据倾斜问题缓解很多。</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/d5a89e7edbf44390b3fa400c3f49ec0b.jpg" alt="image.png"></p>
+<ul>
+<li><strong>KeyBy窗口操作解决数据倾斜方式</strong></li>
+</ul>
+<p>如下代码案例与之前数据倾斜案例类似，代码中KeyBy后设置窗口并进行基站通话时长统计。</p>
+<pre><code>/1.使用本地模式
+Configuration conf = new Configuration();
+//设置WebUI绑定的本地端口
+conf.setString(RestOptions.BIND_PORT,&quot;8081&quot;);
+//使用配置
+StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
+
+//StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+//关闭算子链
+env.disableOperatorChaining();
+//设置并行度为4
+env.setParallelism(4);
+
+DataStreamSource&lt;StationLog&gt; ds1 = env.addSource(new RichParallelSourceFunction&lt;StationLog&gt;() {
+    Boolean flag = true;
+
+    /**
+     * 主要方法:启动一个Source，大部分情况下都需要在run方法中实现一个循环产生数据
+     * 这里计划1s 产生1条基站数据，由于是并行，当前节点有几个core就会有几条数据
+     */
+    @Override
+    public void run(SourceContext&lt;StationLog&gt; ctx) throws Exception {
+        Random random = new Random();
+        String[] callTypes = {&quot;fail&quot;, &quot;success&quot;, &quot;busy&quot;, &quot;barring&quot;};
+
+        // 获取当前子任务的索引
+        int subtaskIndex = getRuntimeContext().getIndexOfThisSubtask();
+
+        while (flag) {
+            String sid = &quot;sid_&quot; + random.nextInt(10);
+
+            // 如果是0号子任务，生成更多数据
+            if (subtaskIndex == 0) {
+                for (int i = 0; i &lt; 100; i++) {
+                    // 数据生成逻辑
+                    generateData(ctx, random, sid, callTypes);
+                }
+            } else {
+                // 数据生成逻辑
+                generateData(ctx, random, sid, callTypes);
+            }
+            Thread.sleep(50);
+
+        }
+
+    }
+
+    private void generateData(SourceContext&lt;StationLog&gt; ctx, Random random, String sid, String[] callTypes) {
+        String callOut = &quot;1811234&quot; + (random.nextInt(9000) + 1000);
+        String callIn = &quot;1915678&quot; + (random.nextInt(9000) + 1000);
+        String callType = callTypes[random.nextInt(4)];
+        Long callTime = System.currentTimeMillis();
+        Long durations = Long.valueOf(random.nextInt(50) + &quot;&quot;);
+        if (sid.equals(&quot;sid_0&quot;)) {
+            for (int i = 0; i &lt; 100; i++) {
+                ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+
+            }
+        }
+        ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+    }
+
+    //当取消对应的Flink任务时被调用
+    @Override
+    public void cancel() {
+        flag = false;
+    }
+});
+
+//设置watermark
+SingleOutputStreamOperator&lt;StationLog&gt; ds2 = ds1.assignTimestampsAndWatermarks(
+        WatermarkStrategy.&lt;StationLog&gt;forBoundedOutOfOrderness(Duration.ofSeconds(2))
+                .withTimestampAssigner(new SerializableTimestampAssigner&lt;StationLog&gt;() {
+                    @Override
+                    public long extractTimestamp(StationLog element, long recordTimestamp) {
+                        return element.callTime;
+                    }
+                }).withIdleness(Duration.ofSeconds(5))
+);
+
+//过滤通话状态不为fail的数据
+SingleOutputStreamOperator&lt;StationLog&gt; ds3 = ds2.shuffle().filter(new FilterFunction&lt;StationLog&gt;() {
+    @Override
+    public boolean filter(StationLog value) throws Exception {
+        return !&quot;fail&quot;.equals(value.callType);
+    }
+});
+
+//转换数据
+SingleOutputStreamOperator&lt;Tuple2&lt;String, Long&gt;&gt; ds4 = ds3.map(new MapFunction&lt;StationLog, Tuple2&lt;String, Long&gt;&gt;() {
+    @Override
+    public Tuple2&lt;String, Long&gt; map(StationLog value) throws Exception {
+        return new Tuple2&lt;&gt;(value.sid, value.duration);
+    }
+});
+
+//分组
+KeyedStream&lt;Tuple2&lt;String, Long&gt;, String&gt; ds5 = ds4.keyBy(new KeySelector&lt;Tuple2&lt;String, Long&gt;, String&gt;() {
+    @Override
+    public String getKey(Tuple2&lt;String, Long&gt; value) throws Exception {
+        return value.f0;
+    }
+});
+
+//设置窗口
+WindowedStream&lt;Tuple2&lt;String, Long&gt;, String, TimeWindow&gt; ds6 = ds5.window(TumblingEventTimeWindows.of(Time.seconds(5)));
+
+SingleOutputStreamOperator&lt;Tuple2&lt;String, Long&gt;&gt; ds7 = ds6.process(new ProcessWindowFunction&lt;Tuple2&lt;String, Long&gt;, Tuple2&lt;String, Long&gt;, String, TimeWindow&gt;() {
+
+    @Override
+    public void process(String key,
+                        ProcessWindowFunction&lt;Tuple2&lt;String, Long&gt;, Tuple2&lt;String, Long&gt;, String, TimeWindow&gt;.Context context,
+                        Iterable&lt;Tuple2&lt;String, Long&gt;&gt; iterable,
+                        Collector&lt;Tuple2&lt;String, Long&gt;&gt; collector) throws Exception {
+        Long totalDuration = 0L;
+        for (Tuple2&lt;String, Long&gt; info : iterable) {
+            totalDuration += info.f1;
+        }
+        collector.collect(new Tuple2&lt;&gt;(key, totalDuration));
+    }
+});
+
+ds7.print();
+
+env.execute();
+</code></pre>
+<p>以上代码中基站sid_0存在数据倾斜，在keyby后设置window窗口处理中同样也有数据倾斜问题。运行以上代码，可以通过webui观察到数据倾斜。</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/8b837a0f96f04e7a9a898d8436479b0c.jpg" alt="image.png"></p>
+<p>由于Flink中设置窗口本身就类似一种批处理，所以解决这种keyby后进行window处理的数据倾斜问题，可以直接像Spark中使用双重聚合解决即可。解决思路：首先对分组key进行随机加前缀打散，然后分组并设置窗口，窗口内进行第一次数据的聚合，然后将结果进行去前缀，然后再按照去掉前缀的key进行聚合，最终得到每个窗口的结果数据。由于最终统计的是Flink每个窗口对应的结果数据，在去前缀操作中需要保留窗口的起始信息，这样才能在第二次聚合时保证相同窗口数据进行聚合操作。</p>
+<pre><code>//1.使用本地模式
+        Configuration conf = new Configuration();
+        //设置WebUI绑定的本地端口
+        conf.setString(RestOptions.BIND_PORT,&quot;8081&quot;);
+        //使用配置
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
+
+        //StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+        //关闭算子链
+        env.disableOperatorChaining();
+        //设置并行度为4
+        env.setParallelism(4);
+
+        DataStreamSource&lt;StationLog&gt; ds1 = env.addSource(new RichParallelSourceFunction&lt;StationLog&gt;() {
+            Boolean flag = true;
+
+            /**
+             * 主要方法:启动一个Source，大部分情况下都需要在run方法中实现一个循环产生数据
+             * 这里计划1s 产生1条基站数据，由于是并行，当前节点有几个core就会有几条数据
+             */
+            @Override
+            public void run(SourceContext&lt;StationLog&gt; ctx) throws Exception {
+                Random random = new Random();
+                String[] callTypes = {&quot;fail&quot;, &quot;success&quot;, &quot;busy&quot;, &quot;barring&quot;};
+
+                // 获取当前子任务的索引
+                int subtaskIndex = getRuntimeContext().getIndexOfThisSubtask();
+
+                while (flag) {
+                    String sid = &quot;sid_&quot; + random.nextInt(10);
+
+                    // 如果是0号子任务，生成更多数据
+                    if (subtaskIndex == 0) {
+                        for (int i = 0; i &lt; 100; i++) {
+                            // 数据生成逻辑
+                            generateData(ctx, random, sid, callTypes);
+                        }
+                    } else {
+                        // 数据生成逻辑
+                        generateData(ctx, random, sid, callTypes);
+                    }
+                    Thread.sleep(50);
+
+                }
+
+            }
+
+            private void generateData(SourceContext&lt;StationLog&gt; ctx, Random random, String sid, String[] callTypes) {
+                String callOut = &quot;1811234&quot; + (random.nextInt(9000) + 1000);
+                String callIn = &quot;1915678&quot; + (random.nextInt(9000) + 1000);
+                String callType = callTypes[random.nextInt(4)];
+                Long callTime = System.currentTimeMillis();
+                Long durations = Long.valueOf(random.nextInt(50) + &quot;&quot;);
+                if (sid.equals(&quot;sid_0&quot;)) {
+                    for (int i = 0; i &lt; 100; i++) {
+                        ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+
+                    }
+                }
+                ctx.collect(new StationLog(sid, callOut, callIn, callType, callTime, durations));
+            }
+
+            //当取消对应的Flink任务时被调用
+            @Override
+            public void cancel() {
+                flag = false;
+            }
+        });
+
+        //设置watermark
+        SingleOutputStreamOperator&lt;StationLog&gt; ds2 = ds1.assignTimestampsAndWatermarks(
+                WatermarkStrategy.&lt;StationLog&gt;forBoundedOutOfOrderness(Duration.ofSeconds(2))
+                        .withTimestampAssigner(new SerializableTimestampAssigner&lt;StationLog&gt;() {
+                            @Override
+                            public long extractTimestamp(StationLog element, long recordTimestamp) {
+                                return element.callTime;
+                            }
+                        }).withIdleness(Duration.ofSeconds(5))
+        );
+
+        //过滤通话状态不为fail的数据
+        SingleOutputStreamOperator&lt;StationLog&gt; ds3 = ds2.shuffle().filter(new FilterFunction&lt;StationLog&gt;() {
+            @Override
+            public boolean filter(StationLog value) throws Exception {
+                return !&quot;fail&quot;.equals(value.callType);
+            }
+        });
+
+        //转换数据
+        SingleOutputStreamOperator&lt;Tuple2&lt;String, Long&gt;&gt; ds4 = ds3.map(new MapFunction&lt;StationLog, Tuple2&lt;String, Long&gt;&gt;() {
+            @Override
+            public Tuple2&lt;String, Long&gt; map(StationLog value) throws Exception {
+                Random random = new Random();
+                return new Tuple2&lt;&gt;(random.nextInt(1000)+&quot;-&quot;+value.sid, value.duration);
+            }
+        });
+
+        //根据随机加前缀的key进行分组
+        KeyedStream&lt;Tuple2&lt;String, Long&gt;, String&gt; ds5 = ds4.keyBy(new KeySelector&lt;Tuple2&lt;String, Long&gt;, String&gt;() {
+            @Override
+            public String getKey(Tuple2&lt;String, Long&gt; value) throws Exception {
+                return value.f0;
+            }
+        });
+
+        //设置窗口
+        WindowedStream&lt;Tuple2&lt;String, Long&gt;, String, TimeWindow&gt; ds6 = ds5.window(TumblingEventTimeWindows.of(Time.seconds(5)));
+
+
+        //第一次聚合操作
+        SingleOutputStreamOperator&lt;Tuple2&lt;String, Long&gt;&gt; ds7 = ds6.process(new ProcessWindowFunction&lt;Tuple2&lt;String, Long&gt;, Tuple2&lt;String, Long&gt;, String, TimeWindow&gt;() {
+            @Override
+            public void process(String key,
+                                ProcessWindowFunction&lt;Tuple2&lt;String, Long&gt;, Tuple2&lt;String, Long&gt;, String, TimeWindow&gt;.Context context,
+                                Iterable&lt;Tuple2&lt;String, Long&gt;&gt; iterable,
+                                Collector&lt;Tuple2&lt;String, Long&gt;&gt; collector) throws Exception {
+                Long totalDuration = 0L;
+                for (Tuple2&lt;String, Long&gt; info : iterable) {
+                    totalDuration += info.f1;
+                }
+
+                //获取窗口起始时间}
+                SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyyMMddHHmmss&quot;);
+                String windowStartTime = sdf.format(context.window().getStart());
+                String windowEndTime = sdf.format(context.window().getEnd());
+                collector.collect(new Tuple2&lt;&gt;(key + &quot;|&quot; + windowStartTime + &quot;|&quot; + windowEndTime, totalDuration));
+            }
+        });
+
+        //对聚合结果去掉前缀，然后再次聚合
+        SingleOutputStreamOperator&lt;Tuple2&lt;String, Long&gt;&gt; result = ds7.map(new MapFunction&lt;Tuple2&lt;String, Long&gt;, Tuple2&lt;String, Long&gt;&gt;() {
+            @Override
+            public Tuple2&lt;String, Long&gt; map(Tuple2&lt;String, Long&gt; value) throws Exception {
+                String newKey = value.f0.split(&quot;-&quot;)[1];
+                return new Tuple2&lt;&gt;(newKey, value.f1);
+            }
+        }).keyBy(new KeySelector&lt;Tuple2&lt;String, Long&gt;, String&gt;() {
+            @Override
+            public String getKey(Tuple2&lt;String, Long&gt; value) throws Exception {
+                return value.f0;
+            }
+        }).reduce(new ReduceFunction&lt;Tuple2&lt;String, Long&gt;&gt;() {
+            @Override
+            public Tuple2&lt;String, Long&gt; reduce(Tuple2&lt;String, Long&gt; tp1, Tuple2&lt;String, Long&gt; tp2) throws Exception {
+                System.out.println(tp1.f0);
+                return new Tuple2&lt;&gt;(tp1.f0.split(&quot;\\|&quot;)[0], tp1.f1 + tp2.f1);
+            }
+        });
+
+        result.print();
+
+        env.execute();
+</code></pre>
+<p>代码运行后可以通过webui看到，经过双重聚合处理后，没有再出现数据倾斜问题。</p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/ab71f51b53fe434a91bdc5d605160364.jpg" alt="image.png"></p>
+<p><img src="https://:0/" alt="img"> <img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/20/1703179099044/d661e797c3014ce9978137168429b8bb.jpg" alt="image.png"></p>
+
   </div>
   
   
@@ -285,7 +905,7 @@
       <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
     </div>
     <nav class="toc-content" id="toc-content">
-      
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#12-6-1-%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-list-number">1.</span> <span class="toc-list-text">12.6.1 数据倾斜的影响</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#12-6-2-%E5%AE%9A%E4%BD%8D%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C"><span class="toc-list-number">2.</span> <span class="toc-list-text">12.6.2 定位数据倾斜</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#12-6-3-%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F"><span class="toc-list-number">3.</span> <span class="toc-list-text">12.6.3 数据倾斜原因及解决方式</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#12-6-3-1-%E6%95%B0%E6%8D%AE%E6%BA%90%E6%9C%AC%E8%BA%AB%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">12.6.3.1 数据源本身数据倾斜</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#12-6-3-2-KeyBy%E5%AF%BC%E8%87%B4%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">12.6.3.2 KeyBy导致数据倾斜</span></a></li></ol></li></ol>
     </nav>
   </div>
 </article>

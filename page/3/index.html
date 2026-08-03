@@ -190,6 +190,13 @@
       <i class="iconfont icon-x"></i>
     </button>
     
+    <div class="sidebar-section sidebar-qrcode">
+      <div class="qrcode-wrapper">
+        <img src="/icons/qrcode_wchat.jpg" alt="微信公众号" class="qrcode-image">
+        <p class="qrcode-text">扫码关注公众号</p>
+      </div>
+    </div>
+    
     <div class="sidebar-section sidebar-about">
       <div class="author-avatar">
         
@@ -267,6 +274,389 @@
       
       <main id="main-contain" class="main-content">
         <div class="articles-list">
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-27
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/27/interview/Flink/">Flink 面试题</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Flink反压优化在Flink中，反压是指当一个任务（task）生成数据的速率超过下游任务消费数据的速率时触发的警告。以一个简单的Source -&gt; Sink任务链为例，如果Source生成数据的速率高于Sink消费数据的速率，就会发生反压警告。这表示数据流向下游，但由于下游处理速度较慢，系统发出警告以通知上游任务，反压信息沿着相反的方向传播，向上游传递，帮助系统调整任务链以维持平衡，防止性能问题。
+Flink任务中出现反压会有如下影响：
+
+Flink任务处理性能下降：反压会导致任务链中某些任务被迫减缓数据生成速率，以适应下游任务的处理速度，从而影响整体性能。如：Flink消费Ka...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/27/interview/Flink/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-15
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw-Skills%E6%8A%80%E8%83%BD/">OpenClaw Skills 技能</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Skills 介绍Skills是OpenClaw中用于添加新功能的模块，每个Skill是一个目录，包含一个SKILL.md 文件（提供Skill功能和对应执行指令给大语言模型），以及可选的脚本或资源。Skills允许用户通过自定义指令和工具来增强OpenClaw助手的功能，使其能够执行特定任务，例如处理问候、运行脚本或访问外部服务。
+Skills解决了OpenClaw的扩展性和定制化问题，OpenClaw设计为易于扩展，但默认功能可能有限。通过Skills，用户可以：
+
+灵活添加能力：无需修改核心代码，就能集成自定义操作或集成第三方工具。
+模块化管理：每个Skill独立存在，便于开发、测...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw-Skills%E6%8A%80%E8%83%BD/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-15
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E8%81%8A%E5%A4%A9%E6%B8%A0%E9%81%93/">OpenClaw 聊天渠道</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            飞书配置OpenClaw飞书是字节跳动旗下的一站式AI工作平台与协作办公套件,最初是字节跳动在2016年为保障其全球数万员工高效协作而自主研发的内部工具，于2020年2月24日正式向全国所有企业和组织免费开放。
+飞书功能主要有如下三部分：
+
+协同办公：即时沟通、云文档、日历、音视频会议。
+业务提效：多维表格、审批、合同、报销等。
+组织管理：招聘、绩效、人事等功能。
+
+OpenClaw通过飞书开放平台的WebSocket事件订阅与飞书机器人连接，无需暴露公网Webhook URL。当用户在飞书中@机器人或发送私聊消息时，事件通过长连接推送给OpenClaw网关，再由相应的AI智能体处理并回...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E8%81%8A%E5%A4%A9%E6%B8%A0%E9%81%93/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-15
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%B7%A5%E5%85%B7/">OpenClaw 工具</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            内置工具介绍内置工具介绍OpenClaw 有很多内置工具，这些工具是OpenClaw丰富功能的基石，可以通过 https://docs.openclaw.ai/tools 查看内置工具，这些内置工具介绍如下：
+
+apply_patch Tool:允许一次性、原子性地对单个或多个文件进行复杂的更改。
+Brave Search：OpenClaw 使用 Brave Search 作为 web_search 的默认提供商，可以进行网络搜索。注意：需要付费。
+Perplexity Sonar ：OpenClaw 中 web_search工具的另一个搜索提供商（provider）选项。注意：需要付费...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%B7%A5%E5%85%B7/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-15
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">OpenClaw 安装及使用</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            OpenClaw安装及访问安装OpenClaw进入Ubuntu系统，打开终端：
+按照如下步骤安装OpenClaw，特别提示需要打开科学上网工具，负责后续安装访问一些网络访问不到。
+1) 安装必要依赖
+# 更新本地软件包列表
+sudo apt update
+
+# 2. 安装所需的基础开发工具包（包含 gcc, g++, make 等）
+sudo apt install build-essential -y
+
+# 3. 安装 CMake、Curl、vim
+sudo apt install cmake curl vim -y
+
+注意：如果执行后续安装命令出现：“正在等待缓存锁：无法获得锁 &#...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-15
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E4%BB%8B%E7%BB%8D/">OpenClaw 介绍</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            OpenClaw介绍OpenClaw是一款在2026年初爆火的开源AI Agent框架，由奥地利开发者Peter Steinberger创建，它最大的创新在于将大语言模型从”只会聊天”的工具转变为”真正会做事”的管家，其能够直接操作计算机系统，执行跨平台跨应用的复杂任务，像人类一样操作电脑，管理文件、发送消息、浏览网页等。
+2026年1月，项目最初以Clawdbot命名，1月27更名为Moltbot，1月29号最终定名为OpenClaw。
+OpenClaw核心概念如下：
+
+Gateway（网关）：作为控制平面，负责路由消息、管理并发Agent会话、调用LLM API，默认端口18789。...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E4%BB%8B%E7%BB%8D/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-06
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E4%B8%8E%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6/">Milvus 核心参数与核心机制</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            配置层级关系milvus.yaml          ← 主配置文件（Milvus 镜像内置默认值）
+    │
+    └── user.yaml    ← 用户覆盖配置（优先级最高，覆盖 milvus.yaml）
+         │
+         └── 环境变量  ← 部分参数可通过环境变量注入
+                        （如 ETCD_ENDPOINTS、MINIO_ADDRESS）
+
+配置加载顺序（后者覆盖前者）：
+
+代码内置默认值
+milvus.yaml（镜像内 /milvus/configs/milvus.yaml）
+user.yaml（用户映射...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/AI/">AI</a>
+      </span>
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Milvus/">Milvus</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E4%B8%8E%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
   
     <article class="article-card">
       
@@ -539,409 +929,6 @@ gpgkey=https://nginx.org/keys/nginx_sign...
   </div>
 
           <a href="/2026/06/05/AI/OpenClaw/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%85%B7%E4%BD%93Harness%E6%9E%B6%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-05
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8EHarness%E6%9E%B6%E6%9E%84%E7%9A%84ERP%E6%99%BA%E8%83%BD%E9%87%87%E8%B4%AD%E5%8A%A9%E6%89%8B%E9%A1%B9%E7%9B%AE/">基于Harness架构的ERP智能采购助手项目</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            项目准备
-Java的ERP系统
-模拟的供应商网站
-魔塔社区免费的可视化分析工具
-DeepAgents &#x3D;&#x3D;0.4.12版本&#x2F; 先不要更新到最新的 DeepAgents
-后台长周期复杂任务的执行（0.5后可以）AsyncSubAgent（子Agent）—-ASGI协议——&gt; 主Agent（langgraph dev或者langsmith的服务器中托管）
-5月12日-0.6 （上下文优化策略：内置代码解释器：支持TypeScript，下一版本会支持Python语言）
-
-
-
-项目目录架构src/
-├── agent/                     ...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8EHarness%E6%9E%B6%E6%9E%84%E7%9A%84ERP%E6%99%BA%E8%83%BD%E9%87%87%E8%B4%AD%E5%8A%A9%E6%89%8B%E9%A1%B9%E7%9B%AE/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-05
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/05/AI/OpenClaw/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%88Context-Engineering%EF%BC%89/">上下文工程（Context-Engineering）</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            上下文工程（Context Engineering）是设计和控制智能体在运行过程中可获取的信息的过程。在 Deep Agents 中，智能体能够访问多种类型的上下文，有些在启动时提供，有些在运行时动态补充。框架内置了自动管理上下文的机制，使得智能体即使在长时间运行的任务中，也不会超出模型上下文窗口的限制。
-下表总结了主要的上下文类型及其作用范围：
-
-
-
-上下文类型
-控制内容
-作用范围
-
-
-
-输入上下文
-系统提示、记忆文件、技能文件、工具提示
-每次运行均生效，静态加载
-
-
-运行时上下文
-用户元数据、API 密钥、数据库连接等
-单次调用（invoke）级别，可传播给子智能体
-
-
-上下文压缩
-...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/05/AI/OpenClaw/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%88Context-Engineering%EF%BC%89/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-05
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8EOpenSandbox%E7%9A%84%E6%B2%99%E7%AE%B1%E5%90%8E%E7%AB%AF/">基于 OpenSandbox 的沙箱后端</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            什么是沙箱（Sandbox）智能体（Agent）需要生成代码、操作文件系统并运行 Shell 命令。由于我们无法预测智能体会执行什么操作，因此必须将其环境与主机系统隔离，防止其访问凭证、文件或网络。沙盒（Sandbox）通过创建智能体执行环境与主机系统之间的边界，提供了这种隔离能力。
-在 Deep Agents 中，沙盒是一种特殊的后端（Backend）。与其他仅暴露文件操作的后端（State, Filesystem, Store）不同，沙盒后端还为智能体提供了一个 execute工具，用于在隔离环境中运行任意 Shell 命令。
-沙盒就是给智能体准备的一个“封闭房间”：
-
-智能体在里面...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8EOpenSandbox%E7%9A%84%E6%B2%99%E7%AE%B1%E5%90%8E%E7%AB%AF/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-05
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/05/AI/OpenClaw/SubAgent%E5%AD%90%E6%99%BA%E8%83%BD%E4%BD%93/">SubAgent 子智能体</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            
-多Agent的必要性问题：复杂任务通常需要多个步骤和不同领域的专业知识。让一个Agent“全能”地处理所有事情会导致：
-
-上下文臃肿：Agent在一次对话中可能调用很多工具，产生大量中间结果，这些都会挤占有限的上下文窗口，影响后续决策。
-缺乏专业性：一个Agent的指令（System Prompt）难以兼顾所有 specialized 任务的最佳实践。
-
-解决方案：多Agent系统。引入一个“主Agent”（Supervisor）负责协调，将特定子任务分配给具有专业能力的“子Agent”（Subagent）执行。子Agent在独立的环境中完成任务后，将精简的结果返回给主Agent。
-核...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/05/AI/OpenClaw/SubAgent%E5%AD%90%E6%99%BA%E8%83%BD%E4%BD%93/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-05
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/05/AI/OpenClaw/%E6%96%87%E4%BB%B6%E5%90%8E%E7%AB%AF%EF%BC%88Backend%EF%BC%89%E7%B3%BB%E7%BB%9F/">文件后端（Backend）系统</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            Backend系统概述后端是智能体（Agent）文件系统工具的底层实现，它决定了Agent可以访问哪些存储介质（如内存、本地磁盘、数据库等）以及如何访问。
-DeepAgents 通过一套文件系统工具（如 ls, read_file, write_file等）为Agent提供与外界存储交互的能力。这些工具并不直接操作存储，而是通过一个可插拔的后端（Backend）来执行实际的操作。后端是一个遵循特定协议（BackendProtocol）的组件。
-Agent的文件系统工具调用后端，后端再根据配置将操作路由到不同的具体存储实现，DeepAgents 提供了多种开箱即用的后端，适用于不同场景。例...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/05/AI/OpenClaw/%E6%96%87%E4%BB%B6%E5%90%8E%E7%AB%AF%EF%BC%88Backend%EF%BC%89%E7%B3%BB%E7%BB%9F/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-05
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/05/AI/OpenClaw/DeepAgents%E6%A1%86%E6%9E%B6%E5%88%9D%E6%8E%A2/">DeepAgents框架初探</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            DeepAgents框架的核心DeepAgents 是 LangChain 团队 在 LangChain 和 LangGraph 之上推出的 第三个独立开源项目，是一个 “开箱即用”的深度智能体框架。
-DeepAgent框架的由来和定义
-Deep Agents 并非颠覆性技术创新，而是将业界验证过的最佳实践打包成开箱即用的框架。它的灵感来源于 Claude Code、Deep Research、Manus 等成功应用，这些应用证明了四个关键点：
-
-Agent 需要规划能力 —— 不能上来就开干，得先拆解任务
-Agent 需要文件系统 —— 长对话中，得有地方放中间结果，需要加载本地环境
-...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/05/AI/OpenClaw/DeepAgents%E6%A1%86%E6%9E%B6%E5%88%9D%E6%8E%A2/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-05
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/05/AI/OpenClaw/Agent%E5%92%8COpenClaw%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/">Agent和OpenClaw的相关概念</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            什么是Agent？Agent的核心定义是：将大语言模型与工具结合，创建一个能够推理任务、决定使用哪个工具，并迭代式地寻找解决方案，一直到最后完成用户指定任务的系统软件。
-可以这样理解：
-
-大语言模型 是系统的“大脑”，负责理解和推理，规划下一步行动。
-工具 是系统的“手”和“感官”，能让Agent执行具体的操作（如计算、搜索网络、查询数据库等）。
-Agent 是一个协调“大脑”和“手”的自动化工作流。它根据模型对任务的理解，智能地选择并调用一个或多个工具，根据工具的返回结果（观察）再次进行推理，循环往复，直到任务完成或达到停止条件。
-
-
-Agent和传统调用大模型的区别2025年是“Ag...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/05/AI/OpenClaw/Agent%E5%92%8COpenClaw%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" class="read-more">
             阅读更多
             <i class="iconfont icon-arrowright"></i>
           </a>

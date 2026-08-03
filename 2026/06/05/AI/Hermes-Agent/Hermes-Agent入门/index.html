@@ -134,6 +134,13 @@
       <i class="iconfont icon-x"></i>
     </button>
     
+    <div class="sidebar-section sidebar-qrcode">
+      <div class="qrcode-wrapper">
+        <img src="/icons/qrcode_wchat.jpg" alt="微信公众号" class="qrcode-image">
+        <p class="qrcode-text">扫码关注公众号</p>
+      </div>
+    </div>
+    
     <div class="sidebar-section sidebar-about">
       <div class="author-avatar">
         
@@ -274,6 +281,9 @@
 <p>注意：对于绝大多数用户，不需要提前手动安装上述任何依赖。Hermes 的一键安装脚本内置了强大的环境检测能力，会自动检测并为你补足缺失的部分，唯一建议提前确认的底层工具是 Git，因为脚本在拉取代码时首选 git clone。</p>
 <p>执行如下命令在Ubuntu系统中安装Hermes Agent：</p>
 <pre><code class="shell">curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+</code></pre>
+<p>最新安装命令：</p>
+<pre><code class="shell">curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 </code></pre>
 <p>注意：安装过程中如果遇到一些链接不能访问可以打开或者关闭魔法多次尝试。</p>
 <p>等待一定时间后，进入如下页面说明Hermes Agent 已经安装成功。</p>

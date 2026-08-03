@@ -190,6 +190,13 @@
       <i class="iconfont icon-x"></i>
     </button>
     
+    <div class="sidebar-section sidebar-qrcode">
+      <div class="qrcode-wrapper">
+        <img src="/icons/qrcode_wchat.jpg" alt="微信公众号" class="qrcode-image">
+        <p class="qrcode-text">扫码关注公众号</p>
+      </div>
+    </div>
+    
     <div class="sidebar-section sidebar-about">
       <div class="author-avatar">
         
@@ -267,6 +274,360 @@
       
       <main id="main-contain" class="main-content">
         <div class="articles-list">
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-16
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/16/AI/Agent-Loop/LoopLoop-Engineering%E6%A1%88%E4%BE%8B/">LoopLoop Engineering 案例</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Loop Engineering 案例一案例业务这是一个合同质量的自动迭代打磨系统。不是简单的”审一下→通过&#x2F;驳回”，而是让两个AI Agent（Editor和Reviewer）像律师团队一样循环协作：一个负责改，一个负责审，改完再审，审完再改，直到合同质量达标。
+业务逻辑
+四大审查维度（定义在 skills&#x2F;contract-improver&#x2F;SKILL.md）：
+
+
+
+维度
+检查内容
+示例
+
+
+
+A.完整性
+必备要素是否齐全？
+双方信息、金额(大小写)、付款方式、交付时间、违约金、保密、知识产权、签署信息
+
+
+B.明确性
+有没有模糊表述？
+“尽快”→”6...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent-Loop/">Agent Loop</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/07/16/AI/Agent-Loop/LoopLoop-Engineering%E6%A1%88%E4%BE%8B/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-16
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/16/AI/Agent-Loop/Agent-Loop%E4%BA%94%E5%A4%A7%E6%9E%84%E5%BB%BA%E5%9D%97%E5%92%8C%E8%AE%B0%E5%BF%86%E5%B1%82/">Agent Loop五大构建块和记忆层</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Addy Osmani将 Loop 的设计方法论提炼为五大构建块（Five Primitives）+ 记忆层。这六个组件构成了Loop Engineering的工程骨架——它们不是抽象概念，每一个都对应 Loop 系统中一项具体的职责。六大组件在真实Loop中的协作关系如下：
+
+自动化&#x2F;调度自动化是Loop的触发器，它决定了系统”什么时候开始工作”。没有自动化，Agent必须等人手动调用agent.invoke()。
+自动化有三种触发模式：定时触发、事件触发、目标驱动。
+
+定时触发
+
+按固定时间间隔唤醒系统，适合周期性巡检——每天早上生成运营日报、每 10 分钟扫描待处理队列、...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent-Loop/">Agent Loop</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/07/16/AI/Agent-Loop/Agent-Loop%E4%BA%94%E5%A4%A7%E6%9E%84%E5%BB%BA%E5%9D%97%E5%92%8C%E8%AE%B0%E5%BF%86%E5%B1%82/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-16
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/16/AI/Agent-Loop/Agent-Loop%E5%92%8CLoop-Engineering%E6%A6%82%E8%BF%B0/">Agent Loop和Loop Engineering概述</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Agent Loop 介绍Agent Loop（智能体循环）是AI Agent的核心工作机制。它让大语言模型（LLM）从”只会聊天”变成”能干活”的关键——通过一个”观察-&gt;思考-&gt;行动-&gt;反馈”的循环，Agent 能够自主调用工具、获取信息、根据结果调整策略，持续迭代直到完成任务。
+一句话理解：Agent Loop&#x3D;把LLM的推理能力放进一个while循环里，让它可以反复思考和行动。
+graph TD
+    %% 定义组件样式
+    classDef startEnd fill:#e1f5fe,stroke:#01579b,stroke-width:2p...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Agent-Loop/">Agent Loop</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/07/16/AI/Agent-Loop/Agent-Loop%E5%92%8CLoop-Engineering%E6%A6%82%E8%BF%B0/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/Table%E5%92%8CSQL%E4%BC%98%E5%8C%96/">Flink Table和SQL优化</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            在Flink中除了DataStream API之外，还有Table和SQL API ，Table API 和 SQL 是高效优化过的，它集成了许多查询优化和算子优化，但并不是所有的优化都是默认开启的，因此对于某些工作负载，可以通过打开某些选项来提高性能。在实际工作场景中我们使用FlinkSQL居多，本小节根据Flink SQL使用来介绍Table和SQL中的一些优化内容。
+12.7.1 对状态设置TTL在Flink编程中如果涉及到的状态较大并且业务允许清空状态，可以设置ttl参数，指定状态超过一定时间后自动清空，来达到减少状态效果。
+Flink Table和SQL中可以通过TableEn...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/Table%E5%92%8CSQL%E4%BC%98%E5%8C%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E5%A4%84%E7%90%86/">Flink 数据倾斜处理</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            在 Apache Flink 中，数据倾斜是指在分布式数据处理过程中发生的数据分布不均衡现象。数据倾斜表现为某些节点或分区处理的数据量远多于其他节点，导致数据反压、频繁GC甚至OOM一系列问题，从而影响整个系统的性能和效率。本小节主要讲解如何对Flink中的数据倾斜进行优化。
+12.6.1 数据倾斜的影响在Flink中出现数据倾斜时会带来如下影响：
+
+数据反压严重：往往产生数据倾斜时，导致某个subtask处理数据量非常大，从而会产生反压问题。
+GC频繁问题：某个subtask处理数据量特别大，可能会使JVM的内存资源短缺，导致频繁的GC，甚至出现TaskManager OOM问题，最终...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%E5%A4%84%E7%90%86/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/%E7%BD%91%E7%BB%9C%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/">Flink 网络内存优化</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            12.4.1 Flink数据传输机制Flink架构中涉及JobManger、TaskManger角色，TaskManager中可以运行Task处理数据，为了更好的理解Flink Task之间的数据交换，我们需要先了解如下概念。
+
+JobManager
+
+Flink Master节点，负责任务分配、协调、故障恢复。在JobManager中保存着Flink Job执行的逻辑拓扑图（ExecutionGraph）。
+
+TaskManager
+
+Flink Worker节点，通过多线程执行task任务。每个TaskManager中包含一个CommunicationManager（负责通信，多个t...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/%E7%BD%91%E7%BB%9C%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/Checkpoint%E5%92%8C%E5%A4%A7%E7%8A%B6%E6%80%81%E4%BC%98%E5%8C%96/">Flink Checkpoint和大状态优化</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Flink的checkpoint是一种实现容错和状态恢复的机制。Checkpoint会定期将Flink程序的状态保存到持久化存储系统中，通常是分布式文件系统，当Flink程序发生故障时，可以重新启动应用程序并从之前的状态中恢复，使得Flink程序能够回到故障发生前的一致状态。因此Flink中的checkpoint非常重要，本小节主要讲解Flink Checkpoint和大状态相关优化内容点。
+
+Checkpoint的监控在Flink WebUI界面中提供了Flink Job的checkpoint监控信息。当Job结束后，这些信息仍然可用。如下图所示，有四个不同的选项卡（概览、历史记录、摘...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/Checkpoint%E5%92%8C%E5%A4%A7%E7%8A%B6%E6%80%81%E4%BC%98%E5%8C%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
   
     <article class="article-card">
       
@@ -487,389 +848,6 @@ Flink任务处理性能下降：反压会导致任务链中某些任务被迫减
   </div>
 
           <a href="/2026/06/27/interview/Hadoop/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/interview/">interview</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-27
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/27/interview/Flink/">Flink 面试题</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            Flink反压优化在Flink中，反压是指当一个任务（task）生成数据的速率超过下游任务消费数据的速率时触发的警告。以一个简单的Source -&gt; Sink任务链为例，如果Source生成数据的速率高于Sink消费数据的速率，就会发生反压警告。这表示数据流向下游，但由于下游处理速度较慢，系统发出警告以通知上游任务，反压信息沿着相反的方向传播，向上游传递，帮助系统调整任务链以维持平衡，防止性能问题。
-Flink任务中出现反压会有如下影响：
-
-Flink任务处理性能下降：反压会导致任务链中某些任务被迫减缓数据生成速率，以适应下游任务的处理速度，从而影响整体性能。如：Flink消费Ka...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/Flink/">Flink</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/27/interview/Flink/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-15
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/15/AI/OpenClaw/OpenClaw-Skills%E6%8A%80%E8%83%BD/">OpenClaw Skills 技能</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            Skills 介绍Skills是OpenClaw中用于添加新功能的模块，每个Skill是一个目录，包含一个SKILL.md 文件（提供Skill功能和对应执行指令给大语言模型），以及可选的脚本或资源。Skills允许用户通过自定义指令和工具来增强OpenClaw助手的功能，使其能够执行特定任务，例如处理问候、运行脚本或访问外部服务。
-Skills解决了OpenClaw的扩展性和定制化问题，OpenClaw设计为易于扩展，但默认功能可能有限。通过Skills，用户可以：
-
-灵活添加能力：无需修改核心代码，就能集成自定义操作或集成第三方工具。
-模块化管理：每个Skill独立存在，便于开发、测...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/15/AI/OpenClaw/OpenClaw-Skills%E6%8A%80%E8%83%BD/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-15
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E8%81%8A%E5%A4%A9%E6%B8%A0%E9%81%93/">OpenClaw 聊天渠道</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            飞书配置OpenClaw飞书是字节跳动旗下的一站式AI工作平台与协作办公套件,最初是字节跳动在2016年为保障其全球数万员工高效协作而自主研发的内部工具，于2020年2月24日正式向全国所有企业和组织免费开放。
-飞书功能主要有如下三部分：
-
-协同办公：即时沟通、云文档、日历、音视频会议。
-业务提效：多维表格、审批、合同、报销等。
-组织管理：招聘、绩效、人事等功能。
-
-OpenClaw通过飞书开放平台的WebSocket事件订阅与飞书机器人连接，无需暴露公网Webhook URL。当用户在飞书中@机器人或发送私聊消息时，事件通过长连接推送给OpenClaw网关，再由相应的AI智能体处理并回...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E8%81%8A%E5%A4%A9%E6%B8%A0%E9%81%93/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-15
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%B7%A5%E5%85%B7/">OpenClaw 工具</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            内置工具介绍内置工具介绍OpenClaw 有很多内置工具，这些工具是OpenClaw丰富功能的基石，可以通过 https://docs.openclaw.ai/tools 查看内置工具，这些内置工具介绍如下：
-
-apply_patch Tool:允许一次性、原子性地对单个或多个文件进行复杂的更改。
-Brave Search：OpenClaw 使用 Brave Search 作为 web_search 的默认提供商，可以进行网络搜索。注意：需要付费。
-Perplexity Sonar ：OpenClaw 中 web_search工具的另一个搜索提供商（provider）选项。注意：需要付费...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%B7%A5%E5%85%B7/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-15
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">OpenClaw 安装及使用</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            OpenClaw安装及访问安装OpenClaw进入Ubuntu系统，打开终端：
-按照如下步骤安装OpenClaw，特别提示需要打开科学上网工具，负责后续安装访问一些网络访问不到。
-1) 安装必要依赖
-# 更新本地软件包列表
-sudo apt update
-
-# 2. 安装所需的基础开发工具包（包含 gcc, g++, make 等）
-sudo apt install build-essential -y
-
-# 3. 安装 CMake、Curl、vim
-sudo apt install cmake curl vim -y
-
-注意：如果执行后续安装命令出现：“正在等待缓存锁：无法获得锁 &#...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-15
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E4%BB%8B%E7%BB%8D/">OpenClaw 介绍</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            OpenClaw介绍OpenClaw是一款在2026年初爆火的开源AI Agent框架，由奥地利开发者Peter Steinberger创建，它最大的创新在于将大语言模型从”只会聊天”的工具转变为”真正会做事”的管家，其能够直接操作计算机系统，执行跨平台跨应用的复杂任务，像人类一样操作电脑，管理文件、发送消息、浏览网页等。
-2026年1月，项目最初以Clawdbot命名，1月27更名为Moltbot，1月29号最终定名为OpenClaw。
-OpenClaw核心概念如下：
-
-Gateway（网关）：作为控制平面，负责路由消息、管理并发Agent会话、调用LLM API，默认端口18789。...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/15/AI/OpenClaw/OpenClaw%E4%BB%8B%E7%BB%8D/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-06
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E4%B8%8E%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6/">Milvus 核心参数与核心机制</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            配置层级关系milvus.yaml          ← 主配置文件（Milvus 镜像内置默认值）
-    │
-    └── user.yaml    ← 用户覆盖配置（优先级最高，覆盖 milvus.yaml）
-         │
-         └── 环境变量  ← 部分参数可通过环境变量注入
-                        （如 ETCD_ENDPOINTS、MINIO_ADDRESS）
-
-配置加载顺序（后者覆盖前者）：
-
-代码内置默认值
-milvus.yaml（镜像内 /milvus/configs/milvus.yaml）
-user.yaml（用户映射...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/AI/">AI</a>
-      </span>
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/Milvus/">Milvus</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E4%B8%8E%E6%A0%B8%E5%BF%83%E6%9C%BA%E5%88%B6/" class="read-more">
             阅读更多
             <i class="iconfont icon-arrowright"></i>
           </a>

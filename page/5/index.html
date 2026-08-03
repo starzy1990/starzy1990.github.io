@@ -190,6 +190,13 @@
       <i class="iconfont icon-x"></i>
     </button>
     
+    <div class="sidebar-section sidebar-qrcode">
+      <div class="qrcode-wrapper">
+        <img src="/icons/qrcode_wchat.jpg" alt="微信公众号" class="qrcode-image">
+        <p class="qrcode-text">扫码关注公众号</p>
+      </div>
+    </div>
+    
     <div class="sidebar-section sidebar-about">
       <div class="author-avatar">
         
@@ -267,6 +274,341 @@
       
       <main id="main-contain" class="main-content">
         <div class="articles-list">
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E9%85%8D%E7%BD%AE%E6%B6%88%E6%81%AF%E5%B9%B3%E5%8F%B0/">Hermes Agent 配置消息平台</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            我们可以通过 Telegram、Discord、Slack、WhatsApp、Signal、短信、电子邮件、Home Assistant、Mattermost、Matrix、钉钉、飞书（Lark）、企业微信、微信、QQ与Hermes Agent进行聊天，Hermes Agent可连接到以上所有平台，管理会话，运行定时任务，并发送语音消息。
+微信Hermes 通过腾讯 iLink Bot API 实现与个人微信的对接，该方案基于 HTTP 长轮询（Long-polling）机制，最大的优势是无需公网 IP、Webhook 或反向代理，内网即可部署。按照如下步骤配置在微信中直接操作Herme...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E9%85%8D%E7%BD%AE%E6%B6%88%E6%81%AF%E5%B9%B3%E5%8F%B0/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%85%B6%E4%BB%96/">Hermes Agent 其他</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Hermes Agent 语音模式Hermes Agent 的语音模式（Voice Mode）是一套集成了语音识别（STT）、大语言模型推理（LLM）和语音合成（TTS）的全双工语音交互系统。它允许用户通过麦克风与智能体进行实时对话，并接收智能体的口语化回复。该系统支持在终端（CLI）、网页终端（TUI）以及主流社交平台（Discord、Telegram）上运行。
+按照如下步骤在Ubuntu系统中使用Hermes Agent 语音模式：
+1) 在对应系统中需要安装相关依赖：
+# macOS 
+brew install portaudio ffmpeg opus
+brew install ...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%85%B6%E4%BB%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E8%AE%B0%E5%BF%86%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/">Hermes Agent 记忆与上下文</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            持久记忆在传统的 AI 对话应用中，上下文（Context）通常局限于当前会话窗口，一旦会话结束，Agent 就会“失忆”。Hermes Agent 的持久化记忆（Persistent Memory）旨在打破这一限制，通过文件系统与系统提示词（System Prompt）的巧妙结合，让 Agent 能够跨会话记住你的开发环境、项目架构以及个人偏好及所学知识。
+Hermes Agent 的持久记忆保存在本地客户端的文件系统中，具体位于 ~&#x2F;.hermes&#x2F;memories&#x2F;目录下。系统通过两个核心文件来划分记忆的边界：
+
+MEMORY.md(Agent 的个人...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E8%AE%B0%E5%BF%86%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Skill/">Hermes Agent Skill</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Skill介绍在 Hermes Agent 的架构中，Skill（技能）可以理解为 Agent 的“外挂知识包”或“专项操作手册”。它是一套按需加载的文档和指令集合，采用了渐进式披露（Progressive Disclosure）模式。这意味着 Agent 不会一次性把所有知识塞进有限的上下文窗口（Token），而是在真正需要时才会读取具体的 Skill 内容。这种设计极大地节省了 Token 消耗，并且完美兼容 agentskills.io 开放标准。
+Hermes Agent中所有的 Skill 默认都存放在 ~&#x2F;.hermes&#x2F;skills&#x2F;目录下，该...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Skill/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%B7%A5%E5%85%B7/">Hermes Agent 工具</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            内置工具Hermes Agent 内置了大量开箱即用的工具集，每个工具集中包含一到多个工具，如下是几个最核心的内置工具集。
+
+File工具集
+File 工具集是 Agent 进行代码开发和系统管理的基础，其设计原则是安全优先，避免使用危险的 shell 命令。包含的主要工具如下：
+
+read_file：读取文件，支持行号显示和分页读取。
+write_file：写文件，自动创建父目录，但会完全覆盖原文件。
+patch：修改文件，有多种模糊匹配策略，能容忍微小的缩进和空格差异，实现精准的代码修改，是进行代码重构和配置更新的首选工具。
+search_files：查找文件，支持正则表达式搜索。
+...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%B7%A5%E5%85%B7/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Session%E4%BC%9A%E8%AF%9D/">Hermes Agent Session会话</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Session会话工作原理Hermes Agent 的核心特性之一是将每一次交互自动持久化为“会话”（Session）。这不仅是为了断点续传，更是为了支持跨平台的历史回溯与全文检索。
+Hermes 采用 SQLite 数据库与 JSONL 文件互补的存储方案，分别应对结构化查询与原始日志的需求：
+
+SQLite 数据库 (~&#x2F;.hermes&#x2F;state.db)：负责存储结构化元数据，包括 Session ID、来源平台（CLI&#x2F;Telegram 等）、用户 ID、会话标题、模型配置、Token 消耗统计及完整消息历史。
+JSONL 转录文件 (~&#x2F;...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent-Session%E4%BC%9A%E8%AF%9D/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%85%A5%E9%97%A8/">Hermes Agent入门</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Hermes Agent介绍Hermes Agent 是由 Nous Research （也是 Hermes 系列大模型背后的实验室）推出的具备自我进化能力的通用AI Agent框架，它不仅能自主使用工具、编写并执行代码，还能在任务完成后自动总结经验，将工作流沉淀为可复用的“技能”，并在后续使用中持续优化这些技能。配合跨会话的持久化记忆与用户画像建模，Hermes 能够随着使用时间的增长变得越来越懂用户，真正实现了从“被动执行”到“主动进化”的跨越。
+Hermes Agent 特点如下：
+
+可灵活配置多种模型厂商，支持200+主流模型（从 OpenAI 到国产 Kimi、MiMo 等）
+...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Hermes-Agent/">Hermes Agent</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/Hermes-Agent/Hermes-Agent%E5%85%A5%E9%97%A8/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
   
     <article class="article-card">
       
@@ -483,324 +825,6 @@
   </div>
 
           <a href="/2022/10/04/Tez/tez/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/spark/">spark</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2022-10-04
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2022/10/04/spark/spark/">spark</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/spark/">spark</a>
-      </span>
-    
-  </div>
-
-          <a href="/2022/10/04/spark/spark/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/scala/">scala</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2022-10-04
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2022/10/04/scala/scala/">scala</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/scala/">scala</a>
-      </span>
-    
-  </div>
-
-          <a href="/2022/10/04/scala/scala/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/python/">python</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2022-10-04
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2022/10/04/python/python/">Python</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/Python/">Python</a>
-      </span>
-    
-  </div>
-
-          <a href="/2022/10/04/python/python/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/Linux/">Linux</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2022-10-04
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2022/10/04/Linux/linux/">Linux</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            centos修改yum源为阿里
-备份原来 yum 文件
-[root@node01 ~]# mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo_bak
-
-
-下载阿里云的 CentOS-Base.repo 到&#x2F;etc&#x2F;yum.repos.d&#x2F;
-[root@node01 ~]# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-
-
-清空 yum 缓存
-[...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/Linux/">Linux</a>
-      </span>
-    
-  </div>
-
-          <a href="/2022/10/04/Linux/linux/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/Kafka/">Kafka</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2022-10-04
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2022/10/04/Kafka/kafka/">Kafka</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/Kafka/">Kafka</a>
-      </span>
-    
-  </div>
-
-          <a href="/2022/10/04/Kafka/kafka/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/Java/">Java</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2022-10-04
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2022/10/04/Java/java/">Java</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/Java/">Java</a>
-      </span>
-    
-  </div>
-
-          <a href="/2022/10/04/Java/java/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/Hudi/">Hudi</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2022-10-04
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2022/10/04/Hudi/Hudi/">Hudi</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/Hudi/">Hudi</a>
-      </span>
-    
-  </div>
-
-          <a href="/2022/10/04/Hudi/Hudi/" class="read-more">
             阅读更多
             <i class="iconfont icon-arrowright"></i>
           </a>

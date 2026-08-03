@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.css">
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            逻辑回归和多层感知机 | starzy
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="blog-body">
+  <div class="blog-container">
+    <header class="blog-header">
+  <div class="header-content">
+    <button class="menu-toggle" id="menu-toggle" aria-label="menu">
+      <i class="iconfont icon-menu"></i>
+    </button>
+    
+    <div class="header-brand">
+      <a href="/" class="brand-link">
+        <h1 class="brand-title">starzy</h1>
+        
+      </a>
+    </div>
+    
+    <nav class="header-nav">
+      
+        
+        <a href="/" class="nav-item">
+          <i class="iconfont icon-home"></i>
+          <span>主页</span>
+        </a>
+      
+        
+        <a href="/tags/" class="nav-item">
+          <i class="iconfont icon-bookmark"></i>
+          <span>标签</span>
+        </a>
+      
+        
+        <a href="/categories/" class="nav-item">
+          <i class="iconfont icon-folder"></i>
+          <span>分类</span>
+        </a>
+      
+        
+        <a href="/archives/" class="nav-item">
+          <i class="iconfont icon-archive"></i>
+          <span>归档</span>
+        </a>
+      
+        
+        <a href="/about/" class="nav-item">
+          <i class="iconfont icon-user"></i>
+          <span>关于</span>
+        </a>
+      
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="search">
+        <i class="iconfont icon-search"></i>
+      </button>
+    </div>
+  </div>
+</header>
+    
+    <div class="blog-content">
+      <aside class="blog-sidebar" id="blog-sidebar">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="sidebar-content">
+    <button class="sidebar-close" id="sidebar-close">
+      <i class="iconfont icon-x"></i>
+    </button>
+    
+    <div class="sidebar-section sidebar-qrcode">
+      <div class="qrcode-wrapper">
+        <img src="/icons/qrcode_wchat.jpg" alt="微信公众号" class="qrcode-image">
+        <p class="qrcode-text">扫码关注公众号</p>
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-about">
+      <div class="author-avatar">
+        
+          <img src="/icons/avatar.gif" alt="starzy">
+        
+      </div>
+      <h2 class="author-name">starzy</h2>
+      <p class="author-bio"></p>
+      
+      <div class="social-links">
+        
+          
+          <a href="mailto:zhangmingjiang1990@163.com" class="social-item" title="E-Mail">
+            <i class="iconfont icon-mail"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://github.com/starzy1990" class="social-item" title="GitHub">
+            <i class="iconfont icon-github"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://gitee.com/starzy" class="social-item" title="Gitee">
+            <i class="iconfont icon-twitch"></i>
+          </a>
+        
+          
+          <a target="_blank" rel="noopener" href="https://blog.starzy.cn/" class="social-item" title="Blog">
+            <i class="iconfont icon-blog"></i>
+          </a>
+        
+      </div>
+    </div>
+    
+    <div class="sidebar-section sidebar-menu">
+      <h3 class="section-title">站点概览</h3>
+      <nav class="menu-list">
+        
+          
+          <a href="/" class="menu-item">
+            <i class="iconfont icon-home"></i>
+            <span>主页</span>
+          </a>
+        
+          
+          <a href="/tags/" class="menu-item">
+            <i class="iconfont icon-bookmark"></i>
+            <span>标签</span>
+          </a>
+        
+          
+          <a href="/categories/" class="menu-item">
+            <i class="iconfont icon-folder"></i>
+            <span>分类</span>
+          </a>
+        
+          
+          <a href="/archives/" class="menu-item">
+            <i class="iconfont icon-archive"></i>
+            <span>归档</span>
+          </a>
+        
+          
+          <a href="/about/" class="menu-item">
+            <i class="iconfont icon-user"></i>
+            <span>关于</span>
+          </a>
+        
+      </nav>
+    </div>
+    
+    
+  </div>
+</aside>
+      
+      <main id="main-contain" class="main-content">
+        <article class="article-detail">
+  <header class="article-header">
+    
+    
+    <div class="header-info">
+      <div class="post-meta">
+        <span class="post-category">
+          <i class="iconfont icon-folder"></i>
+          <a class="category-link" href="/categories/AI/">AI</a>
+        </span>
+        <span class="post-date">
+          <i class="iconfont icon-calendar"></i>
+          2026-07-25
+        </span>
+        
+          <span class="post-views">
+            <i class="iconfont icon-eye"></i>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+          </span>
+        
+      </div>
+      
+      <h1 class="article-title">逻辑回归和多层感知机</h1>
+      
+      
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/pytorch/">pytorch</a>
+      </span>
+    
+  </div>
+
+    </div>
+  </header>
+  
+  <div class="article-content">
+    <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="逻辑回归介绍"><a href="#逻辑回归介绍" class="headerlink" title="逻辑回归介绍"></a>逻辑回归介绍</h2><p><strong>线性回归预测的是一个连续值， 逻辑回归给出的”是”和“否”的回答.</strong></p>
+<p><strong>逻辑回归通过sigmoid函数把线性回归的结果规范到0到1之间.</strong></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/693493c2b6974a548c172aa898895f10.png" alt="image.png"></p>
+<p><strong>sigmoid函数是一个概率分布函数， 给定某个输入，它将输出为一个概率值.</strong></p>
+<h2 id="逻辑回归损失函数"><a href="#逻辑回归损失函数" class="headerlink" title="逻辑回归损失函数"></a>逻辑回归损失函数</h2><p><strong>平方差所惩罚的是与损失为同一数量级的情形 对于分类问题，我们最好的使用交叉熵损失函数会更有效 交叉熵会输出一个更大的“损失”</strong></p>
+<p><strong>交叉熵刻画的是实际输出（概率）与期望输出（概率）的距 离，也就是交叉熵的值越小，两个概率分布就越接近。假设 概率分布p为期望输出，概率分布q为实际输出，H(p,q)为交 叉熵，则</strong></p>
+<p><strong>在pytorch里，我们使用 nn.BCELoss() 来计算二元交叉熵.</strong></p>
+<p><strong>下面我们用一个实际的例子来实现pytorch中的逻辑回归</strong></p>
+<h1 id="逻辑回归分类实例-信用卡反欺诈数据"><a href="#逻辑回归分类实例-信用卡反欺诈数据" class="headerlink" title="逻辑回归分类实例 信用卡反欺诈数据"></a>逻辑回归分类实例 信用卡反欺诈数据</h1><pre><code class="python">import torch
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from torch import nn
+
+data = pd.read_csv(&#39;./dataset/credit-a.csv&#39;, header=None)
+
+X = data.iloc[:, :-1]
+Y = data.iloc[:, -1].replace(-1, 0)
+# 转化为tensor并修改类型
+X = torch.from_numpy(X.values).type(torch.FloatTensor)
+Y = torch.from_numpy(Y.values.reshape(-1, 1)).type(torch.FloatTensor)
+
+# 创建模型
+model = nn.Sequential(
+                    nn.Linear(15, 1),
+                    nn.Sigmoid()
+)
+# 定义损失函数
+loss_fn = nn.BCELoss()
+# 定义优化器
+opt = torch.optim.SGD(model.parameters(), lr=0.00001)
+batches = 16
+no_of_batches = 653//16
+
+# 训练
+for epoch in range(1000):
+    for batch in range(no_of_batches):
+        start = batch*batches
+        end = start + batches
+        x = X[start: end]
+        y = Y[start: end]
+        y_pred = model(x)
+        loss = loss_fn(y_pred, y)
+        # 把梯度清零
+        opt.zero_grad()
+        # 反向传播计算梯度
+        loss.backward()
+        # 更新梯度
+        opt.step()
+        
+        
+# 查看最终参数
+model.state_dict()
+
+# 计算准确率
+((model(X).data.numpy() &gt; 0.5).astype(&#39;int&#39;) == Y.numpy()).mean()
+# 输出: 0.7243491577335375
+</code></pre>
+<h1 id="使用面向对象的方式创建逻辑回归"><a href="#使用面向对象的方式创建逻辑回归" class="headerlink" title="使用面向对象的方式创建逻辑回归"></a>使用面向对象的方式创建逻辑回归</h1><pre><code class="python">import torch
+import pandas as pd
+import numpy as np
+from torch import nn
+import matplotlib.pyplot as plt
+
+
+data = pd.read_csv(&#39;./dataset/HR.csv&#39;)
+
+data = data.join(pd.get_dummies(data.part)).join(pd.get_dummies(data.salary))
+data.drop(columns=[&#39;part&#39;, &#39;salary&#39;], inplace=True)
+Y_data = data.left.values.reshape(-1, 1)
+Y = torch.from_numpy(Y_data).type(torch.FloatTensor)
+
+X_data = data[[c for c in data.columns if c != &#39;left&#39;]].values
+X = torch.from_numpy(X_data).type(torch.FloatTensor)
+
+# 创建模型
+class Logistic(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.lin_1 = nn.Linear(20, 64)
+        self.lin_2 = nn.Linear(64, 64)
+        self.lin_3 = nn.Linear(64, 1)
+        self.activate = nn.ReLU()
+        self.sigmoid = nn.Sigmoid()
+    def forward(self, input):
+        x = self.lin_1(input)
+        x = self.activate(x)
+        x = self.lin_2(x)
+        x = self.activate(x)
+        x = self.lin_3(x)
+        x = self.sigmoid(x)
+        return x
+    
+    
+lr = 0.0001
+
+# 我们将定义一个小函数来创建我们的模型和优化器，以便将来可以重用。
+def get_model():
+    model = Logistic()
+    return model, torch.optim.Adam(model.parameters(), lr=lr)
+
+# 定义损失函数
+loss_fn = nn.BCELoss()
+model, opt = get_model()
+batch = 64
+no_of_batches = len(data)//batch
+epochs = 100
+
+for epoch in range(epochs):
+    for i in range(no_of_batches):
+        start = i*batch
+        end = start + batch
+        x = X[start: end]
+        y = Y[start: end]
+        y_pred = model(x)
+        loss = loss_fn(y_pred, y)
+        opt.zero_grad()
+        loss.backward()
+        opt.step()
+print(&#39;epoch:&#39;, epoch, &#39;   &#39;, &#39;loss:&#39;, loss_fn(model(X), Y))
+# 输出
+# epoch: 99     loss: tensor(0.5176, grad_fn=&lt;BinaryCrossEntropyBackward&gt;)
+</code></pre>
+<h2 id="使用dataset进行重构"><a href="#使用dataset进行重构" class="headerlink" title="使用dataset进行重构"></a>使用dataset进行重构</h2><p><strong>PyTorch有一个抽象的Dataset类。Dataset可以是任何具有</strong><em>*len</em><em>函数和_**_getitem__作为对其进行索引的方法的函数。 本教程将通过示例将自定义HRDataset类创建为的Dataset的子类。*</em></p>
+<p><strong>PyTorch的TensorDataset 是一个包装张量的Dataset。通过定义索引的长度和方式，这也为我们提供了沿张量的第一维进行迭代，索引和切片的方法。这将使我们在训练的同一行中更容易访问自变量和因变量。</strong></p>
+<pre><code class="python">from torch.utils.data import TensorDataset
+
+HRdataset = TensorDataset(X, Y)
+model, opt = get_model()
+for epoch in range(epochs):
+    for i in range(no_of_batches):
+        x, y = HRdataset[i * batch: i * batch + batch]
+        y_pred = model(x)
+        loss = loss_fn(y_pred, y)
+        opt.zero_grad()
+        loss.backward()
+        opt.step()
+print(&#39;epoch:&#39;, epoch, &#39;   &#39;, &#39;loss:&#39;, loss_fn(model(X), Y))
+</code></pre>
+<h2 id="使用DataLoader进行重构"><a href="#使用DataLoader进行重构" class="headerlink" title="使用DataLoader进行重构"></a>使用DataLoader进行重构</h2><p><strong>Pytorch DataLoader负责管理批次。</strong></p>
+<p><strong>DataLoader从Dataset创建。</strong></p>
+<p><strong>DataLoader使遍历批次变得更容易。DataLoader会自动为我们提供每个小批量。</strong></p>
+<p><strong>无需使用 HRdataset[i * batch: i * batch + batch]</strong></p>
+<pre><code class="python">from torch.utils.data import DataLoader
+
+HR_ds = TensorDataset(X, Y)
+HR_dl = DataLoader(HR_ds, batch_size=batch)
+# 现在，我们的循环更加简洁了，因为（xb，yb）是从数据加载器自动加载的：
+
+for x,y in HR_dl:
+    pred = model(x)
+    
+    
+model, opt = get_model()
+for epoch in range(epochs):
+    for x, y in HR_dl:
+        y_pred = model(x)
+        loss = loss_fn(y_pred, y)
+        opt.zero_grad()
+        loss.backward()
+        opt.step()
+print(&#39;epoch:&#39;, epoch, &#39;   &#39;, &#39;loss:&#39;, loss_fn(model(X), Y))
+</code></pre>
+<h2 id="添加验证"><a href="#添加验证" class="headerlink" title="添加验证"></a>添加验证</h2><p><strong>前面我们只是试图建立一个合理的训练循环以用于我们的训练数据。实际上，您始终还应该具有一个验证集，以识别您是否过度拟合。</strong></p>
+<p><strong>训练数据的乱序（shuffle）对于防止批次与过度拟合之间的相关性很重要。另一方面，无论我们是否乱序验证集，验证损失都是相同的。由于shufle需要额外的开销，因此shuffle验证数据没有任何意义。</strong></p>
+<p><strong>我们将为验证集使用批大小，该批大小是训练集的两倍。这是因为验证集不需要反向传播，因此占用的内存更少（不需要存储梯度）。我们利用这一优势来使用更大的批量，并更快地计算损失。</strong></p>
+<pre><code class="python">from sklearn.model_selection import train_test_split
+
+
+train_x, test_x, train_y, test_y = train_test_split(X_data, Y_data)
+train_x = torch.from_numpy(train_x).type(torch.FloatTensor)
+test_x = torch.from_numpy(test_x).type(torch.FloatTensor)
+train_y = torch.from_numpy(train_y).type(torch.FloatTensor)
+test_y = torch.from_numpy(test_y).type(torch.FloatTensor)
+
+train_ds = TensorDataset(train_x, train_y)
+train_dl = DataLoader(train_ds, batch_size=batch, shuffle=True)
+
+valid_ds = TensorDataset(test_x, test_y)
+valid_dl = DataLoader(valid_ds, batch_size=batch * 2)
+</code></pre>
+<h2 id="定义计算正确率函数"><a href="#定义计算正确率函数" class="headerlink" title="定义计算正确率函数"></a>定义计算正确率函数</h2><pre><code class="python">def accuracy(out, yb):
+    preds = (out&gt;0.5).type(torch.IntTensor)
+    return (preds == yb).float().mean()
+</code></pre>
+<h2 id="创建fit和get-data"><a href="#创建fit和get-data" class="headerlink" title="创建fit和get_data"></a>创建fit和get_data</h2><pre><code class="python">def loss_batch(model, loss_func, xb, yb, opt=None):
+    loss = loss_func(model(xb), yb)
+
+    if opt is not None:
+        loss.backward()
+        opt.step()
+        opt.zero_grad()
+
+    return loss.item(), len(xb)
+
+import numpy as np
+
+def fit(epochs, model, loss_func, opt, train_dl, valid_dl):
+    for epoch in range(epochs):
+        model.train()
+        for xb, yb in train_dl:
+            loss_batch(model, loss_func, xb, yb, opt)
+
+        model.eval()
+        with torch.no_grad():
+            losses, nums = zip(
+                *[loss_batch(model, loss_func, xb, yb) for xb, yb in valid_dl]
+            )
+        val_loss = np.sum(np.multiply(losses, nums)) / np.sum(nums)
+
+        print(epoch, val_loss)
+        
+def get_data(train_ds, valid_ds, bs):
+    return (
+        DataLoader(train_ds, batch_size=bs, shuffle=True),
+        DataLoader(valid_ds, batch_size=bs * 2),
+    )
+
+# 现在，我们获取数据加载器和拟合模型的整个过程可以在3行代码中运行：
+train_dl, valid_dl = get_data(train_ds, valid_ds, batch)
+model, opt = get_model()
+fit(epochs, model, loss_fn, opt, train_dl, valid_dl)
+</code></pre>
+<p><strong>输出:</strong></p>
+<pre><code>0 0.5466923921585083
+1 0.5437768836975098
+2 0.5458150820096334
+3 0.5379680653254191
+4 0.5520771965344747
+...
+97 0.2388138730128606
+98 0.24304283109505972
+99 0.2423896360238393
+</code></pre>
+<h1 id="多层感知机"><a href="#多层感知机" class="headerlink" title="多层感知机"></a>多层感知机</h1><p><strong>上一节我们学习的逻辑回归模型是单个神经元： 计算输入特征的加权和 然后使用一个激活函数（或传递函数）计算输出.</strong></p>
+<p><strong>单个神经元（二分类）:</strong></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/e08ba76794aa4f81ae7240299386a1da.png" alt="image.png"></p>
+<p><strong>多个神经元（多分类）:</strong></p>
+<p><img src="https://fynotefile.oss-cn-zhangjiakou.aliyuncs.com/fynote/fyfile/533/1648467689018/409ab79d50a6422586f60c02a16845bb.png" alt="image.png"></p>
+<p><strong>单层神经元的缺陷: 无法拟合“异或”运算 异或 问题看似简单，使用单层的神经元确实没有办法解决.神经元要求数据必须是线性可分的, 异或 问题无法找到一条直线分割两个类, 这个问题是的神经网络的发展停滞了很多年.</strong></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/ad6ea4195db34375ab2475bf3201fd07.png" alt="image.png"></p>
+<p><strong>神经元的启发</strong></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/8da3995645eb40a590e070b981789b00.png" alt="image.png"></p>
+<p><strong>多层感知器:生物的神经元一层一层连接起来，当神经信号达到某一个条 件，这个神经元就会激活，然后继续传递信息下去 为了继续使用神经网络解决这种不具备线性可分性的问题， 采取在神经网络的输入端和输出端之间插入更多的神经元.</strong></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/4059e2d603934db48a862cc70bf3c31e.png" alt="image.png"></p>
+<p><strong>激活函数</strong></p>
+<p><strong>relu:</strong></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/03c32ba5ae0e45ec8aa5ed10271a4f85.png" alt="image.png"></p>
+<p><strong>sigmoid:</strong></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/4a80bafa764546ec837e42fb63194691.png" alt="image.png"></p>
+<p><strong>tanh:</strong></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/52217809df0541678fed0f704597f724.png" alt="image.png"></p>
+<p><strong>leak relu:</strong></p>
+<p><img src="https://raw.githubusercontent.com/starzy1990/images/main/20454c7358474d7ba8595a23dfcc3ab4.png" alt="image.png"></p>
+<p><strong>我们依然使用hr数据集创建多层感知机来做分类:</strong></p>
+<pre><code class="python">import torch
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+from torch import nn
+
+data = pd.read_csv(&#39;dataset/HR.csv&#39;)
+
+data = data.join(pd.get_dummies(data.salary))
+
+del data[&#39;salary&#39;]
+
+data = data.join(pd.get_dummies(data.part))
+
+del data[&#39;part&#39;]
+
+Y_data = data.left.values.reshape(-1, 1)
+
+Y = torch.from_numpy(Y_data).type(torch.FloatTensor)
+
+X_data = data[[c for c in data.columns if c !=&#39;left&#39;]].values
+
+X = torch.from_numpy(X_data).type(torch.FloatTensor)
+
+
+#自定义模型：
+#nn.Module: 继承这个类
+#__init__:  初始化所有的层
+#forward:   定义模型的运算过程（前向传播的过程）
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.liner_1 = nn.Linear(20, 64)
+        self.liner_2 = nn.Linear(64, 64)
+        self.liner_3 = nn.Linear(64, 1)
+        self.relu = nn.ReLU()
+        self.sigmoid = nn.Sigmoid()
+    def forward(self, input):
+        x = self.liner_1(input)
+        x = self.relu(x)
+        x = self.liner_2(x)
+        x = self.relu(x)
+        x = self.liner_3(x)
+        x = self.sigmoid(x)
+        return x
+</code></pre>
+<p><strong>借助F对象改写模型, 让模型更简洁:</strong></p>
+<pre><code class="python">import torch.nn.functional as F
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.liner_1 = nn.Linear(20, 64)
+        self.liner_2 = nn.Linear(64, 64)
+        self.liner_3 = nn.Linear(64, 1)
+    def forward(self, input):
+        x = F.relu(self.liner_1(input))
+        x = F.relu(self.liner_2(x))
+        x = F.sigmoid(self.liner_3(x))
+        return x
+</code></pre>
+
+  </div>
+  
+  
+    <div class="article-end">
+      <span>--- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End ---</span>
+    </div>
+  
+  
+  <nav class="article-nav">
+    <div class="nav-prev">
+      
+        <a href="/2026/07/25/interview/AI/LangChain/" class="nav-link">
+          <i class="iconfont icon-angle-left"></i>
+          <span class="nav-label">post.previous</span>
+          <span class="nav-title">post</span>
+        </a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a href="/2026/07/25/AI/pytorch/pytorch%E5%85%A5%E9%97%A8/" class="nav-link">
+          <span class="nav-label">post.next</span>
+          <span class="nav-title">pytorch入门</span>
+          <i class="iconfont icon-angle-right"></i>
+        </a>
+      
+    </div>
+  </nav>
+  
+  <div class="toc-sidebar" id="toc-sidebar">
+    <div class="toc-header" id="toc-toggle">
+      <i class="iconfont icon-list"></i>
+      <span>文章目录</span>
+      <i class="iconfont icon-chevron-down toc-arrow" id="toc-arrow"></i>
+    </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc-list"><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="toc-list-number">1.</span> <span class="toc-list-text">逻辑回归</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E4%BB%8B%E7%BB%8D"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">逻辑回归介绍</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">逻辑回归损失函数</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E5%88%86%E7%B1%BB%E5%AE%9E%E4%BE%8B-%E4%BF%A1%E7%94%A8%E5%8D%A1%E5%8F%8D%E6%AC%BA%E8%AF%88%E6%95%B0%E6%8D%AE"><span class="toc-list-number">2.</span> <span class="toc-list-text">逻辑回归分类实例 信用卡反欺诈数据</span></a></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E4%BD%BF%E7%94%A8%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F%E5%88%9B%E5%BB%BA%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="toc-list-number">3.</span> <span class="toc-list-text">使用面向对象的方式创建逻辑回归</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%BD%BF%E7%94%A8dataset%E8%BF%9B%E8%A1%8C%E9%87%8D%E6%9E%84"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">使用dataset进行重构</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E4%BD%BF%E7%94%A8DataLoader%E8%BF%9B%E8%A1%8C%E9%87%8D%E6%9E%84"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">使用DataLoader进行重构</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E6%B7%BB%E5%8A%A0%E9%AA%8C%E8%AF%81"><span class="toc-list-number">3.3.</span> <span class="toc-list-text">添加验证</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%AE%9A%E4%B9%89%E8%AE%A1%E7%AE%97%E6%AD%A3%E7%A1%AE%E7%8E%87%E5%87%BD%E6%95%B0"><span class="toc-list-number">3.4.</span> <span class="toc-list-text">定义计算正确率函数</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#%E5%88%9B%E5%BB%BAfit%E5%92%8Cget-data"><span class="toc-list-number">3.5.</span> <span class="toc-list-text">创建fit和get_data</span></a></li></ol></li><li class="toc-list-item toc-list-level-1"><a class="toc-list-link" href="#%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="toc-list-number">4.</span> <span class="toc-list-text">多层感知机</span></a></li></ol>
+    </nav>
+  </div>
+</article>
+
+
+      </main>
+    </div>
+    
+    <footer class="blog-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <div class="copyright">
+        <span>&copy; 2022 - 2026</span>
+        <span class="author">starzy</span>
+        
+          <span class="footer-icon" style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+      </div>
+      
+      <div class="footer-links">
+        
+        
+      </div>
+    </div>
+    
+    <div class="footer-stats">
+      
+        <div class="stats-item">
+          <i class="iconfont icon-user"></i>
+          <span id="busuanzi_container_site_uv" style="display: none;">
+            <span id="busuanzi_value_site_uv"></span> 总访客量
+          </span>
+        </div>
+        <div class="stats-item">
+          <i class="iconfont icon-eye"></i>
+          <span id="busuanzi_container_site_pv" style="display: none;">
+            <span id="busuanzi_value_site_pv"></span> 总访问量
+          </span>
+        </div>
+      
+    </div>
+    
+    
+      <div class="footer-beian">
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">
+          
+        </a>
+      </div>
+    
+  </div>
+</footer>
+    
+    <button id="gotop" class="back-to-top" title="back_to_top">
+      <i class="iconfont icon-arrowup"></i>
+    </button>
+  </div>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+    Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(code) {
+            if (code.classList.length > 0) {
+                var lang = code.classList[0];
+                if (lang && !lang.startsWith('language-')) {
+                    code.classList.remove(lang);
+                    code.classList.add('language-' + lang);
+                }
+            }
+        });
+        Prism.highlightAll();
+        Prism.plugins.lineNumbers.resize();
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre > code.mermaid, pre > code.language-mermaid').forEach(function(code) {
+                var pre = code.parentElement;
+                var mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = code.textContent;
+                pre.parentNode.replaceChild(mermaidDiv, pre);
+            });
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "default"
+            });
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+    </script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html>
