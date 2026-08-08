@@ -137,7 +137,7 @@
     <div class="sidebar-section sidebar-about">
       <div class="author-avatar">
         
-          <img src="/icons/avatar.gif" alt="starzy">
+          <img src="/about/title.jpg" alt="starzy">
         
       </div>
       <h2 class="author-name">starzy</h2>
@@ -321,7 +321,7 @@
 <h1 id="内置Guardrails"><a href="#内置Guardrails" class="headerlink" title="内置Guardrails"></a>内置Guardrails</h1><p>LangChain 提供了两种开箱即用的内置防护栏：PII检测和人机协同（Human-in-the-loop），下面进行介绍。</p>
 <h2 id="PII检测"><a href="#PII检测" class="headerlink" title="PII检测"></a>PII检测</h2><p>PII（Personally Identifiable Information，个人身份信息）检测是合规场景下的核心需求，尤其在医疗、金融等受监管行业中。LangChain 提供了内置的 PII 检测中间件(PIIMiddleware)，能够自动识别和处理电子邮件、信用卡号、IP 地址等常见敏感信息。</p>
 <p>以下示例展示了如何在 Agent 中同时使用多种 PII 检测，分别对邮件地址做脱敏处理、对信用卡做掩码处理、对 API Key 做阻断处理：</p>
-<pre><code>... ...
+<pre><code class="python">... ...
 agent = create_agent(
     model=&quot;gpt-5.4&quot;,
     tools=[customer_service_tool, email_tool],
@@ -432,7 +432,7 @@ result = agent.invoke({
 <p>如下通过一些案例演示strategy四种策略和其他参数使用。</p>
 <h3 id="redact策略"><a href="#redact策略" class="headerlink" title="redact策略"></a>redact策略</h3><p>redact策略将检测到的PII完全替换为[REDACTED_{PII_TYPE}]格式的标记，适合需要完全移除PII但保留类型信息的场景。</p>
 <p>redact使用示例如下：</p>
-<pre><code>from typing import Dict, Any
+<pre><code class="python">from typing import Dict, Any
 from langchain.agents import create_agent, AgentState
 from langchain.agents.middleware import PIIMiddleware, before_agent, before_model, after_model, wrap_tool_call, after_agent
 from langchain_core.messages import ToolMessage
