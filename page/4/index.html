@@ -291,6 +291,107 @@
         </div>
         
         <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8ESSE%E4%BA%8B%E4%BB%B6%E6%B5%81%E7%9A%84%E5%AE%8C%E6%95%B4%E7%9A%84%E5%89%8D%E5%90%8E%E7%AB%AF/">基于SSE事件流的完整的前后端</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            架构概览：三文件分工api_view/api/
+├── chat.py      ★ 核心：SSE 流式对话 + 中断检测 + 中断恢复 + 展示消息持久化
+├── history.py   ← 历史会话列表 / 消息查询 / 会话删除
+└── agent_loader.py (上层) ← Agent 单例 / MongoDB 连接 / 展示消息存取
+
+整体数据流
+前端 (浏览器)                       后端 (FastAPI)                     LangGraph Agent
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8ESSE%E4%BA%8B%E4%BB%B6%E6%B5%81%E7%9A%84%E5%AE%8C%E6%95%B4%E7%9A%84%E5%89%8D%E5%90%8E%E7%AB%AF/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%85%B7%E4%BD%93Harness%E6%9E%B6%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/">项目中具体Harness架构的实现</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            完整的Agent Harness由几个相互配合的核心能力层构成，它们共同决定了Agent的行为和性能：
+
+任务规划：通过内置的任务清单功能，将复杂目标分解为一系列可执行的子任务，并追踪每一步的执行状态。
+虚拟文件系统：为Agent提供一个内置的虚拟文件管理系统，支持读写、编辑、搜索等操作，使其能像人类开发者一样进行工作。
+子Agent委派：主Agent可以创建专门的“子Agent”来执行特定任务，实现任务隔离和上下文压缩。
+上下文管理：通过文件系统等策略，管理长对话中的Token消耗，防止因上下文溢出而导致性能下降。
+可插拔中间件：通过一组Hook函数，在模型和工具调用的关键节点注入自定...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%85%B7%E4%BD%93Harness%E6%9E%B6%E6%9E%84%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
           <a href="/2026/06/05/AI/OpenClaw/%E5%9F%BA%E4%BA%8EHarness%E6%9E%B6%E6%9E%84%E7%9A%84ERP%E6%99%BA%E8%83%BD%E9%87%87%E8%B4%AD%E5%8A%A9%E6%89%8B%E9%A1%B9%E7%9B%AE/">基于Harness架构的ERP智能采购助手项目</a>
         </h2>
         
@@ -783,103 +884,12 @@ Agent和传统调用大模型的区别2025年是“Ag...
       </div>
     </article>
   
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-05
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/05/AI/LangChain/Models%E6%A8%A1%E5%9E%8B/">Models 模型</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            模型初始化LangChain 支持所有主流模型提供商，包括  OpenAI、Anthropic、Google、Azure、AWS Bedrock  等，每个提供商都提供多种具有不同功能的模型(Chat、Embedding、图像、多模态等)，有关 LangChain  支持模型的完整列表，请参阅：https://docs.langchain.com/oss/python/integrations/providers/all_providers
-LangChain中使用模型可以单独使用或者在Agent中使用，无论哪种使用方式，都要进行模型初始化，本小节重点讲解LangChain中单独使用模型...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/LangChain/">LangChain</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/05/AI/LangChain/Models%E6%A8%A1%E5%9E%8B/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-05
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/05/AI/LangChain/LangChain%E4%BB%8B%E7%BB%8D/">LangChain 介绍</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            LangChain的由来LangChain是一个用于开发由大语言模型（LLM）驱动的应用程序的开源框架，它并非仅是对模型API的简单封装，而是提供了一个预构建的智能体（Agent）架构和丰富的工具集成，使开发者无需从零搭建复杂的集成架构，就能快速构建基于LLM的高级应用。
-LangChain这一开源框架诞生于2022年10月，由哈佛大学的Harrison Chase（哈里森·蔡斯）创建，其名称来源于”Language”（语言模型）和”Chain”（链式连接）的组合，体现了其核心设计理念——将大语言模型与其他计算资源和数据源以链式方式连接，构建出功能更加强大的AI应用。
-LangChain...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/LangChain/">LangChain</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/05/AI/LangChain/LangChain%E4%BB%8B%E7%BB%8D/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
 </div>
 
 
   <nav style="text-align: center;">
     <div class="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/"><i class="iconfont icon-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="iconfont icon-angle-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/3/"><i class="iconfont icon-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="iconfont icon-angle-right"></i></a>
     </div>
   </nav>
 
