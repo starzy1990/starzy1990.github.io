@@ -375,6 +375,54 @@
         <div class="post-meta">
           <span class="post-category">
             <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/Flink/">Flink</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-28
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/28/Flink/Flink%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4%E4%B8%8E%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%9E%8B/">Flink任务提交与架构模型</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Flink 任务提交模式Flink分布式计算框架可以基于多种模式部署，每种部署模式下提交任务都有相应的资源管理方式，例如：Flink可以基于Standalone部署模式、基于Yarn部署模式、基于Kubernetes部署模式运行任务，以上不同的集群部署模式下提交Flink任务会涉及申请资源、各角色交互过程，不同模式申请资源涉及到的角色对象大体相同，下面我们以Flink运行时架构流程为例来总体了解下Flink任务提交后涉及到对象交互流程，以便后续学习不同任务提交模式下任务提交流程。
+
+上图是Flink运行时架构流程，涉及集群启动、任务提交、资源申请分配整个流程，大体步骤如下：
+
+启动Fli...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/07/28/Flink/Flink%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4%E4%B8%8E%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%9E%8B/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
             <a class="category-link" href="/categories/interview/">interview</a>
           </span>
           <span class="post-date">
@@ -408,6 +456,76 @@
   </div>
 
           <a href="/2026/07/28/interview/Java/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-25
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/25/MiniIO/MinIO%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">post</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            准备环境系统：rocky9
+
+
+
+节点
+IP
+
+
+
+
+node01
+192.168.1.11
+
+
+
+node02
+192.168.1.12
+
+
+
+node03
+192.168.1.13
+
+
+
+node04
+192.168.1.14
+
+
+
+node05
+192.168.1.15
+
+
+
+
+          
+        </div>
+        
+        <div class="post-footer">
+          
+          <a href="/2026/07/25/MiniIO/MinIO%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" class="read-more">
             阅读更多
             <i class="iconfont icon-arrowright"></i>
           </a>
@@ -730,120 +848,6 @@ Create...
         <div class="post-footer">
           
           <a href="/2026/07/20/hello-world/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-07-17
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/07/17/AI/LangChain/Model-Context-Protocol%EF%BC%88MCP%EF%BC%89%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE/">Model-Context-Protocol（MCP）模型上下文协议</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            MCP介绍什么是MCPModel Context Protocol（MCP）是一套开放协议，规定了LLM应用与外部工具、数据源之间的标准化通信方式。它为”模型如何发现工具有哪些能力、怎么调用工具、工具怎么返回结果”这个问题，提供了一套通用规范。MCP由 Anthropic于2024年11月发布并开源，至今已获得几乎所有主流 AI 平台的支持。
-
-没有MCP之前，开发者每接入一个外部服务，就要写一套适配代码：定义工具 Schema、处理认证、解析返回值、写工具描述让LLM理解怎么用。100个工具 × 3个Agent &#x3D; 300次重复劳动，这个场景被称为 “N×M 问题”。
-MCP...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/LangChain/">LangChain</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/07/17/AI/LangChain/Model-Context-Protocol%EF%BC%88MCP%EF%BC%89%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-07-17
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/07/17/AI/LangChain/Runtime%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8EAgent%E4%B8%8A%E4%B8%8B%E6%96%87/">Runtime运行时与Agent上下文</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            Runtime 运行时LangChain的create_agent底层运行在LangGraph的Runtime之上。当你创建一个Agent并调用它时，LangGraph会为这次调用创建一个Runtime对象，它将贯穿整个 Agent 生命周期的各个环节。
-Runtime 对象承载了以下几类信息：
-
-
-
-组件
-类型
-说明
-
-
-
-Context
-静态配置
-用户ID、数据库连接、API密钥等每次调用传入的依赖项
-
-
-Store
-长期记忆
-BaseStore 实例，用于跨会话持久化用户偏好、历史数据
-
-
-Stream Writer
-流式输出
-用于通过”custom” 流模式向客户端推送自定义信息...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/LangChain/">LangChain</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/07/17/AI/LangChain/Runtime%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8EAgent%E4%B8%8A%E4%B8%8B%E6%96%87/" class="read-more">
             阅读更多
             <i class="iconfont icon-arrowright"></i>
           </a>

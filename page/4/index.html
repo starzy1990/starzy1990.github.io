@@ -286,6 +286,110 @@
           </span>
           <span class="post-date">
             <i class="iconfont icon-calendar"></i>
+            2026-06-06
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/06/AI/Milvus/Milvus%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Milvus 快速入门</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            中文官网：https://milvus.io/docs/zh/overview.md
+Milvus 简介Milvus 是专为大规模向量数据设计的数据库，通过高效的近似最近邻（ANN）算法，让应用程序能在海量非结构化数据（图、文、音、视）中，快速找到相似的目标信息，是 AI 应用的必备数据底座。
+【核心特点】
+
+开源项目：由 Zilliz 公司开发，现已捐赠给 Linux 基金会 LF AI &amp; Data
+高性能：专门优化了向量存储和检索性能，支持十亿级向量规模
+多场景：支持多种部署形态（轻量版、单机版、分布式集群）
+
+【名称由来】Milvus 一词来源于鹰科 Milvus 属（鸢...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Milvus/">Milvus</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/06/AI/Milvus/Milvus%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-05
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/05/AI/OpenClaw/Nginx%E5%AE%89%E8%A3%85%E8%A1%A5%E5%85%85/">Nginx安装补充</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            安装前置工具sudo yum install yum-utils -y
+
+配置 Nginx 官方仓库创建并写入仓库配置文件 /etc/yum.repos.d/nginx.repo：下面的内容都复制到/etc/yum.repos.d/nginx.repo文件里面
+[nginx-stable]
+name=nginx stable repo
+baseurl=https://nginx.org/packages/centos/\$releasever/\$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=https://nginx.org/keys/nginx_sign...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/05/AI/OpenClaw/Nginx%E5%AE%89%E8%A3%85%E8%A1%A5%E5%85%85/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
             2026-06-05
           </span>
         </div>
@@ -783,100 +887,6 @@ Agent和传统调用大模型的区别2025年是“Ag...
   </div>
 
           <a href="/2026/06/05/AI/LangChain/Agent%E6%99%BA%E8%83%BD%E4%BD%93/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-05
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/05/AI/LangChain/Agent%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86/">Agent 长期记忆</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            重点介绍Agent长期记忆，短期记忆使Agent能够在单次会话中维持对话的连贯性，而长期记忆则赋予了Agent跨会话学习和积累知识的能力。这样Agent能够构建持久的用户画像，形成经验库，并持续优化自身行为，从而提供真正个性化、智能化的服务。
-长期记忆介绍长期记忆是一种用于存储用户特定信息或应用级数据的系统，其核心特点是跨越会话和线程共享。与短期记忆局限于单一线程（thread_id）不同，长期记忆中的数据可以被任何时间、在任何线程中召回。其存储范围（作用域）被定义在自定义的命名空间中，而非单个线程ID内。
-
-
-在LangChain框架中，长期记忆通过存储（Store）组件来实现，Sto...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/LangChain/">LangChain</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/05/AI/LangChain/Agent%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-05
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/05/AI/LangChain/Agent%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86/">Agent 短期记忆</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            在构建能够进行多轮交互的AI代理（Agents）时，记忆系统是其核心组件之一。记忆使Agent能够保留先前交互的信息，从而学习反馈、适应用户偏好，并高效处理复杂任务。Agent记忆可分为短期记忆和长期记忆。本章节重点介绍短期记忆相关内容。
-短期记忆介绍短期记忆（Short-term Memory），也称为线程范围记忆（Thread-scoped Memory），是指应用程序在单个线程或会话中记住先前交互的能力，其本质是维护当前会话的完整对话历史，以实现多轮对话的连贯性、个性化响应及上下文感知。
-在LangChain生态中，短期记忆被作为Agent状态（State）的一部分进行管理。状态通...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/LangChain/">LangChain</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/05/AI/LangChain/Agent%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86/" class="read-more">
             阅读更多
             <i class="iconfont icon-arrowright"></i>
           </a>

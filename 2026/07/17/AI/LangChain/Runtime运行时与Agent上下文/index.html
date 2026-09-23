@@ -295,7 +295,7 @@
 <p>Runtime本质上是一种依赖注入（Dependency Injection）机制,会在调用时将这些依赖注入到工具和中间件中，使代码更可测试、更可复用。</p>
 <h2 id="定义和传递Context"><a href="#定义和传递Context" class="headerlink" title="定义和传递Context"></a>定义和传递Context</h2><p>在创建Agent时，通过context_schema参数定义上下文的类型结构。调用Agent时，通过context参数传入具体的上下文实例。</p>
 <p>如下案例演示调用Agent时通过context参数传入上下文内容：</p>
-<pre><code>from dataclasses import dataclass
+<pre><code class="python">from dataclasses import dataclass
 
 from langchain.agents import create_agent
 from langchain.tools import tool, ToolRuntime
@@ -367,7 +367,7 @@ print(result2[&quot;messages&quot;][-1].content)
 </ol>
 <h2 id="在工具内部访问Runtime"><a href="#在工具内部访问Runtime" class="headerlink" title="在工具内部访问Runtime"></a>在工具内部访问Runtime</h2><p>在工具中访问Runtime，通过在函数签名中声明ToolRuntime类型参数实现。</p>
 <p>如下案例模拟电商客服系统中根据客服偏好编写邮件并发送。</p>
-<pre><code>from dataclasses import dataclass
+<pre><code class="python">from dataclasses import dataclass
 
 from langchain.agents import create_agent
 from langchain.tools import tool, ToolRuntime
@@ -459,7 +459,7 @@ print(result[&quot;messages&quot;][-1].content)
 <li>ToolRuntime[Context]的泛型参数Context对应了create_agent中 context_schema声明的类型，这使得类型检查器（如 mypy&#x2F;pyright）能够在开发阶段就捕获潜在的类型错误。</li>
 </ol>
 <h2 id="在中间件内部访问Runtime"><a href="#在中间件内部访问Runtime" class="headerlink" title="在中间件内部访问Runtime"></a>在中间件内部访问Runtime</h2><p>除了在工具中，Runtime同样可以在中间件（Middleware）中访问。如下示例中通过“dynamic_prompt”中间件根据传入的不同Context来使用不同提示词，同时在“before_model”&#x2F;“after_model”中间件中获取runtime。</p>
-<pre><code>from dataclasses import dataclass
+<pre><code class="python">from dataclasses import dataclass
 
 from langchain.agents import create_agent, AgentState
 from langchain.agents.middleware import (
@@ -569,7 +569,7 @@ print(result2[&quot;messages&quot;][-1].content)
 <li>Execution Info（执行信息）：包含当前执行的task_id（任务ID）、thread_id（session会话ID）、run_id（运行 ID）等信息，这些信息在日志追踪、错误排查和多轮对话管理中非常实用。</li>
 <li>Server Info（服务端信息）：仅在Agent部署到LangGraph Server后可用，包含assistant_id（Assistant ID）、graph_id（图 ID）、以及user（认证用户信息，如 user.identity），在本地开发环境中，runtime.server_info的值为None。</li>
 </ul>
-<pre><code>from dataclasses import dataclass
+<pre><code class="python">from dataclasses import dataclass
 
 from langchain.agents import create_agent, AgentState
 from langchain.agents.middleware import before_model
@@ -1037,7 +1037,7 @@ if __name__ == &quot;__main__&quot;:
 <h3 id="模型选择（Model）"><a href="#模型选择（Model）" class="headerlink" title="模型选择（Model）"></a>模型选择（Model）</h3><p>不同的模型有不同的能力、成本和上下文窗口。在长对话中切换到更大上下文的模型、为高级用户使用更高能力的模型——这些都可以通过中间件动态决策。具体可以通过“@wrap_model_call”中间件根据会话长度或者传入的不同特征进行模型替换。</p>
 <h2 id="工具上下文（Tool-Context）"><a href="#工具上下文（Tool-Context）" class="headerlink" title="工具上下文（Tool Context）"></a>工具上下文（Tool Context）</h2><p>工具可以从 State、Store 和 Runtime Context 中读取信息，还能通过 Command 对象将执行结果写入 State（短期记忆）或 Store（长期记忆）。</p>
 <p>工具中读取context、读写state&amp;store示例伪代码如下：</p>
-<pre><code>... ...
+<pre><code class="python">... ...
 # 一个工具，展示三种数据源的读写
 @tool
 def my_tool(

@@ -291,6 +291,120 @@
         </div>
         
         <h2 class="post-title">
+          <a href="/2026/07/17/AI/LangChain/Model-Context-Protocol%EF%BC%88MCP%EF%BC%89%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE/">Model-Context-Protocol（MCP）模型上下文协议</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            MCP介绍什么是MCPModel Context Protocol（MCP）是一套开放协议，规定了LLM应用与外部工具、数据源之间的标准化通信方式。它为”模型如何发现工具有哪些能力、怎么调用工具、工具怎么返回结果”这个问题，提供了一套通用规范。MCP由 Anthropic于2024年11月发布并开源，至今已获得几乎所有主流 AI 平台的支持。
+
+没有MCP之前，开发者每接入一个外部服务，就要写一套适配代码：定义工具 Schema、处理认证、解析返回值、写工具描述让LLM理解怎么用。100个工具 × 3个Agent &#x3D; 300次重复劳动，这个场景被称为 “N×M 问题”。
+MCP...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/07/17/AI/LangChain/Model-Context-Protocol%EF%BC%88MCP%EF%BC%89%E6%A8%A1%E5%9E%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8D%8F%E8%AE%AE/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-17
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/07/17/AI/LangChain/Runtime%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8EAgent%E4%B8%8A%E4%B8%8B%E6%96%87/">Runtime运行时与Agent上下文</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Runtime 运行时LangChain的create_agent底层运行在LangGraph的Runtime之上。当你创建一个Agent并调用它时，LangGraph会为这次调用创建一个Runtime对象，它将贯穿整个 Agent 生命周期的各个环节。
+Runtime 对象承载了以下几类信息：
+
+
+
+组件
+类型
+说明
+
+
+
+Context
+静态配置
+用户ID、数据库连接、API密钥等每次调用传入的依赖项
+
+
+Store
+长期记忆
+BaseStore 实例，用于跨会话持久化用户偏好、历史数据
+
+
+Stream Writer
+流式输出
+用于通过”custom” 流模式向客户端推送自定义信息...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/LangChain/">LangChain</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/07/17/AI/LangChain/Runtime%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8EAgent%E4%B8%8A%E4%B8%8B%E6%96%87/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/AI/">AI</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-07-17
+          </span>
+        </div>
+        
+        <h2 class="post-title">
           <a href="/2026/07/17/AI/LangChain/Guardrails%E5%AE%89%E5%85%A8%E6%8A%A4%E6%A0%8F/">Guardrails 安全护栏</a>
         </h2>
         
@@ -766,98 +880,6 @@ Checkpoint的监控在Flink WebUI界面中提供了Flink Job的checkpoint监控�
   </div>
 
           <a href="/2026/06/30/interview/Flink/%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/interview/">interview</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-30
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/30/interview/Flink/%E8%B5%84%E6%BA%90%E5%92%8C%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/">Flink 资源和代码优化</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            Slot资源配置Flink中有TaskSlot概念，每个taskSlot都有固定的资源，假设一个TaskManager有三个TaskSlots,那么每个TaskSlot会将TaskMananger中的内存均分，即每个任务槽的内存是总内存的1&#x2F;3，分配资源意味着subtask不会与其他作业的subtask竞争内存，taskslot的作用就是分离任务的托管内存，不会发生cpu隔离。
-用户无论是基于Standalone或者Yarn提交Flink任务时，都可以通过配置$FLINK_HOME&#x2F;conf&#x2F;flink-conf.yaml文件中的“taskmanager.n...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/Flink/">Flink</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/30/interview/Flink/%E8%B5%84%E6%BA%90%E5%92%8C%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/interview/">interview</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-30
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/30/interview/Flink/Flink%E5%8F%8D%E5%8E%8B%E4%BC%98%E5%8C%96/">Flink 反压优化</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            Flink反压优化在Flink中，反压是指当一个任务（task）生成数据的速率超过下游任务消费数据的速率时触发的警告。以一个简单的Source -&gt; Sink任务链为例，如果Source生成数据的速率高于Sink消费数据的速率，就会发生反压警告。这表示数据流向下游，但由于下游处理速度较慢，系统发出警告以通知上游任务，反压信息沿着相反的方向传播，向上游传递，帮助系统调整任务链以维持平衡，防止性能问题。
-Flink任务中出现反压会有如下影响：
-
-Flink任务处理性能下降：反压会导致任务链中某些任务被迫减缓数据生成速率，以适应下游任务的处理速度，从而影响整体性能。如：Flink消费Ka...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/Flink/">Flink</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/30/interview/Flink/Flink%E5%8F%8D%E5%8E%8B%E4%BC%98%E5%8C%96/" class="read-more">
             阅读更多
             <i class="iconfont icon-arrowright"></i>
           </a>

@@ -286,6 +286,98 @@
           </span>
           <span class="post-date">
             <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/%E8%B5%84%E6%BA%90%E5%92%8C%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/">Flink 资源和代码优化</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Slot资源配置Flink中有TaskSlot概念，每个taskSlot都有固定的资源，假设一个TaskManager有三个TaskSlots,那么每个TaskSlot会将TaskMananger中的内存均分，即每个任务槽的内存是总内存的1&#x2F;3，分配资源意味着subtask不会与其他作业的subtask竞争内存，taskslot的作用就是分离任务的托管内存，不会发生cpu隔离。
+用户无论是基于Standalone或者Yarn提交Flink任务时，都可以通过配置$FLINK_HOME&#x2F;conf&#x2F;flink-conf.yaml文件中的“taskmanager.n...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/%E8%B5%84%E6%BA%90%E5%92%8C%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
+            2026-06-30
+          </span>
+        </div>
+        
+        <h2 class="post-title">
+          <a href="/2026/06/30/interview/Flink/Flink%E5%8F%8D%E5%8E%8B%E4%BC%98%E5%8C%96/">Flink 反压优化</a>
+        </h2>
+        
+        <div class="post-excerpt">
+          
+            Flink反压优化在Flink中，反压是指当一个任务（task）生成数据的速率超过下游任务消费数据的速率时触发的警告。以一个简单的Source -&gt; Sink任务链为例，如果Source生成数据的速率高于Sink消费数据的速率，就会发生反压警告。这表示数据流向下游，但由于下游处理速度较慢，系统发出警告以通知上游任务，反压信息沿着相反的方向传播，向上游传递，帮助系统调整任务链以维持平衡，防止性能问题。
+Flink任务中出现反压会有如下影响：
+
+Flink任务处理性能下降：反压会导致任务链中某些任务被迫减缓数据生成速率，以适应下游任务的处理速度，从而影响整体性能。如：Flink消费Ka...
+          
+        </div>
+        
+        <div class="post-footer">
+          
+  <div class="post-tags">
+    
+      <span class="tag-item">
+        <i class="iconfont icon-tag"></i>
+        <a rel="tag" href="/tags/Flink/">Flink</a>
+      </span>
+    
+  </div>
+
+          <a href="/2026/06/30/interview/Flink/Flink%E5%8F%8D%E5%8E%8B%E4%BC%98%E5%8C%96/" class="read-more">
+            阅读更多
+            <i class="iconfont icon-arrowright"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  
+    <article class="article-card">
+      
+      
+      <div class="card-content">
+        <div class="post-meta">
+          <span class="post-category">
+            <i class="iconfont icon-folder"></i>
+            <a class="category-link" href="/categories/interview/">interview</a>
+          </span>
+          <span class="post-date">
+            <i class="iconfont icon-calendar"></i>
             2026-06-27
           </span>
         </div>
@@ -757,110 +849,6 @@ user.yaml（用户映射...
   </div>
 
           <a href="/2026/06/06/AI/Milvus/Milvus%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%9E%B6%E6%9E%84/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-06
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/06/AI/Milvus/Milvus%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Milvus 快速入门</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            中文官网：https://milvus.io/docs/zh/overview.md
-Milvus 简介Milvus 是专为大规模向量数据设计的数据库，通过高效的近似最近邻（ANN）算法，让应用程序能在海量非结构化数据（图、文、音、视）中，快速找到相似的目标信息，是 AI 应用的必备数据底座。
-【核心特点】
-
-开源项目：由 Zilliz 公司开发，现已捐赠给 Linux 基金会 LF AI &amp; Data
-高性能：专门优化了向量存储和检索性能，支持十亿级向量规模
-多场景：支持多种部署形态（轻量版、单机版、分布式集群）
-
-【名称由来】Milvus 一词来源于鹰科 Milvus 属（鸢...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/Milvus/">Milvus</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/06/AI/Milvus/Milvus%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="read-more">
-            阅读更多
-            <i class="iconfont icon-arrowright"></i>
-          </a>
-        </div>
-      </div>
-    </article>
-  
-    <article class="article-card">
-      
-      
-      <div class="card-content">
-        <div class="post-meta">
-          <span class="post-category">
-            <i class="iconfont icon-folder"></i>
-            <a class="category-link" href="/categories/AI/">AI</a>
-          </span>
-          <span class="post-date">
-            <i class="iconfont icon-calendar"></i>
-            2026-06-05
-          </span>
-        </div>
-        
-        <h2 class="post-title">
-          <a href="/2026/06/05/AI/OpenClaw/Nginx%E5%AE%89%E8%A3%85%E8%A1%A5%E5%85%85/">Nginx安装补充</a>
-        </h2>
-        
-        <div class="post-excerpt">
-          
-            安装前置工具sudo yum install yum-utils -y
-
-配置 Nginx 官方仓库创建并写入仓库配置文件 /etc/yum.repos.d/nginx.repo：下面的内容都复制到/etc/yum.repos.d/nginx.repo文件里面
-[nginx-stable]
-name=nginx stable repo
-baseurl=https://nginx.org/packages/centos/\$releasever/\$basearch/
-gpgcheck=1
-enabled=1
-gpgkey=https://nginx.org/keys/nginx_sign...
-          
-        </div>
-        
-        <div class="post-footer">
-          
-  <div class="post-tags">
-    
-      <span class="tag-item">
-        <i class="iconfont icon-tag"></i>
-        <a rel="tag" href="/tags/OpenClaw/">OpenClaw</a>
-      </span>
-    
-  </div>
-
-          <a href="/2026/06/05/AI/OpenClaw/Nginx%E5%AE%89%E8%A3%85%E8%A1%A5%E5%85%85/" class="read-more">
             阅读更多
             <i class="iconfont icon-arrowright"></i>
           </a>
